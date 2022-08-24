@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 1 Overview &#8212; New Jupyter-Book Template</title>
+    <title>P1 Outcomes, Event Sets and Probability &#8212; New Jupyter-Book Template</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -46,6 +46,8 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -55,8 +57,6 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Chapter 2 Intro" href="../ch2/2.0.html" />
-    <link rel="prev" title="Template for New JupyterBook" href="../Introduction.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,19 +89,14 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../Introduction.html">
-   Template for New JupyterBook
+   Probability and Statistics
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 1 Overview
-  </a>
- </li>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ch2/2.0.html">
-   Chapter 2 Intro
+  <a class="reference internal" href="../P1.html">
+   P1 Outcomes, Event Sets and Probability
   </a>
  </li>
 </ul>
@@ -186,6 +181,37 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition-of-probability">
+   Definition of Probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-playground-deck-of-playing-cards">
+     Probability Playground: Deck of Playing Cards
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-glance-sets-and-probabilities">
+     First Glance: Sets and Probabilities
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#partitions">
+   Partitions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -193,9 +219,245 @@
         
               <div>
                 
-  <div class="section" id="chapter-1-overview">
-<h1>Chapter 1 Overview<a class="headerlink" href="#chapter-1-overview" title="Permalink to this headline">¶</a></h1>
-<p>Test page for template. Put your content here.</p>
+  <div class="section" id="p1-outcomes-event-sets-and-probability">
+<h1>P1 Outcomes, Event Sets and Probability<a class="headerlink" href="#p1-outcomes-event-sets-and-probability" title="Permalink to this headline">¶</a></h1>
+<p>A roulette ball falling into its slot and a card drawn from a well-shuffled deck are two example of probability experiments. A <em>probability experiment</em> is any event whose outcomes are perfectly <em>random</em> and exactly predicted by probabilities. The <em>probability space</em> is the collection of all possible <em>outcomes</em> of the experiment. A <em>simple random sample</em> (SRS) is a collection of outcomes drawn at random from the probability space <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>An <em>event</em> is set of <em>outcomes</em>. We use set notation: an event <span class="math notranslate nohighlight">\(A\)</span> is a subset of the probability space <span class="math notranslate nohighlight">\(S\)</span>. Determining probabilities requires counting: we simply count the number of outcomes in event <span class="math notranslate nohighlight">\(A\)</span> and divide by the number of outcomes in <span class="math notranslate nohighlight">\(S\)</span>. To simplify our work, we will use the <em>cardinality</em> operator <span class="math notranslate nohighlight">\(|A|\)</span> to indicate the number of elements (outcomes) in set (event) <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="section" id="definition-of-probability">
+<h2>Definition of Probability<a class="headerlink" href="#definition-of-probability" title="Permalink to this headline">¶</a></h2>
+<p>The definition of probability is a straightforward formula:</p>
+<div class="math notranslate nohighlight">
+\[P(A)=\frac{|A|}{|S|}\]</div>
+<p>Probability calculations become counting exercises where we determine the cardinality of the event set and the probability space itself.</p>
+<div class="section" id="probability-playground-deck-of-playing-cards">
+<h3>Probability Playground: Deck of Playing Cards<a class="headerlink" href="#probability-playground-deck-of-playing-cards" title="Permalink to this headline">¶</a></h3>
+<p>Most probability ideas can be quickly illustrated using a deck of cards and random draws.The standard deck has ready-made subsets and partitions which help illustrate important ideas. For those unfamiliar with a standard deck of playing cards, there are the thirteen \emph{values} (sometimes called ranks) and four <em>suits</em>: <span class="math notranslate nohighlight">\(\spadesuit,\textcolor{red}{\heartsuit}, \clubsuit,\textcolor{red}{\diamondsuit}\)</span>. The entire deck is shown below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We use T for the value 10 so every value has a single-symbol code.}:</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|ccccccccccccc}
+    \spadesuit &amp;A&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;T&amp;J&amp;Q&amp;K  \\
+    \textcolor{red}{\heartsuit} &amp;\textcolor{red}{A}&amp;\textcolor{red}{2}&amp;\textcolor{red}{3}&amp;\textcolor{red}{4}&amp;\textcolor{red}{5}&amp;\textcolor{red}{6}&amp;\textcolor{red}{7}&amp;\textcolor{red}{8}&amp;\textcolor{red}{9}&amp;\textcolor{red}{T}&amp;\textcolor{red}{J}&amp;\textcolor{red}{Q}&amp;\textcolor{red}{K}  \\
+    \clubsuit &amp;A&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;T&amp;J&amp;Q&amp;K  \\
+    \textcolor{red}{\diamondsuit}&amp;\textcolor{red}{A}&amp;\textcolor{red}{2}&amp;\textcolor{red}{3}&amp;\textcolor{red}{4}&amp;\textcolor{red}{5}&amp;\textcolor{red}{6}&amp;\textcolor{red}{7}&amp;\textcolor{red}{8}&amp;\textcolor{red}{9}&amp;\textcolor{red}{T}&amp;\textcolor{red}{J}&amp;\textcolor{red}{Q}&amp;\textcolor{red}{K}
+\end{array}\end{split}\]</div>
+<p>Half the cards are red, half black. Each suit subset has 13 cards in it. Each value subset has four cards. For example, the set <span class="math notranslate nohighlight">\(J=\{J\spadesuit,J\textcolor{red}{\heartsuit}, J\clubsuit,J\textcolor{red}{\diamondsuit}\}\)</span></p>
+<p>Whenever we refer to “drawing a card,” we mean that a standard deck of 52 playing cards has been well-shuffled and that the draw is perfectly random. Each card has an equal probability of being drawn. We never include jokers or wild cards.</p>
+</div>
+<div class="section" id="first-glance-sets-and-probabilities">
+<h3>First Glance: Sets and Probabilities<a class="headerlink" href="#first-glance-sets-and-probabilities" title="Permalink to this headline">¶</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Example</p>
+<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a heart? Of \emph{not} drawing a heart?</p>
+</div>
+<p><strong>Solution.</strong> Let the probability space <span class="math notranslate nohighlight">\(S\)</span> be comprised of all possible outcomes  when drawing one card at random from a standard deck of playing cards. Let <span class="math notranslate nohighlight">\(H\)</span> be the event set of drawing a heart (<span class="math notranslate nohighlight">\(\heartsuit\)</span>). Then <span class="math notranslate nohighlight">\(|H|=13\)</span> because there are 13 possible <span class="math notranslate nohighlight">\(\heartsuit\)</span> outcomes in <span class="math notranslate nohighlight">\(S\)</span>. Thus:
+$<span class="math notranslate nohighlight">\(P(A)=\frac{|H|}{|S|}=\frac{13}{52}=\frac{1}{4}\)</span>$</p>
+<p>The probability of “not drawing a heart” inquires about the probability of the <em>set complement</em> of the event set <span class="math notranslate nohighlight">\(H\)</span> and is denoted <span class="math notranslate nohighlight">\(\bar H\)</span>. The probability of the complement of an event set is given by:</p>
+<div class="math notranslate nohighlight">
+\[P(\bar H)=1-P(H)\]</div>
+<p>Because <span class="math notranslate nohighlight">\(|\bar H|=|S|-|H|\)</span>, we have:
+$<span class="math notranslate nohighlight">\(\begin{align*}
+    P(\bar H)&amp;=\frac{|\bar H|}{|S|}\\&amp;=\frac{|S|-|H|}{|S|}\\&amp;=\frac{|S|}{|S|}+\frac{|H|}{|S|}\\&amp;=1-\frac{|H|}{|S|}
+\end{align*}\)</span>$</p>
+<p>To conclude the example from above:$<span class="math notranslate nohighlight">\(P(\bar H)=1-\frac{1}{4}=\frac{3}{4}\)</span>$</p>
+</div>
+</div>
+<div class="section" id="partitions">
+<h2>Partitions<a class="headerlink" href="#partitions" title="Permalink to this headline">¶</a></h2>
+<p>If two events sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are disjoint, e.g. if <span class="math notranslate nohighlight">\(A\cap B = \emptyset\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[P(A\cup B)=P(A)+P(B)\]</div>
+<p>If the intersection of event sets is non-empty, life gets complicated quickly. Disjoint event sets are so helpful we will use the idea of partitions often to break down complicated events into digestible pieces.</p>
+<dl class="simple myst">
+<dt>Partition</dt><dd><p>A collection of subsets of the probability space <span class="math notranslate nohighlight">\(S\)</span> such that the subsets <span class="math notranslate nohighlight">\(A_1, A_2, \dots , A_n\)</span> have the following properties:</p>
+</dd>
+</dl>
+<ol class="simple">
+<li><p>They are non-empty,</p></li>
+<li><p>They are \emph{pairwise disjoint}, and</p></li>
+<li><p>Their union is <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ol>
+<p>Property (2) guarantees that every possible intersection of these subsets is empty:</p>
+<div class="math notranslate nohighlight">
+\[A_i\cap A_j=\emptyset \hspace{5mm}\forall\ i\neq j\in\{1,2,\dots,n\}\]</div>
+<p>Property (3) ensures that every outcome in the probability space can be found in one of the subsets in the partition. Both are extremely helpful when simplifying probability problem-solving situations.</p>
+<p>We have two primary partitions in the standard deck of playing cards: values and suits. Consider the four suits. Each suit is a non-empty set because it has 13 elements. A card can be only one suit, so spades and hearts are disjoint as is every pair of possible suits. Finally, <span class="math notranslate nohighlight">\(S=\{\spadesuit,\textcolor{red}{\heartsuit}, \clubsuit,\textcolor{red}{\diamondsuit}\}\)</span>. Thus, the suits are subsets that form a partition.</p>
+<p>Let us define a few additional subsets in the standard deck of playing cards:</p>
+<p><span class="math notranslate nohighlight">\(E\)</span> Even: <span class="math notranslate nohighlight">\(2,4,6,8,T,Q\)</span> in all suits
+<span class="math notranslate nohighlight">\(O\)</span> Odd: <span class="math notranslate nohighlight">\(A,3,5,7,9,J,K\)</span> in all suits
+<span class="math notranslate nohighlight">\(F\)</span> Faces: <span class="math notranslate nohighlight">\(J, Q,K\)</span> (cards with person pictured) in all suits
+<span class="math notranslate nohighlight">\(A\)</span> Aces in all suits
+<span class="math notranslate nohighlight">\(N\)</span> Numbered: <span class="math notranslate nohighlight">\(2,3,4,5,6,7,8,9,T\)</span></p>
+<p>Note two more partitions are readily available: <span class="math notranslate nohighlight">\(E\cup O=S\)</span> and <span class="math notranslate nohighlight">\(F\cup A \cup N=S\)</span>.</p>
+<div class="note admonition">
+<p class="admonition-title">Example</p>
+<p>A card is drawn at random from a deck of playing cards. Find the probability that the card is:</p>
+<ul class="simple">
+<li><p>A heart \emph{or} even.</p></li>
+<li><p>A heart \emph{and} even.</p></li>
+<li><p>Even but not a heart.</p></li>
+</ul>
+</div>
+<p>Let <span class="math notranslate nohighlight">\(S\)</span> represent the probability space, and let event sets <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(H\)</span> represent drawing an even card or a heart respectively. The situation in part (a) is shown in Figure \ref{fig:EunionH}:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|ccccccccccccc}
+    \spadesuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;J&amp;\fbox{Q}&amp;K  \\
+    \textcolor{red}{\heartsuit} &amp;\fbox{\textcolor{red}{A}}&amp;\fbox{\textcolor{red}{2}}&amp;\fbox{\textcolor{red}{3}}&amp;\fbox{\textcolor{red}{4}}&amp;\fbox{\textcolor{red}{5}}&amp;\fbox{\textcolor{red}{6}}&amp;\fbox{\textcolor{red}{7}}&amp;\fbox{\textcolor{red}{8}}&amp;\fbox{\textcolor{red}{9}}&amp;\fbox{\textcolor{red}{T}}&amp;\fbox{\textcolor{red}{J}}&amp;\fbox{\textcolor{red}{Q}}&amp;\fbox{\textcolor{red}{K}}  \\
+    \clubsuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;J&amp;\fbox{Q}&amp;K  \\
+    \textcolor{red}{\diamondsuit}&amp;\textcolor{red}{A}&amp;\fbox{\textcolor{red}{2}}&amp;\textcolor{red}{3}&amp;\fbox{\textcolor{red}{4}}&amp;\textcolor{red}{5}&amp;\fbox{\textcolor{red}{6}}&amp;\textcolor{red}{7}&amp;\fbox{\textcolor{red}{8}}&amp;\textcolor{red}{9}&amp;\fbox{\textcolor{red}{T}}&amp;\textcolor{red}{J}&amp;\fbox{\textcolor{red}{Q}}&amp;\textcolor{red}{K}
+\end{array}\end{split}\]</div>
+<p>The intersection of <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(H\)</span> is non-empty, namely, the six even hearts, so we cannot just add. Trying to calculate $<span class="math notranslate nohighlight">\(P(H\text{ or }E)\overset{??}{=}P(H)+P(E)=\frac{1}{4}+\frac{1}{2}=\frac{3}{4}\)</span>$ we produce an incorrect answer because the six even hearts would be counted twice, once in the first fraction and again in the second. We must add a third term to deal with the double-counting:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+P(H\text{ or }E)&amp;=P(H\cup E)\\&amp;=
+P(H)+P(E)-P(H\cap E)\\&amp;=\frac{13}{52}+\frac{26}{52}-\frac{6}{52}\\&amp;=\frac{33}{52}    
+\end{align*}\end{split}\]</div>
+<p>For part (b), we have</p>
+<div class="math notranslate nohighlight">
+\[P(H\text{ and } E)=P(H\cap E)=\frac{6}{52}=\frac{3}{26}\]</div>
+<p>For part (c) we will need set subtraction notation: <span class="math notranslate nohighlight">\(A-B=\)</span> is the set of all elements in <span class="math notranslate nohighlight">\(A\)</span> that are not in <span class="math notranslate nohighlight">\(B\)</span>. In terms of set operations we have:</p>
+<div class="math notranslate nohighlight">
+\[A-B=A\cap \bar B\]</div>
+<p>which is shown in Figure \ref{fig:AthrowawayB}.</p>
+<div class="figure align-default" id="directive-fig">
+<a class="reference internal image-reference" href="ch1\../images/C-3PO_droid.png"><img alt="ch1\../images/C-3PO_droid.png" src="ch1\../images/C-3PO_droid.png" style="height: 150px;" /></a>
+<p class="caption"><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#directive-fig" title="Permalink to this image">¶</a></p>
+</div>
+<p>\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{ProbFig1}
+\caption{Set <span class="math notranslate nohighlight">\(A\)</span> ``throw away” set <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A-B\)</span>)}
+\label{fig:}
+\end{figure}</p>
+<p>The blue shaded area is <span class="math notranslate nohighlight">\(\bar B\)</span>, so when we take <span class="math notranslate nohighlight">\(A\cap \bar B\)</span>, we gather all elements of A that are not in B, as required. The situation for our example is demonstrated in Figure \ref{fig:EthrowawayH}.
+\begin{figure}[h]
+\centering
+$<span class="math notranslate nohighlight">\(\begin{array}{c|ccccccccccccc}
+    \spadesuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;J&amp;\fbox{Q}&amp;K  \\
+    \textcolor{red}{\heartsuit} &amp;\textcolor{red}{A}&amp;\textcolor{red}{2}&amp;\textcolor{red}{3}&amp;\textcolor{red}{4}&amp;\textcolor{red}{5}&amp;\textcolor{red}{6}&amp;\textcolor{red}{7}&amp;\textcolor{red}{8}&amp;\textcolor{red}{9}&amp;\textcolor{red}{T}&amp;\textcolor{red}{J}&amp;\textcolor{red}{Q}&amp;\textcolor{red}{K}  \\
+    \clubsuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;J&amp;\fbox{Q}&amp;K  \\
+    \textcolor{red}{\diamondsuit}&amp;\textcolor{red}{A}&amp;\fbox{\textcolor{red}{2}}&amp;\textcolor{red}{3}&amp;\fbox{\textcolor{red}{4}}&amp;\textcolor{red}{5}&amp;\fbox{\textcolor{red}{6}}&amp;\textcolor{red}{7}&amp;\fbox{\textcolor{red}{8}}&amp;\textcolor{red}{9}&amp;\fbox{\textcolor{red}{T}}&amp;\textcolor{red}{J}&amp;\fbox{\textcolor{red}{Q}}&amp;\textcolor{red}{K}
+\end{array}\)</span><span class="math notranslate nohighlight">\(
+    \caption{Evens throw away hearts (\)</span>E-H$)}
+\label{fig:EthrowawayH}
+\end{figure}</p>
+<p>Using set operations, we have:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+P(E\text{ and not }H)&amp;=P(E - H)\\
+&amp;=P(E\cap \bar H)\\
+&amp;=P(E)-P(H\cap E)\\
+&amp;=\frac{26}{52}-\frac{6}{52}\\
+&amp;=\frac{5}{13}    
+\end{align*}\]</div>
+<p>\end{quote}</p>
+<p>\begin{example} A card is drawn at random from a deck of playing cards. Find the probability that the card is a heart (<span class="math notranslate nohighlight">\(\heartsuit\)</span>) or is even or is a face card.
+\end{example}
+\begin{quote}\textbf{Solution.}
+Clearly, counting all the non-heart, non-even, non-face would be easy,of which cards there are 15 (see Figure \ref{fig:EunionHunionF}): $<span class="math notranslate nohighlight">\(P(H\cup E \cup F)=1-P(\overline{H\cup E \cup F})=\frac{52-15}{52}=\frac{37}{52}\)</span><span class="math notranslate nohighlight">\(
+\begin{figure}[ht]
+    \centering
+     \)</span><span class="math notranslate nohighlight">\(\begin{array}{c|ccccccccccccc}
+    \spadesuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;\fbox{J}&amp;\fbox{Q}&amp;\fbox{K}  \\
+    \textcolor{red}{\heartsuit} &amp;\fbox{\textcolor{red}{A}}&amp;\fbox{\textcolor{red}{2}}&amp;\fbox{\textcolor{red}{3}}&amp;\fbox{\textcolor{red}{4}}&amp;\fbox{\textcolor{red}{5}}&amp;\fbox{\textcolor{red}{6}}&amp;\fbox{\textcolor{red}{7}}&amp;\fbox{\textcolor{red}{8}}&amp;\fbox{\textcolor{red}{9}}&amp;\fbox{\textcolor{red}{T}}&amp;\fbox{\textcolor{red}{J}}&amp;\fbox{\textcolor{red}{Q}}&amp;\fbox{\textcolor{red}{K}}  \\
+    \clubsuit &amp;A&amp;\fbox{2}&amp;3&amp;\fbox{4}&amp;5&amp;\fbox{6}&amp;7&amp;\fbox{8}&amp;9&amp;\fbox{T}&amp;\fbox{J}&amp;\fbox{Q}&amp;\fbox{K}  \\
+    \textcolor{red}{\diamondsuit}&amp;\textcolor{red}{A}&amp;\fbox{\textcolor{red}{2}}&amp;\textcolor{red}{3}&amp;\fbox{\textcolor{red}{4}}&amp;\textcolor{red}{5}&amp;\fbox{\textcolor{red}{6}}&amp;\textcolor{red}{7}&amp;\fbox{\textcolor{red}{8}}&amp;\textcolor{red}{9}&amp;\fbox{\textcolor{red}{T}}&amp;\fbox{\textcolor{red}{J}}&amp;\fbox{\textcolor{red}{Q}}&amp;\fbox{\textcolor{red}{K}}
+\end{array}\)</span><span class="math notranslate nohighlight">\( 
+    \caption{\)</span>E\cup H\cup F$}
+\label{fig:EunionHunionF}
+\end{figure}</p>
+<p>\end{quote}
+The situation in Example 3 is known as the principle of inclusion-exclusion, and the explicit formula will be developed in the next section.</p>
+<p>\subsection{Principle of Inclusion-Exclusion}
+In general, probability of the union of two event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> in probability space <span class="math notranslate nohighlight">\(S\)</span> is given by:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-89c482b3-c741-4e04-8271-82e74989605a">
+<span class="eqno">()<a class="headerlink" href="#equation-89c482b3-c741-4e04-8271-82e74989605a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+    P(A\cup B)=P(A)+P(B)-P(A\cap B)
+\end{align}\]</div>
+<p>When the events are mutually exclusive, the intersection is empty, and thus: $<span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B) \hspace{5mm}\text{only if }\hspace{3mm} A\cap B =\emptyset\)</span><span class="math notranslate nohighlight">\(
+We would like to generalize the situation in equation (3) to three or more sets, for example:
+\)</span><span class="math notranslate nohighlight">\(P(H\cup E \cup F)=P(A)+P(B)+P(C)\ \pm\ ??\)</span>$</p>
+<p>\begin{center}
+\includegraphics[width=7cm]{ProbFig2a.PNG}\
+Two-way set intersections (green)
+\end{center}</p>
+<p>We need to subtract out all the overlapping area:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    P(H\cup E \cup F)&amp;=P(A)+P(B)+P(C)\\&amp;-P(A\cap B)-P(A\cap C)\\
+    &amp;- P(B\cap C) \ \pm\ ??    
+\end{align*}\]</div>
+<p>Yet the 2-way intersections all overlap in the single 3-way intersection region (purple) which has now been removed three times. Think about the first three terms - the purple region gets added three times. It’s triple counted. But when we substract each 2-way intersection, we remove the purple region three times, so it’s no longer being counted at all. We must add it back in. This should provide motivation for the following formula.
+\begin{center}
+\includegraphics[width=7cm]{ProbFig2b.PNG}\
+Three-way set intersection (purple)
+\end{center}</p>
+<p>\textbf{Inclusion-Exclusion Formula for Three Sets.} Given event sets <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> in probability space <span class="math notranslate nohighlight">\(S\)</span>, the probability of the union of <span class="math notranslate nohighlight">\(A,B,C\)</span> is given by:
+$<span class="math notranslate nohighlight">\(P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap
+B\cap C)\)</span>$
+Returning to example 3, the figure and formula are color-coded for clarity:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    P(H\cup E\cup C)&amp;=P(H)+P(E)+P(F)\\
+    &amp;-\textcolor[RGB]{0,95,45}{P(H\cap E)}-\textcolor[RGB]{0,95,45}{P(H\cap F)}-\textcolor[RGB]{0,95,45}{P(E\cap F)}\\
+    &amp;+\textcolor[RGB]{127,0,255}{P(H\cap E\cap F)}\\
+    &amp;=\frac{1}{4}+\frac{1}{2}+\frac{3}{13}-\textcolor[RGB]{0,95,45}{\frac{6}{52}}-\textcolor[RGB]{0,95,45}{\frac{3}{52}}-\textcolor[RGB]{0,95,45}{\frac{4}{52}}+\textcolor[RGB]{127,0,255}{\frac{1}{52}}\\
+    &amp;=\frac{13+26+12-\textcolor[RGB]{0,95,45}{6}-\textcolor[RGB]{0,95,45}{3}-\textcolor[RGB]{0,95,45}{4}+\textcolor[RGB]{127,0,255}{1}}{52}\\
+    &amp;=\frac{51-\textcolor[RGB]{0,95,45}{13}+\textcolor[RGB]{127,0,255}{1}}{52}\\
+    &amp;=\frac{37}{52}
+\end{align*}\]</div>
+<p>and the sets used are given explicitly:
+\newpage
+\begin{itemize}
+\item[] <span class="math notranslate nohighlight">\(H\cap E=\{2\textcolor{red}{\heartsuit},4\textcolor{red}{\heartsuit},6\textcolor{red}{\heartsuit},8\textcolor{red}{\heartsuit}, T\textcolor{red}{\heartsuit}, Q\textcolor{red}{\heartsuit} \} \hspace{5mm} \implies \hspace{5mm} |H\cap E|=6\)</span>
+\item[] <span class="math notranslate nohighlight">\(H\cap F=\{ J\textcolor{red}{\heartsuit}, Q\textcolor{red}{\heartsuit}, K \textcolor{red}{\heartsuit} \}  \hspace{25mm} \implies \hspace{5mm} |H\cap F|=3\)</span>
+\item[] <span class="math notranslate nohighlight">\(E\cap F=\{
+    Q\spadesuit,Q\textcolor{red}{\heartsuit},Q\clubsuit,Q\textcolor{red}{\diamondsuit},
+    \} \hspace{15.25mm} \implies \hspace{5mm} |E\cap F|=4\)</span>
+\item[] <span class="math notranslate nohighlight">\(H\cap E\cap F=\{Q\textcolor{red}{\heartsuit} \}\hspace{34mm} \implies \hspace{5mm}|H\cap E\cap F|=1\)</span>
+\end{itemize}</p>
+<p>\subsection{Quick Note about AND and OR}
+As a high school math teacher, I once wrote on the board that ``OR means add; AND means multiply.” False. Not true. Incorrect mathematics on my whiteboard. Why did I do it? I was coaching students who were preparing for the Ohio math graduation test, and it was a viable keyword approach. Given the previous five years of test questions, you could get the right answer more than 90% of the time by using the operation indicated by the keyword. Just multiply probabilities if asked about events <span class="math notranslate nohighlight">\(A\)</span> AND <span class="math notranslate nohighlight">\(B\)</span> happening. Add probabilities if  asked about events <span class="math notranslate nohighlight">\(A\)</span> OR <span class="math notranslate nohighlight">\(B\)</span> happening. My incorrect mathematics was helpful to students on that particular test.</p>
+<p>I take a very different approach these days. Mathematics teachers should never say or write anything that is mathematically false. Do we slip up? Sure, but the goal ought to be perfect mathematical precision.</p>
+<p>For probability OR does typically indicate addition. For sets, saying ``either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>” means that we are combining the elements from both sets, e.g. addition. The problem comes with the AND keyword which can be translated into set operations in two very different ways:
+\begin{enumerate}
+\item If event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are both subsets of the same probability space <span class="math notranslate nohighlight">\(S\)</span>, then multiplying <span class="math notranslate nohighlight">\(P(A)\cdot P(B)\)</span> is almost always wrong.
+\item  If event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are subsets of different probability spaces, say <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> respectively, then they are \emph{independent} and <span class="math notranslate nohighlight">\(P(A\text{ and } B)=P(A)\cdot P(B)\)</span>.
+\end{enumerate}
+We will address this question in depth once we know more about counting and about conditional probability. For now, let’s look at a couple of easy examples.</p>
+<p>\begin{example}
+A card is drawn at random. What is the probability it’s both a club (<span class="math notranslate nohighlight">\(\clubsuit\)</span>) and a jack?
+\end{example}
+\begin{quote}\textbf{Solution.} Using the obvious symbols for the two event sets, we have:
+$<span class="math notranslate nohighlight">\(P(C\cap J)=\frac{1}{52}\)</span><span class="math notranslate nohighlight">\(
+because there is only one 4 of \)</span>\clubsuit<span class="math notranslate nohighlight">\('s in the deck. Note that \)</span>P(C)=\frac{1}{4}<span class="math notranslate nohighlight">\( and \)</span>P(J)=\frac{1}{13}<span class="math notranslate nohighlight">\(, so it is true that
+\)</span><span class="math notranslate nohighlight">\(P(C\cap J)=P(C)\cdot P(J)=\frac{1}{4}\cdot\frac{1}{13}=\frac{1}{52}\)</span><span class="math notranslate nohighlight">\(
+\end{quote}
+In the above example, the sets are \emph{independent}. Having the card turn out to be a jack did not affect whether or not it was a club. Contrast Example 4 with drawing a card that is both a face card and even:
+\)</span><span class="math notranslate nohighlight">\(P(F\cap E)=\frac{4}{52}=\frac{1}{13}\)</span><span class="math notranslate nohighlight">\( because only the queens are even. Jacks and Kings are odd. But if we multiply the probabilities, we get:
+\)</span><span class="math notranslate nohighlight">\(P(F)\cdot P(E)=\frac{3}{13}\cdot \frac{1}{2}=\frac{3}{26}\neq \frac{1}{13}\)</span><span class="math notranslate nohighlight">\(
+The probabilities of events \)</span>F<span class="math notranslate nohighlight">\( and \)</span>E$ are called \emph{dependent} in this case. The definition of independent requires conditional probability, so let’s leave the discussion here for now.</p>
+<p>\subsection{Exercises}
+\subsubsection{Practice Problems}
+\begin{enumerate}
+\item Find the probability of rolling a fair 6-sided die and getting an even number.
+\item Seventeen marbles are in a jar. Seven are purple, four are green and the rest orange. What is the probability of picking one at random and not getting a green marble?
+\item Picking one card at random from a standard deck of playing cards, what is the probability the card is not a face card but is black?
+\item Picking one card at random from a standard deck of playing cards, what is the probability the card is a heart and is even but is not an Ace?
+\end{enumerate}</p>
+<p>\subsubsection{Solutions to Practice Problems}
+\begin{enumerate}
+\item \textbf{Solution.} Half the numbers in the event set <span class="math notranslate nohighlight">\(\{1,\textcolor{red}{2},3,\textcolor{red}{4},5,\textcolor{red}{6}\}\)</span> are even.
+\item \textbf{Solution.} Let event set <span class="math notranslate nohighlight">\(G\)</span> represent drawing a green marble, and use set complements.
+$<span class="math notranslate nohighlight">\(P(\bar G)=1-P(G)=1-\frac{4}{17}=\frac{13}{17}\)</span><span class="math notranslate nohighlight">\(
+    \item Using events sets \)</span>F<span class="math notranslate nohighlight">\( and \)</span>B<span class="math notranslate nohighlight">\( for face cards and black respectively, we use intersections and set complements. In every suit, there are 3 face cards and 10 non-face cards.
+    \)</span><span class="math notranslate nohighlight">\(P(\bar F \cap B)=\frac{20}{52}\)</span><span class="math notranslate nohighlight">\(
+    \item Using event sets \)</span>H<span class="math notranslate nohighlight">\(, \)</span>E<span class="math notranslate nohighlight">\( and \)</span>A<span class="math notranslate nohighlight">\(, note that \)</span>E\cap A=\emptyset<span class="math notranslate nohighlight">\(, so that \)</span>E\cap \bar A=E<span class="math notranslate nohighlight">\(.
+    \)</span><span class="math notranslate nohighlight">\(P(H\cap E \cap \bar A)=\frac{6}{52}=\frac{3}{26}\)</span>$
+\end{enumerate}</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -207,16 +469,16 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "matlab"
+            mode: "r"
         },
         kernelOptions: {
-            kernelName: "matlab",
+            kernelName: "ir",
             path: "./ch1"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'matlab'</script>
+    <script>kernelName = 'ir'</script>
 
               </div>
               
@@ -226,8 +488,6 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../Introduction.html" title="previous page">Template for New JupyterBook</a>
-    <a class='right-next' id="next-link" href="../ch2/2.0.html" title="next page">Chapter 2 Intro</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

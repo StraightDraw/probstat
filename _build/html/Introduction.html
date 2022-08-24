@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Template for New JupyterBook &#8212; New Jupyter-Book Template</title>
+    <title>Probability and Statistics &#8212; Probability and Statistics</title>
     
-  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -25,8 +25,8 @@
     href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,13 +34,12 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -55,7 +54,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Chapter 1 Overview" href="ch1/1.0.html" />
+    <link rel="next" title="Exploratory Data Analysis" href="S1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -74,10 +73,8 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="index.html">
   
-  <img src="_static/UNG.logo.png" class="logo" alt="logo">
   
-  
-  <h1 class="site-logo" id="site-title">New Jupyter-Book Template</h1>
+  <h1 class="site-logo" id="site-title">Probability and Statistics</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -88,19 +85,42 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="#">
-   Template for New JupyterBook
+   Probability and Statistics
   </a>
  </li>
 </ul>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="ch1/1.0.html">
-   Chapter 1 Overview
+  <a class="reference internal" href="S1.html">
+   Exploratory Data Analysis
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ch2/2.0.html">
-   Chapter 2 Intro
+  <a class="reference internal" href="S1.html#span-style-color-blue-iii-other-visualizations-span">
+   <span style="color: blue;">
+    III. Other Visualizations
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S1.html#span-style-color-blue-iv-visualization-example-old-faithful-geyser-span">
+   <span style="color: blue;">
+    IV. Visualization Example: Old Faithful Geyser
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S1.html#span-style-color-blue-v-data-analysis-example-births-and-day-of-the-year-span">
+   <span style="color: blue;">
+    V. Data Analysis Example: Births and Day of the Year
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="S1.html#span-style-color-blue-vi-exercises-span">
+   <span style="color: blue;">
+    VI. Exercises
+   </span>
   </a>
  </li>
 </ul>
@@ -168,7 +188,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Introduction.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/StraightDraw/probstat/master?urlpath=tree/content/Introduction.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -192,10 +212,12 @@
         
               <div>
                 
-  <div class="section" id="template-for-new-jupyterbook">
-<h1>Template for New JupyterBook<a class="headerlink" href="#template-for-new-jupyterbook" title="Permalink to this headline">¶</a></h1>
-<p>Rescource for developing your own content in a jupyterbook.</p>
-<p>See the overview documentation at: <a class="reference external" href="https://jupyterbook.org/intro.html">https://jupyterbook.org/intro.html</a>.</p>
+  <div class="section" id="probability-and-statistics">
+<h1>Probability and Statistics<a class="headerlink" href="#probability-and-statistics" title="Permalink to this headline">¶</a></h1>
+<p>Course Notes for Prob-Stat (UNG MATH 3350) by Robb Sinn</p>
+<p>The details for how to load and use Rstudio are in chapter 0. These notes are standardized on R using the package Mosaic. Chapter 0 explains how to install and setup R on your laptop or home machine.</p>
+<p>Professional gamblers and poker players rely upon mathematics to earn their living. Career paths for professional gamblers include running casinos, betting parlors, and lotteries in places where such things are legal. They offer odds for betting on athletic events and horse races. They design and perfect games of chance for casinos, and they verify that those games are fair. Professional poker players are the most high profile example of professional gamblers. Twenty years ago, few people outside Vegas knew of the legendary Doyle “Texas Dolly” Brunson. Today, many learn about poker celebrities like Phil “The Phenom” Ivey, Vanessa “The Lady Maverick” Rousso, Daniel “Kid Poker” Negraneu or the “Duchess of Poker” Annie Duke by watching high stakes poker on TV.</p>
+<p>What mathematics do they use? They use <em>probability</em> to predict the future. They use <em>statistics</em> to analyze the past. With an understanding of both, they manufacture hundreds of small edges over their competition to earn money.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -228,16 +250,16 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="ch1/1.0.html" title="next page">Chapter 1 Overview</a>
+    <a class='right-next' id="next-link" href="S1.html" title="next page">Exploratory Data Analysis</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
       <p>
         
-          By Nigel Nighthawk<br/>
+          By Robb Sinn<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -248,7 +270,7 @@
     </div>
 
     
-  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
