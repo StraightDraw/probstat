@@ -1,5 +1,0 @@
-format: jb-book
-root: Introduction
-chapters:
-- file: P0
-- file: S1

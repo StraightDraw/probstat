@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Basic Probability &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Probability Playground" href="P1a.html" />
+    <link rel="prev" title="Course Notes: Probability and Statistics" href="Introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <img src="_static/UNG.logo.png" class="logo__image only-dark pst-js-only" alt="Probability and Statistics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Basic Probability</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S1.html">Exploratory Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/P1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic Probability</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-experiments">Probability Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-complements">Set Complements</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-probability">
+<h1>Basic Probability<a class="headerlink" href="#basic-probability" title="Link to this heading">#</a></h1>
+<p>These course notes provide and introduction to probability and statistics at the introductory level for a mathematics major. Many of the examples in these notes are real poker problems from No Limit Texas Holdem (NLHE).</p>
+<p>With probability theory mathematicians predict the future. Statistics help mathematicians analyze the past. With an understanding of both areas of mathematics, successful professional poker players manufacture dozens of small edges over their competition to earn money.</p>
+<p>A roulette ball falling into its slot and a card drawn from a well-shuffled deck are two additional examples of probability experiments.</p>
+<section id="probability-experiments">
+<h2>Probability Experiments<a class="headerlink" href="#probability-experiments" title="Link to this heading">#</a></h2>
+<p>A <em>probability experiment</em> is any event whose outcomes are perfectly \textbf{random} and exactly predicted by probabilities. The probability space (or sample space) is the collection of all possible outcomes of the experiment. A simple random sample (SRS) is a collection of outcomes drawn at random from the probability space <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>An <em>event</em> is a set of <em>outcomes</em>. We use set notation: an event <span class="math notranslate nohighlight">\(A\)</span> is a subset of <span class="math notranslate nohighlight">\(S\)</span>. Determining probabilities is all about counting the number of outcomes in event <span class="math notranslate nohighlight">\(A\)</span> and in <span class="math notranslate nohighlight">\(S\)</span>. To simplify our work, we will use the \textbf{cardinality} operator <span class="math notranslate nohighlight">\(n(A)\)</span> to indicate “the number of elements (outcomes) in set (event) <span class="math notranslate nohighlight">\(A\)</span>.” This leads us to the main formula in discrete probability theory:</p>
+<aside class="sidebar">
+<p class="sidebar-title">Cardinality</p>
+<p>When we wish to know the number of items in the set <span class="math notranslate nohighlight">\(X\)</span>, we use the cardinality operator <span class="math notranslate nohighlight">\(n(X)\)</span>. We can also use the absolute value to indicate the same calculation: <span class="math notranslate nohighlight">\(|X|\)</span>.</p>
+</aside>
+<div class="math notranslate nohighlight">
+\[
+P(A)=\frac{n(A)}{n(S)}
+\]</div>
+<p>These ideas will be helpful in reformulating basic probability questions into a set theoretic framework.</p>
+<div class="admonition-example-1 admonition">
+<p class="admonition-title">Example 1</p>
+<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a <span class="math notranslate nohighlight">\(\heartsuit\)</span>?</p>
+</div>
+<p><strong>Solution.</strong>
+Let’s define <span class="math notranslate nohighlight">\(H\)</span> to be the event set described by “drawing a heart.” We count the hearts in a standard deck and find the cardinality of the event set to <span class="math notranslate nohighlight">\(|H|=13\)</span>. The sample space <span class="math notranslate nohighlight">\(S\)</span> is the set of all possible cards that could be drawn, so</p>
+<div class="math notranslate nohighlight">
+\[
+|S|=52
+\]</div>
+<p>Thus, we have the following probability calculation:</p>
+<div class="math notranslate nohighlight">
+\[
+P(H)=\frac{|H|}{|S|}=\frac{13}{52}=\frac{1}{4}
+\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The solution path demonstrated in Example 1 will be of use to us quite often in this course. <strong>Count the outcomes in the event set, and divide by the total number of outcomes possible.</strong></p>
+</div>
+</section>
+<section id="set-complements">
+<h2>Set Complements<a class="headerlink" href="#set-complements" title="Link to this heading">#</a></h2>
+<p>It is often far easier to count the outcomes in the complement of event <span class="math notranslate nohighlight">\(A\)</span>, e.g. the probability that event A <strong>does not occur</strong>. This requires an understanding of the <strong>set complement</strong> which we denote as <span class="math notranslate nohighlight">\(\overline A\)</span>. The formula is:</p>
+<aside class="sidebar">
+<p class="sidebar-title">Set Complements</p>
+<p>The “overline” notation <span class="math notranslate nohighlight">\(\overline{x}\)</span> is used frequently in statistics. We can use exponential notation for <strong>set complements</strong> to avoid confusion:</p>
+<div class="math notranslate nohighlight">
+\[A^c =\overline{A}\]</div>
+</aside>
+<div class="math notranslate nohighlight">
+\[P(\overline A)=\frac{|\overline A|}{|S|}=\frac{|S|-|A|}{|S|}=1-\frac{|A|}{|S|}=1-P(A)\]</div>
+<p>In probability calculations, “throwing away” the overlap between two sets can be useful because it creates disjoint sets. Given two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that <span class="math notranslate nohighlight">\(A\cap B\neq \emptyset\)</span>, we need notation for the event “<span class="math notranslate nohighlight">\(A\)</span> but not <span class="math notranslate nohighlight">\(B\)</span>.” The idea of a “<span class="math notranslate nohighlight">\(A\)</span> but not <span class="math notranslate nohighlight">\(B\)</span>” is denoted as <span class="math notranslate nohighlight">\(A\cap \overline B\)</span>, and more formally we have:</p>
+<div class="math notranslate nohighlight">
+\[A\setminus B = A\cap \overline B\]</div>
+<p>We will sometimes use the quite popular subtraction notation to indicate the same idea:</p>
+<div class="math notranslate nohighlight">
+\[A - B = A\cap \overline B\]</div>
+<p>Let’s craft a poker example that will extend our understanding of how set complements are used in probability theory along with increasing our understanding of why probability calculations are of interest to poker players.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2</p>
+<p>Hero holds a pocket pair:</p>
+<div class="math notranslate nohighlight">
+\[7\textcolor{red}{\heartsuit} \hspace{3mm} 7\textcolor{red}{\diamondsuit}\]</div>
+<p>Villain open-raises from early position (EP) where players tend to have a very narrow range of hands that they play, typically pretty strong. For this example, assume Villain holds a hand like</p>
+<div class="math notranslate nohighlight">
+\[A\spadesuit \hspace{3mm} Q\textcolor{red}{\diamondsuit}\]</div>
+<p>Hero calls on the button. Hero feels he can usually win by bluffing whenever Villain misses the flop, especially on flops like</p>
+<div class="math notranslate nohighlight">
+\[K\heartsuit \hspace{3mm} 8\clubsuit \hspace{3mm} 3\clubsuit\]</div>
+<p>with only one big card in them. If Villain has two unpaired cards both of which are <span class="math notranslate nohighlight">\(8\)</span> or better, what is the probability flop with only one big card misses Villain’s hand?</p>
+</div>
+<p><strong>Solution.</strong> Poker players say they “hit the flop” when the flop – the first three board cards in Texas Holdem – match one or more of Hero’s hold cards. For Villain’s <span class="math notranslate nohighlight">\(AQ\)</span> hand above, hitting the flop would mean the flop contains an Ace or a Queen to make a pair or both which would make two pair. If the flop contained both a <span class="math notranslate nohighlight">\(K\)</span> and a <span class="math notranslate nohighlight">\(J\)</span>, Villain would have a <strong>straight draw</strong> which indicates that Villain has 4 cards of the 5-card sequence needed for a straight. Draws are incomplete hands which need the “luck of the draw” to be valuable. Thus, we will not consider straight draws or flush draws in this example, only</p>
+<ul class="simple">
+<li><p>1 Pair</p></li>
+<li><p>2 Pair</p></li>
+<li><p>Full House (e.g. A A Q Q Q)</p></li>
+</ul>
+<p>Let the set <span class="math notranslate nohighlight">\(X=\{0,1,2,3\}\)</span> represent the number of cards that Villain hits on the flop. How often does he hit or miss the flop? Assuming Hero doesn’t hold any of the cards Villain wants, then there are six cards in the deck (Aces and Queens) that improve Villain’s hand to a pair that beats Hero’s hand. The probability of Villain getting exactly one of those cards on the flop is:</p>
+<div class="math notranslate nohighlight">
+\[P(X=1)=\frac{\binom{6}{1}\binom{42}{2}}{\binom{48}{3}}\approx.29868\]</div>
+<aside class="sidebar">
+<p class="sidebar-title">Choose Notation</p>
+<p>In how many ways can <span class="math notranslate nohighlight">\(k\)</span> items be selected from <span class="math notranslate nohighlight">\(n\)</span> items if the order in which they are drawn does not matter?</p>
+<div class="math notranslate nohighlight">
+\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</div>
+</aside>
+<p>We just used some counting techniques we haven’t discussed, yet (shown at right). But don’t worry. You’ll know how to do these soon enough. Binomial coefficients like <span class="math notranslate nohighlight">\(\binom{42}{2}\)</span> are read as “forty-two choose two” and count all possible ways we can choose two cards from forty-two cards if order doesn’t matter.</p>
+<p>Note that Villain could also have two or three of the flop cards hit his hand, and have a 2-pair hand or a straight. These hands are much less likely, but they change the probability somewhat if we include the probability of more than one flop card hitting Villain’s hand. We must add the probabilities of hitting 2 and 3 cards on the flop, which gives:</p>
+<div class="math notranslate nohighlight">
+\[P(X\geq1)=\frac{\binom{6}{1}\binom{42}{2}+\binom{6}{2}\binom{42}{1}+\binom{6}{3}\binom{42}{0}}{\binom{48}{3}}\approx.33597\]</div>
+<p>The upshot is that any poker player hits the flop about <span class="math notranslate nohighlight">\(1/3\)</span> of the time. Of course, hands like <span class="math notranslate nohighlight">\(AA\)</span>, <span class="math notranslate nohighlight">\(KK\)</span> and <span class="math notranslate nohighlight">\(QQ\)</span> don’t need to hit the flop, so we expect a fit-or-fold player to continue on with the hand about 40% of the time. Since Villain will miss the flop for more often than he hits it, our aggressive Hero can use the high likelihood of “unimproved” cards in villain’s hand to bluff on the flop. This happens so often in poker that it has a name: a continuation bet, or <strong>cbet</strong>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><center> Course Notes: Probability and Statistics </center></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="P1a.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probability Playground</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-experiments">Probability Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-complements">Set Complements</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

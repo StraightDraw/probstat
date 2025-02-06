@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Counting Patterns &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conditional Probability" href="P5.html" />
+    <link rel="prev" title="Partitions" href="P3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <img src="_static/UNG.logo.png" class="logo__image only-dark pst-js-only" alt="Probability and Statistics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S1.html">Exploratory Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P4.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/P4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Counting Patterns</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counting Patterns</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-counting-patterns">Basic Counting Patterns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-counting-patterns">Special Counting Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handshake-problem">Handshake Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-on-a-ring">Permutations on a Ring</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="counting-patterns">
+<h1>Counting Patterns<a class="headerlink" href="#counting-patterns" title="Link to this heading">#</a></h1>
+<p>Most people learn, even if they don’t remember, about combination and permutations. There are more than these two counting patterns that we use regularly in probability problem-solving, and we will discuss the most important.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-counting-patterns">
+<h1>Basic Counting Patterns<a class="headerlink" href="#basic-counting-patterns" title="Link to this heading">#</a></h1>
+<p>We have two kinds of draws \emph{without replacement}, combinations and permutations, but what about draws <strong>with replacement</strong>? Their structure means we count the possible arrangements in the same way we find the cardinality of sets that are Cartesian products: we multiply.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Cardinality</p>
+<p>The <strong>cardinality</strong> of a set is the number of elements in that set.</p>
+</aside>
+<p>A Cartesian product of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the set of all ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where the first item is drawn from set <span class="math notranslate nohighlight">\(A\)</span> and the second is drawn from set <span class="math notranslate nohighlight">\(B\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A\times B=\{(a,b)\ \vert\ a\in A, b\in B\}\]</div>
+<p>The <span class="math notranslate nohighlight">\(xy\)</span>-coordinate plane is familiar to most. Cartesian coordinates are used to identify points in the plane. Order matters, because the point <span class="math notranslate nohighlight">\((1,6)\)</span> is different from <span class="math notranslate nohighlight">\((6,1)\)</span>. The coordinate plane is the Cartesian product <span class="math notranslate nohighlight">\(\mathbb R\times\mathbb R\)</span>. While the set of real numbers is infinite, we often use finite sets for Cartesian products in probability settings.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 7</p>
+<p>A 6-sided die is rolled and a coin is flipped. List the elements of the Cartesian product and determine its cardinality.</p>
+</div>
+<p><strong>Solution.</strong> Let the set <span class="math notranslate nohighlight">\(D\)</span> represent the possible outcomes to rolling the fair, 6-sided die, and let the set <span class="math notranslate nohighlight">\(C\)</span> represent the possible outcomes when flipping a fair coin:</p>
+<div class="math notranslate nohighlight">
+\[D=\{1,2,4,5,6\}\]</div>
+<div class="math notranslate nohighlight">
+\[C=\{H,T\}\]</div>
+<p>We can arrange the ordered pairs <span class="math notranslate nohighlight">\((d,c)\)</span> to highlight the similarity to Cartesian coordinates:</p>
+<figure class="align-default" id="figure-example-with-dice">
+<a class="reference internal image-reference" href="_images/DieCartesionProduct.PNG"><img alt="_images/DieCartesionProduct.PNG" src="_images/DieCartesionProduct.PNG" style="height: 100px;" /></a>
+</figure>
+<p>Since <span class="math notranslate nohighlight">\(|D|=6\)</span> and <span class="math notranslate nohighlight">\(|C|=2\)</span>, the total number of outcomes in the Cartesian product <span class="math notranslate nohighlight">\(D\times C\)</span> is 12 because:</p>
+<div class="math notranslate nohighlight">
+\[|D\times C|=2\times 6=12\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Example 8</p>
+<p>How many Georgia license plates are possible given the standard pattern is 3 letters followed by 4 numbers?</p>
+</div>
+<p><strong>Solution.</strong> If <span class="math notranslate nohighlight">\(L\)</span> represents the set of 26 letters in our alphabet and <span class="math notranslate nohighlight">\(D\)</span> represents the base 10 digits, then possible license plates form a Cartesian product: <span class="math notranslate nohighlight">\(L\times L\times L\times D\times D\times D\times D\)</span>. The number of possible license plates is given by</p>
+<div class="math notranslate nohighlight">
+\[L\times L\times L\times D\times D\times D\times D|=26\times 26\times 26\times 10\times 10\times 10\times 10\]</div>
+<div class="math notranslate nohighlight">
+\[=26^3\cdot 10^4\]</div>
+<div class="math notranslate nohighlight">
+\[=175760000\]</div>
+<p>The number of outcomes in a Cartesian product is the product of the cardinalities of each set in the Cartesian product.</p>
+<section id="special-counting-patterns">
+<h2>Special Counting Patterns<a class="headerlink" href="#special-counting-patterns" title="Link to this heading">#</a></h2>
+<p>The primary tools for counting in a probability context have already been discussed: permutations, combinations, Cartesian products and partitioning the probability space into disjoint subsets. Some additional tools are helpful but seen much less often.</p>
+<section id="handshake-problem">
+<h3>Handshake Problem<a class="headerlink" href="#handshake-problem" title="Link to this heading">#</a></h3>
+<p>Two classic mathematics idea merge in the handshake problem.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 8</p>
+<p>Ten people attend a party. During the event, each party goer shakes hands with every other person. How many handshakes happened?</p>
+</div>
+<p><strong>Solution.</strong> Once we find the pattern, the solution is straightforward. Consider attendees at the party: Al, Bea, Cal, Di,…</p>
+<figure class="align-default" id="id1">
+<img alt="_images/ProbFig3a.png" src="_images/ProbFig3a.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">height: 200px</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ten people at party, <strong>Al</strong> shakes hands with 9 others, <strong>Bea</strong> shakes hands with 8 others, and so on.</p>
+<figure class="align-default" id="id2">
+<img alt="_images/ProbFig3c.png" src="_images/ProbFig3c.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">height: 250px</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If Al shakes hands with everyone, there are 9 handshakes. Then, say Bea shakes hands with everyone she has not shaken hands with, yet. That will create 8 more handshakes. Then Cal, who has shaken hands twice, once with Al and once with Bea, will complete 7 more handshakes, and so on. Thus, the total number of handshakes for all 10 people is:</p>
+<div class="math notranslate nohighlight">
+\[9+8+7+\cdots +2+1=\sum_{k=1}^9k=45\]</div>
+<aside class="sidebar">
+<p class="sidebar-title">Math Prodigy</p>
+<p>Carl Frederich Gauss who lived from 1777 - 1855 is probably the GOAT in mathematics, that is, the greatest mathematician of all time. At age <span class="math notranslate nohighlight">\(11\)</span> or <span class="math notranslate nohighlight">\(12\)</span>, he discovered a quick method for solving for the sum of consecutive integers between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(k\)</span> where <span class="math notranslate nohighlight">\(k\)</span> is any integer <span class="math notranslate nohighlight">\(\geq 1\)</span>.</p>
+</aside>
+<p>The sum of all positive integers from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(n\)</span> is the classic pattern attributed to Gauss. The story goes like this: little Freddie is precocious, and his tutor can’t write math problems quickly enough. By the time he gets one written down, Freddie has solved it, and the tutor has no time for any other subject or any other child. In exasperation, the tutor challenges the adolescent math whiz: “Add up all the numbers between one and one hundred.” Surprisingly, Freddie answer almost immediately: “Five thousand and fifty.” He saw the pattern shown below.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/ProbFig4.png"><img alt="_images/ProbFig4.png" src="_images/ProbFig4.png" style="width: 8cm;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The Gauss pattern for summing integers from 1 to 100</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are 50 pairs of integers that sum to 101, so he multiplied quickly to find the sum: <span class="math notranslate nohighlight">\(50\times 101=5050\)</span>.</p>
+<p>While formulas exist (you can google “Gauss’s formula”) I encourage you to learn Gauss’s idea instead of memorizing some formula, or at least to derive the formula for yourself (it’s not hard). The formula works not only for this exact situation. The idea works for the sum of any finite number of terms in <strong>any arithmetic sequence</strong>.</p>
+<p>The birthday problem counting pattern is iconic, as is Gauss’s approach, and any student of mathematics taking a course that includes principles of counting should learn about them.</p>
+</section>
+</section>
+<section id="permutations-on-a-ring">
+<h2>Permutations on a Ring<a class="headerlink" href="#permutations-on-a-ring" title="Link to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Example 9</p>
+<p>A mom of five gets a charm bracelet with each child’s name on a charm. How many permutations of the charms are possible?</p>
+</div>
+<p><strong>Solution.</strong> If her children were named Dee, Eve, Fay, Gil and Hal, it’s tempting to consider it like permutation five items into five slots:</p>
+<div class="math notranslate nohighlight">
+\[P(5,5) = 5! = 120\]</div>
+<p>where the letters would line up:</p>
+<center>D E F G H</center>
+<p>That approach turns out to be incorrect. When spaced equally on a circle, there are five identical patterns that correspond to</p>
+<center>D E F G H</center>
+<p>Those patterns are shown below:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>D E F G H</strong></div>
+<figure class="align-default" id="id4">
+<img alt="_images/ProbFig5a.png" src="_images/ProbFig5a.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>E F G H D</strong></div>
+<figure class="align-default" id="id5">
+<img alt="_images/ProbFig5b.png" src="_images/ProbFig5b.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>F G H D E</strong></div>
+<figure class="align-default" id="id6">
+<img alt="_images/ProbFig5c.png" src="_images/ProbFig5c.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>G H D E F</strong></div>
+<figure class="align-default" id="id7">
+<img alt="_images/ProbFig5d.png" src="_images/ProbFig5d.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>H D E F G</strong></div>
+<figure class="align-default" id="id8">
+<img alt="_images/ProbFig5e.png" src="_images/ProbFig5e.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The same thing is true for every unique permutation of five items on a ring or on a circle. We have the permutation plus four identical copies. To correct for this, we have to divide by 5. Let <span class="math notranslate nohighlight">\(C_5\)</span> be the set of all possible permutations of five objects on a circle.</p>
+<div class="math notranslate nohighlight">
+\[|C_5|=\frac{P(5,5)}{5}=\frac{5!}{5}\]</div>
+<p>Most students remember that, in general, the number of permutations of <span class="math notranslate nohighlight">\(n\)</span> objects on a circle is given by:</p>
+<div class="math notranslate nohighlight">
+\[|C_n|=\frac{n!}{n}\]</div>
+<div class="math notranslate nohighlight">
+\[\hspace{17mm}=(n-1)!\]</div>
+<p>When studying permutations in Abstract Algebra (UNG course MATH 4600), we learn cycle notation for writing down the individual permutations in a permutation group. An <span class="math notranslate nohighlight">\(n\)</span>-cycle represents <span class="math notranslate nohighlight">\(n\)</span> different versions of the exact same permutation, so we use a quick fix for notation: always list the smallest digit in the cycle first. That way, we have a unique representation for permutations, similar to the unique lowest terms form of a fraction.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="P3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Partitions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="P5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conditional Probability</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counting Patterns</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-counting-patterns">Basic Counting Patterns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-counting-patterns">Special Counting Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handshake-problem">Handshake Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-on-a-ring">Permutations on a Ring</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

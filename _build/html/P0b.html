@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>50 Probability Questions &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P0b';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="85 More Probability Questions" href="P0c.html" />
+    <link rel="prev" title="50 Counting Questions" href="P0a.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <img src="_static/UNG.logo.png" class="logo__image only-dark pst-js-only" alt="Probability and Statistics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="P0.html">Excercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S1.html">Exploratory Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P0b.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/P0b.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>50 Probability Questions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-questions">
+<h1>50 Probability Questions<a class="headerlink" href="#probability-questions" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Two cards are drawn from a well-shuffled, standard deck of cards. What is the probability of drawing 2 hearts?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of not drawing a face card?</p></li>
+<li><p>What is the probability that a randomly dealt bridge hand (13 cards) has exactly 7 spades?</p></li>
+<li><p>ELENA writes the letters of her name on slips of paper and draws one at random. Find the probability of the following:</p>
+<ul class="simple">
+<li><p>Drawing an E.</p></li>
+<li><p>Drawing an L.</p></li>
+</ul>
+</li>
+<li><p>The state of Alaska has license plates with 2 letters followed by 3 numbers. What is the probability, if letters and numbers are chosen at random, that no letter or number is repeated?</p></li>
+<li><p>A social agency is investigating a bank’s claim that <span class="math notranslate nohighlight">\(10\%\)</span> of their successful loan applications to construction companies go to minority-owned firms. They randomly select <span class="math notranslate nohighlight">\(30\)</span> loans of which only <span class="math notranslate nohighlight">\(2\)</span> are to minorities. What is the probability of this happening if the bank’s claim is actually true?</p></li>
+<li><p>A committee is being formed at the United Nations, and <span class="math notranslate nohighlight">\(1\)</span> person will be selected at random for president. If there are <span class="math notranslate nohighlight">\(8\)</span> people from Japan, <span class="math notranslate nohighlight">\(6\)</span> from New Zealand, <span class="math notranslate nohighlight">\(12\)</span> from Russia and <span class="math notranslate nohighlight">\(4\)</span> from Belarus in the drawing, find the probability of the person:</p>
+<ul class="simple">
+<li><p>Being from Belarus.</p></li>
+<li><p>Being from Japan.</p></li>
+<li><p>Being from Russia.</p></li>
+</ul>
+</li>
+<li><p>The letters ENTW are in a bag. If 4 letters are drawn (without replacement) from the bag, what is the probability they spell “newt”?</p></li>
+<li><p>A red marble and 4 white marbles are placed in an urn. If 2 are drawn at random (without replacement), find the probability that:</p>
+<ul class="simple">
+<li><p>The red marble is drawn first.</p></li>
+<li><p>The red marble is drawn last.</p></li>
+<li><p>The red marble is not drawn at all.</p></li>
+</ul>
+</li>
+<li><p>American Roulette tables have 38 slots numbered 1 – 36, 0 and 00. Find the probability of the ball landing on an odd number for three consecutive spins.</p></li>
+<li><p>Thirteen cubes numbered 1 to 13 are placed in a bag. If two are drawn at random without replacement, what is the probability that:</p>
+<ul class="simple">
+<li><p>Both are odd?</p></li>
+<li><p>Exactly one is even?</p></li>
+<li><p>None are even?</p></li>
+</ul>
+</li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a spade?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a nine?</p></li>
+<li><p>Two appellate court judges will be appointed at random (which might make more sense than our current filibuster-riddled process!) from a panel of trial court judges that includes 23 men and 7 women. Find the probability that (a) both judges will be female, (b) neither will be female, and (c) at least one will be female.</p></li>
+<li><p>What is the probability of Joe (who knows absolutely nothing about \textit{Pride and Prejudice}) gets a passing grade of at least 3 out of 5 on a 5-question multiple choice test (with answers A – D for each question) by guessing at random? How does this change if there are 5 possibilities for each questions (A – E)? How does this change if there 10 questions?</p></li>
+<li><p>The letters AAAKLS are in a bag. If 6 letters are drawn (without replacement) from the bag, what is the probability they spell “Alaska”?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a face card? (Hint: Aces don’t have faces.)</p></li>
+<li><p>What is the probability that a randomly dealt bridge hand (13 cards) has exactly 4 <span class="math notranslate nohighlight">\(\spadesuit\)</span>’s, 4 <span class="math notranslate nohighlight">\(\heartsuit\)</span>’s, 4<span class="math notranslate nohighlight">\(\diamondsuit\)</span>’s and a <span class="math notranslate nohighlight">\(\clubsuit\)</span>’s?</p></li>
+<li><p>What is the probability of rolling ``snake eyes’’ (double ones) three times in a row with a pair of fair dice?</p></li>
+<li><p>When rolling two fair dice and summing (as in Monopoly or Craps), what is the probability of rolling</p>
+<ul class="simple">
+<li><p>A 7?</p></li>
+<li><p>An 11?</p></li>
+<li><p>A 2?</p></li>
+</ul>
+</li>
+<li><p>Drawing a letter at random from the letters ALASKA, find the probability of:</p>
+<ul class="simple">
+<li><p>Not drawing an A</p></li>
+<li><p>Not drawing a consonant.</p></li>
+</ul>
+</li>
+<li><p>An urn contains 8 red marbles and 5 white marbles. If 3 are drawn at random, find the probability that:</p>
+<ul class="simple">
+<li><p>All are red.</p></li>
+<li><p>All are white.</p></li>
+<li><p>At least 2 red are drawn.</p></li>
+</ul>
+</li>
+<li><p>Your poker opponent holds an obvious 2 pair, but you have that hand beat. The question is whether he has a full house. You know 9 cards, 5 of yours and 4 of his. What is the probability he does not have a full house?</p></li>
+<li><p>In a poker game, you need a heart, either a face card or an Ace. You know the 4 cards in your hand, so what is your probability of getting the needed card?</p></li>
+<li><p>A fair die is rolled and card is drawn at random from a well-shuffled, standard deck of cards. What is the probability that both the die and the card are sixes?</p></li>
+<li><p>Charlie has 13 socks in a drawer, 7 blue and 6 green. If he selects 5 at random, find the probability that he gets (a) 2 blue and 3 green or (b) 1 blue and 4 green.</p></li>
+<li><p>In a group of 15 people, 6 are lefties and the rest are right-handed. If 7 people are selected at random, find the probability (a) 3 lefties and 4 righties are selected, (b) no lefties are selected, or (3) exactly 1 lefty is selected.</p></li>
+<li><p>A stack of 7 baseball cards contains two rookie cards. If 3 cards are selected at random, find the probability that (a) exactly one is a rookie card or (b) at least one of cards is a rookie card?</p></li>
+<li><p>Three-year-old Emma tears all the labels off the soup cans in the pantry. Her mother remembers that there were 8 cans of vegetable and 2 cans of tomato soup. If she selects 4 cans at random, find the probability that (a) exactly one chosen can is tomato, or (b) both cans of tomato are chosen.</p></li>
+<li><p>To test a quality assurance program, a plant manager sets up a sample of 100 light bulbs, 2 of which are defective. The rest are known to work properly. If quality assurance technicians draw 5 bulbs at random from every lot of 100, what is the probability that the Q&amp;A process will ``catch” at least one of defective bulbs in the test sample?</p></li>
+<li><p>Two cards are drawn from a well-shuffled, standard deck of cards. What is the probability of drawing exactly one spade?</p></li>
+<li><p>A fair coin is tossed 3 times. Find the probability of getting (a) exactly 2 heads, (b) at least 2 heads, and (c) no tails.</p></li>
+<li><p>A pilot is scheduled to fly two missions over hostile territory where his chances of being shot down are <span class="math notranslate nohighlight">\(20\%\)</span>. What is the probability that (a) he flies both missions safely and (b) he gets shot down on one of the missions? (Hint: verify that your probabilities all can actually happen and that they add up to one!)</p></li>
+<li><p>Six red marbles and four blue marbles are placed in an urn. If two are drawn at random with replacement, find the probability that (a) no reds are drawn, (b) at least one blue is drawn, or (c) no blues are drawn.</p></li>
+<li><p>Suppose a marksman hits the bull’s eye 1500 times out of 5000 shots. What is his probability of (a) hitting the bull’s eye 4 times in a row and (b) hitting the bull’s eye at least 2 times out of 4?</p></li>
+<li><p>Jenny has 14 red balloons, 9 blue balloons and 12 green balloons. If Jenny chooses one balloon at random to give to her friend Eva, find the probability of her giving away (a) a red balloon or (b) a blue balloon.</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of not drawing a heart?</p></li>
+<li><p>The first digit of a telephone number cannot be a 0 or a 1. This being the case, what is the probability that randomly selected 7-digit phone number has all seven digits the same?</p></li>
+<li><p>In New York, the lottery has a game called Pick 10. There are 80 numbers from which the state picks 20 and contestants pick 10. If all 10 of a contestant’s numbers are in the list of 20, that contestant is a Big Winner. What is the probability of being a Big Winner?</p></li>
+<li><p>A retailer has a purchase agreement with a DVD manufacturer that says the retailer may sample 5 DVD players from a shipment of 100. If he finds one or more to be defective, he gets the entire shipment free of charge. If only 3 of the DVD players are defective, what is the probability that the retailer gets the shipment free?</p></li>
+<li><p>American Roulette tables have 38 slots numbered 1 – 36, 0 and 00.</p></li>
+<li><p>Eight horses are entered in a race. You randomly predict the complete order of finish. What is the probability that your prediction is correct?</p></li>
+<li><p>Eight horses are entered in a race. You randomly predict the Trifecta, e.g. win-place-show (1st, 2nd and 3rd place, in order). What is the probability that your prediction is correct?</p></li>
+<li><p>A jar contains 3 types of cookies: 9 chocolate chip, 6 peanut butter and 5 oatmeal raisin. If Joe reaches in a grabs 1 at random (because he’s sneaking and afraid he’ll get caught), find the probability of (a) grabbing a chocolate chip cookie, (b) grabbing a peanut butter cookie or (c) grabbing an oatmeal raisin cookie.</p></li>
+<li><p>In a certain Lotto game called 6-49, the player picks 6 numbers out of 49. What is the probability of selecting at least 5 of the correct 6 numbers?</p></li>
+<li><p>Find the probability that, in a group of 8 students, at least two have the same birthday. How many students would be required to ensure there was at least a 50-50 chance of having two people share a birthday?</p></li>
+<li><p>When rolling two fair dice and summing (as in Monopoly or Craps), what is the probability of (a) not rolling a 7, (b) not rolling 5 or higher, and (c) not rolling either a 2 or a 9?</p></li>
+<li><p>The state of Alaska has license plates with 2 letters followed by 3 numbers. In a hit-andrun accident, a nearby motorist noticed that the escaping car’s license plate contained a J and two 4’s. What percent of the total possible Alaskan license plates could have caused the accident?</p></li>
+<li><p>Kelly is a squad leader during FROG week where her squad consists of 3 women and 7 men. If the squad line up at random after push-ups, what is the probability of all 3 women lining up in the first five slots (from left to right).</p></li>
+<li><p>If each letter of the word MISSISSIPPI is written on a card, and one of the cards is drawn at random, find the probability that (a) an S is drawn, (b) an I is drawn or (c) a P is drawn.</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="P0a.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">50 Counting Questions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="P0c.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">85 More Probability Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
