@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Course Notes: Probability and Statistics &#8212; Probability and Statistics</title>
+    <title>Exercises &#8212; Probability and Statistics</title>
   
   
   
@@ -62,10 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P6a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Probability" href="P1.html" />
+    <link rel="next" title="Solutions to Selected Exercises" href="P6b.html" />
+    <link rel="prev" title="Discrete Probability Functions" href="P6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -117,8 +118,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -138,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduction.html">
   
   
   
@@ -165,14 +164,14 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
                     <center> Course Notes: Probability and Statistics </center>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
@@ -192,8 +191,8 @@
 <li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
 </ul>
 </details></li>
@@ -270,7 +269,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P6a.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +300,7 @@
       
       
       
-      <li><a href="_sources/Introduction.ipynb" target="_blank"
+      <li><a href="_sources/P6a.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center> Course Notes: Probability and Statistics </center></h1>
+    <h1>Exercises</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,19 +388,44 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="course-notes-probability-and-statistics">
-<h1><center> Course Notes: Probability and Statistics </center><a class="headerlink" href="#course-notes-probability-and-statistics" title="Link to this heading">#</a></h1>
-<p><strong>Robb Sinn, Spring 2005</strong></p>
-<p><strong>University of North Georgia, MATH 3350</strong></p>
-<p>The pages within this website comprise the course notes for Dr. Sinn’s Probability and Statistics course (MATH 3350) at the University of North Georgia. These notes are used in lieu of a textbook.</p>
-<p>To help us learn probability and statistics concepts, we will be using the software <strong>R</strong> this semester. We can use R in the UNG datahub, free to all students and accessible using your UNG credentials. You may also wish to download Rstudio for your own laptop. Since R is open-source freeware, there is no cost. However, we can always work in <strong>R</strong> using the UNG datahub from any computer, tablet or smartphone (e.g. any device that has a browser and a connection to the internet).</p>
-<p>Your professor will provide the installation details in class, if you wish to use <strong>R</strong>. If students have a working knowledge of <strong>Python</strong>, they will be able to use that as well.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h1>
+<p><strong>Directions:</strong> For each of the probability experiments below:</p>
+<ol class="arabic simple">
+<li><p>Enumerate all the values of the random variable.</p></li>
+<li><p>Calculate a few of the individual probabilities involved, and create a table comparing <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(p(x)\)</span>.</p></li>
+<li><p>Try to find a pattern. If you can’t (yet), add a few more entries to your table.</p></li>
+<li><p>Write a (closed-form) probability distribution function for the experiment, and verify the distribution function has the required properties.</p></li>
+<li><p>Identify the distribution as binomial, geometric, negative binomial, hypergeometric or none of the above.</p></li>
+</ol>
+<aside class="sidebar">
+<p class="sidebar-title">Sexist Math Teacher</p>
+<p>Teaching high school, a friend of mine had a student who said, “You’re racist.” Puzzled, my friend asked, “What do you mean?” The student said, <strong>“You’re racist against boys. You like girls better.”</strong> While my friend believed that neither assertion were true, he dutifully explained sexism to the class while trying not to laugh at the incongruity of the accusation.</p>
+</aside>
+<p><strong>Homework Problems</strong></p>
+<ol class="arabic simple">
+<li><p>A math teacher has 15 boys and 15 girls in his class. Because he’s sexist, he calls on girls 60% of the time. During a class period when he calls on 10 students, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of girls called on before the first boy is asked a question.</p></li>
+<li><p>Draw 5 cards from a standard deck. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of hearts in the 5-card hand.</p></li>
+<li><p>When playing indoor soccer, Robbie has an amazing ability to miss on breakaway “open goal” scoring opportunities. Robbie misses 30% of the times he’s shooting on an open goal, and he has 8 open goal scoring opportunities in one notable game. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of scoring opportunities that “go begging” (e.g. Robbie misses).</p></li>
+<li><p>A quality assurance inspector randomly selects and test 5 light bulbs from each lot of 100. Suppose there are 10 defective light bulbs per lot (major assumption, but bear with me), and let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of defectives per draw.</p></li>
+<li><p>Draw 5 cards from a standard deck. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of Kings in the 5-card hand.</p></li>
+<li><p>A gambler playing American Roullette keeps betting on “Odd” until it pays off. American Roullette wheels have numbers 1 through 36, 0 and 00. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable denoting the number of spins until the wheel comes up Odd.</p></li>
+<li><p>The underdog baseball team in the World Series has a 40% chance of winning each game. Find a probability distribution function that gives the probability the underdog wins in 4, 5, 6 or 7 games, or not all.</p></li>
+<li><p>Suppose a couple is trying to have a baby, and let <span class="math notranslate nohighlight">\(X\)</span> be the numbers of “attempts” during times which pregnancy is likely to happen. If the chances of success are 10% per attempt, write a probability density function for how many attempts are needed to get pregnant. How many attempts would be required to have AT LEAST an 80% chance of being pregnant?</p></li>
+<li><p>The favored baseball team in the World Series has a 60% chance of winning each game. Find a probability distribution function that gives the probability the favorites win in 4, 5, 6 or 7 games, or not all.</p></li>
+<li><p>In the sexist math teacher problem, Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of girls called upon before the third boy is called upon.</p></li>
+</ol>
+<ol class="arabic simple" start="11">
+<li><p>Billy Joe Bob Vernon McSweeney plays ball for the Nighthawks and has to sell 10 Cow Patty Bingo raffle tickets. He knows Momma McSweeney, Daddy McSweeney, Granny McSweeney, Aunt Marry Ellen Jane McSweeney and Grandpa McSweeney are guaranteed to buy a ticket. So that leaves 5 more to sell to students in his classes and random folks at Wal-Mart. Suppose Billy Joe Bob Vernon has a 10% chance of success each time he approaches someone about buying a ticket. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of trials required:</p></li>
+<li><p>Write a function for the number of trials required before one ticket is purchased.</p></li>
+<li><p>Write a function for the number of trials required before all five tickets are purchased.</p></li>
+</ol>
+<ol class="arabic simple" start="12">
+<li><p>Suppose the underdog in a 5-game series has a <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span> chance of winning each game. Find a probability distribution function for the underdog winning.</p></li>
+<li><p>Dr. Sinn, an Arsenal Gunners fan, hopes when he dies to have the funeral in London with former Gunners players acting as pall bearers. Why? So the team can let him down one final time. Yes, sad but true, Tuesday’s loss away to Borussia Dortmund was not atypical. The Gunners win lots of games but often stumble in the biggest games. Let’s suppose that, in each big game they play, the Gunners have a 35% chance of mucking it up (or, as the Brits say,”bottling it”). Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of games played since the last muck up. Write a probability density function for number of big wins the Gunners will earn before mucking it up again.</p></li>
+<li><p>Shero is playing blackjack and sees her first card is an Ace. Given a standard deck of 52 cards with no other cards showing, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable denoting the blackjack “count” of Shero’s two-card starting hand. Aces can count as either 1 or 11, and all face cards count as 10. All the number cards have their face value.</p></li>
+<li><p>Given the indoor soccer miscue scenario, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of misses before Robbie scores 3 goals.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -434,12 +458,21 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="P6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Discrete Probability Functions</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="P1.html"
+       href="P6b.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Probability</p>
+        <p class="prev-next-title">Solutions to Selected Exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

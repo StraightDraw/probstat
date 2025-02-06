@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Course Notes: Probability and Statistics &#8212; Probability and Statistics</title>
+    <title>50 Probability Questions &#8212; Probability and Statistics</title>
   
   
   
@@ -62,10 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P0b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Probability" href="P1.html" />
+    <link rel="next" title="85 More Probability Questions" href="P0c.html" />
+    <link rel="prev" title="50 Counting Questions" href="P0a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -117,8 +118,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -138,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduction.html">
   
   
   
@@ -165,14 +164,14 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
                     <center> Course Notes: Probability and Statistics </center>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
@@ -197,9 +196,9 @@
 <li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="P0.html">Excercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">50 Probability Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
 </ul>
 </details></li>
@@ -270,7 +269,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P0b.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +300,7 @@
       
       
       
-      <li><a href="_sources/Introduction.ipynb" target="_blank"
+      <li><a href="_sources/P0b.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center> Course Notes: Probability and Statistics </center></h1>
+    <h1>50 Probability Questions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,19 +388,100 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="course-notes-probability-and-statistics">
-<h1><center> Course Notes: Probability and Statistics </center><a class="headerlink" href="#course-notes-probability-and-statistics" title="Link to this heading">#</a></h1>
-<p><strong>Robb Sinn, Spring 2005</strong></p>
-<p><strong>University of North Georgia, MATH 3350</strong></p>
-<p>The pages within this website comprise the course notes for Dr. Sinn’s Probability and Statistics course (MATH 3350) at the University of North Georgia. These notes are used in lieu of a textbook.</p>
-<p>To help us learn probability and statistics concepts, we will be using the software <strong>R</strong> this semester. We can use R in the UNG datahub, free to all students and accessible using your UNG credentials. You may also wish to download Rstudio for your own laptop. Since R is open-source freeware, there is no cost. However, we can always work in <strong>R</strong> using the UNG datahub from any computer, tablet or smartphone (e.g. any device that has a browser and a connection to the internet).</p>
-<p>Your professor will provide the installation details in class, if you wish to use <strong>R</strong>. If students have a working knowledge of <strong>Python</strong>, they will be able to use that as well.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-questions">
+<h1>50 Probability Questions<a class="headerlink" href="#probability-questions" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Two cards are drawn from a well-shuffled, standard deck of cards. What is the probability of drawing 2 hearts?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of not drawing a face card?</p></li>
+<li><p>What is the probability that a randomly dealt bridge hand (13 cards) has exactly 7 spades?</p></li>
+<li><p>ELENA writes the letters of her name on slips of paper and draws one at random. Find the probability of the following:</p>
+<ul class="simple">
+<li><p>Drawing an E.</p></li>
+<li><p>Drawing an L.</p></li>
+</ul>
+</li>
+<li><p>The state of Alaska has license plates with 2 letters followed by 3 numbers. What is the probability, if letters and numbers are chosen at random, that no letter or number is repeated?</p></li>
+<li><p>A social agency is investigating a bank’s claim that <span class="math notranslate nohighlight">\(10\%\)</span> of their successful loan applications to construction companies go to minority-owned firms. They randomly select <span class="math notranslate nohighlight">\(30\)</span> loans of which only <span class="math notranslate nohighlight">\(2\)</span> are to minorities. What is the probability of this happening if the bank’s claim is actually true?</p></li>
+<li><p>A committee is being formed at the United Nations, and <span class="math notranslate nohighlight">\(1\)</span> person will be selected at random for president. If there are <span class="math notranslate nohighlight">\(8\)</span> people from Japan, <span class="math notranslate nohighlight">\(6\)</span> from New Zealand, <span class="math notranslate nohighlight">\(12\)</span> from Russia and <span class="math notranslate nohighlight">\(4\)</span> from Belarus in the drawing, find the probability of the person:</p>
+<ul class="simple">
+<li><p>Being from Belarus.</p></li>
+<li><p>Being from Japan.</p></li>
+<li><p>Being from Russia.</p></li>
+</ul>
+</li>
+<li><p>The letters ENTW are in a bag. If 4 letters are drawn (without replacement) from the bag, what is the probability they spell “newt”?</p></li>
+<li><p>A red marble and 4 white marbles are placed in an urn. If 2 are drawn at random (without replacement), find the probability that:</p>
+<ul class="simple">
+<li><p>The red marble is drawn first.</p></li>
+<li><p>The red marble is drawn last.</p></li>
+<li><p>The red marble is not drawn at all.</p></li>
+</ul>
+</li>
+<li><p>American Roulette tables have 38 slots numbered 1 – 36, 0 and 00. Find the probability of the ball landing on an odd number for three consecutive spins.</p></li>
+<li><p>Thirteen cubes numbered 1 to 13 are placed in a bag. If two are drawn at random without replacement, what is the probability that:</p>
+<ul class="simple">
+<li><p>Both are odd?</p></li>
+<li><p>Exactly one is even?</p></li>
+<li><p>None are even?</p></li>
+</ul>
+</li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a spade?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a nine?</p></li>
+<li><p>Two appellate court judges will be appointed at random (which might make more sense than our current filibuster-riddled process!) from a panel of trial court judges that includes 23 men and 7 women. Find the probability that (a) both judges will be female, (b) neither will be female, and (c) at least one will be female.</p></li>
+<li><p>What is the probability of Joe (who knows absolutely nothing about \textit{Pride and Prejudice}) gets a passing grade of at least 3 out of 5 on a 5-question multiple choice test (with answers A – D for each question) by guessing at random? How does this change if there are 5 possibilities for each questions (A – E)? How does this change if there 10 questions?</p></li>
+<li><p>The letters AAAKLS are in a bag. If 6 letters are drawn (without replacement) from the bag, what is the probability they spell “Alaska”?</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of drawing a face card? (Hint: Aces don’t have faces.)</p></li>
+<li><p>What is the probability that a randomly dealt bridge hand (13 cards) has exactly 4 <span class="math notranslate nohighlight">\(\spadesuit\)</span>’s, 4 <span class="math notranslate nohighlight">\(\heartsuit\)</span>’s, 4<span class="math notranslate nohighlight">\(\diamondsuit\)</span>’s and a <span class="math notranslate nohighlight">\(\clubsuit\)</span>’s?</p></li>
+<li><p>What is the probability of rolling ``snake eyes’’ (double ones) three times in a row with a pair of fair dice?</p></li>
+<li><p>When rolling two fair dice and summing (as in Monopoly or Craps), what is the probability of rolling</p>
+<ul class="simple">
+<li><p>A 7?</p></li>
+<li><p>An 11?</p></li>
+<li><p>A 2?</p></li>
+</ul>
+</li>
+<li><p>Drawing a letter at random from the letters ALASKA, find the probability of:</p>
+<ul class="simple">
+<li><p>Not drawing an A</p></li>
+<li><p>Not drawing a consonant.</p></li>
+</ul>
+</li>
+<li><p>An urn contains 8 red marbles and 5 white marbles. If 3 are drawn at random, find the probability that:</p>
+<ul class="simple">
+<li><p>All are red.</p></li>
+<li><p>All are white.</p></li>
+<li><p>At least 2 red are drawn.</p></li>
+</ul>
+</li>
+<li><p>Your poker opponent holds an obvious 2 pair, but you have that hand beat. The question is whether he has a full house. You know 9 cards, 5 of yours and 4 of his. What is the probability he does not have a full house?</p></li>
+<li><p>In a poker game, you need a heart, either a face card or an Ace. You know the 4 cards in your hand, so what is your probability of getting the needed card?</p></li>
+<li><p>A fair die is rolled and card is drawn at random from a well-shuffled, standard deck of cards. What is the probability that both the die and the card are sixes?</p></li>
+<li><p>Charlie has 13 socks in a drawer, 7 blue and 6 green. If he selects 5 at random, find the probability that he gets (a) 2 blue and 3 green or (b) 1 blue and 4 green.</p></li>
+<li><p>In a group of 15 people, 6 are lefties and the rest are right-handed. If 7 people are selected at random, find the probability (a) 3 lefties and 4 righties are selected, (b) no lefties are selected, or (3) exactly 1 lefty is selected.</p></li>
+<li><p>A stack of 7 baseball cards contains two rookie cards. If 3 cards are selected at random, find the probability that (a) exactly one is a rookie card or (b) at least one of cards is a rookie card?</p></li>
+<li><p>Three-year-old Emma tears all the labels off the soup cans in the pantry. Her mother remembers that there were 8 cans of vegetable and 2 cans of tomato soup. If she selects 4 cans at random, find the probability that (a) exactly one chosen can is tomato, or (b) both cans of tomato are chosen.</p></li>
+<li><p>To test a quality assurance program, a plant manager sets up a sample of 100 light bulbs, 2 of which are defective. The rest are known to work properly. If quality assurance technicians draw 5 bulbs at random from every lot of 100, what is the probability that the Q&amp;A process will ``catch” at least one of defective bulbs in the test sample?</p></li>
+<li><p>Two cards are drawn from a well-shuffled, standard deck of cards. What is the probability of drawing exactly one spade?</p></li>
+<li><p>A fair coin is tossed 3 times. Find the probability of getting (a) exactly 2 heads, (b) at least 2 heads, and (c) no tails.</p></li>
+<li><p>A pilot is scheduled to fly two missions over hostile territory where his chances of being shot down are <span class="math notranslate nohighlight">\(20\%\)</span>. What is the probability that (a) he flies both missions safely and (b) he gets shot down on one of the missions? (Hint: verify that your probabilities all can actually happen and that they add up to one!)</p></li>
+<li><p>Six red marbles and four blue marbles are placed in an urn. If two are drawn at random with replacement, find the probability that (a) no reds are drawn, (b) at least one blue is drawn, or (c) no blues are drawn.</p></li>
+<li><p>Suppose a marksman hits the bull’s eye 1500 times out of 5000 shots. What is his probability of (a) hitting the bull’s eye 4 times in a row and (b) hitting the bull’s eye at least 2 times out of 4?</p></li>
+<li><p>Jenny has 14 red balloons, 9 blue balloons and 12 green balloons. If Jenny chooses one balloon at random to give to her friend Eva, find the probability of her giving away (a) a red balloon or (b) a blue balloon.</p></li>
+<li><p>A single card is drawn from a well-shuffled, standard deck of cards. What is the probability of not drawing a heart?</p></li>
+<li><p>The first digit of a telephone number cannot be a 0 or a 1. This being the case, what is the probability that randomly selected 7-digit phone number has all seven digits the same?</p></li>
+<li><p>In New York, the lottery has a game called Pick 10. There are 80 numbers from which the state picks 20 and contestants pick 10. If all 10 of a contestant’s numbers are in the list of 20, that contestant is a Big Winner. What is the probability of being a Big Winner?</p></li>
+<li><p>A retailer has a purchase agreement with a DVD manufacturer that says the retailer may sample 5 DVD players from a shipment of 100. If he finds one or more to be defective, he gets the entire shipment free of charge. If only 3 of the DVD players are defective, what is the probability that the retailer gets the shipment free?</p></li>
+<li><p>American Roulette tables have 38 slots numbered 1 – 36, 0 and 00.</p></li>
+<li><p>Eight horses are entered in a race. You randomly predict the complete order of finish. What is the probability that your prediction is correct?</p></li>
+<li><p>Eight horses are entered in a race. You randomly predict the Trifecta, e.g. win-place-show (1st, 2nd and 3rd place, in order). What is the probability that your prediction is correct?</p></li>
+<li><p>A jar contains 3 types of cookies: 9 chocolate chip, 6 peanut butter and 5 oatmeal raisin. If Joe reaches in a grabs 1 at random (because he’s sneaking and afraid he’ll get caught), find the probability of (a) grabbing a chocolate chip cookie, (b) grabbing a peanut butter cookie or (c) grabbing an oatmeal raisin cookie.</p></li>
+<li><p>In a certain Lotto game called 6-49, the player picks 6 numbers out of 49. What is the probability of selecting at least 5 of the correct 6 numbers?</p></li>
+<li><p>Find the probability that, in a group of 8 students, at least two have the same birthday. How many students would be required to ensure there was at least a 50-50 chance of having two people share a birthday?</p></li>
+<li><p>When rolling two fair dice and summing (as in Monopoly or Craps), what is the probability of (a) not rolling a 7, (b) not rolling 5 or higher, and (c) not rolling either a 2 or a 9?</p></li>
+<li><p>The state of Alaska has license plates with 2 letters followed by 3 numbers. In a hit-andrun accident, a nearby motorist noticed that the escaping car’s license plate contained a J and two 4’s. What percent of the total possible Alaskan license plates could have caused the accident?</p></li>
+<li><p>Kelly is a squad leader during FROG week where her squad consists of 3 women and 7 men. If the squad line up at random after push-ups, what is the probability of all 3 women lining up in the first five slots (from left to right).</p></li>
+<li><p>If each letter of the word MISSISSIPPI is written on a card, and one of the cards is drawn at random, find the probability that (a) an S is drawn, (b) an I is drawn or (c) a P is drawn.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -434,12 +514,21 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="P0a.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">50 Counting Questions</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="P1.html"
+       href="P0c.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Probability</p>
+        <p class="prev-next-title">85 More Probability Questions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

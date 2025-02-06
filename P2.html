@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Course Notes: Probability and Statistics &#8212; Probability and Statistics</title>
+    <title>Compound Events &#8212; Probability and Statistics</title>
   
   
   
@@ -62,10 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Probability" href="P1.html" />
+    <link rel="next" title="Independent Events" href="P2a.html" />
+    <link rel="prev" title="Solutions to Exercises" href="P1c.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -117,8 +118,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -138,7 +137,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduction.html">
   
   
   
@@ -165,21 +164,21 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
                     <center> Course Notes: Probability and Statistics </center>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Compound Events</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
 </ul>
@@ -270,7 +269,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P2.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -301,7 +300,7 @@
       
       
       
-      <li><a href="_sources/Introduction.ipynb" target="_blank"
+      <li><a href="_sources/P2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +374,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center> Course Notes: Probability and Statistics </center></h1>
+    <h1>Compound Events</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -389,17 +388,81 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="course-notes-probability-and-statistics">
-<h1><center> Course Notes: Probability and Statistics </center><a class="headerlink" href="#course-notes-probability-and-statistics" title="Link to this heading">#</a></h1>
-<p><strong>Robb Sinn, Spring 2005</strong></p>
-<p><strong>University of North Georgia, MATH 3350</strong></p>
-<p>The pages within this website comprise the course notes for Dr. Sinn’s Probability and Statistics course (MATH 3350) at the University of North Georgia. These notes are used in lieu of a textbook.</p>
-<p>To help us learn probability and statistics concepts, we will be using the software <strong>R</strong> this semester. We can use R in the UNG datahub, free to all students and accessible using your UNG credentials. You may also wish to download Rstudio for your own laptop. Since R is open-source freeware, there is no cost. However, we can always work in <strong>R</strong> using the UNG datahub from any computer, tablet or smartphone (e.g. any device that has a browser and a connection to the internet).</p>
-<p>Your professor will provide the installation details in class, if you wish to use <strong>R</strong>. If students have a working knowledge of <strong>Python</strong>, they will be able to use that as well.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="compound-events">
+<h1>Compound Events<a class="headerlink" href="#compound-events" title="Link to this heading">#</a></h1>
+<p>Many interesting probability questions involve more than one thing happening. Here are two important examples:</p>
+<ul class="simple">
+<li><p>What is the probability that, if we play one round of roullette, the outcome is <em>either</em> red <em>or</em> an even number?</p></li>
+<li><p>What is the probability that a poker pro draws an Ace-King starting hand on <em>both</em> the next hand she plays <em>and</em> the one following that?</p></li>
+</ul>
+<p>One simplistic mantra often heard in high school classrooms is that “OR means ADD and AND means MULTIPLY.” Not so fast. We have some conditions that must be satisfied. Here are more precise statements using set theory:</p>
+<ol class="arabic simple">
+<li><p>For <strong>disjoint</strong> event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(A\text{ or }B)= P(A\cup B)=P(A)+P(B)
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>For <strong>independent</strong> event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(A\text{ and }B)=P(A)P(B)
+\]</div>
+<p>For the second statement, we also often use it for <em>indpendent trials</em> or <em>Bournouli Trials</em>. We’ll discuss details in a moment. Right now, the key idea is that if we have more than one event, we need to know how those events are related to be able to calculate the probability.</p>
+<div class="admonition-example-2 admonition">
+<p class="admonition-title">Example 2</p>
+<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a <span class="math notranslate nohighlight">\(\spadesuit\)</span> or a Queen?</p>
 </div>
-<div class="toctree-wrapper compound">
-</div>
+<figure class="align-default" id="figure-example">
+<a class="reference internal image-reference" href="_images/ProbFig1.PNG"><img alt="_images/ProbFig1.PNG" src="_images/ProbFig1.PNG" style="height: 300px;" /></a>
+</figure>
+<p><strong>Solution.</strong> The probability of drawing a spade is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{13}{52}=\frac{1}{4}
+\]</div>
+<p>and the probability of drawing a Queen is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{4}{52}=\frac{1}{13}
+\]</div>
+<p>But we can’t simply add the two outcomes:</p>
+<div class="math notranslate nohighlight">
+\[P(\text{Q or }\spadesuit)=\frac{16}{52}\neq \frac{13}{52}+\frac{4}{52}=\frac{17}{52}\]</div>
+<p>For event sets, “either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>” usually translates to <span class="math notranslate nohighlight">\(A\cup B\)</span>, while “both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>” indicates <span class="math notranslate nohighlight">\(A\cap B\)</span>. High school students are sometimes taught: “If you see OR, add. But if you see AND, multiply.” Sadly, this is too simplistic and often incorrect. It’s much better to think in terms of sets. Note that:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n(Q)=4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n(S)=13\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n(Q\cap S)=1\)</span></p></li>
+</ul>
+<p>We have two different rules for calculating <span class="math notranslate nohighlight">\(P(\text{A or B})\)</span> depending whether the sets are disjoint:</p>
+<ol class="arabic simple">
+<li><p>For <strong>disjoint</strong> event sets:
+$<span class="math notranslate nohighlight">\(
+P(A\cup B)=P(A)+P(B)
+\)</span>$</p></li>
+<li><p>Otherwise:
+$<span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</span>$</p></li>
+</ol>
+<figure class="align-default" id="figure-example2a">
+<a class="reference internal image-reference" href="_images/ProbFig2a.png"><img alt="_images/ProbFig2a.png" src="_images/ProbFig2a.png" style="height: 300px;" /></a>
+</figure>
+<aside class="sidebar">
+<p class="sidebar-title"><span class="math notranslate nohighlight">\(n(\emptyset)\)</span></p>
+<p>The cardinality of set with no elements is zero.</p>
+</aside>
+<p>Sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <strong>disjoint</strong> provided <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>. Note that when <span class="math notranslate nohighlight">\(A\cap B=\emptyset \)</span>, then by definition <span class="math notranslate nohighlight">\(P(A\cap B)=0\)</span>.</p>
+<p>Consider the probability of drawing one card and getting both an Ace and an 8. The event sets are disjoint because they can never occur simultaneously. For non-disjoint sets, we must find a way to count <span class="math notranslate nohighlight">\(|A\cap B|\)</span>.</p>
+<p>When we have more than two sets, we use an idea called the <strong>principal of inclusion-exclusion</strong>. Use the Venn Diagram above to find all three 2-way intersections. They each get double-counted, so we need to the throw way the extra. As we do, we also end up throwing away the 3-way intersection – three times! We added the 3-way intersection three times, then subtracted it three times, so the final step is to add it back in exactly once. This is shown in the updated figure below.</p>
+<figure class="align-default" id="figure-example2b">
+<a class="reference internal image-reference" href="_images/ProbFig2b.png"><img alt="_images/ProbFig2b.png" src="_images/ProbFig2b.png" style="height: 300px;" /></a>
+</figure>
+<p>For three non-disjoint sets <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span>, it looks like this:</p>
+<div class="math notranslate nohighlight">
+\[P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\]</div>
+<p>The same idea works regardless of how many sets are involved, but the calculations are a bit tedious. In the grand old tradition of math texts, anything tedious is, of course, left to the reader.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -434,12 +497,21 @@
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="P1c.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Solutions to Exercises</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="P1.html"
+       href="P2a.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Probability</p>
+        <p class="prev-next-title">Independent Events</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

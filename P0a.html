@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>50 Counting Questions &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P0a';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="50 Probability Questions" href="P0b.html" />
+    <link rel="prev" title="Excercises" href="P0.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <img src="_static/UNG.logo.png" class="logo__image only-dark pst-js-only" alt="Probability and Statistics - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="P0.html">Excercises</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="S1.html">Exploratory Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P0a.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/P0a.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>50 Counting Questions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas-and-notation">Formulas and Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multinomial-counting-problems">5 Multinomial Counting Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Formulas and Notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problems</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="counting-questions">
+<h1>50 Counting Questions<a class="headerlink" href="#counting-questions" title="Link to this heading">#</a></h1>
+<section id="formulas-and-notation">
+<h2>Formulas and Notation<a class="headerlink" href="#formulas-and-notation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Premutations: <span class="math notranslate nohighlight">\(P(n,k)=\frac{n!}{(n-k)!}\)</span> , the number of ordered ways to permute <span class="math notranslate nohighlight">\(n\)</span> objects into <span class="math notranslate nohighlight">\(k\)</span> bins.</p></li>
+<li><p>Combinations: <span class="math notranslate nohighlight">\(\binom{n}{k}=\frac{n!}{k!(n-k)!}\)</span> , the number of unordered ways to arrange <span class="math notranslate nohighlight">\(n\)</span> objects into <span class="math notranslate nohighlight">\(k\)</span> bins. This notation also refers to the binomial coefficients and is read ``<span class="math notranslate nohighlight">\(n\)</span> choose <span class="math notranslate nohighlight">\(k\)</span>’’.</p></li>
+<li><p>Cardinality Operator: <span class="math notranslate nohighlight">\(n(S)\)</span> , counts the (possibly infinite) number elements in set <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+<li><p>We will use “word’’ to refer to all possible distinct orderings of a group of letters without concern for whether or not these orderings would appear in a dictionary.</p></li>
+</ul>
+</section>
+<section id="problems">
+<h2>Problems<a class="headerlink" href="#problems" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>There are <span class="math notranslate nohighlight">\(16\)</span> students in the Math club. How many different ways could they select a president, vice president and treasurer for the club?</p></li>
+<li><p>A website requires the user to choose a password with <span class="math notranslate nohighlight">\(5\)</span> letters and <span class="math notranslate nohighlight">\(2\)</span> numbers in that order. Each letter or digit may be used only once. How many different passwords are possible? How does this change if <span class="math notranslate nohighlight">\(5\)</span> letters and <span class="math notranslate nohighlight">\(2\)</span> numbers may be used in any order?</p></li>
+<li><p>The name of <span class="math notranslate nohighlight">\(11\)</span> students are placed in a hat. A teacher will reach into the hat and select <span class="math notranslate nohighlight">\(3\)</span> names at one time. Each of those <span class="math notranslate nohighlight">\(3\)</span> students will win the same prize. How many different groups of <span class="math notranslate nohighlight">\(3\)</span> winners could be chosen?</p></li>
+<li><p>In how many ways can a sorority of <span class="math notranslate nohighlight">\(20\)</span> members select a president, vice president and treasury, assuming that the same person cannot hold more than one office?</p></li>
+<li><p>Out of <span class="math notranslate nohighlight">\(7\)</span> consonants and <span class="math notranslate nohighlight">\(4\)</span> vowels, how many “words” of <span class="math notranslate nohighlight">\(3\)</span> consonants and <span class="math notranslate nohighlight">\(2\)</span> vowels can be formed?</p></li>
+<li><p>A license plate is to consist of three letters followed by two digits. How many different license plates are possible if the first letter must be a vowel (a, e, i, o, u), and repetition of letters is not permitted, but repetition of digits is permitted?</p></li>
+<li><p>A teacher is making a multiple-choice quiz.  She wants to give each student the same questions, but have each student’s questions appear in a different order.  If there are twenty-seven students in the class, what is the least number of questions the quiz must contain?</p></li>
+<li><p>How many <span class="math notranslate nohighlight">\(10\)</span> digit numbers can be formed using <span class="math notranslate nohighlight">\(3\)</span> and <span class="math notranslate nohighlight">\(7\)</span> only?</p></li>
+<li><p>Everyone shakes hands with everyone else in a room. Total number of handshakes is 66. What is the total number of people in the room?</p></li>
+<li><p>In a college football training session, the defensive coordinator needs to have 10 players standing in a row.  Among these <span class="math notranslate nohighlight">\(10\)</span> players, there is a freshmen, <span class="math notranslate nohighlight">\(2\)</span> sophomores, <span class="math notranslate nohighlight">\(4\)</span> juniors, and <span class="math notranslate nohighlight">\(3\)</span> seniors, respectively.  How many different ways can they be arranged in a row if only their class level will be distinguished?</p></li>
+<li><p>In one year, three awards (research, teaching, and service) will be given for a class of <span class="math notranslate nohighlight">\(25\)</span> graduate students in a statistics department.  If each student can receive at most one award, how many possible selections are there?</p></li>
+<li><p>A president and a treasurer are to be chosen from a student club consisting of 50 people. How many different choices of officers are possible if the first chosen will be president?</p></li>
+<li><p>A developer of a new subdivision offers a prospective home buyer a choice of 4 designs, 3 different heating systems, a garage or carport, and a patio or screened porch.  How many different plans are available to this buyer?</p></li>
+<li><p>In how many different ways can a true-false test consisting of 8 questions be answered?</p></li>
+<li><p>Find the number of ways to arrange <span class="math notranslate nohighlight">\(16\)</span> items in groups of <span class="math notranslate nohighlight">\(4\)</span> at a time (order matters).</p></li>
+<li><p>Find the number of ways to take <span class="math notranslate nohighlight">\(20\)</span> objects and arrange them in groups of <span class="math notranslate nohighlight">\(5\)</span> at a time where order does not matter?</p></li>
+<li><p>How many ways are there to select a subcommittee of <span class="math notranslate nohighlight">\(7\)</span> members from among a committee of <span class="math notranslate nohighlight">\(17\)</span>?</p></li>
+<li><p>How many ways are there to have a license plate with <span class="math notranslate nohighlight">\(3\)</span> letters followed by <span class="math notranslate nohighlight">\(4\)</span> numbers in which the <span class="math notranslate nohighlight">\(4\)</span> numbers are listed from least to greatest (examples: <span class="math notranslate nohighlight">\(1234\)</span> or <span class="math notranslate nohighlight">\(0569\)</span>)?</p></li>
+<li><p>How many full house combinations are there in 5-card poker?</p></li>
+<li><p>From a group of <span class="math notranslate nohighlight">\(7\)</span> men and <span class="math notranslate nohighlight">\(6\)</span> women, five persons are to be selected to form a committee so that at least <span class="math notranslate nohighlight">\(3\)</span> men sit on the committee. In how many ways can it be done?</p></li>
+<li><p>In how many different ways can the letters of the word ‘LEADING’ be arranged in such a way that the vowels are together?</p></li>
+<li><p>Ten people go to a party. How many different ways can they be seated at a round table?</p></li>
+<li><p>There are <span class="math notranslate nohighlight">\(10\)</span> marbles in a bag numbered from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(10\)</span>. Three marbles are selected at random without replacement. How many different ways are there of selecting the three marbles?</p></li>
+<li><p>How many ways can I give 3 tin cans to 8 people if each person receives at most one can?</p></li>
+<li><p>An identification code is to consist of seven letters followed by three digits. How many different codes are possible if repetition is permitted?</p></li>
+<li><p>An 8-bit binary word is a sequence of 8 digits, of which each may be either a 0 or a 1. How many different 8-bit words are there?</p></li>
+<li><p>Jane and Thomas are among the 8 people from which a committee of 4 people is to be selected.  How many different possible committees of 4 people can be selected from these 8 people if at least one of either Jane or Thomas is to be selected?</p></li>
+<li><p>Georgia license plates consist of three letters followed four numbers. How many license plate combinations are possible if the license plate contains no vowels (A, E, I, O, U, or Y) nor contains the number 5.</p></li>
+<li><p>A company issues a questionnaire whereby each employee must rank the 5 items with which he or she is most satisfied.  The items are wages, work environment, vacation time, job security, supervisors, health insurance, break time, and retirement plan. The ranking is to be indicated by the numbers 1, 2, 3, 4 and 5, where 1 indicates the item involving the greatest satisfaction and 5 the least. In how many ways can an employee answer this questionnaire?</p></li>
+<li><p>A keypad lock has 10 different digits, and a sequence of 5 different digits must be selected for the lock to open.  How many key pad combinations are possible?</p></li>
+<li><p>There are five women and six men in a group. From this group a committee of 4 is to be chosen. How many different ways can a committee be formed that contain three women and one man?</p></li>
+<li><p>How many 1 pair combinations are there in a standard deck of 52 cards?</p></li>
+<li><p>A class of 30 students enter a room with 40 desks. How many different ways can those students be seated?</p></li>
+<li><p>If a school has lockers with 50 numbers on each combination lock, how many possible combinations using three numbers are there?</p></li>
+<li><p>Out of 7 consonants and 4 vowels, how many words of 3 consonants and 2 vowels can be formed?</p></li>
+<li><p>There are 6 boxes numbered 1, 2, … 6. Each box is to be filled up either with a red or a green marble in such a way that at least 1 box contains a green marble and the boxes containing green marbles are consecutively numbered. The total number of ways in which this can be done is?</p></li>
+<li><p>How many integers, greater than <span class="math notranslate nohighlight">\(999\)</span> but not greater than <span class="math notranslate nohighlight">\(4000\)</span>, can be formed with the digits <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(3\)</span> and <span class="math notranslate nohighlight">\(4\)</span> if repetition of digits is allowed?</p></li>
+<li><p>If a license plate has exactly <span class="math notranslate nohighlight">\(3\)</span> letters and <span class="math notranslate nohighlight">\(4\)</span> digits, how many license plates are possible if there must be exactly one vowel (excluding Y) and one <span class="math notranslate nohighlight">\(7\)</span> in the sequence?</p></li>
+<li><p>Proteins are made up of chains of amino acids. Insulin is a relatively small protein with <span class="math notranslate nohighlight">\(53\)</span> amino acid residues. How many possible proteins of length <span class="math notranslate nohighlight">\(53\)</span> can be made with <span class="math notranslate nohighlight">\(20\)</span> possible amino acids for each position in the protein?</p></li>
+<li><p>We wish to know how many color combinations can be made from four different colored marbles if we use only three marbles at a time. The marbles are colored red, green, white, and yellow.</p></li>
+<li><p>Two girls and their dates go to the drive-in, and each wants a different flavored ice cream cone. The drive-in has 24 flavors of ice cream. How many combinations of flavors may be chosen among the four of them if each one selects one flavor?</p></li>
+<li><p>We want to paint three rooms in a house, each a different color, and we may choose from seven different colors of paint. How many color combinations are possible for the three rooms?</p></li>
+<li><p>Find the number of ways to take 10 people and place them in 3 groups of 3 where order does not matter.</p></li>
+<li><p>Find the number of ways to take 20 objects and arrange them in groups of 5 at a time where order does not matter.</p></li>
+<li><p>Find the number of ways to arrange 5 objects that are chosen from a set of 7 different objects given that order matters.</p></li>
+<li><p>What is the total number of possible 5-letter arrangements of the letters  WHITE  if each letter is used exactly once?</p></li>
+<li><p>How many different 3-digit numerals can be made from the digits <span class="math notranslate nohighlight">\(\{4,5,6,7,8\}\)</span> if a digit can appear just once in a numeral?</p></li>
+<li><p>We wish to know how many color combinations can be made from four different colored marbles if we use only three marbles at a time. The marbles are colored red, green, white, and yellow.</p></li>
+<li><p>At the pizza place, there are 8 toppings that you can put on your pizza. If you can order any number of those 8 toppings, then how many different toppings could you possibly order?</p></li>
+</ol>
+</section>
+<section id="multinomial-counting-problems">
+<h2>5 Multinomial Counting Problems<a class="headerlink" href="#multinomial-counting-problems" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Formulas and Notation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Multinomial Coefficients: <span class="math notranslate nohighlight">\(\binom{n}{k_1,k_2,\dots,k_m}=\frac{n!}{k_1!k_2!\cdots k_m!}\)</span> , given unordered groups of sizes <span class="math notranslate nohighlight">\({k_1,k_2,\dots,k_n}\)</span> such that <span class="math notranslate nohighlight">\(\sum k_i=n\)</span>, the multinomial coefficient gives the number ways to arrange <span class="math notranslate nohighlight">\(n\)</span> objects into these groups.</p></li>
+<li><p>If this is confusing, a string of binomial coefficients can be used instead, choosing each group one at a time rather than choosing all the groups at once.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Problems<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Ten consultants will be divided into three teams of three and leader. How many different possibilities for the team configurations exist?</p></li>
+<li><p>A teacher divides a class of 20 students into five teams of 4. How many different possibilities exist?</p></li>
+<li><p>A teacher divides a class of 20 students into four teams of 5. How many different possibilities exist? Compare this to your answer to the previous question. Are there more or fewer possibilities than before?</p></li>
+<li><p>A dormitory hallway of 25 girls is selecting several groups to host socials. They need two groups of 4 girls, two groups of 3 girls, two groups of 2 girls and a group of 7 girls for the semester finale. How many possibilities exist?</p></li>
+<li><p>Compare the expressions. Calculate the total number of unique orderings of the letters DREADED. Then calculate the number of ways seven boys can be divided up into a team of 3, a team of 2 and a pair of boys to not be on either team.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="P0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Excercises</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="P0b.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">50 Probability Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulas-and-notation">Formulas and Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems">Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multinomial-counting-problems">5 Multinomial Counting Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Formulas and Notation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Problems</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
