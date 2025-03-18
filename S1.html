@@ -208,6 +208,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Basics of Statistics and R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling and Sampling Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions</a></li>
 </ul>
 </li>
 </ul>
@@ -393,7 +400,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-into-a-vector-manually">Loading Data into a Vector Manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-in-r">Output in R</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data-and-grouping-by-category">Subsetting Data and Grouping by Category</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-tables">Pivot Tables</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -463,7 +482,9 @@ document.write(`
     <td style='text-align:center; vertical-align:middle'>3</td>
     <td style='text-align:center; vertical-align:middle'>1</td>
   </tr>
-</table><p>We use the concatenate function <strong>c</strong> to create the vector of integers needed as shown below:</p>
+</table><section id="loading-data-into-a-vector-manually">
+<h3>Loading Data into a Vector Manually<a class="headerlink" href="#loading-data-into-a-vector-manually" title="Permalink to this heading">#</a></h3>
+<p>We use the concatenate function <strong>c</strong> to create the vector of integers. <strong>Concatenate</strong> means to join together, and most computer programming languages have a function that does almost exactly what <strong>c</strong> does as shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">-38</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">-19</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="p">,</span><span class="w"> </span><span class="m">-14</span><span class="p">,</span><span class="w"> </span><span class="m">-30</span><span class="p">,</span><span class="w"> </span><span class="m">-16</span><span class="p">,</span><span class="w"> </span><span class="m">-25</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">-79</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">)</span>
@@ -471,33 +492,44 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="descriptive-statistics">
+<h2>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h2>
+<p>The <em>mean</em>, <em>standard deviation</em>, and <em>sample size</em> (<span class="math notranslate nohighlight">\(n\)</span>) are the key descriptives because almost every statistical test is calculated based upon them. We also will typically include the <strong>5-Number Summary</strong> as it will help us especially when we have a skewed data set. The functions we will use to gather the key descriptives are as follows:</p>
+<ul class="simple">
+<li><p>Average: <strong>mean()</strong></p></li>
+<li><p>Standard Deviation: <strong>sd()</strong></p></li>
+<li><p>Sample Size: <strong>length()</strong></p></li>
+</ul>
+<p>For the 5-Number Summary, we use the function <strong>summary()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="output-in-r">
+<h3>Output in R<a class="headerlink" href="#output-in-r" title="Permalink to this heading">#</a></h3>
+<p>Often, we wish to summarize and organize output, and the function <strong>cat()</strong> helps us to do so. The <em>cat</em> function is a hybrid of the concatenate function and print function. Thus, we can join together strings of text, outputs of variables and even calculations as needed.</p>
+<p>The example below is a code cell we will copy, paste and reuse throughout the course.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat </span><span class="p">(</span><span class="s">&quot;For this data, we have: \nmean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\nstandard deviation =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="s">&quot;\n\nThe five number summary is shown below.&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat </span><span class="p">(</span><span class="s">&quot;Descriptive Statistics: \n  mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n  standard deviation =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n  sample size =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="s">&quot;\n\nThe 5-number summary is shown below.&quot;</span><span class="p">)</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For this data, we have: 
-mean = 2 
-standard deviation = 30.57347 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics: 
+  mean = 2 
+  standard deviation = 30.57347 
+  sample size = 20 
 
-The five number summary is shown below.
+The 5-number summary is shown below.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -506,6 +538,7 @@ The five number summary is shown below.
 </div>
 </div>
 </div>
+<p>The most interesting point of analysis we can see already is that the mean is a good bit lower than the median. This can and often does indicate skew and a potential for outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
@@ -516,6 +549,130 @@ The five number summary is shown below.
 <img alt="_images/e2e5d067926da8d784c533c2f166e0f450cce4ec8db8a3be970d3ee2f51c2155.png" src="_images/e2e5d067926da8d784c533c2f166e0f450cce4ec8db8a3be970d3ee2f51c2155.png" />
 </div>
 </div>
+<p>The histogram confirms the skew to the left that we identified above. The distribution appears to be approximately normal (or bell-shaped) and skewed left. The tail to the left comprises 4 bars while the tail to the right comprises only 2. The direction of skew, if any, is in the same direction as the longest tail in the histogram.</p>
+</section>
+</section>
+<section id="subsetting-data-and-grouping-by-category">
+<h2>Subsetting Data and Grouping by Category<a class="headerlink" href="#subsetting-data-and-grouping-by-category" title="Permalink to this heading">#</a></h2>
+<p>First, let’s load a data frame from an Excel spreadsheet using the URL. We will call the data frame <strong>p</strong> as it contains the personality data set collected pursuant to an undergraduate research project on sense of humor. Notice that we use <strong>read.csv()</strong> for the upload and the function <strong>head()</strong> to summarize the data frame by showing only its top five rows. Many data frames will be far to large to print out completely.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
+<tbody>
+	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td><td>... </td><td>105 </td><td>10  </td><td>142 </td><td> 8  </td><td>11  </td><td>41  </td><td>40  </td><td>26  </td><td>27  </td><td>SE  </td></tr>
+	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
+	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td><td>... </td><td> 73 </td><td> 1  </td><td>134 </td><td>15  </td><td>11  </td><td>48  </td><td>42  </td><td>44  </td><td>29  </td><td>AG  </td></tr>
+	<tr><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td><td>... </td><td> 90 </td><td> 9  </td><td>160 </td><td>16  </td><td>10  </td><td>51  </td><td>51  </td><td>23  </td><td>19  </td><td>SE  </td></tr>
+	<tr><td>24  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>2.39</td><td>... </td><td> 95 </td><td> 5  </td><td>166 </td><td>14  </td><td>10  </td><td>56  </td><td>46  </td><td>27  </td><td>20  </td><td>AF  </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We have a quick way to determine the size of the data frame using the functions <strong>nrows()</strong> and <strong>ncols()</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">nrow</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nf">ncol</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">129</div><div class="output text_html">36</div></div>
+</div>
+<p>In this data set, we had 129 UNG Dahlonega students answer questions that comprised 36 variables. Most data frames are constructed in a similar way: columns are variables and rows are the individuals that were studied. Note that, by individuals, we might mean house prices, lab rats, or the fuel mileage of vehicles.</p>
+<section id="subsetting-a-data-frame">
+<h3>Subsetting a Data Frame<a class="headerlink" href="#subsetting-a-data-frame" title="Permalink to this heading">#</a></h3>
+<p>To create a new data frame that contains only the first 10 columns of <strong>p</strong>, we can do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">new_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th></tr></thead>
+<tbody>
+	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td></tr>
+	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td></tr>
+	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td></tr>
+	<tr><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td></tr>
+	<tr><td>24  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>2.39</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Notice that <span class="math notranslate nohighlight">\(n:k\)</span> is a command in R that produces all integers from <span class="math notranslate nohighlight">\(n\)</span> to <span class="math notranslate nohighlight">\(k\)</span> inclusive. The [] indicates that we wish to create a subset of the data frame named. We can use the <em>concatenate</em> function to list non-adjacent column numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new2_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">27</span><span class="p">,</span><span class="w"> </span><span class="m">31</span><span class="p">)]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">new2_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>AccDate</th><th scope=col>Thrill</th><th scope=col>Perf</th><th scope=col>Narc</th></tr></thead>
+<tbody>
+	<tr><td>21 </td><td>2  </td><td>M  </td><td>N  </td><td>23 </td><td>105</td><td>11 </td></tr>
+	<tr><td>20 </td><td>3  </td><td>F  </td><td>Y  </td><td>25 </td><td>105</td><td>11 </td></tr>
+	<tr><td>22 </td><td>3  </td><td>M  </td><td>Y  </td><td>27 </td><td> 73</td><td>11 </td></tr>
+	<tr><td>27 </td><td>3  </td><td>F  </td><td>N  </td><td>21 </td><td> 90</td><td>10 </td></tr>
+	<tr><td>24 </td><td>3  </td><td>M  </td><td>N  </td><td>30 </td><td> 95</td><td>10 </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>In a similar way, we can use the concatenate function along with column titles which must be within quotation marks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new3_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Sex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Thrill&#39;</span><span class="p">)]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">new3_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Sex</th><th scope=col>Thrill</th></tr></thead>
+<tbody>
+	<tr><td>M </td><td>23</td></tr>
+	<tr><td>F </td><td>25</td></tr>
+	<tr><td>M </td><td>27</td></tr>
+	<tr><td>F </td><td>21</td></tr>
+	<tr><td>M </td><td>30</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="pivot-tables">
+<h3>Pivot Tables<a class="headerlink" href="#pivot-tables" title="Permalink to this heading">#</a></h3>
+<p>We also have a quick ways to summarize 2 category variables in a 2-way table or pivot table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">Sex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">AccDate</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   AccDate
+Sex  N  Y
+  F 28 46
+  M 28 27
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will talk more later in these notes about statistical formulas and what they convey.</p>
+</section>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -584,7 +741,19 @@ The five number summary is shown below.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-into-a-vector-manually">Loading Data into a Vector Manually</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-in-r">Output in R</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data-and-grouping-by-category">Subsetting Data and Grouping by Category</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-tables">Pivot Tables</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
