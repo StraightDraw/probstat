@@ -33,6 +33,12 @@ parts:
     - file: S1
       sections:
       - file: S1a
+      - file: S1b
+      - file: S1c
+    - file: S2
+      sections:
+      - file: S2a
+      - file: S2b
   - caption: Appendix
     chapters:
     - file: A1

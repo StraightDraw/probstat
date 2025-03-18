@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'S1a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Poker Primer" href="A1.html" />
+    <link rel="next" title="Statistical Formulas" href="S1b.html" />
     <link rel="prev" title="Basics of Statistics and R" href="S1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -208,6 +208,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
 </ul>
@@ -562,7 +564,7 @@ The 5-number summary is shown below.
 <p>In this example, because the mean is significantly less than the median, we anticipate skew to the left and outliers, if present, to be on the left, which brings up the second detail one should notice. There is a much longer tail to the left shown the Five Number Summary. The Lower Quartile spans the interval <span class="math notranslate nohighlight">\((−79,−17.5)\)</span> or more than <span class="math notranslate nohighlight">\(60\)</span> units. The upper Quartile spans only <span class="math notranslate nohighlight">\((23,43)\)</span> or <span class="math notranslate nohighlight">\(20\)</span> units. This indicates likely skew to left since the lower Quartile range is much larger and hence has more room for outliers.</p>
 <section id="standard-deviation-and-outliers">
 <h3>Standard Deviation and Outliers<a class="headerlink" href="#standard-deviation-and-outliers" title="Permalink to this heading">#</a></h3>
-<p>The standard deviation can be thought of as a distance metric specific to the data set. Let’s take a moment to discover why. Given the data set <span class="math notranslate nohighlight">\(X={1,2,3,6}\)</span>, we have <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(\bar x=3\)</span>. For any data point, say, <span class="math notranslate nohighlight">\(x_1=1\)</span>, we can compute the directional distance (or deviation) from the mean:$<span class="math notranslate nohighlight">\(d_i = x_i - \bar x\)</span>$</p>
+<p>The standard deviation can be thought of as a distance metric specific to the data set. Let’s take a moment to discover why. Given the data set <span class="math notranslate nohighlight">\(X=\{1,2,3,6\}\)</span>, we have <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(\bar x=3\)</span>. For any data point, say, <span class="math notranslate nohighlight">\(x_1=1\)</span>, we can compute the directional distance or <strong>deviation</strong> from the mean:$<span class="math notranslate nohighlight">\(d_i = x_i - \bar x\)</span>$</p>
 <p>For this example, we have $<span class="math notranslate nohighlight">\(d_1 = 1 -3 = -2\)</span>$</p>
 <p>For deviations where <span class="math notranslate nohighlight">\(x_i&lt;x\)</span> (below average), then <span class="math notranslate nohighlight">\(d_i&lt;0\)</span>, e.g. a negative deviation. Positive deviations indicate data points that are above average. If we treat the data set <span class="math notranslate nohighlight">\(X\)</span> as a column vector <span class="math notranslate nohighlight">\(\vec x\)</span> and calculate the deviation for each component, we have the deviation vector:
 $<span class="math notranslate nohighlight">\(\vec{d_x} = \left(\begin{array}{c}x_1 - \bar x \\x_2 - \bar x \\ \vdots \\ x_n - \bar x \\ \end{array}\right)\)</span>$</p>
@@ -620,11 +622,11 @@ $<span class="math notranslate nohighlight">\(\vec{d_x} = \left(\begin{array}{c}
       </div>
     </a>
     <a class="right-next"
-       href="A1.html"
+       href="S1b.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Poker Primer</p>
+        <p class="prev-next-title">Statistical Formulas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
