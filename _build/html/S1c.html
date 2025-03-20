@@ -481,13 +481,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 9
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 12
 attr(,&quot;n&quot;)
 [1] 20
 attr(,&quot;prob&quot;)
 [1] 0.5
 attr(,&quot;sequence&quot;)
- [1] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+ [1] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot;
 [20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
 [1] TRUE
@@ -505,12 +505,12 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">9</div></div>
+<div class="output text_html">10</div></div>
 </div>
 <p>What if the probability of success is different than 50%? We can use the <em>prob =</em> option to set the correct value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -521,17 +521,17 @@ attr(,&quot;n&quot;)
 attr(,&quot;prob&quot;)
 [1] 0.1666667
 attr(,&quot;sequence&quot;)
- [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
-[20] &quot;H&quot;
+ [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot;
+[20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
-[1] FALSE
+[1] TRUE
 attr(,&quot;class&quot;)
 [1] &quot;cointoss&quot;
 </pre></div>
 </div>
 </div>
 </div>
-<p>The function <strong>rflip()</strong> will organize the results for us in a dataframe if we set the option <em>summarize = TRUE</em>.</p>
+<p>The function <strong>rflip()</strong> will organize the results attractively for us in an dataframe if we set the option <em>summarize = TRUE</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
@@ -587,7 +587,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>Red</th><th scope=col>Blue</th><th scope=col>Green</th></tr></thead>
 <tbody>
-	<tr><td>4 </td><td>6 </td><td>10</td></tr>
+	<tr><td>4</td><td>8</td><td>8</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -602,7 +602,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>Red</th><th scope=col>Blue</th><th scope=col>Green</th><th scope=col>Purple</th></tr></thead>
 <tbody>
-	<tr><td>4 </td><td>4 </td><td>13</td><td>9 </td></tr>
+	<tr><td>3 </td><td>7 </td><td>6 </td><td>14</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -620,7 +620,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>Purple</th><th scope=col>White</th></tr></thead>
 <tbody>
-	<tr><td>311</td><td>89 </td></tr>
+	<tr><td>295</td><td>105</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -667,7 +667,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>Round Yellow</th><th scope=col>Round Green</th><th scope=col>Wrinkled Yellow</th><th scope=col>Wrinkled Green</th></tr></thead>
 <tbody>
-	<tr><td>228</td><td>78 </td><td>72 </td><td>22 </td></tr>
+	<tr><td>215</td><td>84 </td><td>77 </td><td>24 </td></tr>
 </tbody>
 </table>
 </div></div>
@@ -678,6 +678,8 @@ attr(,&quot;class&quot;)
 <h2>The <strong>sample.data.frame()</strong> Function<a class="headerlink" href="#the-sample-data-frame-function" title="Permalink to this heading">#</a></h2>
 <p>We often wish to generate a random sample of rows from a dataframe, and <strong>sample.date.frame</strong> helps us to do so quickly.</p>
 <ul class="simple">
+<li><p><strong>x</strong> – dataframe to sample from</p></li>
+<li><p><strong>size</strong> – sample size to draw</p></li>
 <li><p><strong>groups</strong> – a vector (or variable in a data frame) specifying groups to sample within.</p></li>
 <li><p><strong>orig.ids</strong> – a logical; should original ids be included in returned data frame?</p></li>
 <li><p><strong>\dots</strong> – additional arguments passed to <em>base::sample()</em>.</p></li>
@@ -696,7 +698,7 @@ attr(,&quot;class&quot;)
 <span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="w">  </span><span class="n">ids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span>
 <span class="w">  </span><span class="n">groups</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="w"> </span><span class="nf">substitute</span><span class="p">(</span><span class="n">groups</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>
-<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
+<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
 <span class="w">  </span><span class="n">origids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="n">newids</span><span class="p">]</span>
 <span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
 <span class="w">  </span>
@@ -717,6 +719,105 @@ attr(,&quot;class&quot;)
 </pre></div>
 </div>
 </div>
+</div>
+<p>Let’s load some data to do some examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
+<tbody>
+	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td><td>... </td><td>105 </td><td>10  </td><td>142 </td><td> 8  </td><td>11  </td><td>41  </td><td>40  </td><td>26  </td><td>27  </td><td>SE  </td></tr>
+	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
+	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td><td>... </td><td> 73 </td><td> 1  </td><td>134 </td><td>15  </td><td>11  </td><td>48  </td><td>42  </td><td>44  </td><td>29  </td><td>AG  </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>The example below shows how to draw a random sample of size <span class="math notranslate nohighlight">\(n = 25\)</span> from the personality data frame.</strong> The row ID numbers have been included so you can see which rows were selected. Rerun the command, and you will see that a new sample with different rows will be drawn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th><th scope=col>orig.id</th></tr></thead>
+<tbody>
+	<tr><th scope=row>107</th><td>19  </td><td>1   </td><td>M   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td> 5  </td><td>104 </td><td> 3  </td><td> 2  </td><td>42  </td><td>27  </td><td>19  </td><td>36  </td><td>SD  </td><td>107 </td></tr>
+	<tr><th scope=row>82</th><td>20  </td><td>2   </td><td>M   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.40</td><td>... </td><td> 0  </td><td>146 </td><td>15  </td><td> 4  </td><td>46  </td><td>44  </td><td>40  </td><td>36  </td><td>AG  </td><td>82  </td></tr>
+	<tr><th scope=row>109</th><td>20  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.23</td><td>... </td><td> 3  </td><td>132 </td><td> 2  </td><td> 2  </td><td>41  </td><td>36  </td><td>30  </td><td>29  </td><td>AG  </td><td>109 </td></tr>
+	<tr><th scope=row>2</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td><td>2   </td></tr>
+	<tr><th scope=row>69</th><td>20  </td><td>4   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.95</td><td>... </td><td>12  </td><td>136 </td><td> 3  </td><td> 4  </td><td>54  </td><td>41  </td><td>44  </td><td>44  </td><td>AG  </td><td>69  </td></tr>
+	<tr><th scope=row>47</th><td>20  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.90</td><td>... </td><td> 7  </td><td>170 </td><td>12  </td><td> 6  </td><td>53  </td><td>42  </td><td>37  </td><td>26  </td><td>AF  </td><td>47  </td></tr>
+	<tr><th scope=row>110</th><td>22  </td><td>4   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.87</td><td>... </td><td>17  </td><td>129 </td><td> 6  </td><td> 1  </td><td>44  </td><td>45  </td><td>22  </td><td>30  </td><td>SE  </td><td>110 </td></tr>
+	<tr><th scope=row>83</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>3   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.95</td><td>... </td><td>20  </td><td>164 </td><td> 8  </td><td> 3  </td><td>32  </td><td>32  </td><td>32  </td><td>32  </td><td>AG  </td><td>83  </td></tr>
+	<tr><th scope=row>51</th><td>20  </td><td>3   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td> 5  </td><td>143 </td><td> 6  </td><td> 6  </td><td>42  </td><td>48  </td><td>30  </td><td>40  </td><td>SE  </td><td>51  </td></tr>
+	<tr><th scope=row>93</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.58</td><td>... </td><td> 6  </td><td>143 </td><td> 6  </td><td> 3  </td><td>42  </td><td>48  </td><td>29  </td><td>38  </td><td>SE  </td><td>93  </td></tr>
+	<tr><th scope=row>111</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.19</td><td>... </td><td>14  </td><td>141 </td><td> 2  </td><td> 1  </td><td>36  </td><td>28  </td><td>34  </td><td>28  </td><td>AG  </td><td>111 </td></tr>
+	<tr><th scope=row>72</th><td>22  </td><td>4   </td><td>M   </td><td>Y   </td><td>Y   </td><td>3   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.42</td><td>... </td><td> 9  </td><td>124 </td><td> 6  </td><td> 4  </td><td>50  </td><td>42  </td><td>37  </td><td>34  </td><td>AG  </td><td>72  </td></tr>
+	<tr><th scope=row>105</th><td>23  </td><td>1   </td><td>F   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.20</td><td>... </td><td> 6  </td><td> 98 </td><td> 7  </td><td> 2  </td><td>31  </td><td>36  </td><td>21  </td><td>19  </td><td>SE  </td><td>105 </td></tr>
+	<tr><th scope=row>16</th><td>23  </td><td>4   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.49</td><td>... </td><td>13  </td><td>123 </td><td> 7  </td><td> 8  </td><td>50  </td><td>44  </td><td>39  </td><td>25  </td><td>AG  </td><td>16  </td></tr>
+	<tr><th scope=row>27</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>N   </td><td>2.50</td><td>... </td><td>11  </td><td>136 </td><td>15  </td><td> 7  </td><td>47  </td><td>45  </td><td>40  </td><td>47  </td><td>SD  </td><td>27  </td></tr>
+	<tr><th scope=row>32</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.33</td><td>... </td><td> 4  </td><td>133 </td><td>12  </td><td> 7  </td><td>39  </td><td>32  </td><td>29  </td><td>29  </td><td>AG  </td><td>32  </td></tr>
+	<tr><th scope=row>39</th><td>20  </td><td>2   </td><td>F   </td><td>N   </td><td>Y   </td><td>1   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.16</td><td>... </td><td>11  </td><td>166 </td><td> 7  </td><td> 6  </td><td>56  </td><td>55  </td><td>24  </td><td>17  </td><td>SE  </td><td>39  </td></tr>
+	<tr><th scope=row>33</th><td>19  </td><td>2   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.08</td><td>... </td><td> 3  </td><td>147 </td><td>11  </td><td> 7  </td><td>44  </td><td>50  </td><td>40  </td><td>30  </td><td>AG  </td><td>33  </td></tr>
+	<tr><th scope=row>118</th><td>20  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.50</td><td>... </td><td> 8  </td><td>146 </td><td> 4  </td><td> 1  </td><td>38  </td><td>37  </td><td>25  </td><td>30  </td><td>SD  </td><td>118 </td></tr>
+	<tr><th scope=row>99</th><td>18  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.84</td><td>... </td><td>13  </td><td>158 </td><td>13  </td><td> 2  </td><td>49  </td><td>46  </td><td>34  </td><td>23  </td><td>SE  </td><td>99  </td></tr>
+	<tr><th scope=row>19</th><td>20  </td><td>3   </td><td>M   </td><td>N   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>Y   </td><td>3.68</td><td>... </td><td>11  </td><td>133 </td><td> 8  </td><td> 8  </td><td>30  </td><td>32  </td><td>34  </td><td>34  </td><td>AG  </td><td>19  </td></tr>
+	<tr><th scope=row>29</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.40</td><td>... </td><td> 8  </td><td>112 </td><td>13  </td><td> 7  </td><td>48  </td><td>34  </td><td>43  </td><td>40  </td><td>AG  </td><td>29  </td></tr>
+	<tr><th scope=row>112</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.50</td><td>... </td><td>13  </td><td>140 </td><td> 3  </td><td> 1  </td><td>38  </td><td>28  </td><td>25  </td><td>24  </td><td>AG  </td><td>112 </td></tr>
+	<tr><th scope=row>61</th><td>17  </td><td>1   </td><td>M   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>3.72</td><td>... </td><td> 5  </td><td>130 </td><td>14  </td><td> 5  </td><td>48  </td><td>47  </td><td>32  </td><td>24  </td><td>SE  </td><td>61  </td></tr>
+	<tr><th scope=row>54</th><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.26</td><td>... </td><td>13  </td><td>125 </td><td> 3  </td><td> 5  </td><td>44  </td><td>55  </td><td>22  </td><td>20  </td><td>SE  </td><td>54  </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>The example below shows how to draw a random sample of size <span class="math notranslate nohighlight">\(n = 25\)</span> from the narcissism column of the personality data frame.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Narc&#39;</span><span class="p">],</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Narc</th></tr></thead>
+<tbody>
+	<tr><th scope=row>50</th><td>6</td></tr>
+	<tr><th scope=row>8</th><td>9</td></tr>
+	<tr><th scope=row>57</th><td>5</td></tr>
+	<tr><th scope=row>71</th><td>4</td></tr>
+	<tr><th scope=row>7</th><td>9</td></tr>
+	<tr><th scope=row>117</th><td>1</td></tr>
+	<tr><th scope=row>92</th><td>3</td></tr>
+	<tr><th scope=row>24</th><td>7</td></tr>
+	<tr><th scope=row>125</th><td>0</td></tr>
+	<tr><th scope=row>94</th><td>3</td></tr>
+	<tr><th scope=row>14</th><td>8</td></tr>
+	<tr><th scope=row>73</th><td>4</td></tr>
+	<tr><th scope=row>16</th><td>8</td></tr>
+	<tr><th scope=row>48</th><td>6</td></tr>
+	<tr><th scope=row>118</th><td>1</td></tr>
+	<tr><th scope=row>33</th><td>7</td></tr>
+	<tr><th scope=row>90</th><td>3</td></tr>
+	<tr><th scope=row>122</th><td>1</td></tr>
+	<tr><th scope=row>101</th><td>2</td></tr>
+	<tr><th scope=row>30</th><td>7</td></tr>
+	<tr><th scope=row>115</th><td>1</td></tr>
+	<tr><th scope=row>36</th><td>6</td></tr>
+	<tr><th scope=row>111</th><td>1</td></tr>
+	<tr><th scope=row>41</th><td>6</td></tr>
+	<tr><th scope=row>12</th><td>9</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
 </section>
 </section>
