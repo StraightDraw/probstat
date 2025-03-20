@@ -212,6 +212,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling and Sampling Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -560,13 +565,25 @@ r=&amp;\frac{1}{n-1}\sum\left(\frac{x_i-\bar{x}}{s_x}\right)\left(\frac{y_i-\bar
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(z\)</span> test statistic for <span class="math notranslate nohighlight">\(H_0 : \mu = \mu_0\)</span> (<span class="math notranslate nohighlight">\(\sigma \)</span> known, SRS from Normal population, rarely used in modern practice):</p></li>
 </ul>
-<p>$<span class="math notranslate nohighlight">\(z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\hspace{.5cm}\)</span><span class="math notranslate nohighlight">\(with \)</span>P<span class="math notranslate nohighlight">\(-values from \)</span>N(0,1)$.</p>
+<div class="math notranslate nohighlight">
+\[z=\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\hspace{.5cm}\]</div>
+<p>with <span class="math notranslate nohighlight">\(p\)</span>-values from <span class="math notranslate nohighlight">\(N(0,1)\)</span>.</p>
 <section id="inference-about-means">
 <h3>Inference About Means<a class="headerlink" href="#inference-about-means" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p>The <span class="math notranslate nohighlight">\(t\)</span> confidence interval for a population mean (SRS from Normal Population):$<span class="math notranslate nohighlight">\(\mu\in\bar{x}\pm t^*\frac{s}{\sqrt{n}}\)</span><span class="math notranslate nohighlight">\( with \)</span>t^*<span class="math notranslate nohighlight">\( from the \)</span>t<span class="math notranslate nohighlight">\(-distribution with degrees of freedom \)</span>n-1$.</p></li>
-<li><p><span class="math notranslate nohighlight">\(t\)</span> test statistic <span class="math notranslate nohighlight">\(H_0:\mu=\mu_0\)</span> (SRS from Normal Population):$<span class="math notranslate nohighlight">\(t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}\)</span><span class="math notranslate nohighlight">\(with \)</span>P<span class="math notranslate nohighlight">\(-values from the \)</span>t<span class="math notranslate nohighlight">\(-distribution with degrees of freedom\)</span>n-1$.</p></li>
-<li><p>Matched pairs: To compare the responses to the two treatments, apply the one-sample <span class="math notranslate nohighlight">\(t\)</span> procedures to the observed differences\[5pt]</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(t\)</span> confidence interval for a population mean (SRS from Normal Population):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mu\in\bar{x}\pm t^*\frac{s}{\sqrt{n}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(t^*\)</span> from the <span class="math notranslate nohighlight">\(t\)</span>-distribution with degrees of freedom <span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t\)</span> test statistic <span class="math notranslate nohighlight">\(H_0:\mu=\mu_0\)</span> (SRS from Normal Population):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[t=\frac{\bar{x}-\mu_0}{\frac{s}{\sqrt{n}}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(P\)</span>-values from the <span class="math notranslate nohighlight">\(t\)</span>-distribution with degrees of freedom<span class="math notranslate nohighlight">\(n-1\)</span>.</p>
+<ul class="simple">
+<li><p>Matched pairs: To compare the responses to the two treatments, apply the one-sample <span class="math notranslate nohighlight">\(t\)</span> procedures to the observed differences.</p></li>
 <li><p>Two-sample confidence interval for <span class="math notranslate nohighlight">\(\mu_1-\mu_2\)</span> (independent SRSs from the Normal Populations):</p></li>
 </ul>
 <div class="math notranslate nohighlight">
@@ -577,22 +594,39 @@ r=&amp;\frac{1}{n-1}\sum\left(\frac{x_i-\bar{x}}{s_x}\right)\left(\frac{y_i-\bar
 </ul>
 <div class="math notranslate nohighlight">
 \[t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}\]</div>
-<p>with conservative <span class="math notranslate nohighlight">\(P\)</span>-values from <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(df=\min(n_1-1,n_2-1)\)</span>, or use software.</p>
+<p>with conservative <span class="math notranslate nohighlight">\(p\)</span>-values from <span class="math notranslate nohighlight">\(t\)</span> with <span class="math notranslate nohighlight">\(df=\min(n_1-1,n_2-1)\)</span>, or use software.</p>
 </section>
 <section id="inference-about-proportions">
 <h3>Inference About Proportions<a class="headerlink" href="#inference-about-proportions" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Sampling distribution of a sample proportion: when the population and the sample size are both large and <span class="math notranslate nohighlight">\(p\)</span> is not close to <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(\hat{p}\)</span> is approximately <span class="math notranslate nohighlight">\(N\left(p,\sqrt{p(1-p)/n}\right)\)</span>.</p></li>
-<li><p>Large-sample <span class="math notranslate nohighlight">\(z\)</span> confidence interval for <span class="math notranslate nohighlight">\(p\)</span>: $<span class="math notranslate nohighlight">\(\text{prop}\in\hat{p}\pm z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span><span class="math notranslate nohighlight">\(with \)</span>z^*<span class="math notranslate nohighlight">\( from \)</span>N(0,1)$. Plus Four Method greatly improves accuracy: same formula after adding four imaginary observations: two success and two failures.</p></li>
-<li><p>The <span class="math notranslate nohighlight">\(z\)</span> test statistic for <span class="math notranslate nohighlight">\(H_0: p=p_0\)</span> (large SRS):
-$<span class="math notranslate nohighlight">\(z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\hspace{1cm}\text{with \)</span>P<span class="math notranslate nohighlight">\(-values from \)</span>N(0,1)<span class="math notranslate nohighlight">\(}\)</span>$</p></li>
-<li><p>Sample size for desired margin of error <span class="math notranslate nohighlight">\(m\)</span>: $<span class="math notranslate nohighlight">\(n=\left(\frac{z^*}{m}\right)^2p^*(1-p^*)\)</span><span class="math notranslate nohighlight">\(where \)</span>p^<em><span class="math notranslate nohighlight">\( is a guessed value for \)</span>p<span class="math notranslate nohighlight">\(, or \)</span>p^</em>=0.5$</p></li>
-<li><p>Large-sample z confidence interval for <span class="math notranslate nohighlight">\(p_1-p_2\)</span>: $<span class="math notranslate nohighlight">\((p_1-p_2)\in(\hat{p}_1-\hat{p}_2) \pm z^*\text{SE}\)</span><span class="math notranslate nohighlight">\(with \)</span>z^*<span class="math notranslate nohighlight">\( from \)</span>N(0,1)<span class="math notranslate nohighlight">\( and standard error: \)</span><span class="math notranslate nohighlight">\(\text{SE}=\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}+\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\)</span>$
-Plus four to greatly improve accuracy: use the same formulas after adding one success and one failure to each sample.</p></li>
-<li><p>Two-sample <span class="math notranslate nohighlight">\(z\)</span> test statistic for <span class="math notranslate nohighlight">\(H_0 : p_1=p_2\)</span> (large independent SRSs):
-$<span class="math notranslate nohighlight">\(z=\frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\hat{p}$ is the pooled (overall) proportion of successes.</p></li>
+<li><p>Large-sample <span class="math notranslate nohighlight">\(z\)</span> confidence interval for <span class="math notranslate nohighlight">\(p\)</span>:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[\text{prop}\in\hat{p}\pm z^*\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(z^*\)</span> from <span class="math notranslate nohighlight">\(N(0,1)\)</span>. Plus Four Method greatly improves accuracy: same formula after adding four imaginary observations: two success and two failures.</p>
+<ul class="simple">
+<li><p>The <span class="math notranslate nohighlight">\(z\)</span> test statistic for <span class="math notranslate nohighlight">\(H_0: p=p_0\)</span> (large SRS):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}\]</div>
+<p>with <span class="math notranslate nohighlight">\(p\)</span>-values from <span class="math notranslate nohighlight">\(N(0,1)\)</span>}$.</p>
+<ul class="simple">
+<li><p>Sample size for desired margin of error <span class="math notranslate nohighlight">\(m\)</span>: $<span class="math notranslate nohighlight">\(n=\left(\frac{z^*}{m}\right)^2p^*(1-p^*)\)</span><span class="math notranslate nohighlight">\(where \)</span>p^<em><span class="math notranslate nohighlight">\( is a guessed value for \)</span>p<span class="math notranslate nohighlight">\(, or \)</span>p^</em>=0.5$</p></li>
+<li><p>Large-sample <span class="math notranslate nohighlight">\(z\)</span> confidence interval for <span class="math notranslate nohighlight">\(p_1-p_2\)</span> where</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[(p_1-p_2)\in(\hat{p}_1-\hat{p}_2) \pm z^*\text{SE}\]</div>
+<p>with <span class="math notranslate nohighlight">\(z^*\)</span> from <span class="math notranslate nohighlight">\(N(0,1)\)</span> and standard error:</p>
+<div class="math notranslate nohighlight">
+\[\text{SE}=\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}+\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}\]</div>
+<p>Plus 4 Method greatly improves accuracy: use the same formulas after adding one success and one failure to each sample.</p>
+<ul class="simple">
+<li><p>Two-sample <span class="math notranslate nohighlight">\(z\)</span> test statistic for <span class="math notranslate nohighlight">\(H_0 : p_1=p_2\)</span> (large independent SRSs):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[z=\frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{p}\)</span> is the pooled (overall) proportion of successes.</p>
 </section>
 </section>
 <section id="the-chi-2-test">
@@ -607,18 +641,30 @@ where \)</span>\hat{p}$ is the pooled (overall) proportion of successes.</p></li
 </ul>
 <div class="math notranslate nohighlight">
 \[X^2=\sum{\frac{(\text{observed count}-\text{expected count})^2}{\text{expected count}}}\]</div>
-<p>with <span class="math notranslate nohighlight">\(P\)</span>-values from the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with $<span class="math notranslate nohighlight">\(df=(r-1)*(c-1)\)</span>$</p>
+<p>with <span class="math notranslate nohighlight">\(p\)</span>-values from the <span class="math notranslate nohighlight">\(\chi^2\)</span> distribution with</p>
+<div class="math notranslate nohighlight">
+\[df=(r-1)(c-1)\]</div>
 </section>
 <section id="inference-for-regression">
 <h2>Inference for Regression<a class="headerlink" href="#inference-for-regression" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Conditions for regression inference: <span class="math notranslate nohighlight">\(n\)</span> observations on <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. The response <span class="math notranslate nohighlight">\(y\)</span> for any fixed <span class="math notranslate nohighlight">\(x\)</span> has a Normal distribution with mean given by the true regression line <span class="math notranslate nohighlight">\(y=\alpha+\beta x\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. Parameters are <span class="math notranslate nohighlight">\(\alpha, \beta, \sigma\)</span>.</p></li>
-<li><p>Estimate <span class="math notranslate nohighlight">\(\alpha\)</span> by the intercept <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> by the slope <span class="math notranslate nohighlight">\(b\)</span> of the least-squares line. Estimate <span class="math notranslate nohighlight">\(\sigma\)</span> by the regression standard error: $<span class="math notranslate nohighlight">\(s=\sqrt{\frac{1}{n-2}\sum{\text{residual}}^2}\)</span>$</p></li>
-<li><p>A <span class="math notranslate nohighlight">\(t\)</span> confidence interval for regression slope <span class="math notranslate nohighlight">\(\beta\)</span> can be calculated by hand as follows:
-$<span class="math notranslate nohighlight">\(b\pm t^* \text{SE}_b\hspace{1cm} t^* \text{ from } t(n-2)\)</span><span class="math notranslate nohighlight">\(
-where \)</span><span class="math notranslate nohighlight">\(SE_b=\frac{\sqrt{\frac{\sum (y_i - \hat{y}_i)^2}{n - 2}}}{\sqrt{\sum(x_i - \bar{x})^2}}\)</span>$However, best practice strongly indicates using software for all standard errors in regression.</p></li>
-<li><p>Testing for no correlation, <span class="math notranslate nohighlight">\(H_0:\rho=0\)</span>:$<span class="math notranslate nohighlight">\(t=r\cdot\sqrt{\frac{n-2}{1-r^2}}\hspace{1cm} t^* \text{ from } t(n-2)\)</span><span class="math notranslate nohighlight">\( where \)</span>\rho<span class="math notranslate nohighlight">\( is the parameter that \)</span>r$ estimates.</p></li>
+<li><p>Estimate <span class="math notranslate nohighlight">\(\alpha\)</span> by the intercept <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> by the slope <span class="math notranslate nohighlight">\(b\)</span> of the least-squares line.</p></li>
+<li><p>Estimate <span class="math notranslate nohighlight">\(\sigma\)</span> by the regression standard error: $<span class="math notranslate nohighlight">\(s=\sqrt{\frac{1}{n-2}\sum{\text{residual}}^2}\)</span>$</p></li>
+<li><p>A <span class="math notranslate nohighlight">\(t\)</span> confidence interval for regression slope <span class="math notranslate nohighlight">\(\beta\)</span> can be calculated by hand as follows:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[b\pm t^* \text{SE}_b\hspace{1cm} t^* \text{ from } t(n-2)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[SE_b=\frac{\sqrt{\frac{\sum (y_i - \hat{y}_i)^2}{n - 2}}}{\sqrt{\sum(x_i - \bar{x})^2}}\]</div>
+<p>However, best practice strongly indicates <em>using software to calculate all standard errors in regression</em>.</p>
+<ul class="simple">
+<li><p>Testing for no correlation, <span class="math notranslate nohighlight">\(H_0:\rho=0\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[t=r\cdot\sqrt{\frac{n-2}{1-r^2}}\hspace{1cm} t^* \text{ from } t(n-2)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho\)</span> is the parameter that <span class="math notranslate nohighlight">\(r\)</span> estimates.</p>
 </section>
 <section id="anova">
 <h2>ANOVA<a class="headerlink" href="#anova" title="Permalink to this heading">#</a></h2>

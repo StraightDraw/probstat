@@ -212,6 +212,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling and Sampling Distributions</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -405,8 +410,18 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-and-outliers">Standard Deviation and Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-based-upon-meand-and-standard-deviation">Outliers Based upon Meand and Standard Deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-based-upon-5-number-summary">Outliers Based upon 5-Number Summary</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-shape">Analysis of Shape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-the-distribution-of-a-quantitative-variable">Describing the Distribution of a Quantitative Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skew-and-outliers">Skew and Outliers</a></li>
 </ul>
             </nav>
         </div>
@@ -564,10 +579,15 @@ The 5-number summary is shown below.
 <p>In this example, because the mean is significantly less than the median, we anticipate skew to the left and outliers, if present, to be on the left, which brings up the second detail one should notice. There is a much longer tail to the left shown the Five Number Summary. The Lower Quartile spans the interval <span class="math notranslate nohighlight">\((−79,−17.5)\)</span> or more than <span class="math notranslate nohighlight">\(60\)</span> units. The upper Quartile spans only <span class="math notranslate nohighlight">\((23,43)\)</span> or <span class="math notranslate nohighlight">\(20\)</span> units. This indicates likely skew to left since the lower Quartile range is much larger and hence has more room for outliers.</p>
 <section id="standard-deviation-and-outliers">
 <h3>Standard Deviation and Outliers<a class="headerlink" href="#standard-deviation-and-outliers" title="Permalink to this heading">#</a></h3>
-<p>The standard deviation can be thought of as a distance metric specific to the data set. Let’s take a moment to discover why. Given the data set <span class="math notranslate nohighlight">\(X=\{1,2,3,6\}\)</span>, we have <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(\bar x=3\)</span>. For any data point, say, <span class="math notranslate nohighlight">\(x_1=1\)</span>, we can compute the directional distance or <strong>deviation</strong> from the mean:$<span class="math notranslate nohighlight">\(d_i = x_i - \bar x\)</span>$</p>
-<p>For this example, we have $<span class="math notranslate nohighlight">\(d_1 = 1 -3 = -2\)</span>$</p>
-<p>For deviations where <span class="math notranslate nohighlight">\(x_i&lt;x\)</span> (below average), then <span class="math notranslate nohighlight">\(d_i&lt;0\)</span>, e.g. a negative deviation. Positive deviations indicate data points that are above average. If we treat the data set <span class="math notranslate nohighlight">\(X\)</span> as a column vector <span class="math notranslate nohighlight">\(\vec x\)</span> and calculate the deviation for each component, we have the deviation vector:
-$<span class="math notranslate nohighlight">\(\vec{d_x} = \left(\begin{array}{c}x_1 - \bar x \\x_2 - \bar x \\ \vdots \\ x_n - \bar x \\ \end{array}\right)\)</span>$</p>
+<p>The standard deviation can be thought of as a distance metric specific to the data set. Let’s take a moment to discover why. Given the data set <span class="math notranslate nohighlight">\(X=\{1,2,3,6\}\)</span>, we have <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(\bar x=3\)</span>. For any data point, say, <span class="math notranslate nohighlight">\(x_1=1\)</span>, we can compute the directional distance or <strong>deviation</strong> from the mean:</p>
+<div class="math notranslate nohighlight">
+\[d_i = x_i - \bar x\]</div>
+<p>For this example, we have</p>
+<div class="math notranslate nohighlight">
+\[d_1 = 1 -3 = -2\]</div>
+<p>For deviations where <span class="math notranslate nohighlight">\(x_i&lt;x\)</span> (below average), then <span class="math notranslate nohighlight">\(d_i&lt;0\)</span>, e.g. a negative deviation. Positive deviations indicate data points that are above average. If we treat the data set <span class="math notranslate nohighlight">\(X\)</span> as a column vector <span class="math notranslate nohighlight">\(\vec x\)</span> and calculate the deviation for each component, we have the deviation vector:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{d_x} = \left(\begin{array}{c}x_1 - \bar x \\x_2 - \bar x \\ \vdots \\ x_n - \bar x \\ \end{array}\right)\end{split}\]</div>
 </section>
 <section id="standard-deviation">
 <h3>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h3>
@@ -579,6 +599,87 @@ $<span class="math notranslate nohighlight">\(\vec{d_x} = \left(\begin{array}{c}
 &amp;\approx 3.742
 \end{align*}\end{split}\]</div>
 </section>
+<section id="outliers">
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h3>
+<p>We have two different ways of checking for outliers:</p>
+<ol class="arabic simple">
+<li><p>Based upon <strong>mean</strong> and <strong>standard deviation</strong>.</p></li>
+<li><p>Based upon the 5-Number Summary: <strong>Q1</strong>, <strong>Q3</strong>, and <strong>IQR</strong>.</p></li>
+</ol>
+<section id="outliers-based-upon-meand-and-standard-deviation">
+<h4>Outliers Based upon Meand and Standard Deviation<a class="headerlink" href="#outliers-based-upon-meand-and-standard-deviation" title="Permalink to this heading">#</a></h4>
+<p>The basic rule is that any data point more than <strong>2 standard deviations</strong> from the mean will count as an outlier in a small data set where small indicates a sample of <span class="math notranslate nohighlight">\(n\leq 200\)</span>. For larger sample sizes, a <strong>3 standard deviations</strong> from the mean may be more appropriate. We will create cutoff points above and below mean as follows:</p>
+<ul class="simple">
+<li><p><strong>Upper Cutoff:</strong> <span class="math notranslate nohighlight">\(\bar x + 2s\)</span></p></li>
+<li><p><strong>Lower Cutoff:</strong> <span class="math notranslate nohighlight">\(\bar x - 2s\)</span></p></li>
+</ul>
+<p>Any data point above the Upper Cutoff will be counted as an outlier. Any data point below the Lower Cutoff will be counted as an outlier.</p>
+</section>
+<section id="outliers-based-upon-5-number-summary">
+<h4>Outliers Based upon 5-Number Summary<a class="headerlink" href="#outliers-based-upon-5-number-summary" title="Permalink to this heading">#</a></h4>
+<p>The box plot checks for outliers using fences which are calculated as follows:</p>
+<ul class="simple">
+<li><p><strong>Upper Fence:</strong> Q3 + 1.5 * IQR</p></li>
+<li><p><strong>Lower Fence:</strong> Q1 - 1.5 * IQR</p></li>
+</ul>
+<p>where the inner quartile range (IQR) is given by:</p>
+<center><b>IQR = Q3 - Q1</b></center>
+<p>Again, any data points that lie outside or beyond the fences are designated as outliers. The only difference between the two methods is the formula used to calculate the cutoff points.</p>
+</section>
+</section>
+</section>
+<section id="analysis-of-shape">
+<h2>Analysis of Shape<a class="headerlink" href="#analysis-of-shape" title="Permalink to this heading">#</a></h2>
+<section id="describing-the-distribution-of-a-quantitative-variable">
+<h3>Describing the Distribution of a Quantitative Variable<a class="headerlink" href="#describing-the-distribution-of-a-quantitative-variable" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Shape: Symmetry or Skew</p></li>
+<li><p>Shape: Uniform, Peaks - unimodal, bimodal, others</p></li>
+<li><p>Center: Mean and Median</p></li>
+<li><p>Spread: Range, IQR, standard deviation</p></li>
+<li><p>Outliers</p></li>
+</ul>
+<p><strong>Run the cell below to see examples of different shape characteristics.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">844</span><span class="p">)</span>
+<span class="n">setA</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">21</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="n">setB</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rchisq</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">800</span><span class="p">)</span>
+<span class="n">setC</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rchisq</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="n">df</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="n">setD</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-1</span><span class="o">*</span><span class="n">setC</span><span class="m">+30</span>
+<span class="n">setE</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">runif</span><span class="p">(</span><span class="m">5000</span><span class="p">,</span><span class="n">min</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="n">max</span><span class="o">=</span><span class="m">6</span><span class="p">)</span>
+<span class="n">setF</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">21</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="m">32</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+
+<span class="nf">par</span><span class="p">(</span><span class="n">mfrow</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setA</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Approximately Normal&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set A&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setB</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Unimodal and Roughly Symmetric&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set B&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setC</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Unimodal and Skewed RIGHT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set C&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setD</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Unimodal and Skewed LEFT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set D&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setE</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Approximately Uniform&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set E&quot;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">setF</span><span class="p">,</span><span class="n">main</span><span class="o">=</span><span class="s">&quot;Bimodal&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Data Set F&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f8fb0462a56c15431727b429f29fcdabaa016f15b9a30df144e2d7ff07fa64c8.png" src="_images/f8fb0462a56c15431727b429f29fcdabaa016f15b9a30df144e2d7ff07fa64c8.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="skew-and-outliers">
+<h2>Skew and Outliers<a class="headerlink" href="#skew-and-outliers" title="Permalink to this heading">#</a></h2>
+<p>If a distribution has skew, then the majority of outliers in that data set are likely to lie in the same direction. Why do we care?</p>
+<ol class="arabic simple">
+<li><p>Outliers are called <em>influential data points</em> because they affect the <strong>mean</strong>.</p></li>
+<li><p>The <strong>median</strong> is not affected much by outliers.</p></li>
+</ol>
+<p>Thus, in the presence of skew, we can see where the majority of these influential data points are likely to live.</p>
+<p><strong>Example</strong></p>
+<p>Due to the influential data points, e.g. outliers, the following are true:</p>
+<ul class="simple">
+<li><p>If the distribution is skewed left, the <strong>mean</strong> is likely to be <strong>less than the median</strong>.</p></li>
+<li><p>If the distribution is skewed right, the <strong>mean</strong> is likely to be <strong>greater than the median</strong>.</p></li>
+</ul>
 </section>
 </section>
 
@@ -655,8 +756,18 @@ $<span class="math notranslate nohighlight">\(\vec{d_x} = \left(\begin{array}{c}
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-and-outliers">Standard Deviation and Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-based-upon-meand-and-standard-deviation">Outliers Based upon Meand and Standard Deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-based-upon-5-number-summary">Outliers Based upon 5-Number Summary</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-shape">Analysis of Shape</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-the-distribution-of-a-quantitative-variable">Describing the Distribution of a Quantitative Variable</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skew-and-outliers">Skew and Outliers</a></li>
 </ul>
   </nav></div>
 
