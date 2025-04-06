@@ -62,10 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'S2b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Poker Primer" href="A1.html" />
+    <link rel="next" title="Normal Curve" href="S3.html" />
     <link rel="prev" title="Sampling" href="S2a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -213,6 +215,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S2.html">Sampling and Sampling Distributions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">Sampling</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling Distributions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
 </ul>
 </li>
 </ul>
@@ -375,7 +382,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -391,6 +400,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-united-airlines-and-flight-delays">Example 1: United Airlines and Flight Delays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task">Your Task</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -402,7 +423,278 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sampling-distributions">
 <h1>Sampling Distributions<a class="headerlink" href="#sampling-distributions" title="Permalink to this heading">#</a></h1>
-<p>We will need to import some data to work with sampling distributions. Updates pending as of 3/18/2025.</p>
+<p>We will need to import some data to work with sampling distributions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">united</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/united.csv&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">airports</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/airports.csv&#39;</span><span class="p">)</span>
+<span class="n">births</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/baby.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also need our <strong>sample.data.frame()</strong> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample.data.frame</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shuffled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(),</span>
+<span class="w">                              </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">missing</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">is.null</span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="o">&gt;</span><span class="m">50</span><span class="w"> </span>
+<span class="w">  </span><span class="n">shuffled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="w">  </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">intersect</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span>
+<span class="w">  </span><span class="n">groups</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="w"> </span><span class="nf">substitute</span><span class="p">(</span><span class="n">groups</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
+<span class="w">  </span><span class="n">origids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="n">newids</span><span class="p">]</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">origids</span><span class="p">)</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">[</span><span class="n">newids</span><span class="p">])</span>
+<span class="w">    </span><span class="n">result</span><span class="p">[,</span><span class="n">column</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">cids</span><span class="p">,</span><span class="n">column</span><span class="p">]</span>
+<span class="w">    </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">idsString</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cids</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="n">result</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="n">shuffled</span><span class="p">),</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">orig.ids</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="o">$</span><span class="n">orig.id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">idsString</span>
+<span class="w">  </span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span><span class="nf">return</span><span class="p">(</span><span class="n">result</span><span class="p">)}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-1-united-airlines-and-flight-delays">
+<h2>Example 1: United Airlines and Flight Delays<a class="headerlink" href="#example-1-united-airlines-and-flight-delays" title="Permalink to this heading">#</a></h2>
+<p>We have a list of nearly 14,000 flights from United airlines together with the flight numbers, destinations, and delays for each flight. Let’s inspect a few rows of the data frame below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Date</th><th scope=col>Flight.Number</th><th scope=col>Destination</th><th scope=col>Delay</th></tr></thead>
+<tbody>
+	<tr><td>6/1/15</td><td> 73   </td><td>HNL   </td><td>257   </td></tr>
+	<tr><td>6/1/15</td><td>217   </td><td>EWR   </td><td> 28   </td></tr>
+	<tr><td>6/1/15</td><td>237   </td><td>STL   </td><td> -3   </td></tr>
+	<tr><td>6/1/15</td><td>250   </td><td>SAN   </td><td>  0   </td></tr>
+	<tr><td>6/1/15</td><td>267   </td><td>PHL   </td><td> 64   </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<section id="distribution">
+<h3>Distribution<a class="headerlink" href="#distribution" title="Permalink to this heading">#</a></h3>
+<p>Before we use the CLT and Law of Large Numbers to estimate the average delay for a United flight, let’s inspect the distribution of delays in the original data frame. We will calculate the mean along with displaying the distribution using a histogram.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the United delays distribution:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">united</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">]))</span><span class="w"> </span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">united</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: United Delays&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the United delays distribution: 16.65816
+</pre></div>
+</div>
+<img alt="_images/71b7938219238b3531a037c944eb42809c9c14014ae658f3805a8e4026caf0de.png" src="_images/71b7938219238b3531a037c944eb42809c9c14014ae658f3805a8e4026caf0de.png" />
+</div>
+</div>
+<p><strong>Histograms and Bin Widths</strong></p>
+<p>We have too few bars in our histogram. We can control how many bars are produced (and the bin width or interval width along the <span class="math notranslate nohighlight">\(x\)</span>-axis) with the <strong>breaks</strong> option. Try seveal values between 50 and 150 to see which shows the best picture of this distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the United delays distribution:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">united</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">]))</span><span class="w"> </span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">united</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">75</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: United Delays&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the United delays distribution: 16.65816
+</pre></div>
+</div>
+<img alt="_images/445f59e64b34359a9735948416c12534ba041ecf4f95967ed4bc5866bc27619b.png" src="_images/445f59e64b34359a9735948416c12534ba041ecf4f95967ed4bc5866bc27619b.png" />
+</div>
+</div>
+</section>
+<section id="your-task">
+<h3>Your Task<a class="headerlink" href="#your-task" title="Permalink to this heading">#</a></h3>
+<p>Use sampling distributions to estimate the average delay in the United data set. Use the following sample sizes:</p>
+<ol class="arabic simple">
+<li><p>10</p></li>
+<li><p>25</p></li>
+<li><p>50</p></li>
+<li><p>100</p></li>
+<li><p>250</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">u_means</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+<span class="w">    </span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span><span class="w">        </span><span class="c1">#Controls sample size</span>
+<span class="w">    </span><span class="n">u_means</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">hi</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span>
+<span class="n">lo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Standard deviation of sampling distribution:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\nThe middle 90% of sampling distribution: (&#39;</span><span class="p">,</span><span class="n">lo</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="n">hi</span><span class="p">,</span><span class="s">&#39;).&#39;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">u_means</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Delay Distribution (n=10)&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hi</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
+The middle 90% of sampling distribution: ( 1.8 , 39.705 ).
+</pre></div>
+</div>
+<img alt="_images/0d03fbe3e12a6b31a50353d8fb53b72a083875af797e83aad0eecc04955536d6.png" src="_images/0d03fbe3e12a6b31a50353d8fb53b72a083875af797e83aad0eecc04955536d6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">u_means1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+<span class="w">    </span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span><span class="w">        </span><span class="c1">#Controls sample size</span>
+<span class="w">    </span><span class="n">u_means1</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">hi1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span>
+<span class="n">lo1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Standard deviation of sampling distribution:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\nThe middle 90% of sampling distribution: (&#39;</span><span class="p">,</span><span class="n">lo1</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="n">hi1</span><span class="p">,</span><span class="s">&#39;).&#39;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">u_means1</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Delay Distribution (n=25)&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hi1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
+The middle 90% of sampling distribution: ( 5.918 , 31.444 ).
+</pre></div>
+</div>
+<img alt="_images/7eb586bfa64a0d835008932edd2d8a4566e38ff1df7d5a759234f17b961bed29.png" src="_images/7eb586bfa64a0d835008932edd2d8a4566e38ff1df7d5a759234f17b961bed29.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">u_means2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+<span class="w">    </span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span><span class="w">        </span><span class="c1">#Controls sample size</span>
+<span class="w">    </span><span class="n">u_means2</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">hi2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means2</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span>
+<span class="n">lo2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means2</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Standard deviation of sampling distribution:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\nThe middle 90% of sampling distribution: (&#39;</span><span class="p">,</span><span class="n">lo2</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="n">hi2</span><span class="p">,</span><span class="s">&#39;).&#39;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">u_means1</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Delay Distribution (n=50)&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hi2</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
+The middle 90% of sampling distribution: ( 8.578 , 25.984 ).
+</pre></div>
+</div>
+<img alt="_images/3e3b5be8cf91a8014f37ed13e876aeeb39276ce03a567f53127d7ab10309e024.png" src="_images/3e3b5be8cf91a8014f37ed13e876aeeb39276ce03a567f53127d7ab10309e024.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">u_means3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+<span class="w">    </span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span><span class="w">        </span><span class="c1">#Controls sample size</span>
+<span class="w">    </span><span class="n">u_means3</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">hi3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means3</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span>
+<span class="n">lo3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means3</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Standard deviation of sampling distribution:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\nThe middle 90% of sampling distribution: (&#39;</span><span class="p">,</span><span class="n">lo3</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="n">hi3</span><span class="p">,</span><span class="s">&#39;).&#39;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">u_means3</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Delay Distribution (n=100)&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hi3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
+The middle 90% of sampling distribution: ( 10.846 , 23.4125 ).
+</pre></div>
+</div>
+<img alt="_images/3619803328e3c9b7fc29f5fcfe8dfead366c6343ef45c6d0e5d2eda950627b2c.png" src="_images/3619803328e3c9b7fc29f5fcfe8dfead366c6343ef45c6d0e5d2eda950627b2c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">u_means4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">){</span>
+<span class="w">    </span><span class="n">sample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="m">250</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span><span class="w">        </span><span class="c1">#Controls sample size</span>
+<span class="w">    </span><span class="n">u_means4</span><span class="p">[</span><span class="n">count</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="n">hi4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means4</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span>
+<span class="n">lo4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">u_means4</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&quot;Standard deviation of sampling distribution:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\nThe middle 90% of sampling distribution: (&#39;</span><span class="p">,</span><span class="n">lo4</span><span class="p">,</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="n">hi4</span><span class="p">,</span><span class="s">&#39;).&#39;</span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">u_means4</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Delay Distribution (n=250)&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lo4</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hi4</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
+The middle 90% of sampling distribution: ( 12.7578 , 20.778 ).
+</pre></div>
+</div>
+<img alt="_images/3ea4329c4638bf6caa67aafe15f3774dda00688dd254a43b70910d70498cba55.png" src="_images/3ea4329c4638bf6caa67aafe15f3774dda00688dd254a43b70910d70498cba55.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;For n = 10, the standard deviation was &#39;</span><span class="p">,</span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means</span><span class="p">),</span><span class="s">&#39; and the middle 90% was between &#39;</span><span class="p">,</span><span class="n">lo</span><span class="p">,</span><span class="s">&#39; and &#39;</span><span class="p">,</span><span class="n">hi</span><span class="p">,</span><span class="s">&#39;\n&#39;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;For n = 25, the standard deviation was &#39;</span><span class="p">,</span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means1</span><span class="p">),</span><span class="s">&#39; and the middle 90% was between &#39;</span><span class="p">,</span><span class="n">lo1</span><span class="p">,</span><span class="s">&#39; and &#39;</span><span class="p">,</span><span class="n">hi1</span><span class="p">,</span><span class="s">&#39;\n&#39;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;For n = 50, the standard deviation was &#39;</span><span class="p">,</span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means2</span><span class="p">),</span><span class="s">&#39; and the middle 90% was between &#39;</span><span class="p">,</span><span class="n">lo2</span><span class="p">,</span><span class="s">&#39; and &#39;</span><span class="p">,</span><span class="n">hi2</span><span class="p">,</span><span class="s">&#39;\n&#39;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;For n = 100, the standard deviation was &#39;</span><span class="p">,</span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means3</span><span class="p">),</span><span class="s">&#39; and the middle 90% was between &#39;</span><span class="p">,</span><span class="n">lo3</span><span class="p">,</span><span class="s">&#39; and &#39;</span><span class="p">,</span><span class="n">hi3</span><span class="p">,</span><span class="s">&#39;\n&#39;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;For n = 250, the standard deviation was &#39;</span><span class="p">,</span><span class="nf">sd</span><span class="p">(</span><span class="n">u_means4</span><span class="p">),</span><span class="s">&#39; and the middle 90% was between &#39;</span><span class="p">,</span><span class="n">lo4</span><span class="p">,</span><span class="s">&#39; and &#39;</span><span class="p">,</span><span class="n">hi4</span><span class="p">,</span><span class="s">&#39;\n&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 10, the standard deviation was  12.4244  and the middle 90% was between  1.8  and  39.705 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 25, the standard deviation was  7.800376  and the middle 90% was between  5.918  and  31.444 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 50, the standard deviation was  5.355054  and the middle 90% was between  8.578  and  25.984 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 100, the standard deviation was  3.877627  and the middle 90% was between  10.846  and  23.4125 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 250, the standard deviation was  2.457271  and the middle 90% was between  12.7578  and  20.778 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -445,11 +737,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="A1.html"
+       href="S3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Poker Primer</p>
+        <p class="prev-next-title">Normal Curve</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -459,6 +751,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-united-airlines-and-flight-delays">Example 1: United Airlines and Flight Delays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution">Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#your-task">Your Task</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
