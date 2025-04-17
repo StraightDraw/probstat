@@ -39,6 +39,16 @@ parts:
       sections:
       - file: S2a
       - file: S2b
+    - file: S3
+      sections:
+      - file: S3a
+      - file: S3b
+    - file: S4
+      sections:
+      - file: S4a
+      - file: S4b
+      - file: S4c
+      - file: S4d
   - caption: Appendix
     chapters:
     - file: A1

@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Small Samples and \(t\)-Tests &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S4d';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Poker Primer" href="A1.html" />
+    <link rel="prev" title="Matched Pairs \(t\)-Test" href="S4c.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <script>document.write(`<img src="_static/UNG.logo.png" class="logo__image only-dark" alt="Probability and Statistics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S4d.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/S4d.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Small Samples and t-Tests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-independent-samples-t-test">Example: Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptives">Descriptives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis">Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value">Cutoff Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-stastic">Test Stastic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-matched-pairs">Example 2: Matched Pairs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Descriptives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-and-homegeneity-assumptions">Normality and Homegeneity Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-test-with-formulas-and-tables">Conducting the Test with Formulas and Tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value-t">Cutoff Value <span class="math notranslate nohighlight">\(t^*\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Reporting Out</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-methods">Modern Methods</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="small-samples-and-t-tests">
+<h1>Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests<a class="headerlink" href="#small-samples-and-t-tests" title="Permalink to this heading">#</a></h1>
+<p>What do we do when the overall sample size for the <span class="math notranslate nohighlight">\(t\)</span>-test is <span class="math notranslate nohighlight">\(n &lt; 40\)</span>?</p>
+<p>The process is the same as are the formulas, but we take a different approach to verifying the assumptions. For small sample sizes, we don’t have enough data points for the <strong>density plots</strong> and <strong>QQ plots</strong> to work properly. Thus, <b><span style="color: purple">our normality check works like this:</span></b></p>
+<ol class="arabic simple">
+<li><p>Stem Plot – need evidence the sample was drawn from a bell-shaped distribution.</p></li>
+<li><p>Box Plot – need to find zero outliers, as outliers are extremely influential in small samples.</p></li>
+</ol>
+<p>For the <b><span style="color: purple">homogeneity of the variances</span></b> check, we still require the ratio of sample sizes to be no larger than <span class="math notranslate nohighlight">\(2 : 1\)</span>.</p>
+<section id="example-independent-samples-t-test">
+<h2>Example: Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#example-independent-samples-t-test" title="Permalink to this heading">#</a></h2>
+<p>Adding bran to the diet can help patients with diverticulosis. The researchers wish to test two different preparations on patients. The transit time through the alimentary canal is tested for both groups. Which bran-based treatment works better? The data is shown below:</p>
+<table style="width:80%">
+  <tr>
+    <th>Treat 1</th>
+    <td>44</td><td>51</td><td>52</td><td>55</td><td>60</td><td>62</td><td>66</td><td>68</td><td>69</td><td>71</td><td>71</td><td>76</td><td>82</td><td>91</td><td>97</td>
+  </tr>
+  <tr>
+    <th>Treat 2</th>
+    <td>52</td><td>64</td><td>68</td><td>74</td><td>79</td><td>83</td><td>84</td><td>88</td><td>95</td><td>97</td><td>101</td><td>116</td>
+  </tr>
+</table>
+</body><p>We need to generate numeric vectors for these data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">44</span><span class="p">,</span><span class="w"> </span><span class="m">51</span><span class="p">,</span><span class="w"> </span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">55</span><span class="p">,</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="m">62</span><span class="p">,</span><span class="w"> </span><span class="m">66</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">69</span><span class="p">,</span><span class="w"> </span><span class="m">71</span><span class="p">,</span><span class="w"> </span><span class="m">71</span><span class="p">,</span><span class="w"> </span><span class="m">76</span><span class="p">,</span><span class="w"> </span><span class="m">82</span><span class="p">,</span><span class="w"> </span><span class="m">91</span><span class="p">,</span><span class="w"> </span><span class="m">97</span><span class="p">)</span>
+<span class="n">two</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="w"> </span><span class="m">64</span><span class="p">,</span><span class="w"> </span><span class="m">68</span><span class="p">,</span><span class="w"> </span><span class="m">74</span><span class="p">,</span><span class="w"> </span><span class="m">79</span><span class="p">,</span><span class="w"> </span><span class="m">83</span><span class="p">,</span><span class="w"> </span><span class="m">84</span><span class="p">,</span><span class="w"> </span><span class="m">88</span><span class="p">,</span><span class="w"> </span><span class="m">95</span><span class="p">,</span><span class="w"> </span><span class="m">97</span><span class="p">,</span><span class="w"> </span><span class="m">101</span><span class="p">,</span><span class="w"> </span><span class="m">116</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Boxplot: One&#39;</span><span class="p">)</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Boxplot: Two&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9c7c056e5b83cea03af91dbd47f18fd2919c2dd9d07ca3112cce76781d8da9f8.png" src="_images/9c7c056e5b83cea03af91dbd47f18fd2919c2dd9d07ca3112cce76781d8da9f8.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Stem Plot: One&#39;</span><span class="p">)</span>
+<span class="nf">stem</span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Stem Plot: Two&#39;</span><span class="p">)</span>
+<span class="nf">stem</span><span class="p">(</span><span class="n">two</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stem Plot: One
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is 1 digit(s) to the right of the |
+
+  4 | 4
+  5 | 125
+  6 | 02689
+  7 | 116
+  8 | 2
+  9 | 17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stem Plot: Two
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is 1 digit(s) to the right of the |
+
+   5 | 2
+   6 | 48
+   7 | 49
+   8 | 348
+   9 | 57
+  10 | 1
+  11 | 6
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis of Normality Assumption</strong></p>
+<p>The stem plots both show reasonable evidence of the samples being drawn from normal (bell-shaped) distributions. The box plots show that neither sample has any outliers. Thus, <b><span style="color: purple">the data are appropriate for <span class="math notranslate nohighlight">\(t\)</span> procedures.</span></b></p>
+<p><strong>Analysis of Homogeneity Assumption</strong></p>
+<p>The samples sizes are <span class="math notranslate nohighlight">\(n_1 = 15\)</span> and <span class="math notranslate nohighlight">\(n_2 = 12\)</span>, so the ratio of sample sizes is <span class="math notranslate nohighlight">\(15 : 12\)</span> which reduces to <span class="math notranslate nohighlight">\(5:4\)</span>. Since this is clearly far less than <span class="math notranslate nohighlight">\(2:1\)</span>, we have few worries when conducting <span class="math notranslate nohighlight">\(t\)</span> procedures.</p>
+<section id="descriptives">
+<h3>Descriptives<a class="headerlink" href="#descriptives" title="Permalink to this heading">#</a></h3>
+<p>We need to know the means, standard deviations and sample sizes for both groups. We can perform all needed calculations inside the <strong>cat()</strong> function as shown below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Descriptive Statistics for Treatment 1:\n  Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">one</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Std Dev = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">one</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">one</span><span class="p">))</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;\nDescriptive Statistics for Treatment 2:\n  Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">two</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Std Dev = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">two</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">two</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics for Treatment 1:
+  Mean =  67.66667 
+  Std Dev =  14.739 
+  Sample Size =  15
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics for Treatment 2:
+  Mean =  83.41667 
+  Std Dev =  17.63498 
+  Sample Size =  12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis">
+<h3>Hypothesis<a class="headerlink" href="#hypothesis" title="Permalink to this heading">#</a></h3>
+<p>For the independent samples <span class="math notranslate nohighlight">\(t\)</span>-test, we have the following hypotheses:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_1 = \mu_2\\H_a &amp;: \mu_1 \neq \mu_2 \end{align}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_1\)</span> is the sample average improvement due to treatment 1 and <span class="math notranslate nohighlight">\(\mu_2\)</span> is the sample average improvement due to treatment 2.</p>
+</section>
+<section id="cutoff-value">
+<h3>Cutoff Value<a class="headerlink" href="#cutoff-value" title="Permalink to this heading">#</a></h3>
+<p>With <span class="math notranslate nohighlight">\(df = min(n_1 -1, n_2 -1)=11\)</span>, we can look up <span class="math notranslate nohighlight">\(t^*\)</span> in the <span class="math notranslate nohighlight">\(t\)</span>-table in the 2-tailed column using the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level of significance. Hence, we see that</p>
+<div class="math notranslate nohighlight">
+\[t^* = 2.201\]</div>
+</section>
+<section id="test-stastic">
+<h3>Test Stastic<a class="headerlink" href="#test-stastic" title="Permalink to this heading">#</a></h3>
+<p>To calcuate <span class="math notranslate nohighlight">\(t\)</span>, the formula sheet gives the following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}t &amp;= \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}\\&amp;= \frac{67.7-83.4}{\sqrt{\frac{14.7^2}{15} + \frac{17.6^2}{12}}}\\&amp;= \frac{-15.7}{\sqrt{\frac{216.1}{15} + \frac{309.8}{12}}}\\&amp;= \frac{-15.7}{\sqrt{14.4 + 25.8}}\\&amp;= \frac{-15.7}{6.3} \implies\\t &amp;\approx 2.5\\\end{align}\end{split}\]</div>
+</section>
+<section id="reporting-out">
+<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(|t| = 2.5 &gt; 2.201 = t^*\)</span>, we reject the null. Thus, we have evidence for a differential effectiveness between the two treatments. Based up the means listed above in the descriptives, we see that the evidence points to a significant difference in favor of treatment 2.</p>
+</section>
+</section>
+<section id="example-2-matched-pairs">
+<h2>Example 2: Matched Pairs<a class="headerlink" href="#example-2-matched-pairs" title="Permalink to this heading">#</a></h2>
+<p>A chemistry department has developed a new lab sequence that they feel will better prepare students to do well in a first college chemistry course. Before deploying the new labs on a large scale, they work with one small class of students who do the new labs. The students are given a diagnostic quiz in a pretest vs. posttest format. The scores are shown below. Test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level whether the students improved in their knowledge of chemistry while using this new format.</p>
+<table style="width:80%">
+<tr>
+  <th>Pre</th><td>18</td><td>21</td><td>16</td><td>22</td><td>19</td><td>24</td><td>17</td><td>21</td><td>23</td><td>18</td><td>14</td><td>16</td><td>16</td><td>19</td><td>18</td><td>20</td><td>12</td><td>22</td><td>15</td><td>17</td>
+</tr><tr>
+<th>Post</th><td>22</td><td>25</td><td>17</td><td>24</td><td>16</td><td>29</td><td>20</td><td>23</td><td>19</td><td>20</td><td>15</td><td>15</td><td>18</td><td>26</td><td>18</td><td>24</td><td>18</td><td>25</td><td>19</td><td>16</td>
+</tr>
+</table><p>Again, we need to generate numeric vectors for the pretest and posttest data along with gain scores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">)</span>
+<span class="n">post</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">22</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="m">17</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">29</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">26</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="m">19</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">)</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pre</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>4</li>
+	<li>4</li>
+	<li>1</li>
+	<li>2</li>
+	<li>-3</li>
+</ol>
+</div></div>
+</div>
+<section id="id1">
+<h3>Descriptives<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>We work with the single sample of <strong>gain scores</strong> for this test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Descriptives: Chemistry gain scores\n  Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">gain</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Std. Dev = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">gain</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">gain</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptives: Chemistry gain scores
+  Mean =  2.05 
+  Std. Dev =  2.837252 
+  Sample Size =  20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normality-and-homegeneity-assumptions">
+<h3>Normality and Homegeneity Assumptions<a class="headerlink" href="#normality-and-homegeneity-assumptions" title="Permalink to this heading">#</a></h3>
+<p>For normality in this small sample, we inspect the stem plot and the box plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ac691b1adab2cc7bd965d6b38b972028e573a5dd651ea05b34f8f2649e6743e2.png" src="_images/ac691b1adab2cc7bd965d6b38b972028e573a5dd651ea05b34f8f2649e6743e2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">stem</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is at the |
+
+  -4 | 0
+  -2 | 0
+  -0 | 00
+   0 | 000
+   2 | 000000
+   4 | 00000
+   6 | 00
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> While we see some skew to left in the stem plot, we still have good evidence for the data being drawn from an approximately normal distribution. Also, we have no outliers, and thus the <strong>normality assumption passes verification.</strong></p>
+<p>There is little we can do to check the homogeneity of the variances for a single sample test other than to note that a sample size of more than 100 is more than adequate for this test. Hence, <strong>these data are appropriate for <span class="math notranslate nohighlight">\(t\)</span> procedures.</strong></p>
+</section>
+<section id="hypotheses">
+<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_g = 0\\H_a &amp;: \mu_g &gt; 0\end{align}\end{split}\]</div>
+</section>
+<section id="conducting-the-test-with-formulas-and-tables">
+<h3>Conducting the Test with Formulas and Tables<a class="headerlink" href="#conducting-the-test-with-formulas-and-tables" title="Permalink to this heading">#</a></h3>
+<p>In this small sample case, let’s do the work “by-hand” after reminding ourselves of the descriptives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Descriptives: Chemistry gain scores\n  Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">gain</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Std. Dev = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">gain</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">gain</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptives: Chemistry gain scores
+  Mean =  2.05 
+  Std. Dev =  2.837252 
+  Sample Size =  20
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that, from the formula sheet, we have:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{\bar x - \mu_0}{\frac{s}{\sqrt{n}}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_0 = 0\)</span>. Thus, we start with the following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}t &amp;= \frac{\bar x}{\frac{s}{\sqrt{n}}}\\
+   &amp;= \frac{2.05}{\frac{2.84}{\sqrt{20}}}\\
+   &amp;= \frac{2.05}{0.635} \implies\\
+   t &amp;\approx 3.23\end{align}\end{split}\]</div>
+</section>
+<section id="cutoff-value-t">
+<h3>Cutoff Value <span class="math notranslate nohighlight">\(t^*\)</span><a class="headerlink" href="#cutoff-value-t" title="Permalink to this heading">#</a></h3>
+<p>In the <span class="math notranslate nohighlight">\(t\)</span> table, we use the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> column in the 1-tailed test section with <span class="math notranslate nohighlight">\(df = n-1 = 19\)</span>. We find that</p>
+<div class="math notranslate nohighlight">
+\[t^* = 1.729\]</div>
+</section>
+<section id="id2">
+<h3>Reporting Out<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Given that <span class="math notranslate nohighlight">\(|t| = 3.23 &gt; 1.73 = t^*\)</span>, we reject the null. We have evidence for the alternative which indicates that these students, on average, improved their knowledge of basic chemistry during this course.</p>
+</section>
+</section>
+<section id="modern-methods">
+<h2>Modern Methods<a class="headerlink" href="#modern-methods" title="Permalink to this heading">#</a></h2>
+<p>We can quickly compute the <span class="math notranslate nohighlight">\(t\)</span>-test in R to verify the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  gain
+t = 3.2313, df = 19, p-value = 0.004395
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.7221251 3.3778749
+sample estimates:
+mean of x 
+     2.05 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <span class="math notranslate nohighlight">\(t\)</span> statistic we calculated was</p>
+<div class="math notranslate nohighlight">
+\[t = 3.23\]</div>
+<p>which matches the R calculation rounded to the hudredth place. Hence, we confirm the above analysis aligns with the same test conducted in R.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S4c.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="A1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Poker Primer</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-independent-samples-t-test">Example: Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptives">Descriptives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis">Hypothesis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value">Cutoff Value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-stastic">Test Stastic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-matched-pairs">Example 2: Matched Pairs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Descriptives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-and-homegeneity-assumptions">Normality and Homegeneity Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-test-with-formulas-and-tables">Conducting the Test with Formulas and Tables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value-t">Cutoff Value <span class="math notranslate nohighlight">\(t^*\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Reporting Out</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-methods">Modern Methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

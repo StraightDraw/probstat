@@ -1,0 +1,975 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Independent Samples \(t\)-Test &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S4b';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matched Pairs \(t\)-Test" href="S4c.html" />
+    <link rel="prev" title="The \(t\)-Test" href="S4a.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <script>document.write(`<img src="_static/UNG.logo.png" class="logo__image only-dark" alt="Probability and Statistics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S4b.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/S4b.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Independent Samples t-Test</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-airports-and-delays">Example 1: Airports and Delays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-descriptives-for-both-samples">Standard Descriptives for Both Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-assumptions">Verification of Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-data-and-normality">Airports Data and Normality</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-births-and-smoking-during-pregnancy">Example 2: Births and Smoking during Pregnancy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-the-normality-assumption">Verification of the Normality Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-the-homogeneity-of-variances-assumption">Verification of the Homogeneity of Variances Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-independent-samples-t-test-for-birth-weights">Conducting the Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test for Birth Weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations-with-formulas-and-tables">Calculations with Formulas and Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-t-statistic">The <span class="math notranslate nohighlight">\(t\)</span> Statistic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value-from-table">Cutoff Value from Table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Reporting Out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="independent-samples-t-test">
+<h1>Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#independent-samples-t-test" title="Permalink to this heading">#</a></h1>
+<p>Let’s load some data sets for the examples we will need to analyze.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">births</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/baby.csv&#39;</span><span class="p">)</span>
+<span class="n">united</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/united.csv&#39;</span><span class="p">)</span>
+<span class="n">airports</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/airports.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="example-1-airports-and-delays">
+<h2>Example 1: Airports and Delays<a class="headerlink" href="#example-1-airports-and-delays" title="Permalink to this heading">#</a></h2>
+<p>Are delays at southern airports less than the delays at northern airports where bad weather like snow and ice is more common? Compare the average delays at 2 southerm airports:</p>
+<ul class="simple">
+<li><p>ATL, Atlanta</p></li>
+<li><p>DFW, Dallas Fort Worth</p></li>
+</ul>
+<p>To the average delays at two northern airports:</p>
+<ul class="simple">
+<li><p>PHL, Philadelphia</p></li>
+<li><p>CLE, Cleveland</p></li>
+</ul>
+<p>Determine if there is a difference in average delays using the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level.</p>
+<section id="standard-descriptives-for-both-samples">
+<h3>Standard Descriptives for Both Samples<a class="headerlink" href="#standard-descriptives-for-both-samples" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">south</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="n">Destination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;ATL&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Destination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;DFW&#39;</span><span class="p">)</span>
+<span class="n">m_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="n">s_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="n">n_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the southern airports:</span>
+<span class="s">  Mean = &#39;</span><span class="p">,</span><span class="n">m_s</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the southern airports:
+  Mean =  17.45921 
+  Std. Deviation =  33.52937 
+  Sample Size =  331
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">north</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">united</span><span class="p">,</span><span class="w"> </span><span class="n">Destination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;CLE&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Destination</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;PHL&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1"># | Destination == &#39;ORD&#39;)</span>
+<span class="n">m_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">north</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="n">s_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="n">n_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">north</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">])</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the northern airports:</span>
+<span class="s">  Mean = &#39;</span><span class="p">,</span><span class="n">m_n</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_n</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the northern airports:
+  Mean =  18.9104 
+  Std. Deviation =  33.52937 
+  Sample Size =  346
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="verification-of-assumptions">
+<h3>Verification of Assumptions<a class="headerlink" href="#verification-of-assumptions" title="Permalink to this heading">#</a></h3>
+<p>Checking normality, we will analyze both a density plot and a QQ plot for both samples.</p>
+<section id="airports-data-and-normality">
+<h4>Airports Data and Normality<a class="headerlink" href="#airports-data-and-normality" title="Permalink to this heading">#</a></h4>
+<p>We create density plots and QQ normal plots for both samples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">heights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">9</span><span class="p">))</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">]),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: ATL &amp; DFW&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">)</span>
+<span class="n">plot2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal QQ Plot: ATL &amp; DFW&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal Quantiles&#39;</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">south</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w">    </span>
+<span class="p">}</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">north</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">]),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: CLE &amp; PHL&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">)</span>
+<span class="n">plot3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">north</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal QQ Plot: CLE &amp; PHL&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal Quantiles&#39;</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">north</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Delay&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w">    </span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cf6f07ecb1d61cf9f3935b0179472d1665fae790503398ef339a268b3aa85a5a.png" src="_images/cf6f07ecb1d61cf9f3935b0179472d1665fae790503398ef339a268b3aa85a5a.png" />
+</div>
+</div>
+<p><strong>Analysis.</strong> The density plots concerns us because we see an approximately bell-shaped distribution but with a <b><span style="color: purple" >massive skew to the right</span></b>. The QQ plot shows the impact of the massive outliers which render the outcome a very non-normal distribution. We must reject this sample as <b><span style="color: red" >not normal</span></b>.</p>
+<p>Given the radical skewing to the right for both samples and lack of evidence in the QQ plots that the distributions are normal, we reject these data as <b><span style="color: purple" >unacceptable for <span class="math notranslate nohighlight">\(t\)</span> procedures</span></b>.</p>
+</section>
+<section id="results">
+<h4>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h4>
+<p>We will not run a <span class="math notranslate nohighlight">\(t\)</span>-test on these data as they <b><span style="color: red" >do not meet the requirements of the normality assumption</span></b>.</p>
+</section>
+</section>
+</section>
+<section id="example-2-births-and-smoking-during-pregnancy">
+<h2>Example 2: Births and Smoking during Pregnancy<a class="headerlink" href="#example-2-births-and-smoking-during-pregnancy" title="Permalink to this heading">#</a></h2>
+<p>Does smoking during pregnancy affect the health of the baby at birth? Test at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level using <strong>Birth Weight</strong> as a proxy variable for health of the baby.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">births</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Birth.Weight</th><th scope=col>Gestational.Days</th><th scope=col>Maternal.Age</th><th scope=col>Maternal.Height</th><th scope=col>Maternal.Pregnancy.Weight</th><th scope=col>Maternal.Smoker</th></tr></thead>
+<tbody>
+	<tr><td>120  </td><td>284  </td><td>27   </td><td>62   </td><td>100  </td><td>False</td></tr>
+	<tr><td>113  </td><td>282  </td><td>33   </td><td>64   </td><td>135  </td><td>False</td></tr>
+	<tr><td>128  </td><td>279  </td><td>28   </td><td>64   </td><td>115  </td><td>True </td></tr>
+	<tr><td>108  </td><td>282  </td><td>23   </td><td>67   </td><td>125  </td><td>True </td></tr>
+	<tr><td>136  </td><td>286  </td><td>25   </td><td>62   </td><td> 93  </td><td>False</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We need 2 vectors, one for the birth weight data from the smoking moms group and the other from the non-smoking moms group.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The values in the “Maternal Smoker” column are not the boolean variables TRUE and FALSE. The values in this data frame are strings, actual text. Thus, the subsetting used is for text but would look quite different in the boolean variable case.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">smoke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">births</span><span class="p">,</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;True&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">smoke</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Birth.Weight</th><th scope=col>Gestational.Days</th><th scope=col>Maternal.Age</th><th scope=col>Maternal.Height</th><th scope=col>Maternal.Pregnancy.Weight</th><th scope=col>Maternal.Smoker</th></tr></thead>
+<tbody>
+	<tr><th scope=row>3</th><td>128 </td><td>279 </td><td>28  </td><td>64  </td><td>115 </td><td>True</td></tr>
+	<tr><th scope=row>4</th><td>108 </td><td>282 </td><td>23  </td><td>67  </td><td>125 </td><td>True</td></tr>
+	<tr><th scope=row>9</th><td>143 </td><td>299 </td><td>30  </td><td>66  </td><td>136 </td><td>True</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">non</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">births</span><span class="p">,</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;False&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">non</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Birth.Weight</th><th scope=col>Gestational.Days</th><th scope=col>Maternal.Age</th><th scope=col>Maternal.Height</th><th scope=col>Maternal.Pregnancy.Weight</th><th scope=col>Maternal.Smoker</th></tr></thead>
+<tbody>
+	<tr><th scope=row>1</th><td>120  </td><td>284  </td><td>27   </td><td>62   </td><td>100  </td><td>False</td></tr>
+	<tr><th scope=row>2</th><td>113  </td><td>282  </td><td>33   </td><td>64   </td><td>135  </td><td>False</td></tr>
+	<tr><th scope=row>5</th><td>136  </td><td>286  </td><td>25   </td><td>62   </td><td> 93  </td><td>False</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>With the table subsetted properly, we now have need for vectors for both the smoking and non-smoking case. The correct format for extracting the correct values from the table are shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The smoke_bw vector: &#39;</span><span class="p">)</span>
+<span class="n">smoke_bw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">smoke_bw</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The non_bw vector: &#39;</span><span class="p">)</span>
+<span class="n">non_bw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">non_bw</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The smoke_bw vector: 
+</pre></div>
+</div>
+<div class="output text_html"><ol class=list-inline>
+	<li>128</li>
+	<li>108</li>
+	<li>143</li>
+	<li>144</li>
+	<li>141</li>
+</ol>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The non_bw vector: 
+</pre></div>
+</div>
+<div class="output text_html"><ol class=list-inline>
+	<li>128</li>
+	<li>108</li>
+	<li>143</li>
+	<li>144</li>
+	<li>141</li>
+</ol>
+</div></div>
+</div>
+<section id="verification-of-the-normality-assumption">
+<h3>Verification of the Normality Assumption<a class="headerlink" href="#verification-of-the-normality-assumption" title="Permalink to this heading">#</a></h3>
+<p>We conduct the density and QQ plots for both samples, just as we did above with the United Airlines data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">heights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">9</span><span class="p">))</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">]),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: Smoking Moms&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Birth Weight (in oz.)&#39;</span><span class="p">)</span>
+<span class="n">plot2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal QQ Plot: Smoking Moms&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal Quantiles&#39;</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">]),</span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: Non-Smoking Moms&#39;</span><span class="p">)</span>
+<span class="n">plot3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal QQ: Non-Smoking Moms&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Normal Quantiles&#39;</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/23cde7c1f55514bbc24470bc62ee2ea58a7d3bd5071f47f09f496c72a33a6e71.png" src="_images/23cde7c1f55514bbc24470bc62ee2ea58a7d3bd5071f47f09f496c72a33a6e71.png" />
+</div>
+</div>
+<p><strong>Analysis of Normality Plots.</strong> The plots for the births to smoking moms data show a normal distribution. The plots for the births to non-smoking moms look good in the case of the density plot and a bit worrisome in the case of the QQ plot.</p>
+<p><strong>Heavy Tails.</strong> The QQ plot for births to non-smoking moms shows evidence of heavy tails. This occurs when more outliers exist in the sample data than would be expected from a perfectly normal distribution. However, this difficulty is not very pronounced. The data here do appear to be approximately normally distributed with the allowance that the second QQ plot indicate the accuracy of the <span class="math notranslate nohighlight">\(p\)</span>-values resulting from a <span class="math notranslate nohighlight">\(t\)</span>-test may be compromised slightly.</p>
+<p>In the final analysis, we can see the following:</p>
+<center><span style="color:purple"><b>These data are appropriate for $t$ procedures with regards to the normality assumption.</b></span></center></section>
+<section id="verification-of-the-homogeneity-of-variances-assumption">
+<h3>Verification of the Homogeneity of Variances Assumption<a class="headerlink" href="#verification-of-the-homogeneity-of-variances-assumption" title="Permalink to this heading">#</a></h3>
+<p>Let’s first gather the standard descriptives for the two vectors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="n">s_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="n">n_s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">smoke</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the births to smoking moms: \n  Mean = &#39;</span><span class="p">,</span><span class="n">m_s</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">m_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="n">s_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="n">n_n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">non</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Birth.Weight&#39;</span><span class="p">])</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the births to non-smoking moms: \n  Mean = &#39;</span><span class="p">,</span><span class="n">m_n</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_n</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the births to smoking moms: 
+  Mean =  113.8192 
+  Std. Deviation =  18.29501 
+  Sample Size =  459 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the births to non-smoking moms: 
+  Mean =  123.0853 
+  Std. Deviation =  17.4237 
+  Sample Size =  715
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="sidebar">
+<p class="sidebar-title">Levene Test</p>
+<p>Some statisticians suggest conducting Levenes test for equality of the standard deviations. However, this nearly doubles the Type I error rate and decreases the overall power of the <span class="math notranslate nohighlight">\(t\)</span>-test. In this course, we will not conduct a Levene test for these reasons.</p>
+</aside>
+<p>With the ratio of largest to smallest sample sizes at <span class="math notranslate nohighlight">\(715:459\)</span> approximately <span class="math notranslate nohighlight">\(1.56 : 1\)</span> which is far less than <span class="math notranslate nohighlight">\(2:1\)</span>, we can conclude the group sizes are not <strong>sharply unequal</strong>. Thus, there is no reason to suspect that the homoegeneity of the variances assumption is incorrect here.</p>
+<p><span style="color:purple"><b>We will conduct Welch’s <span class="math notranslate nohighlight">\(t\)</span>-test which does not assume equal standard deviations while avoiding situations where the sample sizes are sharply unequal. These data are appropriate for <span class="math notranslate nohighlight">\(t\)</span> procedures with regards to the homogeneity assumption.</b></span></p>
+</section>
+<section id="conducting-the-independent-samples-t-test-for-birth-weights">
+<h3>Conducting the Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test for Birth Weights<a class="headerlink" href="#conducting-the-independent-samples-t-test-for-birth-weights" title="Permalink to this heading">#</a></h3>
+<p>Let’s first setup our null and alternative hypotheses:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_S = \mu_N\\ H_a &amp;: \mu_S &lt; \mu_N\end{align}\end{split}\]</div>
+<p>We can utilize symbolic notation in R:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Due to the use of symbolic notation, we lose control of which sample mean is subtracted from which. Hence, we run the <span class="math notranslate nohighlight">\(t\)</span>-test first to see how the subtraction is happening, and again with the correct alternative hypothesis symbol to run the test we wish to conduct.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">Birth.Weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">births</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;greater&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  Birth.Weight by Maternal.Smoker
+t = 8.6265, df = 941.81, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ 7.497579      Inf
+sample estimates:
+mean in group False  mean in group True 
+           123.0853            113.8192 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reporting-out">
+<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
+<p>Because <span class="math notranslate nohighlight">\(p = 2.2\times 10^{-16} &lt; 0.05 =\alpha\)</span>, we reject the null. Thus, we have evidence in favor of the alternative hypothesis that, in fact, the birth weights are higher in the non-smoking moms group than for smoking moms.</p>
+</section>
+<section id="calculations-with-formulas-and-tables">
+<h3>Calculations with Formulas and Tables<a class="headerlink" href="#calculations-with-formulas-and-tables" title="Permalink to this heading">#</a></h3>
+<p>Let’s recall the values of the standard descriptives so that we can calculate the <span class="math notranslate nohighlight">\(t\)</span>-statistic. Also, let’s link to the <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/StatsFormulas.pdf">formula sheet</a> for the class and the <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/Table_T.pdf"><span class="math notranslate nohighlight">\(t\)</span> table</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the births to smoking moms: \n  Mean = &#39;</span><span class="p">,</span><span class="n">m_s</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_s</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n\n&#39;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the births to non-smoking moms: \n  Mean = &#39;</span><span class="p">,</span><span class="n">m_n</span><span class="p">,</span><span class="s">&#39;\n  Std. Deviation = &#39;</span><span class="p">,</span><span class="n">s_n</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;\n  Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">n_n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the births to smoking moms: 
+  Mean =  113.8192 
+  Std. Deviation =  18.29501 
+  Sample Size =  459 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the births to non-smoking moms: 
+  Mean =  123.0853 
+  Std. Deviation =  17.4237 
+  Sample Size =  715
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-t-statistic">
+<h4>The <span class="math notranslate nohighlight">\(t\)</span> Statistic<a class="headerlink" href="#the-t-statistic" title="Permalink to this heading">#</a></h4>
+<p>The formula from our class formula sheet is as follows:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}\]</div>
+<p>We can substitute into this formula values from the lists above rounded to the nearest tenth. We will then simplify and solve:</p>
+<div class="math notranslate nohighlight">
+\[t = \frac{113.8 - 123.1}{\sqrt{\frac{18.3^2}{459} + \frac{17.4^2}{715}}}\]</div>
+<p><strong>Calculations: First Steps</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">113.8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">123.1</span>
+<span class="m">18.3</span><span class="o">^</span><span class="m">2</span>
+<span class="m">17.4</span><span class="o">^</span><span class="m">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-9.3</div><div class="output text_html">334.89</div><div class="output text_html">302.76</div></div>
+</div>
+<div class="math notranslate nohighlight">
+\[t = \frac{-9.3}{\sqrt{\frac{334.9}{459} + \frac{302.8}{715}}}\]</div>
+<p><strong>Final Calculations</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">-9.9</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="w"> </span><span class="m">334.9</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">459</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">302.8</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">715</span><span class="w"> </span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-9.21927537446768</div></div>
+</div>
+<div class="math notranslate nohighlight">
+\[t = -9.22\]</div>
+</section>
+<section id="cutoff-value-from-table">
+<h4>Cutoff Value from Table<a class="headerlink" href="#cutoff-value-from-table" title="Permalink to this heading">#</a></h4>
+<p>We are conducting a 1-tailed hypothesis test since</p>
+<div class="math notranslate nohighlight">
+\[H_a : \mu_S &lt; \mu_N\]</div>
+<p>with an <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level of significance. Also, our degrees of freedom (also shown on the formula sheet) for this case:</p>
+<div class="math notranslate nohighlight">
+\[df = \min(n_1-1,n_2-1)\]</div>
+<p>Note that, given that both sample sizes reach well into the hundreds, we will use the <span class="math notranslate nohighlight">\(\infty\)</span> degrees of freedom row in the table. Thus, we find the cutoff value:</p>
+<div class="math notranslate nohighlight">
+\[t^* = 1.645\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The test statistic we calculated by hand is quite different from the one the computer calculated above. This happens for two reasons.</p>
+<ol class="arabic simple">
+<li><p>The computer can calculate <span class="math notranslate nohighlight">\(t\)</span> while using a much more accurate degrees of freedom value than is practical when using a table.</p></li>
+<li><p>We have rounding error present in our calculated test statistic.</p></li>
+</ol>
+</div>
+</section>
+<section id="id1">
+<h4>Reporting Out<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>We reject the null since <span class="math notranslate nohighlight">\(|t| = 9.22 &gt; 1.645 = t^*\)</span>. We have evidence for the alternative, that the birth weight of babies born to moms who smoke during pregnancy is less, on average, than the birth weight of babies born to non-smoking moms.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            name: "ir",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="S4a.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The <span class="math notranslate nohighlight">\(t\)</span>-Test</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="S4c.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-airports-and-delays">Example 1: Airports and Delays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-descriptives-for-both-samples">Standard Descriptives for Both Samples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-assumptions">Verification of Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#airports-data-and-normality">Airports Data and Normality</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#results">Results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-births-and-smoking-during-pregnancy">Example 2: Births and Smoking during Pregnancy</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-the-normality-assumption">Verification of the Normality Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verification-of-the-homogeneity-of-variances-assumption">Verification of the Homogeneity of Variances Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-independent-samples-t-test-for-birth-weights">Conducting the Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test for Birth Weights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations-with-formulas-and-tables">Calculations with Formulas and Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-t-statistic">The <span class="math notranslate nohighlight">\(t\)</span> Statistic</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cutoff-value-from-table">Cutoff Value from Table</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Reporting Out</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
