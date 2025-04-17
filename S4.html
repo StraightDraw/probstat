@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Excercises &#8212; Probability and Statistics</title>
+    <title>\(t\)-Tests &#8212; Probability and Statistics</title>
   
   
   
@@ -62,11 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'P0';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="50 Counting Questions" href="P0a.html" />
-    <link rel="prev" title="Expected Value" href="P7.html" />
+    <link rel="next" title="The \(t\)-Test" href="S4a.html" />
+    <link rel="prev" title="The \(z\)-Proportion Test" href="S3b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
@@ -195,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Excercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
@@ -203,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
@@ -220,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
@@ -285,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P0.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S4.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +318,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/P0.ipynb" target="_blank"
+      <li><a href="_sources/S4.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +389,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -398,11 +402,25 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Excercises</h1>
+    <h1>t-Tests</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality">Normality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneity-of-the-variances">Homogeneity of the Variances</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">Hypothesis Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-t-tests">Types of <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -412,18 +430,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="excercises">
-<h1>Excercises<a class="headerlink" href="#excercises" title="Permalink to this heading">#</a></h1>
-<p>This section offers up more than a hundred homework problems. The problems are not offered in order from easiest to hardest. This lack of ordering is intentional.</p>
-<p>The problems on tests and quizzes are not normally ordered in this way, and the lack of ordering helps us learn the fundamentals of probability problem-solving. We must always be asking:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="t-tests">
+<h1><span class="math notranslate nohighlight">\(t\)</span>-Tests<a class="headerlink" href="#t-tests" title="Permalink to this heading">#</a></h1>
+<p>We begin our investigation of <strong>statistical hypothesis testing</strong> by looking at the <span class="math notranslate nohighlight">\(t\)</span>-tests. Though mathematicians had long understood many of the properties of the <em>normal distribution</em> and how it might be used for data analysis, the <span class="math notranslate nohighlight">\(z\)</span>-test based upon it generated a brittle statistic that required large sample sizes.</p>
+<aside class="sidebar">
+<p>Statistics are graded on a scale from <strong>brittle</strong> (easily broken) to <strong>robust</strong>. The <span class="math notranslate nohighlight">\(p\)</span>-values based upon a brittle statistic have less accuracy when the assumptions of the test are violated. A robust statistic retains its accuracy even when facing some violations of the assumpitons.</p>
+</aside>
+<p>The <span class="math notranslate nohighlight">\(t\)</span>-tests generate a robust statistics appropriate for use with much smaller sample sizes than the original <span class="math notranslate nohighlight">\(z\)</span>-tests based upon the normal distribution.</p>
+<section id="assumptions">
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h2>
+<p>The assumptions of the <span class="math notranslate nohighlight">\(t\)</span>-test and similar procedures are:</p>
 <ul class="simple">
-<li><p>What type of counting methods are used?</p></li>
-<li><p>Do natural partitions exist (as in a deck of cards: suits, values, etc.) that could help?</p></li>
-<li><p>Is this similar to another problem I’ve solved recently?</p></li>
-<li><p>Can I solve a simpler, related problem?</p></li>
-<li><p>If multiple events are utilized, are they independent events? If not, how are they related?</p></li>
+<li><p>Normality</p></li>
+<li><p>Independence</p></li>
+<li><p>Homogeneity of the Variances</p></li>
 </ul>
-<p>As we solved the unordered problems, we become adept at quickly analyzing the mathematical features of the problem. This helps us quickly and accurately proceed down a correct solution pathway.</p>
+<p>The <strong>normality</strong> assumption requires that the sample data were drawn from a normal (bell-shaped) distribution. The <strong>independence</strong> assumption asserts that each data point collected was independent of all other data. In other words, if the participants were human beings, they were not allowed to colloborate with, speak to or copy from another research participant. <strong>Homogeneity of the variances</strong> asserts that the standard deviations of all research samples are equal.</p>
+<p>Checking the assumptions can only be accomplished in the cases of <em>normality</em> and <em>homogeneity of the variances</em>. Independence is a research condition requiring exacting data collection standards.</p>
+<section id="normality">
+<h3>Normality<a class="headerlink" href="#normality" title="Permalink to this heading">#</a></h3>
+<p>We can check the normality assumption by assessing a QQ plot and a density plot. The QQ plot should be roughly linear if the sample data are approximately normally distributed. The density plot will show a bell-shaped distribution if the sample data are approximately normally distributed. The density plot doesn’t have to be perfectly bell-shaped nor perfectly symmetric. Some minor anomalies can exist in the density plot as long as an overall shape is approximately bell-shaped.</p>
+</section>
+<section id="homogeneity-of-the-variances">
+<h3>Homogeneity of the Variances<a class="headerlink" href="#homogeneity-of-the-variances" title="Permalink to this heading">#</a></h3>
+<p>The vital modernaization that the <span class="math notranslate nohighlight">\(t\)</span>-tests have brought to statistics is that the homogeneity of the variances assumption can be violated, at least to some degree, yet the test still retains its accuracy. We will conduct Welch’s <span class="math notranslate nohighlight">\(t\)</span>-test which is the modern variant that focuses upon unequal standard deviations. Still, we need to avoid <strong>sharply unequal</strong> sample sizes which accentuate the impact of unequal standard deviations. Hence, in this course, we require the ratio of the sample sizes to be no more unequal than <span class="math notranslate nohighlight">\(2:1\)</span>.</p>
+</section>
+</section>
+<section id="hypothesis-testing">
+<h2>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permalink to this heading">#</a></h2>
+<p>In statistics, hypothesis testing is an umbrella terms covering more than a dozen different statistical tests and procedures. The steps to conducting a hypothesis test are, generally speaking, as follows:</p>
+<ol class="arabic simple">
+<li><p>Identify a population parameter and state null and alternative hypotheses about that parameter.</p></li>
+<li><p>Create a model consistent with the <strong>null hypothesis</strong>.</p></li>
+<li><p>Use the model to determine a <strong><span class="math notranslate nohighlight">\(p\)</span>-value</strong> (the probability that results as extreme as those we observed would occur by random chance IF the null hypothesis were true).</p></li>
+<li><p>Based on the p-value, decide whether to <strong>reject the null hypothesis</strong> in favor of the alternative.</p></li>
+<li><p>Draw a conclusion in the context of the scenario given.</p></li>
+</ol>
+</section>
+<section id="types-of-t-tests">
+<h2>Types of <span class="math notranslate nohighlight">\(t\)</span>-Tests<a class="headerlink" href="#types-of-t-tests" title="Permalink to this heading">#</a></h2>
+<p>There are three different types of <span class="math notranslate nohighlight">\(t\)</span>-tests:</p>
+<ol class="arabic simple">
+<li><p>1-Sample <span class="math notranslate nohighlight">\(t\)</span>-Test</p></li>
+<li><p>Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</p></li>
+<li><p>Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</p></li>
+</ol>
+<p>The <strong>independent samples</strong> test compares and constrasts the means between two research samples as in a <em>treament vs. control</em> design. The test also can be used for 2-way demographic comparisons such as, for example, comparing young adults (age 25 - 40) to seniors (age 55 - 75) on a measure of high blood pressure.</p>
+<p>The <strong>matched pairs</strong> test compares and constrasts the means between two matched research samples as in a <em>pretest vs posttest</em> design. The matching can occur in studies of twins to determine whether or not genetics factor into a certain ailment. The matching can occur in reaction-time studies where dominant hand reactions are compared to non-dominant hand reactions.</p>
+<p>The <strong>1-sample</strong> test compares the research sample mean to a population mean. For example, a soft drink bottling company has a machine that can fill thousands of 12 oz. cans of soda each hour. To test it, the company could collect 25 different cans from different batches and find the average number of ounces in the cans. The population mean is clearly 12 oz. The compnay is hoping not to reject the null which would indicate the cans are being filled to some different value, not the 12 oz.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -437,16 +492,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -459,20 +514,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="P7.html"
+       href="S3b.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Expected Value</p>
+        <p class="prev-next-title">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</p>
       </div>
     </a>
     <a class="right-next"
-       href="P0a.html"
+       href="S4a.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">50 Counting Questions</p>
+        <p class="prev-next-title">The <span class="math notranslate nohighlight">\(t\)</span>-Test</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -482,6 +537,26 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality">Normality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneity-of-the-variances">Homogeneity of the Variances</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing">Hypothesis Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-t-tests">Types of <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

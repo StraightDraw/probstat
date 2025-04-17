@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Normal Curve &#8212; Probability and Statistics</title>
+    <title>Matched Pairs \(t\)-Test &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S4c';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Calculations with the Normal Curve" href="S3a.html" />
-    <link rel="prev" title="Sampling Distributions Examples" href="S2b.html" />
+    <link rel="next" title="Small Samples and \(t\)-Tests" href="S4d.html" />
+    <link rel="prev" title="Independent Samples \(t\)-Test" href="S4b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -217,14 +217,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Normal Curve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -285,7 +287,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S3.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S4c.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -316,7 +318,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S3.ipynb" target="_blank"
+      <li><a href="_sources/S4c.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -400,7 +402,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Normal Curve</h1>
+    <h1>Matched Pairs t-Test</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -410,10 +412,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-stress">Example: Stress</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normality-assumption">The Normality Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-assumptions">Analysis of the Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-test">Conducting the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-an-independent-samples-t-test"><strong>Not</strong> an Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -425,76 +433,164 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="normal-curve">
-<h1>Normal Curve<a class="headerlink" href="#normal-curve" title="Permalink to this heading">#</a></h1>
-<p>The properties of the bell curve were studied by Carl Friedrich Gauss (1777 - 1855) and his contemporaries, and Pierre-Simon LaPlace (1749 - 1827) proved the first version of the Central Limit Theorem in 1810. The modern function that describes the Gaussian distribution or the <strong>Normal Distribution</strong> is as follows:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="matched-pairs-t-test">
+<h1>Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#matched-pairs-t-test" title="Permalink to this heading">#</a></h1>
+<p>The levels of stress were measured in the 2nd week of classes and at midterms to determine if stress levels were higher at midterm. We will test using matched pairs the variables <strong>Stress1</strong> and <strong>Stress2</strong> from the <em>personality</em> data set. The research question a data here are very similar to a</p>
+<center><b><span style="color: purple" >pretest vs. posttest</span></b></center>
+<p>design, the quintessential matched pairs setup.</p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>As it happens, we will end up using a 1 sample <span class="math notranslate nohighlight">\(t\)</span>-test. Why? We create a <strong>gain score</strong> from the pretest and posttest data as follows:</p>
 <div class="math notranslate nohighlight">
-\[
-f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation. In this course, we use the notation <span class="math notranslate nohighlight">\(N(\mu, \sigma)\)</span> to refer to a normal distribution with the indicated mean and standard deviation.</p>
-<section id="standard-normal">
-<h2>Standard Normal<a class="headerlink" href="#standard-normal" title="Permalink to this heading">#</a></h2>
-<p>For the purposes of calcuation, especially when the integrals involved must be done by hand, mathematicians developed a simplification where</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mu = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma = 1\)</span></p></li>
-</ul>
-<p>One can readily verify by inspection of the above intgral that, computational, this simplication should make the integration more easily accomplished.</p>
+\[\text{gain} = \text{post} - \text{pre}\]</div>
+<p>Then, we use single sample methods on the gains. The hypotheses will be similar to the following:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_g = 0 \\H_a &amp;: \mu_g &gt; 0 \end{align}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_g\)</span> indicates the average <strong>gain score</strong> for the sample. In the example above, we are expecting positive gains where the posttest scores, on average, are higher than the pretest scores. In some experiments, we plan for the opposite, as when a pharmaceutical drug for high cholesterol is being tested. In that case, we would expect the alternative hypothesis to be more like</p>
+<div class="math notranslate nohighlight">
+\[H_a : \mu_g &lt; 0\]</div>
+<p>where the scores on the posttest are lower than the pretest scores.</p>
 </section>
-<section id="standardized-scores">
-<h2>Standardized Scores<a class="headerlink" href="#standardized-scores" title="Permalink to this heading">#</a></h2>
-<p>Statistics before computers involved tables. Any score within the experimentally gathered data could be converted to a standardized score. In this way, the estimation or calculation of percentiles was possible for any data point in the sample data. A stadardized score called a <span class="math notranslate nohighlight">\(z\)</span>-score was computed, and the relevant value was found in a table.</p>
-<p>The formula for calcuating a <span class="math notranslate nohighlight">\(z\)</span>-score is as follows:</p>
-<div class="math notranslate nohighlight">
-\[z = \frac{x - \mu}{\sigma}\]</div>
-<p>In modern statistical practice, we often estimate <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>. Thus, we often calculate <span class="math notranslate nohighlight">\(z\)</span>-scores based upon the sample average and sample standard deviation.</p>
-</section>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h2>
-<p>The ACT traditionally has scores that follow a <span class="math notranslate nohighlight">\(N(21,5)\)</span> distribution. If Molly scored a 29 on the ACT, in what percentile was here score?</p>
-<p><strong><span class="math notranslate nohighlight">\(z\)</span>-score</strong></p>
-<p>We first calculate her standardized score:</p>
-<div class="math notranslate nohighlight">
-\[z_M = \frac{29 -21}{5} =\frac{8}{5} = 1.6\]</div>
-<p>The percentile relative to this <span class="math notranslate nohighlight">\(z\)</span>-score can be found using the R command <strong>pnorm()</strong>:</p>
+<section id="example-stress">
+<h2>Example: Stress<a class="headerlink" href="#example-stress" title="Permalink to this heading">#</a></h2>
+<p>Let’s load the 2 vectors we will need. Due to the similiarity to a pre vs. post setup, we will call the 2 vectors <strong>pre</strong> and <strong>post</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">1.6</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">pers</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.945200708300442</div></div>
+<div class="output text_html"><table>
+<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
+<tbody>
+	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td><td>... </td><td>105 </td><td>10  </td><td>142 </td><td> 8  </td><td>11  </td><td>41  </td><td>40  </td><td>26  </td><td>27  </td><td>SE  </td></tr>
+	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
+	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td><td>... </td><td> 73 </td><td> 1  </td><td>134 </td><td>15  </td><td>11  </td><td>48  </td><td>42  </td><td>44  </td><td>29  </td><td>AG  </td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
-<p>Thus, Molly scored in the 94th percentile on the ACT.</p>
-</section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h2>
-<p>What if we knew that Dolly scored in the 87th percentile on the ACT. What was her score?</p>
-<p>First, we have to convert the percentile into a standardized score. For this, we use the R function <strong>qnorm()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.8</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pre</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Stress1&#39;</span><span class="p">]</span>
+<span class="n">post</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Stress2&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We now need to create the gain score vector which will be used as our 1 sample for this test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">gain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">pre</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.841621233572914</div></div>
+<div class="output text_html"><ol class=list-inline>
+	<li>-5</li>
+	<li>-2</li>
+	<li>7</li>
+	<li>7</li>
+	<li>12</li>
+</ol>
+</div></div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(z \approx 0.8416\)</span>, then we can calcuate using the <span class="math notranslate nohighlight">\(z\)</span>-score formula:</p>
-<div class="math notranslate nohighlight">
-\[0.8416 = \frac{ACT_D - 21}{5}\]</div>
-<p>When we simplify and rearrange the equation, we find that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D = 5 (0.8416) + 21\]</div>
-<p>or equivalently that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D \approx 25.21\]</div>
-<p>Thus, Dolly scored a 25 on the ACT.</p>
+<p>Notice that the first two values are negative indicating that these two participants scored lower on the posttest than they did on the pretest. The positive scores displayed in items 3 - 5 in this vector represent participants who appear to have benefitted from new labs.</p>
+<section id="the-normality-assumption">
+<h3>The Normality Assumption<a class="headerlink" href="#the-normality-assumption" title="Permalink to this heading">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">Height of Plots</p>
+<p>Allowing R to use its default settings for the <strong>layout()</strong> function results in the aspect ratio of the plots to become distorted. In this case, the plots are too narrow to analyze properly. Instead, we set “height = lcm(12)” to produce plots with better aspect ratios. This value often works, but a trial and error process leads us to graphics that are appropriate.</p>
+</aside>
+<p>As with Independent Samples, we will construct a stem plot and box plot hoping to see evdience of the data being drawn from an approximately normal distribution but with no outliers present. The data are all integers which explains why, in the stem plot, every value to right of the bar is a zero. Note that the overall shape provides reasonably good evidence that the data were in fact sampled from a normal distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">gain</span><span class="p">))</span>
+<span class="n">plot2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3ff2fc0306714769aa9cd3c182f19249937a80a11eeda6d1cc00acb5e7bf033c.png" src="_images/3ff2fc0306714769aa9cd3c182f19249937a80a11eeda6d1cc00acb5e7bf033c.png" />
+</div>
+</div>
 </section>
-<div class="toctree-wrapper compound">
+<section id="analysis-of-the-assumptions">
+<h3>Analysis of the Assumptions<a class="headerlink" href="#analysis-of-the-assumptions" title="Permalink to this heading">#</a></h3>
+<p>The <strong>normality</strong> assumption is easily verified by inspecting the QQ plot which is very good and by inspecting the density plot which provides solid evidence the data were drawn from a normal distribution. These data are appropriate for <span class="math notranslate nohighlight">\(t\)</span> procedures.</p>
+</section>
+<section id="hypotheses">
+<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this heading">#</a></h3>
+<p>The research question asks if students experience heightened stress levels at midterms which leads to the following setup:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_g = 0\\H_a &amp;: \mu_g &gt; 0 \end{align}\end{split}\]</div>
+</section>
+<section id="conducting-the-test">
+<h3>Conducting the Test<a class="headerlink" href="#conducting-the-test" title="Permalink to this heading">#</a></h3>
+<p>Notice that this is a straightforward 1 sample <span class="math notranslate nohighlight">\(t\)</span>-test</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  gain
+t = 2.4481, df = 128, p-value = 0.01572
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 0.1382394 1.3036210
+sample estimates:
+mean of x 
+0.7209302 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reporting-out">
+<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(p = 0.01572 &lt; 0.05 = \alpha\)</span>, we reject the null. We thus have evidence that the gain scores were indeed positive and that the new labs, on average, produced students who better understood the material in the chemistry course.</p>
+</section>
+<section id="not-an-independent-samples-t-test">
+<h3><strong>Not</strong> an Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test<a class="headerlink" href="#not-an-independent-samples-t-test" title="Permalink to this heading">#</a></h3>
+<p>While we could, in fact, conduct a standard independent samples <span class="math notranslate nohighlight">\(t\)</span>-test on the pretest and posttest data, this approach is <strong>not correct</strong>. Let’s perform the 2 sample test.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">post</span><span class="p">,</span><span class="w"> </span><span class="n">pre</span><span class="p">,</span><span class="w"> </span><span class="n">matched</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Welch Two Sample t-test
+
+data:  post and pre
+t = 1.7118, df = 255.52, p-value = 0.08814
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1084227  1.5502831
+sample estimates:
+mean of x mean of y 
+ 13.82171  13.10078 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <span class="math notranslate nohighlight">\(p\)</span>-value is not only different but more than 5 times larger than the <span class="math notranslate nohighlight">\(p\)</span>-value from the correct matched pairs test.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The matched pairs <span class="math notranslate nohighlight">\(t\)</span>-test is a more powerful statistical test than the independent samples <span class="math notranslate nohighlight">\(t\)</span>-test. Thus, matched pairs should be used in every case for which it is appropriate.</p>
+</div>
+<p>If we always use matched pairs when appropriate, our results and <span class="math notranslate nohighlight">\(p\)</span>-values will be have a higher degree of correctness.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -528,20 +624,20 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2b.html"
+       href="S4b.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sampling Distributions Examples</p>
+        <p class="prev-next-title">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</p>
       </div>
     </a>
     <a class="right-next"
-       href="S3a.html"
+       href="S4d.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Calculations with the Normal Curve</p>
+        <p class="prev-next-title">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -560,10 +656,16 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-stress">Example: Stress</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-normality-assumption">The Normality Assumption</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-the-assumptions">Analysis of the Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-test">Conducting the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-an-independent-samples-t-test"><strong>Not</strong> an Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

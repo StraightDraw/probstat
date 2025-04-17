@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sampling Distributions &#8212; Probability and Statistics</title>
+    <title>Sampling Distributions Examples &#8212; Probability and Statistics</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Normal Curve" href="S3.html" />
-    <link rel="prev" title="Sampling" href="S2a.html" />
+    <link rel="prev" title="The Central Limit Theorem and Estimation of the Mean" href="S2a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,9 +212,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="S2.html">Sampling and Sampling Distributions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="S2a.html">Sampling</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling Distributions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling Distributions Examples</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -222,6 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -395,7 +396,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sampling Distributions</h1>
+    <h1>Sampling Distributions Examples</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,8 +422,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sampling-distributions">
-<h1>Sampling Distributions<a class="headerlink" href="#sampling-distributions" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sampling-distributions-examples">
+<h1>Sampling Distributions Examples<a class="headerlink" href="#sampling-distributions-examples" title="Permalink to this heading">#</a></h1>
 <p>We will need to import some data to work with sampling distributions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,11 +555,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
-The middle 90% of sampling distribution: ( 1.8 , 39.705 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.61294 
+The middle 90% of sampling distribution: ( 2.4 , 40.61 ).
 </pre></div>
 </div>
-<img alt="_images/0d03fbe3e12a6b31a50353d8fb53b72a083875af797e83aad0eecc04955536d6.png" src="_images/0d03fbe3e12a6b31a50353d8fb53b72a083875af797e83aad0eecc04955536d6.png" />
+<img alt="_images/16e164a28d283ab83ad19c15a7bea6d0cbdacd614ca1b8248122256ca05f3a82.png" src="_images/16e164a28d283ab83ad19c15a7bea6d0cbdacd614ca1b8248122256ca05f3a82.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -580,11 +581,11 @@ The middle 90% of sampling distribution: ( 1.8 , 39.705 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
-The middle 90% of sampling distribution: ( 5.918 , 31.444 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.61294 
+The middle 90% of sampling distribution: ( 5.998 , 29.966 ).
 </pre></div>
 </div>
-<img alt="_images/7eb586bfa64a0d835008932edd2d8a4566e38ff1df7d5a759234f17b961bed29.png" src="_images/7eb586bfa64a0d835008932edd2d8a4566e38ff1df7d5a759234f17b961bed29.png" />
+<img alt="_images/190e7a82cbcdf6281e4e6fc3b054f2287d94fc25af57596a350277ad7d674e22.png" src="_images/190e7a82cbcdf6281e4e6fc3b054f2287d94fc25af57596a350277ad7d674e22.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -606,11 +607,11 @@ The middle 90% of sampling distribution: ( 5.918 , 31.444 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
-The middle 90% of sampling distribution: ( 8.578 , 25.984 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.61294 
+The middle 90% of sampling distribution: ( 8.276 , 25.961 ).
 </pre></div>
 </div>
-<img alt="_images/3e3b5be8cf91a8014f37ed13e876aeeb39276ce03a567f53127d7ab10309e024.png" src="_images/3e3b5be8cf91a8014f37ed13e876aeeb39276ce03a567f53127d7ab10309e024.png" />
+<img alt="_images/b113211faacade3d982ed356af058c686ecfe11fa74208ae21e22b71933b44e9.png" src="_images/b113211faacade3d982ed356af058c686ecfe11fa74208ae21e22b71933b44e9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -632,11 +633,11 @@ The middle 90% of sampling distribution: ( 8.578 , 25.984 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
-The middle 90% of sampling distribution: ( 10.846 , 23.4125 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.61294 
+The middle 90% of sampling distribution: ( 10.2995 , 23.7015 ).
 </pre></div>
 </div>
-<img alt="_images/3619803328e3c9b7fc29f5fcfe8dfead366c6343ef45c6d0e5d2eda950627b2c.png" src="_images/3619803328e3c9b7fc29f5fcfe8dfead366c6343ef45c6d0e5d2eda950627b2c.png" />
+<img alt="_images/b610311a5d68cb19c9e4a58656fb7915ebac4eab0d5925d2278d838927dcd0f4.png" src="_images/b610311a5d68cb19c9e4a58656fb7915ebac4eab0d5925d2278d838927dcd0f4.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -658,11 +659,11 @@ The middle 90% of sampling distribution: ( 10.846 , 23.4125 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.4244 
-The middle 90% of sampling distribution: ( 12.7578 , 20.778 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 12.61294 
+The middle 90% of sampling distribution: ( 12.9196 , 20.9628 ).
 </pre></div>
 </div>
-<img alt="_images/3ea4329c4638bf6caa67aafe15f3774dda00688dd254a43b70910d70498cba55.png" src="_images/3ea4329c4638bf6caa67aafe15f3774dda00688dd254a43b70910d70498cba55.png" />
+<img alt="_images/20316280ed6c85a094d1c2425654c44fb76d38a9a557831aea4f8b6342e29322.png" src="_images/20316280ed6c85a094d1c2425654c44fb76d38a9a557831aea4f8b6342e29322.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -676,19 +677,19 @@ The middle 90% of sampling distribution: ( 12.7578 , 20.778 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 10, the standard deviation was  12.4244  and the middle 90% was between  1.8  and  39.705 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 10, the standard deviation was  12.61294  and the middle 90% was between  2.4  and  40.61 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 25, the standard deviation was  7.800376  and the middle 90% was between  5.918  and  31.444 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 25, the standard deviation was  7.522321  and the middle 90% was between  5.998  and  29.966 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 50, the standard deviation was  5.355054  and the middle 90% was between  8.578  and  25.984 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 50, the standard deviation was  5.449524  and the middle 90% was between  8.276  and  25.961 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 100, the standard deviation was  3.877627  and the middle 90% was between  10.846  and  23.4125 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 100, the standard deviation was  3.989302  and the middle 90% was between  10.2995  and  23.7015 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 250, the standard deviation was  2.457271  and the middle 90% was between  12.7578  and  20.778 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For n = 250, the standard deviation was  2.463624  and the middle 90% was between  12.9196  and  20.9628 
 </pre></div>
 </div>
 </div>
@@ -733,7 +734,7 @@ The middle 90% of sampling distribution: ( 12.7578 , 20.778 ).
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sampling</p>
+        <p class="prev-next-title">The Central Limit Theorem and Estimation of the Mean</p>
       </div>
     </a>
     <a class="right-next"
