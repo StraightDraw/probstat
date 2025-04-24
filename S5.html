@@ -417,6 +417,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-sleep-variable">Summary of the Sleep Variable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate">Estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-proportion-confidence-intervals"><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -527,6 +533,81 @@ mean of x
 </div>
 </div>
 </section>
+<section id="z-proportion-confidence-intervals">
+<h2><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals<a class="headerlink" href="#z-proportion-confidence-intervals" title="Permalink to this heading">#</a></h2>
+<p>If we are estimating the support for our condidate in an upcoming election and have polling data show that, in the Atlanta metro area, 512 likely voters will vote for her while 487 will vote against.</p>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<p>We must first create an observed matrix for the data collected which proceeds as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">512</span><span class="p">,</span><span class="m">486</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="n">obs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>512</td><td>486</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h3>
+<p>The assumptions for confidence intervals are the same as the statistical tests using that variable. In this case, we need a reasonably large sample and proportion data which, by inspection, we clearly have.</p>
+</section>
+<section id="id1">
+<h3>Estimate<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>We will be using the <strong>prop.test</strong> function because it performs <span class="math notranslate nohighlight">\(z\)</span>-proportion testing, and we wish to produce a <span class="math notranslate nohighlight">\(z\)</span>-proportion confidence interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
+
+data:  obs, null probability 0.5
+X-squared = 0.62625, df = 1, p-value = 0.4287
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.4815254 0.5444252
+sample estimates:
+        p 
+0.5130261 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Estimate:</strong> The 95% confidence interval for the percentage of voters likely to vote for our candidate is between <span class="math notranslate nohighlight">\(48.2\%\)</span> and <span class="math notranslate nohighlight">\(54.4\%\)</span>.</p>
+<p>As before, we can change the <strong>conf.level</strong> to <span class="math notranslate nohighlight">\(99\%\)</span> as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
+
+data:  obs, null probability 0.5
+X-squared = 0.62625, df = 1, p-value = 0.4287
+alternative hypothesis: true p is not equal to 0.5
+99 percent confidence interval:
+ 0.4718216 0.5540563
+sample estimates:
+        p 
+0.5130261 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -595,6 +676,12 @@ mean of x
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-sleep-variable">Summary of the Sleep Variable</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate">Estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-proportion-confidence-intervals"><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
