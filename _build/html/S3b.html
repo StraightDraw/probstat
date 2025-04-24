@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'S3b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="\(t\)-Tests" href="S4.html" />
+    <link rel="next" title="\(\chi^2\) Test of Independence" href="S3c.html" />
     <link rel="prev" title="Calculations with the Normal Curve" href="S3a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,11 +220,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3c.html"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
 </ul>
 </li>
 </ul>
@@ -387,7 +390,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -403,6 +408,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-for-z-proportion-testing">Uses for <span class="math notranslate nohighlight">\(z\)</span>-Proportion Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-voting">Example: Voting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-test">Conduct the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-r-to-do-all-computations-we-have-the-following">Using R to do all computations, we have the following:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -414,6 +434,97 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-z-proportion-test">
 <h1>The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test<a class="headerlink" href="#the-z-proportion-test" title="Permalink to this heading">#</a></h1>
+<p>While the <span class="math notranslate nohighlight">\(z\)</span> procedures have been, in the main, replaced by <span class="math notranslate nohighlight">\(t\)</span> procedures, one area of study still uses the the normal curve: qualitative data with research questions framed as proportions per category.</p>
+<section id="uses-for-z-proportion-testing">
+<h2>Uses for <span class="math notranslate nohighlight">\(z\)</span>-Proportion Testing<a class="headerlink" href="#uses-for-z-proportion-testing" title="Permalink to this heading">#</a></h2>
+<p>The quintessential example of using <span class="math notranslate nohighlight">\(z\)</span>-proportion procedures is political polling where researchers estimate the percentage of votes a candidate is likely to receive in the primaries or general election. As our class formula sheet makes clear, we are estimating the proportion data for the qualitative variable <span class="math notranslate nohighlight">\(p\)</span> using the following conversion to a normal distribution:</p>
+<div class="math notranslate nohighlight">
+\[ z = \frac{\hat p - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}} \]</div>
+<p>where the distribution of <span class="math notranslate nohighlight">\(p\)</span> is approximately <span class="math notranslate nohighlight">\(N\left(p, \sqrt{\frac{p(1-p))}{n}}\right)\)</span>.</p>
+</section>
+<section id="example-voting">
+<h2>Example: Voting<a class="headerlink" href="#example-voting" title="Permalink to this heading">#</a></h2>
+<p>A gun control resolution is being considered for the metro Atlanta area. A pollster wishes to gauge opinion for or against the law in both Fulton and Gwinett counties. Test at the <span class="math notranslate nohighlight">\(\alpha = 0.10\)</span> level given that the data collected are shown in the table below.</p>
+<table style="width:35%">
+<tr><tr><th></th><th style="text-align: center;">For</th> <th style="text-align: center;">Against</th></tr>
+  <tr><th>Fulton</th><td style="text-align: center;">281</td> <td style="text-align: center;">192</td></tr>
+  <tr><th>Gwinnett</th><td style="text-align: center;">214</td> <td style="text-align: center;">229</td></tr>
+</table><section id="hypotheses">
+<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this heading">#</a></h3>
+<p>This is a 2-sample proportion test where we test for a difference in the percent of voters who plan to vote for the resolution.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: p_f = p_g \\ H_a &amp;: p_f \neq p_g\end{align}\end{split}\]</div>
+</section>
+<section id="conduct-the-test">
+<h3>Conduct the Test<a class="headerlink" href="#conduct-the-test" title="Permalink to this heading">#</a></h3>
+<p>We first proceed with table and a formula. The <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/Table_Z.pdf"><span class="math notranslate nohighlight">\(z\)</span> table</a> shows that <span class="math notranslate nohighlight">\(t^* = \pm 1.65\)</span> corresponds to <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> and <span class="math notranslate nohighlight">\(\alpha = 0.95\)</span> which, since we are conducting a 2-tailed hypothesis test, will be correct. The correct formula for a 2-sample <span class="math notranslate nohighlight">\(z\)</span>-proportion test is given below</p>
+<div class="math notranslate nohighlight">
+\[ z = \frac{\hat p_f - \hat p_g}{\sqrt{\hat p(1-\hat p)\left(\frac{1}{n_f}+\frac{1}{n_g}\right)}} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat p\)</span> is the pooled (overall) proportion of successes.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}z &amp;= \frac{\hat p_f - \hat p_g}{\sqrt{\hat p(1-\hat p)\left(\frac{1}{n_f}+\frac{1}{n_g}\right)}}\\&amp;= \frac{0.594 - 0.483}{\sqrt{0.5404(0.4596)\left(\frac{1}{473}+\frac{1}{443}\right)}}\\&amp;= \frac{0.111}{\sqrt{0.2484\left(0.004372\right)}}\implies\\z &amp;\approx 3.3683 \end{align}\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(z = 3.3683 &gt; 1.65 = z^*\)</span>, we reject the null.</p>
+</section>
+<section id="using-r-to-do-all-computations-we-have-the-following">
+<h3>Using R to do all computations, we have the following:<a class="headerlink" href="#using-r-to-do-all-computations-we-have-the-following" title="Permalink to this heading">#</a></h3>
+<p>Creating the observed data matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">281</span><span class="p">,</span><span class="w"> </span><span class="m">214</span><span class="p">,</span><span class="w"> </span><span class="m">192</span><span class="p">,</span><span class="w"> </span><span class="m">229</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="n">obs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>281</td><td>192</td></tr>
+	<tr><td>214</td><td>229</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We set <span class="math notranslate nohighlight">\(\textbf{correct} = \textbf{FALSE}\)</span> to turn off the continuity correction which will force R into a similar computation as we do with formulas and tables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	2-sample test for equality of proportions without continuity
+	correction
+
+data:  obs
+X-squared = 11.35, df = 1, p-value = 0.0007544
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ 0.04679303 0.17522769
+sample estimates:
+   prop 1    prop 2 
+0.5940803 0.4830700 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our calculated test statistic <span class="math notranslate nohighlight">\(z = 3.3683\)</span> should be within rounding error of the square root of R’s calcuated test statistic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sqrt</span><span class="p">(</span><span class="n">test</span><span class="o">$</span><span class="n">statistic</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><strong>X-squared:</strong> 3.36899244646954</div></div>
+</div>
+<p>We find that it is, and with <span class="math notranslate nohighlight">\(p = 0.000754 &lt; 0.05 = \alpha\)</span>, we reject the null.</p>
+</section>
+<section id="reporting-out">
+<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
+<p>Given that we reject the null (<span class="math notranslate nohighlight">\(p &lt; 0.001\)</span>), we have evidence for a difference in voter preferrence on this referrendum. A higher percentage of Fulton County voters favor the referrendum than do Gwinnett County voters.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -456,11 +567,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="S4.html"
+       href="S3c.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="math notranslate nohighlight">\(t\)</span>-Tests</p>
+        <p class="prev-next-title"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -470,6 +581,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-for-z-proportion-testing">Uses for <span class="math notranslate nohighlight">\(z\)</span>-Proportion Testing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-voting">Example: Voting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-test">Conduct the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-r-to-do-all-computations-we-have-the-following">Using R to do all computations, we have the following:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

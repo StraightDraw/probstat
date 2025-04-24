@@ -43,12 +43,14 @@ parts:
       sections:
       - file: S3a
       - file: S3b
+      - file: S3c
     - file: S4
       sections:
       - file: S4a
       - file: S4b
       - file: S4c
       - file: S4d
+    - file: S5
   - caption: Appendix
     chapters:
     - file: A1

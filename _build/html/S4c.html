@@ -220,6 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3c.html"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -422,6 +423,16 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-an-independent-samples-t-test"><strong>Not</strong> an Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-and-homogeneity-assumptions">Normality and Homogeneity Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conducting the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Reporting Out</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -591,6 +602,94 @@ mean of x mean of y
 <p>If we always use matched pairs when appropriate, our results and <span class="math notranslate nohighlight">\(p\)</span>-values will be have a higher degree of correctness.</p>
 </section>
 </section>
+<section id="example-2">
+<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h2>
+<p>Does yoga help patients struggling with back pain? Patients registered their ability to perform common household tasks like laundry, cooking and clearning on a 5 point scale. A 10-week yoga program was then launched geared toward helping these adults heal. Test the efficacy of the yoga intervention at the <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> level.</p>
+<table style="width:100%">
+  <tr>
+    <th>Before</th><td>1.7</td><td>3.1</td><td>3.0</td><td>3.0</td><td>1.3</td><td>2.7</td><td>1.7</td><td>1.2</td><td>2.9</td><td>3.4</td><td>1.6</td><td>2.8</td>
+  </tr>
+  <tr><th>After</th><td>1.4</td><td>2.6</td><td>2.0</td><td>2.4</td><td>1.5</td><td>0.9</td><td>3.0</td><td>3.2</td><td>3.4</td><td>3.5</td><td>4.0</td><td>4.9</td>
+  </tr>
+</table><section id="normality-and-homogeneity-assumptions">
+<h3>Normality and Homogeneity Assumptions<a class="headerlink" href="#normality-and-homogeneity-assumptions" title="Permalink to this heading">#</a></h3>
+<p>Let’s load the data from the table into vectors in R so we can create a vector of gain scores for analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">before</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1.7</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">,</span><span class="w"> </span><span class="m">1.3</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">1.9</span><span class="p">,</span><span class="w"> </span><span class="m">1.2</span><span class="p">,</span><span class="w"> </span><span class="m">2.9</span><span class="p">,</span><span class="w"> </span><span class="m">3.4</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">,</span><span class="w"> </span><span class="m">3.5</span><span class="p">)</span>
+<span class="n">after</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1.4</span><span class="p">,</span><span class="w"> </span><span class="m">2.6</span><span class="p">,</span><span class="w"> </span><span class="m">2.0</span><span class="p">,</span><span class="w"> </span><span class="m">2.4</span><span class="p">,</span><span class="w"> </span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="m">1.1</span><span class="p">,</span><span class="w"> </span><span class="m">3.0</span><span class="p">,</span><span class="w"> </span><span class="m">3.2</span><span class="p">,</span><span class="w"> </span><span class="m">2.8</span><span class="p">,</span><span class="w"> </span><span class="m">3.5</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">,</span><span class="w"> </span><span class="m">4.9</span><span class="p">)</span>
+<span class="n">gain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">before</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">stem</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is at the |
+
+  -1 | 60
+  -0 | 6531
+   0 | 128
+   1 | 14
+   2 | 0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="w"> </span><span class="n">horizontal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f8819bcabe1c1bcf614e7876964a5e44f9020c28f9aaf4db3ab7502d59022e0d.png" src="_images/f8819bcabe1c1bcf614e7876964a5e44f9020c28f9aaf4db3ab7502d59022e0d.png" />
+</div>
+</div>
+<section id="analysis">
+<h4>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h4>
+<p>With no outliers present and reasonable evidence the gain scores were drawn from a bell-shaped distribution, the normality assumption is verified. There is no way to assess the homogeneity assumption given that we have only one small sample. The data will work well for <span class="math notranslate nohighlight">\(t\)</span> procedures.</p>
+</section>
+</section>
+<section id="id1">
+<h3>Hypotheses<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}H_0 &amp;: \mu_g =  0\\H_a &amp;: \mu_g &gt;  0\end{align}\end{split}\]</div>
+</section>
+<section id="id2">
+<h3>Conducting the Test<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">gain</span><span class="p">,</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;greater&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  gain
+t = 0.41557, df = 11, p-value = 0.3429
+alternative hypothesis: true mean is greater than 0
+95 percent confidence interval:
+ -0.4151808        Inf
+sample estimates:
+mean of x 
+    0.125 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Reporting Out<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Since <span class="math notranslate nohighlight">\(p = 0.343 &gt; 0.05 = \alpha\)</span>, we fail to reject the null hypothesis. We have no evidence the yoga helped improve these patient’s ability to perform household chores.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -664,6 +763,16 @@ mean of x mean of y
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-test">Conducting the Test</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-an-independent-samples-t-test"><strong>Not</strong> an Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normality-and-homogeneity-assumptions">Normality and Homogeneity Assumptions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Hypotheses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conducting the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Reporting Out</a></li>
 </ul>
 </li>
 </ul>
