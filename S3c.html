@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Normal Curve &#8212; Probability and Statistics</title>
+    <title>\(\chi^2\) Test of Independence &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S3c';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Calculations with the Normal Curve" href="S3a.html" />
-    <link rel="prev" title="Sampling Distributions Examples" href="S2b.html" />
+    <link rel="next" title="\(t\)-Tests" href="S4.html" />
+    <link rel="prev" title="The \(z\)-Proportion Test" href="S3b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -217,10 +217,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Normal Curve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3c.html"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -288,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S3.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S3c.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -319,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S3.ipynb" target="_blank"
+      <li><a href="_sources/S3c.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Normal Curve</h1>
+    <h1>\chi^2 Test of Independence</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -413,10 +413,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-test">Conduct the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -428,76 +429,90 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="normal-curve">
-<h1>Normal Curve<a class="headerlink" href="#normal-curve" title="Permalink to this heading">#</a></h1>
-<p>The properties of the bell curve were studied by Carl Friedrich Gauss (1777 - 1855) and his contemporaries, and Pierre-Simon LaPlace (1749 - 1827) proved the first version of the Central Limit Theorem in 1810. The modern function that describes the Gaussian distribution or the <strong>Normal Distribution</strong> is as follows:</p>
-<div class="math notranslate nohighlight">
-\[
-f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation. In this course, we use the notation <span class="math notranslate nohighlight">\(N(\mu, \sigma)\)</span> to refer to a normal distribution with the indicated mean and standard deviation.</p>
-<section id="standard-normal">
-<h2>Standard Normal<a class="headerlink" href="#standard-normal" title="Permalink to this heading">#</a></h2>
-<p>For the purposes of calcuation, especially when the integrals involved must be done by hand, mathematicians developed a simplification where</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mu = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma = 1\)</span></p></li>
-</ul>
-<p>One can readily verify by inspection of the above intgral that, computational, this simplication should make the integration more easily accomplished.</p>
-</section>
-<section id="standardized-scores">
-<h2>Standardized Scores<a class="headerlink" href="#standardized-scores" title="Permalink to this heading">#</a></h2>
-<p>Statistics before computers involved tables. Any score within the experimentally gathered data could be converted to a standardized score. In this way, the estimation or calculation of percentiles was possible for any data point in the sample data. A stadardized score called a <span class="math notranslate nohighlight">\(z\)</span>-score was computed, and the relevant value was found in a table.</p>
-<p>The formula for calcuating a <span class="math notranslate nohighlight">\(z\)</span>-score is as follows:</p>
-<div class="math notranslate nohighlight">
-\[z = \frac{x - \mu}{\sigma}\]</div>
-<p>In modern statistical practice, we often estimate <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>. Thus, we often calculate <span class="math notranslate nohighlight">\(z\)</span>-scores based upon the sample average and sample standard deviation.</p>
-</section>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h2>
-<p>The ACT traditionally has scores that follow a <span class="math notranslate nohighlight">\(N(21,5)\)</span> distribution. If Molly scored a 29 on the ACT, in what percentile was here score?</p>
-<p><strong><span class="math notranslate nohighlight">\(z\)</span>-score</strong></p>
-<p>We first calculate her standardized score:</p>
-<div class="math notranslate nohighlight">
-\[z_M = \frac{29 -21}{5} =\frac{8}{5} = 1.6\]</div>
-<p>The percentile relative to this <span class="math notranslate nohighlight">\(z\)</span>-score can be found using the R command <strong>pnorm()</strong>:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="chi-2-test-of-independence">
+<h1><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence<a class="headerlink" href="#chi-2-test-of-independence" title="Permalink to this heading">#</a></h1>
+<p>Just as ANOVA is the straightforward extension of <span class="math notranslate nohighlight">\(t\)</span> procedures into the cases where we have more than 2 samples of numeric data, <span class="math notranslate nohighlight">\(\chi^2\)</span> methods are the mathematical extension of <span class="math notranslate nohighlight">\(z\)</span>-proportion procedures for categorical data.</p>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">#</a></h2>
+<p>The table below shows a breakdown at a certain university of the number of students still undecided about their majors compared to the number who chosen a major already.</p>
+<table style="width:60%">
+<tr>
+  <th></th>
+  <th>Freshman</th>
+  <th>Sophomore</th>
+  <th>Junior</th>
+</tr>
+<tr>
+  <th>Have Chosen a Major</th>
+  <td style="text-align: center;">114</td>
+  <td style="text-align: center;">168</td>
+  <td style="text-align: center;">198</td>
+</tr>
+<tr>
+    <th>Have <b>not</b> Chosen a Major</th> 
+  <td style="text-align: center;">212</td>
+  <td style="text-align: center;">171</td>
+  <td style="text-align: center;">92</td>
+  </tr>
+</table><p>We create the observed data below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">1.6</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">114</span><span class="p">,</span><span class="m">212</span><span class="p">,</span><span class="m">168</span><span class="p">,</span><span class="m">171</span><span class="p">,</span><span class="m">198</span><span class="p">,</span><span class="m">92</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="m">3</span><span class="p">)</span>
+<span class="n">obs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.945200708300442</div></div>
+<div class="output text_html"><table>
+<tbody>
+	<tr><td>114</td><td>168</td><td>198</td></tr>
+	<tr><td>212</td><td>171</td><td> 92</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
-<p>Thus, Molly scored in the 94th percentile on the ACT.</p>
-</section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h2>
-<p>What if we knew that Dolly scored in the 87th percentile on the ACT. What was her score?</p>
-<p>First, we have to convert the percentile into a standardized score. For this, we use the R function <strong>qnorm()</strong>.</p>
+<p>We add column titles and row titles as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.8</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">colnames</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Freshmen&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Sophomore&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Junior&#39;</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Have Chosen&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Have NOT Chosen&#39;</span><span class="p">)</span>
+<span class="n">obs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.841621233572914</div></div>
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Freshmen</th><th scope=col>Sophomore</th><th scope=col>Junior</th></tr></thead>
+<tbody>
+	<tr><th scope=row>Have Chosen</th><td>114</td><td>168</td><td>198</td></tr>
+	<tr><th scope=row>Have NOT Chosen</th><td>212</td><td>171</td><td> 92</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(z \approx 0.8416\)</span>, then we can calcuate using the <span class="math notranslate nohighlight">\(z\)</span>-score formula:</p>
-<div class="math notranslate nohighlight">
-\[0.8416 = \frac{ACT_D - 21}{5}\]</div>
-<p>When we simplify and rearrange the equation, we find that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D = 5 (0.8416) + 21\]</div>
-<p>or equivalently that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D \approx 25.21\]</div>
-<p>Thus, Dolly scored a 25 on the ACT.</p>
+<section id="conduct-the-test">
+<h3>Conduct the Test<a class="headerlink" href="#conduct-the-test" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">chisq.test</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	Pearson&#39;s Chi-squared test
+
+data:  obs
+X-squared = 68.207, df = 2, p-value = 1.545e-15
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
+<section id="reporting-out">
+<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
+<p>Because <span class="math notranslate nohighlight">\(p = 1.545\times 10^{-15} &lt; 0.05 \alpha\)</span>, we reject the null. We thus have evidence that the percentage of students who have chosen their majors already depends upon which year in school they are.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -531,20 +546,20 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2b.html"
+       href="S3b.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sampling Distributions Examples</p>
+        <p class="prev-next-title">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</p>
       </div>
     </a>
     <a class="right-next"
-       href="S3a.html"
+       href="S4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Calculations with the Normal Curve</p>
+        <p class="prev-next-title"><span class="math notranslate nohighlight">\(t\)</span>-Tests</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -563,10 +578,11 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conduct-the-test">Conduct the Test</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
