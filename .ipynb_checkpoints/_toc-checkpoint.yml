@@ -43,7 +43,6 @@ parts:
       sections:
       - file: S3a
       - file: S3b
-      - file: S3c
     - file: S4
       sections:
       - file: S4a
@@ -51,6 +50,10 @@ parts:
       - file: S4c
       - file: S4d
     - file: S5
+      sections:
+      - file: S5a
+      - file: S5b
+    - file: S6
   - caption: Appendix
     chapters:
     - file: A1

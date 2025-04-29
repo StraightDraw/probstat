@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Statistical Estimation &#8212; Probability and Statistics</title>
+    <title>Proportion Testing &#8212; Probability and Statistics</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'S5';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Poker Primer" href="A1.html" />
+    <link rel="next" title="The \(\chi^2\) Test of Independence" href="S5a.html" />
     <link rel="prev" title="Small Samples and \(t\)-Tests" href="S4d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,7 +220,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S3c.html"><span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -230,7 +229,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistical Estimation</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Proportion Testing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S5a.html">The <span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5b.html">Goodness of Fit (GOF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="S6.html">Statistical Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -404,7 +408,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Statistical Estimation</h1>
+    <h1>Proportion Testing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -414,15 +418,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-sleep-variable">Summary of the Sleep Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate">Estimate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-proportion-confidence-intervals"><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goodness-of-fit">Goodness of Fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations">Calculations</a></li>
 </ul>
             </nav>
         </div>
@@ -434,180 +431,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="statistical-estimation">
-<h1>Statistical Estimation<a class="headerlink" href="#statistical-estimation" title="Permalink to this heading">#</a></h1>
-<p>When scientists wish to estimate a value, they avoid a “point estimate” and prefer instead a <strong>confidence interval</strong> estimate. We are in search of an interval which, under repeated sampling, will capture the mean inside that interval a specified percentage of the time.</p>
-<section id="summary-of-the-sleep-variable">
-<h2>Summary of the Sleep Variable<a class="headerlink" href="#summary-of-the-sleep-variable" title="Permalink to this heading">#</a></h2>
-<p>Let’s consider a brief example where researchers wish to esimate the average number of hours of sleep students on the UNG Dahlonega campus get per night. Let’s load, subset and summarize the correct vector of values:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
-<span class="n">sleep</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">pers</span><span class="p">[,</span><span class="s">&#39;Sleep&#39;</span><span class="p">]</span>
-<span class="nf">cat </span><span class="p">(</span><span class="s">&quot;Descriptive Statistics: \n  Mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;\n  Standard Deviation =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;\n  Sample Size =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="s">&quot;\n\nThe 5-number summary is shown below.&quot;</span><span class="p">)</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics: 
-  Mean = 6.24 
-  Standard Deviation = 2.13 
-  Sample Size = 129 
-
-The 5-number summary is shown below.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-   0.50    5.00    6.50    6.24    7.50   11.00 
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="proportion-testing">
+<h1>Proportion Testing<a class="headerlink" href="#proportion-testing" title="Permalink to this heading">#</a></h1>
+<p>We have seen proportion testing in the 1-sample and 2-sample cases where we utilize the <span class="math notranslate nohighlight">\(z\)</span>-test for population propotion. See <a class="reference external" href="https://straightdraw.github.io/probstat/S3b.html">this section of our course notes</a>. In general, we use the</p>
+<center><b>$\chi^2$ Test of Independence</b></center></br>
+<p>for hypothesis testing with category (or proportion) data. Just as ANOVA is the straightforward extension of <span class="math notranslate nohighlight">\(t\)</span> procedures into the cases where we have more than 2 samples of numeric data, <span class="math notranslate nohighlight">\(\chi^2\)</span> methods are the mathematical extension of <span class="math notranslate nohighlight">\(z\)</span>-proportion procedures for categorical data.</p>
+<section id="goodness-of-fit">
+<h2>Goodness of Fit<a class="headerlink" href="#goodness-of-fit" title="Permalink to this heading">#</a></h2>
+<p>As it happens, the <span class="math notranslate nohighlight">\(\chi^2\)</span> test can be used to test a probability model. This stastical test is called the Goodness of Fit and is often abbreviated GOF.</p>
 </section>
-<section id="shape">
-<h2>Shape<a class="headerlink" href="#shape" title="Permalink to this heading">#</a></h2>
-<p>To better understand the shape of population from which the data were drawn, let’s plot a histogram and density plot.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">sleep</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/ed1cd0b9925a40e2f1685d7920bdc884b8680b6230d5388b21d3236684c6acaa.png" src="_images/ed1cd0b9925a40e2f1685d7920bdc884b8680b6230d5388b21d3236684c6acaa.png" />
-</div>
-</div>
-<p>We find the distribution approximately normal and skewed left with possible (mild) evidence of bimodality. The data are appropriate for <span class="math notranslate nohighlight">\(t\)</span>-procedures, yet a pronounced and obvious bimodality might force us to reject the data as inappropriate.</p>
+<section id="calculations">
+<h2>Calculations<a class="headerlink" href="#calculations" title="Permalink to this heading">#</a></h2>
+<p>Both methods, the Test of Independence and the Goodness of Fit test, have similar (and in some cases identical) calculations, degrees of freedom and assumptions to check. While their hypotheses differ, the way in the tests are conducted is very much the same.</p>
 </section>
-<section id="estimate">
-<h2>Estimate<a class="headerlink" href="#estimate" title="Permalink to this heading">#</a></h2>
-<p><strong>Question:</strong> Find a 95% confidence interval estimate for the mean hours of sleep per night for UNG Dahlonega students using the <em>personality.csv</em> data set.</p>
-<p>To answer, we can use the <strong>t.test</strong> function which returns the confidence interval for any test we run. Here, we choose <span class="math notranslate nohighlight">\(\mu = 7\)</span> so that the function will run, not for any statistical reason.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">sleep</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
-
-data:  sleep
-t = -4.048, df = 128, p-value = 8.886e-05
-alternative hypothesis: true mean is not equal to 7
-95 percent confidence interval:
- 5.868974 6.611646
-sample estimates:
-mean of x 
-  6.24031 
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Answer:</strong> The 95% confidence interval for the mean of the Sleep variable is between <span class="math notranslate nohighlight">\(5.87\)</span> and <span class="math notranslate nohighlight">\(6.61\)</span>. In interval notation, we have the following:</p>
-<div class="math notranslate nohighlight">
-\[\mu \in (5.87, 6.61)\]</div>
-<p>Notice that the 95% level of confidence is the default. We can change it when needed as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">sleep</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.90</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
-
-data:  sleep
-t = -4.048, df = 128, p-value = 8.886e-05
-alternative hypothesis: true mean is not equal to 7
-90 percent confidence interval:
- 5.929371 6.551249
-sample estimates:
-mean of x 
-  6.24031 
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="z-proportion-confidence-intervals">
-<h2><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals<a class="headerlink" href="#z-proportion-confidence-intervals" title="Permalink to this heading">#</a></h2>
-<p>If we are estimating the support for our condidate in an upcoming election and have polling data show that, in the Atlanta metro area, 512 likely voters will vote for her while 487 will vote against.</p>
-<section id="data">
-<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
-<p>We must first create an observed matrix for the data collected which proceeds as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">512</span><span class="p">,</span><span class="m">486</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
-<span class="n">obs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<tbody>
-	<tr><td>512</td><td>486</td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-</section>
-<section id="assumptions">
-<h3>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h3>
-<p>The assumptions for confidence intervals are the same as the statistical tests using that variable. In this case, we need a reasonably large sample and proportion data which, by inspection, we clearly have.</p>
-</section>
-<section id="id1">
-<h3>Estimate<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>We will be using the <strong>prop.test</strong> function because it performs <span class="math notranslate nohighlight">\(z\)</span>-proportion testing, and we wish to produce a <span class="math notranslate nohighlight">\(z\)</span>-proportion confidence interval.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
-
-data:  obs, null probability 0.5
-X-squared = 0.62625, df = 1, p-value = 0.4287
-alternative hypothesis: true p is not equal to 0.5
-95 percent confidence interval:
- 0.4815254 0.5444252
-sample estimates:
-        p 
-0.5130261 
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Estimate:</strong> The 95% confidence interval for the percentage of voters likely to vote for our candidate is between <span class="math notranslate nohighlight">\(48.2\%\)</span> and <span class="math notranslate nohighlight">\(54.4\%\)</span>.</p>
-<p>As before, we can change the <strong>conf.level</strong> to <span class="math notranslate nohighlight">\(99\%\)</span> as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
-
-data:  obs, null probability 0.5
-X-squared = 0.62625, df = 1, p-value = 0.4287
-alternative hypothesis: true p is not equal to 0.5
-99 percent confidence interval:
- 0.4718216 0.5540563
-sample estimates:
-        p 
-0.5130261 
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -650,11 +488,11 @@ sample estimates:
       </div>
     </a>
     <a class="right-next"
-       href="A1.html"
+       href="S5a.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Poker Primer</p>
+        <p class="prev-next-title">The <span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -673,15 +511,8 @@ sample estimates:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-the-sleep-variable">Summary of the Sleep Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate">Estimate</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-proportion-confidence-intervals"><span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#goodness-of-fit">Goodness of Fit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculations">Calculations</a></li>
 </ul>
   </nav></div>
 
