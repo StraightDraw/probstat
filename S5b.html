@@ -422,6 +422,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-using-tables-and-formulas">Example: Using Tables and Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-data-vector-and-expected-vector">Observed Data Vector and Expected Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-test-statistic-chi-2">Calculating the Test Statistic <span class="math notranslate nohighlight">\(\chi^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-chi-2-in-the-table">Finding <span class="math notranslate nohighlight">\({\chi^2}^*\)</span> in the Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Reporting Out</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -446,26 +453,14 @@ document.write(`
   </tr>
   <tr><th>Proportion</th><td style="text-align: center;">32%</td><td style="text-align: center;">15%</td><td style="text-align: center;">12%</td><td style="text-align: center;">16%</td><td style="text-align: center;">25%</td>
   </tr>
-</table><p>At UNG, recent class surveys resulted in the following sample eye color distribution from students at the university:</p>
+</table><p>At UNG, recent class surveys resulted in the following sample eye color distribution from students at the university which are shown the <strong>obs</strong> vector below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">68</span><span class="p">,</span><span class="m">41</span><span class="p">,</span><span class="m">30</span><span class="p">,</span><span class="m">51</span><span class="p">,</span><span class="m">60</span><span class="p">)</span>
-<span class="c1">#colnames(obs) &lt;- c(&#39;Blue&#39;, &#39;Green&#39;, &#39;Hazel&#39;, &#39;Light Brown&#39;, &#39;Dark Brown&#39;)</span>
-<span class="c1">#obs</span>
 <span class="n">prob</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.32</span><span class="p">,</span><span class="w"> </span><span class="m">0.15</span><span class="p">,</span><span class="w"> </span><span class="m">0.12</span><span class="p">,</span><span class="w"> </span><span class="m">0.16</span><span class="p">,</span><span class="w"> </span><span class="m">0.25</span><span class="p">)</span>
-<span class="n">prob</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol class=list-inline>
-	<li>0.32</li>
-	<li>0.15</li>
-	<li>0.12</li>
-	<li>0.16</li>
-	<li>0.25</li>
-</ol>
-</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -485,6 +480,86 @@ X-squared = 5.2517, df = 4, p-value = 0.2624
 <section id="reporting-out">
 <h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
 <p>Given that <span class="math notranslate nohighlight">\(p = 0.2624 &gt; 0.05 = \alpha\)</span>, we fail to reject the null. We have no evidence that the observed data on eye color from UNG students departs from the nationwide probability.</p>
+</section>
+</section>
+<section id="example-using-tables-and-formulas">
+<h2>Example: Using Tables and Formulas<a class="headerlink" href="#example-using-tables-and-formulas" title="Permalink to this heading">#</a></h2>
+<p>We have the observed data vector above. We need to calculate the expected vector which is based on probabilities.</p>
+<section id="observed-data-vector-and-expected-vector">
+<h3>Observed Data Vector and Expected Vector<a class="headerlink" href="#observed-data-vector-and-expected-vector" title="Permalink to this heading">#</a></h3>
+<p>Starting with the observed data vector (shown above), we need to know the sample size which we can find with a summation of the vector <strong>obs</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">250</div></div>
+</div>
+<p>We compute the predicted value for the number of students expected to have each eye color by multiplying the probabilities from the model by the total sample size.</p>
+<ul class="simple">
+<li><p>Blue: <span class="math notranslate nohighlight">\(32\%\)</span> of <span class="math notranslate nohighlight">\(250 = 80\)</span></p></li>
+<li><p>Green: <span class="math notranslate nohighlight">\(15\%\)</span> of <span class="math notranslate nohighlight">\(250 = 37.5\)</span></p></li>
+<li><p>Hazel: <span class="math notranslate nohighlight">\(12\%\)</span> of <span class="math notranslate nohighlight">\(250 = 30\)</span></p></li>
+<li><p>Light Brown: <span class="math notranslate nohighlight">\(16\%\)</span> of <span class="math notranslate nohighlight">\(250 = 40\)</span></p></li>
+<li><p>Dark Brown: <span class="math notranslate nohighlight">\(25\%\)</span> of <span class="math notranslate nohighlight">\(250 = 62.5\)</span></p></li>
+</ul>
+<p>We can calcuate these values in R as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">250</span>
+<span class="n">exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>80</li>
+	<li>37.5</li>
+	<li>30</li>
+	<li>40</li>
+	<li>62.5</li>
+</ol>
+</div></div>
+</div>
+<p>Gathering it all together, we have the following matrix:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">exp</span><span class="p">),</span><span class="w"> </span><span class="n">nrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">byrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">rownames</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Observed&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Expected&#39;</span><span class="p">)</span>
+<span class="n">tab</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tbody>
+	<tr><th scope=row>Observed</th><td>68  </td><td>41.0</td><td>30  </td><td>51  </td><td>60.0</td></tr>
+	<tr><th scope=row>Expected</th><td>80  </td><td>37.5</td><td>30  </td><td>40  </td><td>62.5</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="calculating-the-test-statistic-chi-2">
+<h3>Calculating the Test Statistic <span class="math notranslate nohighlight">\(\chi^2\)</span><a class="headerlink" href="#calculating-the-test-statistic-chi-2" title="Permalink to this heading">#</a></h3>
+<p>Referring to the <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/StatsFormulas.pdf">formula sheet</a> provides the following:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum \frac{(O−E)^2}{E}\]</div>
+<p>We enter the data into the formula:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}\chi^2 &amp;= \frac{(68−80)^2}{80} + \frac{(41−37.5)^2}{37.5} + \frac{(30−30)^2}{30} + \frac{(51−40)^2}{40} + \frac{(60−62.5)^2}{62.5}\\&amp;= \frac{1.8}{80} + \frac{12.25}{37.5} + 0 + \frac{121}{40} + \frac{6.25}{62.5}\\&amp;\approx 1.80 + 0.33 + 0.00 + 3.03 + 0.1\\&amp;\approx 5.25\end{align}\end{split}\]</div>
+</section>
+<section id="finding-chi-2-in-the-table">
+<h3>Finding <span class="math notranslate nohighlight">\({\chi^2}^*\)</span> in the Table<a class="headerlink" href="#finding-chi-2-in-the-table" title="Permalink to this heading">#</a></h3>
+<p>From the <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/Table_ChiSquared.pdf">class <span class="math notranslate nohighlight">\(\chi^2\)</span> table</a> using <span class="math notranslate nohighlight">\(df = \text{number of probabilities} - 1 = 4\)</span> and <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>, we find that:</p>
+<div class="math notranslate nohighlight">
+\[{\chi^2}^* = 9.488\]</div>
+</section>
+<section id="id1">
+<h3>Reporting Out<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Given that <span class="math notranslate nohighlight">\(\chi^2 = 5.25 &lt; 9.488 = {\chi^2}^*\)</span>, we fail to reject the null. We have no evidence that the observed data on eye color from 250 UNG students departs from the nationwide probability.</p>
 </section>
 </section>
 </section>
@@ -554,6 +629,13 @@ X-squared = 5.2517, df = 4, p-value = 0.2624
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-eye-color">Example: Eye Color</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-using-tables-and-formulas">Example: Using Tables and Formulas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#observed-data-vector-and-expected-vector">Observed Data Vector and Expected Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-test-statistic-chi-2">Calculating the Test Statistic <span class="math notranslate nohighlight">\(\chi^2\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-chi-2-in-the-table">Finding <span class="math notranslate nohighlight">\({\chi^2}^*\)</span> in the Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Reporting Out</a></li>
 </ul>
 </li>
 </ul>
