@@ -54,6 +54,7 @@ parts:
       - file: S5a
       - file: S5b
     - file: S6
+    - file: S7
   - caption: Appendix
     chapters:
     - file: A1
