@@ -58,3 +58,4 @@ parts:
   - caption: Appendix
     chapters:
     - file: A1
+    - file: A2
