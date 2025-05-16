@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>ANOVA &#8212; Probability and Statistics</title>
+    <title>Statistical Estimation &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S6';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S8';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Correlation and Regression" href="S7.html" />
-    <link rel="prev" title="Goodness of Fit (GOF)" href="S5b.html" />
+    <link rel="next" title="Statistical Formulas" href="A1.html" />
+    <link rel="prev" title="Correlation and Regression" href="S7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,7 +208,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
@@ -234,19 +234,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S5b.html">Goodness of Fit (GOF)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">ANOVA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S6.html">ANOVA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="S7.html">Correlation and Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="S8.html">Statistical Estimation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistical Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="A0.html">Appendix</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Grid of Graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
@@ -304,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S6.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S8.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -335,7 +333,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S6.ipynb" target="_blank"
+      <li><a href="_sources/S8.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -419,7 +417,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>ANOVA</h1>
+    <h1>Statistical Estimation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,14 +427,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-coping-humor">Example: Coping Humor</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-assumptions">Verifying the Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-anova">Conducting the ANOVA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-sleep-variable">Example 1: Sleep Variable</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-summary">Data Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-using-r">Estimate Using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-confidence-level">Changing the Confidence Level</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tukey-hsd-post-hoc-testing">Tukey HSD <em>Post Hoc</em> Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-using-tables-and-formulas">Estimate Using Tables and Formulas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-political-polling">Example 2: Political Polling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-z-proportion-confidence-intervals">Using <span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate Using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Changing the Confidence Level</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Estimate Using Tables and Formulas</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -448,130 +461,234 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="anova">
-<h1>ANOVA<a class="headerlink" href="#anova" title="Permalink to this heading">#</a></h1>
-<p>Ron Fisher recognized the value of the <span class="math notranslate nohighlight">\(t\)</span>-test as created by William Sealy Gossett and developed the mathematical extension needed to use the same ideas with more than 2 samples.</p>
-<section id="example-coping-humor">
-<h2>Example: Coping Humor<a class="headerlink" href="#example-coping-humor" title="Permalink to this heading">#</a></h2>
-<p>Let’s question whether, in the personality data set, the average coping humor (CHS) varies based upon Primary Humor Style (PHS). We will first load and then subset the data properly:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="statistical-estimation">
+<h1>Statistical Estimation<a class="headerlink" href="#statistical-estimation" title="Permalink to this heading">#</a></h1>
+<p>When scientists wish to estimate a value, they avoid a “point estimate” and prefer instead a <strong>confidence interval</strong> estimate. We are in search of an interval which, under repeated sampling, will capture the mean inside that interval a specified percentage of the time.</p>
+<section id="example-1-sleep-variable">
+<h2>Example 1: Sleep Variable<a class="headerlink" href="#example-1-sleep-variable" title="Permalink to this heading">#</a></h2>
+<p>Let’s consider a brief example where researchers wish to esimate the average number of hours of sleep students on the UNG Dahlonega campus get per night.</p>
+<section id="data-summary">
+<h3>Data Summary<a class="headerlink" href="#data-summary" title="Permalink to this heading">#</a></h3>
+<p>Let’s load, subset and summarize the correct vector of values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
-<span class="n">humor</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;CHS&#39;</span><span class="p">,</span><span class="s">&#39;PHS&#39;</span><span class="p">)]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">humor</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<span class="n">sleep</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">pers</span><span class="p">[,</span><span class="s">&#39;Sleep&#39;</span><span class="p">]</span>
+<span class="nf">cat </span><span class="p">(</span><span class="s">&quot;Descriptive Statistics: \n  Mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;\n  Standard Deviation =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;\n  Sample Size =&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="s">&quot;\n\nThe 5-number summary is shown below.&quot;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics: 
+  Mean = 6.24 
+  Standard Deviation = 2.13 
+  Sample Size = 129 
+
+The 5-number summary is shown below.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.50    5.00    6.50    6.24    7.50   11.00 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="shape">
+<h3>Shape<a class="headerlink" href="#shape" title="Permalink to this heading">#</a></h3>
+<p>To better understand the shape of population from which the data were drawn, let’s plot a histogram and density plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">12</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">sleep</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Sleep&#39;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">sleep</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: Sleep&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/52d2875cda2a9107e0e84e010a3d57613659cc822ec919a5d051244735d2e1a7.png" src="_images/52d2875cda2a9107e0e84e010a3d57613659cc822ec919a5d051244735d2e1a7.png" />
+</div>
+</div>
+<p>We find the distribution approximately normal and skewed left with possible (mild) evidence of bimodality. The data are appropriate for <span class="math notranslate nohighlight">\(t\)</span>-procedures, yet a pronounced and obvious bimodality might force us to reject the data as inappropriate.</p>
+</section>
+<section id="estimate-using-r">
+<h3>Estimate Using R<a class="headerlink" href="#estimate-using-r" title="Permalink to this heading">#</a></h3>
+<p><strong>Question:</strong> Find a 95% confidence interval estimate for the mean hours of sleep per night for UNG Dahlonega students using the <em>personality.csv</em> data set.</p>
+<p>To answer, we can use the <strong>t.test</strong> function which returns the confidence interval for any test we run. Here, we choose <span class="math notranslate nohighlight">\(\mu = 7\)</span> so that the function will run, not for any statistical reason.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">sleep</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  sleep
+t = -4.048, df = 128, p-value = 8.886e-05
+alternative hypothesis: true mean is not equal to 7
+95 percent confidence interval:
+ 5.868974 6.611646
+sample estimates:
+mean of x 
+  6.24031 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h4>
+<p>The 95% confidence interval for the mean of the Sleep variable is between <span class="math notranslate nohighlight">\(5.87\)</span> and <span class="math notranslate nohighlight">\(6.61\)</span>.</p>
+<p><strong>Meaning:</strong> We are confident that, using repeated samples of identical size from the same population, the mean of those samples will fall within the interval 95% of the time.</p>
+<p>In interval notation, we have the following:</p>
+<div class="math notranslate nohighlight">
+\[\mu \in (5.87, 6.61)\]</div>
+</section>
+<section id="changing-the-confidence-level">
+<h4>Changing the Confidence Level<a class="headerlink" href="#changing-the-confidence-level" title="Permalink to this heading">#</a></h4>
+<p>Notice that the 95% level of confidence is the default. We can change it when needed, for example to 90%, using the <strong>conf.level</strong> option inside the <em>t.test</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">t.test</span><span class="p">(</span><span class="n">sleep</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	One Sample t-test
+
+data:  sleep
+t = -4.048, df = 128, p-value = 8.886e-05
+alternative hypothesis: true mean is not equal to 7
+90 percent confidence interval:
+ 5.929371 6.551249
+sample estimates:
+mean of x 
+  6.24031 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="estimate-using-tables-and-formulas">
+<h3>Estimate Using Tables and Formulas<a class="headerlink" href="#estimate-using-tables-and-formulas" title="Permalink to this heading">#</a></h3>
+<p>The class <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/StatsFormulas.pdf">formula sheet</a> specifies that the <span class="math notranslate nohighlight">\(t\)</span> confidence interval for a population mean is given by:
+$<span class="math notranslate nohighlight">\(\mu = \bar x \pm t^*\frac{s}{\sqrt n}\)</span>$</p>
+<p>with <span class="math notranslate nohighlight">\(t^*\)</span> from the <span class="math notranslate nohighlight">\(t\)</span>-distribution with degrees of freedom as follows: <span class="math notranslate nohighlight">\(df = n−1\)</span>.</p>
+<p>Thus, with <span class="math notranslate nohighlight">\(t^*\)</span> from our <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/Table_T.pdf">class’s <span class="math notranslate nohighlight">\(t\)</span> table</a> and <span class="math notranslate nohighlight">\(df=129-1 = 128\)</span> we have:
+$<span class="math notranslate nohighlight">\(\begin{align}
+\mu &amp;= 6.24 \pm (1.984)\frac{2.13}{\sqrt{129}}\implies\\ \mu&amp;= 6.24 \pm 0.372\\ \mu&amp;= (5.868, 6.612)\end{align}\)</span>$</p>
+<p>Note that these values closely match the ones calculated by R and that the interpretation of the interval is identical to what is presented above.</p>
+</section>
+</section>
+<section id="example-2-political-polling">
+<h2>Example 2: Political Polling<a class="headerlink" href="#example-2-political-polling" title="Permalink to this heading">#</a></h2>
+<section id="using-z-proportion-confidence-intervals">
+<h3>Using <span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals<a class="headerlink" href="#using-z-proportion-confidence-intervals" title="Permalink to this heading">#</a></h3>
+<p>If we are estimating the support for our condidate in an upcoming election and have polling data show that, in the Atlanta metro area, 512 likely voters will vote for her while 487 will vote against.</p>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h3>
+<p>We must first create an observed matrix for the data collected which proceeds as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">512</span><span class="p">,</span><span class="m">486</span><span class="p">),</span><span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+<span class="n">obs</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table>
-<thead><tr><th scope=col>CHS</th><th scope=col>PHS</th></tr></thead>
 <tbody>
-	<tr><td>28</td><td>SE</td></tr>
-	<tr><td>29</td><td>SE</td></tr>
-	<tr><td>30</td><td>AG</td></tr>
-	<tr><td>27</td><td>SE</td></tr>
-	<tr><td>24</td><td>AF</td></tr>
+	<tr><td>512</td><td>486</td></tr>
 </tbody>
 </table>
 </div></div>
 </div>
-<section id="hypotheses">
-<h3>Hypotheses<a class="headerlink" href="#hypotheses" title="Permalink to this heading">#</a></h3>
-<p>The null hypothesis states that the four group means will all be approximately equal. The four primary humor styles are <em>Affiliative</em>, <em>Aggressive</em>, <em>Self-Defeating</em> and <em>Self-Enhancing</em> and will be abbreviate as <strong>af</strong>, <strong>ag</strong>, <strong>sd</strong> and <strong>se</strong> respectively. The alternative is usually included in words as shown:</p>
+</section>
+<section id="assumptions">
+<h3>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h3>
+<p>The assumptions for confidence intervals are the same as the statistical tests using that variable. In this case, we need:</p>
+<ol class="arabic simple">
+<li><p>A reasonably large sample, and</p></li>
+<li><p>Proportional data</p></li>
+</ol>
+<p>By inspection, the data clearly meet these requirements.</p>
+</section>
+<section id="id1">
+<h3>Estimate Using R<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>We will be using the <strong>prop.test</strong> function because it performs <span class="math notranslate nohighlight">\(z\)</span>-proportion testing, and we wish to produce a <span class="math notranslate nohighlight">\(z\)</span>-proportion confidence interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
+
+data:  obs, null probability 0.5
+X-squared = 0.62625, df = 1, p-value = 0.4287
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.4815254 0.5444252
+sample estimates:
+        p 
+0.5130261 
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>Solution<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<p>The 95% confidence interval for the percentage of voters likely to vote for our candidate is between <span class="math notranslate nohighlight">\(48.2\%\)</span> and <span class="math notranslate nohighlight">\(54.4\%\)</span>.</p>
+<p><strong>Meaning:</strong> We are confident that, given repeated samples of identical size (<span class="math notranslate nohighlight">\(n=998\)</span>) from the same population, the mean of those samples will fall within this interval 95% of the time.</p>
+</section>
+<section id="id3">
+<h4>Changing the Confidence Level<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<p>As before, we can change the <strong>conf.level</strong> to <span class="math notranslate nohighlight">\(99\%\)</span> as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">prop.test</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">conf.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.99</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	1-sample proportions test with continuity correction
+
+data:  obs, null probability 0.5
+X-squared = 0.62625, df = 1, p-value = 0.4287
+alternative hypothesis: true p is not equal to 0.5
+99 percent confidence interval:
+ 0.4718216 0.5540563
+sample estimates:
+        p 
+0.5130261 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h3>Estimate Using Tables and Formulas<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<aside class="sidebar">
+<p class="sidebar-title">The <span class="math notranslate nohighlight">\(z\)</span> Table</p>
+<p>The <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/Table_Z.pdf"><span class="math notranslate nohighlight">\(z\)</span> table</a> provides percentiles and probabilities from the Standard Normal distribution where <span class="math notranslate nohighlight">\(N(0,1)\)</span>.</p>
+</aside>
+<p>According to our <a class="reference external" href="https://faculty.ung.edu/rsinn/3350/StatsFormulas.pdf">formula sheet</a>, the large-sample <span class="math notranslate nohighlight">\(z\)</span> confidence interval for a proportion <span class="math notranslate nohighlight">\(p\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align} H_0 &amp;: \mu_{af} = \mu_{ag} = \mu_{sd} = \mu_{se}\\H_a &amp;: \text{At least 1 group mean differs from the others}\end{align}\end{split}\]</div>
+\[\text{prop} \in \hat{p} \pm z^* \sqrt{\frac{\hat{p}(1−\hat{p})}{n}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(z^*\)</span> is from the Standard Normal distribution with <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span> as shown to the right.</p>
+<p>In our table, we find the value <span class="math notranslate nohighlight">\(0.95\)</span> between <span class="math notranslate nohighlight">\(z^* = 1.64\)</span> and <span class="math notranslate nohighlight">\(z^* = 1.65\)</span>. We choose conservatively the smaller of the two, and thus we have:</p>
+<div class="math notranslate nohighlight">
+\[z^*= 1.64\]</div>
+<p>We note that the sample size is <span class="math notranslate nohighlight">\(n = 998\)</span> and that <span class="math notranslate nohighlight">\(\hat p = \frac{512}{998} = 0.513\)</span> which leads to the following for the confidence interval calculation:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}\text{prop} \in &amp;\hat{p} \pm (1.64) \sqrt{\frac{0.513(1−0.513)}{998}}\\ &amp;=\hat{p} \pm (1.64) \sqrt{\frac{0.513(1−0.513)}{998}}\\ &amp;=0.513  \pm 0.0259\\&amp;=(0.487, 0.539)\\ \end{align}\end{split}\]</div>
+<p>The values above are within rounding error of the values produced by R. Thus, the interpretation is the same as above.</p>
 </section>
-<section id="verifying-the-assumptions">
-<h3>Verifying the Assumptions<a class="headerlink" href="#verifying-the-assumptions" title="Permalink to this heading">#</a></h3>
-<p>We need to perform the following steps:</p>
-<ol class="arabic simple">
-<li><p>Create the linear model usinig the function <strong>lm()</strong>.</p></li>
-<li><p>Create a vector of residuals based upon the model.</p></li>
-<li><p>Display a density plot of the residuals (checking for evidence of normality).</p></li>
-<li><p>Display a QQ plot for the residuals (checking that all dots are reasonably close to the QQ line).</p></li>
-</ol>
-<p>These steps are all performed in the single code below directly below.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">CHS</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">PHS</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">humor</span><span class="p">)</span>
-<span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">residuals</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
-<span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
-<span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">res</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: Humor&#39;</span><span class="p">)</span>
-<span class="n">plot2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">mod</span><span class="o">$</span><span class="n">residual</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;QQ Plot: Humor&#39;</span><span class="p">)</span>
-<span class="nf">qqline</span><span class="p">(</span><span class="n">mod</span><span class="o">$</span><span class="n">residual</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a0f661e5ee1aa70db71dd1ee074b2aff469f330b95f239cecd864a55e1006d6e.png" src="_images/a0f661e5ee1aa70db71dd1ee074b2aff469f330b95f239cecd864a55e1006d6e.png" />
-</div>
-</div>
-<p><strong>Analysis</strong></p>
-<p>The QQ plot is slightly concerning as the lower tail seems quite heavy, yet the density plot shows evidence these data were drawn from a normally distributed population. These data are appropriate for ANOVA methods though the heavy tail does indicate a small degree of concern about accuracy of <span class="math notranslate nohighlight">\(p\)</span>-values.</p>
-</section>
-<section id="conducting-the-anova">
-<h3>Conducting the ANOVA<a class="headerlink" href="#conducting-the-anova" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">anova</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aov</span><span class="p">(</span><span class="n">mod</span><span class="p">)</span>
-<span class="nf">summary</span><span class="p">(</span><span class="n">anova</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-PHS           3  418.7  139.55   7.743 8.74e-05 ***
-Residuals   125 2252.8   18.02                     
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="reporting-out">
-<h3>Reporting Out<a class="headerlink" href="#reporting-out" title="Permalink to this heading">#</a></h3>
-<p>With <span class="math notranslate nohighlight">\(p = 8.74\times 10^{-5} &lt; 0.05 = \alpha\)</span>, we reject the null. We have evidence, therefore, that at least one of the group means is significantly different than the others.</p>
-</section>
-</section>
-<section id="tukey-hsd-post-hoc-testing">
-<h2>Tukey HSD <em>Post Hoc</em> Testing<a class="headerlink" href="#tukey-hsd-post-hoc-testing" title="Permalink to this heading">#</a></h2>
-<p>Whenever we reject the null in an ANOVA, we must conduct a <em>post hoc</em> test to ferret out all the significant differences between group means.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">TukeyHSD</span><span class="p">(</span><span class="n">anova</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Tukey multiple comparisons of means
-    95% family-wise confidence level
-
-Fit: aov(formula = mod)
-
-$PHS
-           diff        lwr       upr     p adj
-AG-AF -1.385338 -4.1385491 1.3678724 0.5581859
-SD-AF -2.100649 -4.9409691 0.7396704 0.2225615
-SE-AF  2.669048 -0.2357284 5.5738237 0.0837472
-SD-AG -0.715311 -3.3456923 1.9150703 0.8937175
-SE-AG  4.054386  1.3545316 6.7542403 0.0008566
-SE-SD  4.769697  1.9810664 7.5583275 0.0001080
-</pre></div>
-</div>
-</div>
-</div>
-<p>The significant differences are indicated in rows 3, 5 and 6 where:</p>
-<ol class="arabic simple">
-<li><p>The upper and lower bounds of the confidence interval estimates both have the same sign, or</p></li>
-<li><p>The indicated <span class="math notranslate nohighlight">\(p\)</span>-value is less than <span class="math notranslate nohighlight">\(\alpha = 0.05\)</span>.</p></li>
-</ol>
-<p>Thus, we have evidence for a difference between the means of the following pairs of groups:</p>
-<ul class="simple">
-<li><p>Self-enhancing vs. Affiliative</p></li>
-<li><p>Self-enhancing vs. Aggressive</p></li>
-<li><p>Self-enhancing vs. Self-defeating</p></li>
-</ul>
 </section>
 </section>
 
@@ -606,20 +723,20 @@ SE-SD  4.769697  1.9810664 7.5583275 0.0001080
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S5b.html"
+       href="S7.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Goodness of Fit (GOF)</p>
+        <p class="prev-next-title">Correlation and Regression</p>
       </div>
     </a>
     <a class="right-next"
-       href="S7.html"
+       href="A1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Correlation and Regression</p>
+        <p class="prev-next-title">Statistical Formulas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,14 +755,29 @@ SE-SD  4.769697  1.9810664 7.5583275 0.0001080
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-coping-humor">Example: Coping Humor</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypotheses">Hypotheses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-the-assumptions">Verifying the Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conducting-the-anova">Conducting the ANOVA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-out">Reporting Out</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-sleep-variable">Example 1: Sleep Variable</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-summary">Data Summary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape">Shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-using-r">Estimate Using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-the-confidence-level">Changing the Confidence Level</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tukey-hsd-post-hoc-testing">Tukey HSD <em>Post Hoc</em> Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimate-using-tables-and-formulas">Estimate Using Tables and Formulas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-political-polling">Example 2: Political Polling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-z-proportion-confidence-intervals">Using <span class="math notranslate nohighlight">\(z\)</span>-Proportion Confidence Intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Estimate Using R</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Changing the Confidence Level</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Estimate Using Tables and Formulas</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

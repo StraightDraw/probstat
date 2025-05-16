@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Normal Curve &#8212; Probability and Statistics</title>
+    <title>Extracting Columns from Data Frames as Vectors &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A2a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Calculations with the Normal Curve" href="S3a.html" />
-    <link rel="prev" title="Sampling Distributions Examples" href="S2b.html" />
+    <link rel="next" title="Subsetting a Data Frame" href="A2b.html" />
+    <link rel="prev" title="Helpful Code" href="A2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,10 +205,10 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
@@ -217,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Normal Curve</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
 </ul>
@@ -239,12 +239,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="S8.html">Statistical Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Grid of Graphics</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Extracting Columns from Data Frames as Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
@@ -302,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S3.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A2a.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -333,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S3.ipynb" target="_blank"
+      <li><a href="_sources/A2a.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -417,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Normal Curve</h1>
+    <h1>Extracting Columns from Data Frames as Vectors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -427,10 +429,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-dollar-sign-notation">Option 1: Dollar Sign Notation $</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-row-column-format">Option 2: [Row, Column] Format</a></li>
 </ul>
             </nav>
         </div>
@@ -442,76 +442,115 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="normal-curve">
-<h1>Normal Curve<a class="headerlink" href="#normal-curve" title="Permalink to this heading">#</a></h1>
-<p>The properties of the bell curve were studied by Carl Friedrich Gauss (1777 - 1855) and his contemporaries, and Pierre-Simon LaPlace (1749 - 1827) proved the first version of the Central Limit Theorem in 1810. The modern function that describes the Gaussian distribution or the <strong>Normal Distribution</strong> is as follows:</p>
-<div class="math notranslate nohighlight">
-\[
-f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
-\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation. In this course, we use the notation <span class="math notranslate nohighlight">\(N(\mu, \sigma)\)</span> to refer to a normal distribution with the indicated mean and standard deviation.</p>
-<section id="standard-normal">
-<h2>Standard Normal<a class="headerlink" href="#standard-normal" title="Permalink to this heading">#</a></h2>
-<p>For the purposes of calcuation, especially when the integrals involved must be done by hand, mathematicians developed a simplification where</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mu = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma = 1\)</span></p></li>
-</ul>
-<p>One can readily verify by inspection of the above intgral that, computational, this simplication should make the integration more easily accomplished.</p>
-</section>
-<section id="standardized-scores">
-<h2>Standardized Scores<a class="headerlink" href="#standardized-scores" title="Permalink to this heading">#</a></h2>
-<p>Statistics before computers involved tables. Any score within the experimentally gathered data could be converted to a standardized score. In this way, the estimation or calculation of percentiles was possible for any data point in the sample data. A stadardized score called a <span class="math notranslate nohighlight">\(z\)</span>-score was computed, and the relevant value was found in a table.</p>
-<p>The formula for calcuating a <span class="math notranslate nohighlight">\(z\)</span>-score is as follows:</p>
-<div class="math notranslate nohighlight">
-\[z = \frac{x - \mu}{\sigma}\]</div>
-<p>In modern statistical practice, we often estimate <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span>. Thus, we often calculate <span class="math notranslate nohighlight">\(z\)</span>-scores based upon the sample average and sample standard deviation.</p>
-</section>
-<section id="example-1">
-<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h2>
-<p>The ACT traditionally has scores that follow a <span class="math notranslate nohighlight">\(N(21,5)\)</span> distribution. If Molly scored a 29 on the ACT, in what percentile was here score?</p>
-<p><strong><span class="math notranslate nohighlight">\(z\)</span>-score</strong></p>
-<p>We first calculate her standardized score:</p>
-<div class="math notranslate nohighlight">
-\[z_M = \frac{29 -21}{5} =\frac{8}{5} = 1.6\]</div>
-<p>The percentile relative to this <span class="math notranslate nohighlight">\(z\)</span>-score can be found using the R command <strong>pnorm()</strong>:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="extracting-columns-from-data-frames-as-vectors">
+<h1>Extracting Columns from Data Frames as Vectors<a class="headerlink" href="#extracting-columns-from-data-frames-as-vectors" title="Permalink to this heading">#</a></h1>
+<p>Generally, a column in a data frame contains the values for a specific variable. Thus, we often wish to extract a column from a data frame as a vector of values so that we can work with it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">1.6</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="option-1-dollar-sign-notation">
+<h2>Option 1: Dollar Sign Notation $<a class="headerlink" href="#option-1-dollar-sign-notation" title="Permalink to this heading">#</a></h2>
+<aside class="sidebar">
+<p class="sidebar-title">head</p>
+<p>The R function <strong>head()</strong> displays the column titles and first few rows of a data frame. We often find it useful to inspect a compact version of a data frame instead of producing hundreds of rows in the display.</p>
+</aside>
+<p>To extract the <em>perfectionism</em> scores column of data using the dollar sign method, we proceed as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Perf</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">perfect</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.945200708300442</div></div>
+<div class="output text_html"><ol class=list-inline>
+	<li>105</li>
+	<li>105</li>
+	<li>73</li>
+	<li>90</li>
+	<li>95</li>
+</ol>
+</div></div>
 </div>
-<p>Thus, Molly scored in the 94th percentile on the ACT.</p>
 </section>
-<section id="example-2">
-<h2>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h2>
-<p>What if we knew that Dolly scored in the 87th percentile on the ACT. What was her score?</p>
-<p>First, we have to convert the percentile into a standardized score. For this, we use the R function <strong>qnorm()</strong>.</p>
+<section id="option-2-row-column-format">
+<h2>Option 2: [Row, Column] Format<a class="headerlink" href="#option-2-row-column-format" title="Permalink to this heading">#</a></h2>
+<p>To extract the <em>perfectionism</em> scores column of data using the Rows and columns of the data frame, we leave the row indicator empty and specify a column as shown:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.8</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Perf&#39;</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">perfect2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">0.841621233572914</div></div>
+<div class="output text_html"><ol class=list-inline>
+	<li>105</li>
+	<li>105</li>
+	<li>73</li>
+	<li>90</li>
+	<li>95</li>
+</ol>
+</div></div>
 </div>
-<p>If <span class="math notranslate nohighlight">\(z \approx 0.8416\)</span>, then we can calcuate using the <span class="math notranslate nohighlight">\(z\)</span>-score formula:</p>
-<div class="math notranslate nohighlight">
-\[0.8416 = \frac{ACT_D - 21}{5}\]</div>
-<p>When we simplify and rearrange the equation, we find that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D = 5 (0.8416) + 21\]</div>
-<p>or equivalently that:</p>
-<div class="math notranslate nohighlight">
-\[ACT_D \approx 25.21\]</div>
-<p>Thus, Dolly scored a 25 on the ACT.</p>
+<p>The column may described either by number (shown below) or by name (as shown above). The perfectionism scores are stored in column #27.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">27</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">perfect3</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>105</li>
+	<li>105</li>
+	<li>73</li>
+	<li>90</li>
+	<li>95</li>
+</ol>
+</div></div>
+</div>
+<p>All methods shown work properly and, as one can see, display identical results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">females</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">pers</span><span class="p">,</span><span class="w"> </span><span class="n">Sex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;F&#39;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">females</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
+<tbody>
+	<tr><th scope=row>2</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
+	<tr><th scope=row>4</th><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td><td>... </td><td> 90 </td><td> 9  </td><td>160 </td><td>16  </td><td>10  </td><td>51  </td><td>51  </td><td>23  </td><td>19  </td><td>SE  </td></tr>
+	<tr><th scope=row>6</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.63</td><td>... </td><td>114 </td><td>20  </td><td>133 </td><td>10  </td><td> 9  </td><td>40  </td><td>27  </td><td>31  </td><td>28  </td><td>AG  </td></tr>
+	<tr><th scope=row>8</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.30</td><td>... </td><td>142 </td><td>17  </td><td>168 </td><td>16  </td><td> 9  </td><td>55  </td><td>45  </td><td>24  </td><td>29  </td><td>AF  </td></tr>
+	<tr><th scope=row>9</th><td>22  </td><td>2   </td><td>F   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td>119 </td><td>16  </td><td>141 </td><td>10  </td><td> 9  </td><td>52  </td><td>47  </td><td>32  </td><td>26  </td><td>SE  </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Narc&#39;</span><span class="p">]</span>
+
+<span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;QQ Plot: Narcissism&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nf">qqline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e2ac007ea1e3dfe7fa85b64fa530a39d672b3969eb1cca2d9a7b365e2db26530.png" src="_images/e2ac007ea1e3dfe7fa85b64fa530a39d672b3969eb1cca2d9a7b365e2db26530.png" />
+</div>
+</div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -545,20 +584,20 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2b.html"
+       href="A2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sampling Distributions Examples</p>
+        <p class="prev-next-title">Helpful Code</p>
       </div>
     </a>
     <a class="right-next"
-       href="S3a.html"
+       href="A2b.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Calculations with the Normal Curve</p>
+        <p class="prev-next-title">Subsetting a Data Frame</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -577,10 +616,8 @@ f(x) = \frac{1}{\sigma \sqrt{2\pi} } e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\r
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-normal">Standard Normal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-dollar-sign-notation">Option 1: Dollar Sign Notation $</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-row-column-format">Option 2: [Row, Column] Format</a></li>
 </ul>
   </nav></div>
 
