@@ -55,7 +55,15 @@ parts:
       - file: S5b
     - file: S6
     - file: S7
+    - file: S8
   - caption: Appendix
     chapters:
+    - file: A0
     - file: A1
     - file: A2
+      sections:
+      - file: A2a
+      - file: A2b
+      - file: A2c
+      - file: A2d
+    - file: A3

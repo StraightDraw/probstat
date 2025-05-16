@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Poker Primer &#8212; Probability and Statistics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Grid of Graphics" href="A2d.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="Introduction.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/UNG.logo.png" class="logo__image only-light" alt="Probability and Statistics - Home"/>
+    <script>document.write(`<img src="_static/UNG.logo.png" class="logo__image only-dark" alt="Probability and Statistics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    <center> Course Notes: Probability and Statistics </center>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P2.html">Compound Events</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Discrete Probability Functions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P0c.html">85 More Probability Questions</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S5.html">Proportion Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S5a.html">The <span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5b.html">Goodness of Fit (GOF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="S6.html">ANOVA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S7.html">Correlation and Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S8.html">Statistical Estimation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Poker Primer</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A3.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/A3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Poker Primer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="poker-primer">
+<h1>Poker Primer<a class="headerlink" href="#poker-primer" title="Permalink to this heading">#</a></h1>
+<p>With the game of poker, mathematicians have a way to illustrate nearly every problem-solving tool needed for an undergraduate course in probability. This appendix covers basic poker concepts and explains basic terms. This appendix is a</p>
+<p><strong><center>Poker Primer</center></strong></p>
+<p>Understanding the examples in this document requires a basic understanding of poker. For examples in this text, we will use a game poker players call 200nl which means “No Limit Texas Holdem, 200 dollar max buy-in,” a game where the small blind (SB) is 1 dollar and the big blind (BB) is 2 dollars. All bets must be at least as big as the BB, or 2 bucks. This will keep the math simpler, though the calculations apply equally well to all poker games. It is highly recommended that the student wishing to perform well in the probability units for this class spend at least twenty to thirty minutes playing <strong>free</strong> poker online. You should play NLHE and learn the basic mechanics and language of the game.</p>
+<p><strong>Cards.</strong> Poker is played with a standard deck of 52 cards (no jokers or wild cards). The deck has four suits: spades (<span class="math notranslate nohighlight">\(\spadesuit \)</span>), hearts (<span class="math notranslate nohighlight">\(\heartsuit \)</span>), diamonds (<span class="math notranslate nohighlight">\(\diamondsuit \)</span>), and clubs (<span class="math notranslate nohighlight">\(\clubsuit \)</span>). Spades and clubs are black. Hearts and diamonds are red. The cards have 13 different values, from strongest to weakest:</p>
+<div class="math notranslate nohighlight">
+\[\text{A K Q J T 9 8 7 6 5 4 3 2}\]</div>
+<p>Aces can be counted as high or low for the purposes of straights. Most poker books and articles use algebraic notation for the cards. We indicate card strength in capital letters or numbers followed by the suit in lowercase letters. The Ace of spades is written As, the 8 of hearts is written 8h, and so forth.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Poker Notation</p>
+<p>Poker enthusiasts describe a five-card hand as</p>
+<center>Ah Ks Jc Tc 8d</center>
+</aside>
+<p>There are times when the suit indicator letter is left off which means no flushes or flush draws come into play. Preflop, we write AK to indicate any combination of Ace and King, AKo (offsuit) when they are of different suits, and AKs when they are of the same suite (suited). Note that we use T instead 10 so that every card has a two symbol identifier.</p>
+<p><strong>Hands.</strong> The winning hands in poker are based on five card hands, though rarely is poker played with only five cards available for each player. Most often, the player uses seven cards and makes his best 5-card hand from them. The ranking of hands is as follows, from best to worst:</p>
+<ul class="simple">
+<li><p>Straight Flush: J T 9 8 7 of same suit</p></li>
+<li><p>4-of-a-Kind: J J J J</p></li>
+<li><p>Full House: 8 8 8 2 2</p></li>
+<li><p>Flush: All five cards same suit, for example, Kh, Qh, 8h, 4h, 3h</p></li>
+<li><p>Straight: All five cards in a row, for example, 9 8 7 6 5</p></li>
+<li><p>3-of-a-Kind: T T T</p></li>
+<li><p>2 Pair: T T 7 7</p></li>
+<li><p>1 Pair: J J</p></li>
+<li><p>Ace high</p></li>
+</ul>
+<p>Ties result when players have identical hands, and the pot is divided equally among the two (or more) tied players. Unlike Bridge, there is no ranking of suits. A 7-high heart flush ties with a 7-high club flush.
+\paragraph{Betting.} In most common poker games, the first betting round occurs after the first group cards are dealt to each player (2 each in NLHE). Most modern poker games have “forced bets.” In stud games, each player antes, and a “bring-in bet” is required of half the size of a standard bet. An ante is a small amount required to participate in the hand. In poker games like Texas Holdem and Omaha, forced bets are called “blinds” and are based on your position. The first player to the dealer’s left pays the small blind (SB) and the second player to the dealer’s left pays the big blind (BB). The SB is usually half the BB.</p>
+<p>Opening bets have several names. Since the SB and BB are forced, any bet larget than the BB is actually a “raise.” When a player matches the BB, he is said to be “limping in” or \textbf{limping}. When a player is said to have opened, we mean she has raised unless an “open limp” is specified. A preflop reraise (a second unforced bet that raises the player who opened) is called a \textbf{3-bet}, and a re-reraise is called a \textbf{4-bet}. In limit poker, a round of betting is usually limitted to 4 total bets, e.g. a bet and 3 raises.</p>
+<p><strong>Texas Holdem.</strong> There are four betting rounds in holdem:</p>
+<ol class="arabic simple">
+<li><p>Preflop</p></li>
+<li><p>Flop</p></li>
+<li><p>Turn</p></li>
+<li><p>River</p></li>
+</ol>
+<p>Preflop, the players in the blinds make the forced bets, and two cards are dealt face down to each player. A round of betting begins with the first player to the left of the BB. The next five cards dealt are all dealt face up in the center of the table. They are community cards and can be used by any player along with 0, 1, or 2 of his own cards to make the best possible 5-card poker hand. The flop is dealt: three cards. A betting round follows starting with the SB or, if he has folded, the first player to the left of the dealer still active in the hand. The fourth face up card dealt is the turn , and the final card is called the river. Each is followed by a betting round starting with the first active player to the dealer’s left.</p>
+<p><strong>Omaha.</strong> This game is played exactly like Texas Holdem, with two exceptions. Preflop, each player is dealt four cards face down instead of only two. And, at showdown, a player must use <strong>exactly two cards</strong> from his or her own hand and exactly three on the board. This leads to many “misread” hands, especially by novices. The betting rounds are identical.</p>
+<p><strong>Strategy.</strong> Several considerations affect every poker decision. Rather far down the list of important considerations is the actual cards Hero holds. More important are considerations like position, stack sizes and reads. In poker, the player who bets the most wins. The cards only break ties.</p>
+<p><strong>Expected Value.</strong> Poker players know that luck is involved when cards are drawn randomly from a deck. When the odds of having winning cards hit the board are better than the pot odds, Hero has positive <em>expected value</em>. Poker players try to invest heavily when they have good expected value, and they try to get away from hands when they are facing negative expected value. Since Villain’s actual cards are only guessed at, Hero can make big mistakes and lose all his chips which is called getting stacked.</p>
+<p><strong>Position.</strong> Position is so important that many abbreviations have developed to help poker players quickly discuss hands. In casinos, the dealer position rotates, the position marked by a “button” with a “D” on it. So the dealer’s position is called the button (BTN). The position to the dealer’s left is the small blind (SB), next is big blind (BB). Those who bet first are said to be in early position (EP). Later bettors are middle position (MP) while those betting last are late position (LP).</p>
+<p>A standard NLHE poker game is played with a table of 9 or 10 players. In a 9-player game, the names of the positions are as follows, starting immediately to the dealer’s left:</p>
+<ul class="simple">
+<li><p>SB - small blind</p></li>
+<li><p>BB - big blind</p></li>
+<li><p>UTG - under the gun (first to act in first betting round)</p></li>
+<li><p>UTG+1</p></li>
+<li><p>MP1 - 1st middle position player</p></li>
+<li><p>MP2 - 2nd middle position player</p></li>
+<li><p>MP3 - also called hijack seat</p></li>
+<li><p>CO - cutoff seat</p></li>
+<li><p>BTN - button or dealer</p></li>
+</ul>
+<p>A popular online variant is called 6max, where only 6 players sit at the poker table. There, the seats would be labeled as follows:</p>
+<ul class="simple">
+<li><p>SB</p></li>
+<li><p>BB</p></li>
+<li><p>EP</p></li>
+<li><p>MP</p></li>
+<li><p>CO</p></li>
+<li><p>BTN</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Example 1</p>
+<p>Let’s look at a NLHE hand with all the jargon explained. Hero is in the CO (cutoff) for a hand of 6max 200nl (table has six seats, maximum buy-in is 200 dollars. The SB places his 1 dollar forced bet, the BB his 2 dollar. Two cards are dealt to each player. Hero receives TT. EP (or UTG) folds. MP limps (e.g. “calls” the 2 dollar BB). Hero opens for a standard raise, typically about 3BB + 1BB/limper, meaning Hero bets 8 dollars (<span class="math notranslate nohighlight">\(4\times2\)</span>BB) plus an additional BB for each person who has limped. In this case, Hero bets 10 bucks.</p>
+<p>The action folds around to the BB, who calls. He has already posted his 2 dollar BB, so he adds 8 more to call the 10 dollar bet. The limper folds. The pot is 23 dollars, 10 bucks each from Hero and the BB plus the $1 SB and $2 from MP who limped and then folded. The flop comes Q T 5. Villain bets 12, and Hero raises to 30 (matches the 12 dollar bet and raises 18 more).</p>
+<p>Villain decides to call, which means he must add 18 dollars to his 12 to make 30 bucks total. The turn is a 7, and Villain checks. Hero makes a PSB (pot-sized bet). Preflop, 23 dollars was bet with 60 added on the flop. The turn began with 83 dollars in the pot. Since both players started (we assume, unless specified othewise) with 100BB or 200 dollars, they each have almost 160 left to bet with. Hero wagers about half of his remaining chips, matching the 83 dollars in the pot. This gives Villain 2 to 1 “pot odds” which means he must put up 83 bucks for a chance to win 166 more. Villain folds. Hero is returned his 83 dollar bet and rakes in the 83 dollars in the pot.</p>
+</div>
+<p><strong>Stack Sizes.</strong> Unlike old movies and TV shows, players cannot be “raised out” of a hand. Each player can bid any amount from the BB minimum up to everything they have on the table. Buy-ins are usually capped.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2</p>
+<p>Suppose Hero has a full buy-in (BI) of $200 playing 200nl, but all the other players have only 50 BB, or $100 stacks. Hero holds AA on the button (OTB) and an EP player opens for a standard raise of $8 showing significant strength. Hero 3-bets to $20, everyone else folds except EP who 4-bets to $50. Hero goes ``all in,” meaning he shoves all $200 worth of his chips into the center of the table. But Villain only had $100 to start the hand, and he bet $8 to open and 4-bet $42 more, so he only has $50 remaining. Hero’s “all-in” bet is actually just a $50 bet. If Villain calls, Hero’s chips will be counted, and Hero will be returned any chips which Villain cannot match.</p>
+</div>
+<p>The reason stack sizes are so important is due to a phenomenon known as “implied pot odds.” Quite possibly the biggest earning NLHE hand is the “set,” where Hero holds a pocket pair (pp) like the TT’s in the two examples above, then catches a third T on the flop - the classic “flopping a set” that every NLHE player dreams about. In the happiest version of the story, Villain open raises for 10 bucks and Hero calls. If villain has 150 bucks left in his stack, Hero is getting 15 to 1 “set odds” on his hand, meaning he stands to win 150 dollars more if the flop comes something like A Q 2. Hero’s “implied odds” are good for two reasons. The EP open raise indicates a strong hand for Villain, and the flop is likely to have helped Villain’s hand much more than Hero’s. So we would expect Villain to continue betting, especially with AK or AQ type hands. Knowing one’s implied odds is impossible, but they are greater whenever stacks are deep, when Villain has a good but second-best hand, and when Villain is aggressive (meaning he prefers to bet and raise rather than call - a sure-fire way to get lots of chips in the pot).</p>
+<p>In general, Hero needs at least 20 to 1 set odds (and often more) to call a preflop bet with a hand like 33. And hands like 8h 7h (called suited connectors) hit two pair or better on the flop once in twenty times. So most poker players suggest at least 30 to 1 effective stack sizes to call a bet with this type of hand.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="A2d.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Grid of Graphics</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Robb Sinn
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

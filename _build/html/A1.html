@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Helpful Code &#8212; Probability and Statistics</title>
+    <title>Statistical Formulas &#8212; Probability and Statistics</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'A1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Poker Primer" href="A2.html" />
-    <link rel="prev" title="Statistical Estimation" href="S7.html" />
+    <link rel="next" title="Helpful Code" href="A2.html" />
+    <link rel="prev" title="Overview, Index, Links" href="A0.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,7 +208,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistical Formulas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
 </ul>
 </li>
@@ -235,12 +235,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="S6.html">ANOVA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="S7.html">Statistical Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S7.html">Correlation and Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S8.html">Statistical Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Helpful Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="A2.html">Poker Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistical Formulas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
 </ul>
 
     </div>
@@ -410,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Helpful Code</h1>
+    <h1>Statistical Formulas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,13 +429,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-columns-from-data-frames-as-vectors">Extracting Columns from Data Frames as Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1">Option 1: $</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-row-column-format">Option 2: [Row, Column] Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-and-t-tests">ANOVA and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcing-an-intercept">Forcing an Intercept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-regression">Polynomial Regression</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-of-graphics">Grid of Graphics</a></li>
 </ul>
             </nav>
         </div>
@@ -438,136 +446,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="helpful-code">
-<h1>Helpful Code<a class="headerlink" href="#helpful-code" title="Permalink to this heading">#</a></h1>
-<p>When using R, several tasks are used quite often without a detailed explanation given for each use. We therefore have created a reference page for the most common uses.</p>
-<section id="extracting-columns-from-data-frames-as-vectors">
-<h2>Extracting Columns from Data Frames as Vectors<a class="headerlink" href="#extracting-columns-from-data-frames-as-vectors" title="Permalink to this heading">#</a></h2>
-<p>Generally, a column in a data frame contains the values for a specific variable. Thus, we often wish to extract a column from a data frame as a vector of values so that we can work with it.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="option-1">
-<h3>Option 1: $<a class="headerlink" href="#option-1" title="Permalink to this heading">#</a></h3>
-<aside class="sidebar">
-<p class="sidebar-title">head</p>
-<p>The R function <strong>head()</strong> displays the column titles and first few rows of a data frame. We often find it useful to inspect a compact version of a data frame instead of producing hundreds of rows in the display.</p>
-</aside>
-<p>To extract the <em>perfectionism</em> scores column of data using the dollar sign method, we proceed as follows:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Perf</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">perfect</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol class=list-inline>
-	<li>105</li>
-	<li>105</li>
-	<li>73</li>
-	<li>90</li>
-	<li>95</li>
-</ol>
-</div></div>
-</div>
-</section>
-<section id="option-2-row-column-format">
-<h3>Option 2: [Row, Column] Format<a class="headerlink" href="#option-2-row-column-format" title="Permalink to this heading">#</a></h3>
-<p>To extract the <em>perfectionism</em> scores column of data using the Rows and columns of the data frame, we leave the row indicator empty and specific a column as shown:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Perf&#39;</span><span class="p">]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">perfect2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol class=list-inline>
-	<li>105</li>
-	<li>105</li>
-	<li>73</li>
-	<li>90</li>
-	<li>95</li>
-</ol>
-</div></div>
-</div>
-<p>The column may described either by number (shown below) or by name (as shown above). The perfectionism scores are stored in column #27.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perfect3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="m">27</span><span class="p">]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">perfect3</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol class=list-inline>
-	<li>105</li>
-	<li>105</li>
-	<li>73</li>
-	<li>90</li>
-	<li>95</li>
-</ol>
-</div></div>
-</div>
-<p>All methods shown work properly and, as one can see, display identical results.</p>
-</section>
-</section>
-<section id="subsetting-a-data-frame">
-<h2>Subsetting a Data Frame<a class="headerlink" href="#subsetting-a-data-frame" title="Permalink to this heading">#</a></h2>
-<p>What if we wish to compare the biological sexes on the <strong>narcissism</strong> variable? Then, we need to create a subset of narcissism for both sexes, male and female. Working with the females first, we see the following:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">females</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">pers</span><span class="p">,</span><span class="w"> </span><span class="n">Sex</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;F&#39;</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">females</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
-<tbody>
-	<tr><th scope=row>2</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
-	<tr><th scope=row>4</th><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td><td>... </td><td> 90 </td><td> 9  </td><td>160 </td><td>16  </td><td>10  </td><td>51  </td><td>51  </td><td>23  </td><td>19  </td><td>SE  </td></tr>
-	<tr><th scope=row>6</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.63</td><td>... </td><td>114 </td><td>20  </td><td>133 </td><td>10  </td><td> 9  </td><td>40  </td><td>27  </td><td>31  </td><td>28  </td><td>AG  </td></tr>
-	<tr><th scope=row>8</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.30</td><td>... </td><td>142 </td><td>17  </td><td>168 </td><td>16  </td><td> 9  </td><td>55  </td><td>45  </td><td>24  </td><td>29  </td><td>AF  </td></tr>
-	<tr><th scope=row>9</th><td>22  </td><td>2   </td><td>F   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td>119 </td><td>16  </td><td>141 </td><td>10  </td><td> 9  </td><td>52  </td><td>47  </td><td>32  </td><td>26  </td><td>SE  </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-</section>
-<section id="grid-of-graphics">
-<h2>Grid of Graphics<a class="headerlink" href="#grid-of-graphics" title="Permalink to this heading">#</a></h2>
-<p>We often wish to show 2 or more graphical displays for a specific data set while minimizing the space required to do so. We will use two functions to assist us:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="statistical-formulas">
+<h1>Statistical Formulas<a class="headerlink" href="#statistical-formulas" title="Permalink to this heading">#</a></h1>
+<p>In 9th grade algebra, we learn about equations such as</p>
+<div class="math notranslate nohighlight">
+\[y = x\]</div>
+<p>We find that:</p>
 <ol class="arabic simple">
-<li><p>layout()</p></li>
-<li><p>matrix()</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span> is the <strong>independent variable</strong>, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> is the <strong>dependent variable</strong>.</p></li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>We use the option <strong>lcm()</strong> to specify the height of the graphical display in centimeters. Values between 5 and 12 generally work well, and some guesswork is typically required.</p>
-<p>We create a plot called <strong>plt</strong> because it’s made up of 2 different graphical pieces: the <em>qqnorm</em> plot and <em>qqline</em> superimposed on top. Since we wish to display these 2 elements together, we surround them with { } and store them as the single graphical item <strong>plt</strong>.</p>
-</div>
-<p>For an example, let’s display a histogram and a QQ plot for the <strong>naricissism</strong> variable of the <em>personality</em> data frame:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Narc&#39;</span><span class="p">]</span>
-
-<span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;QQ Plot: Narcissism&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nf">qqline</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/e2ac007ea1e3dfe7fa85b64fa530a39d672b3969eb1cca2d9a7b365e2db26530.png" src="_images/e2ac007ea1e3dfe7fa85b64fa530a39d672b3969eb1cca2d9a7b365e2db26530.png" />
-</div>
-</div>
+<p>In statistics, we have similar equations that we use to indicate what operations are being done, such as:</p>
+<div class="math notranslate nohighlight">
+\[y \sim x\]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable. The meanings are quite similar. However, the operators we use for statistics forumalae are important and somewhat different than algebra.</p>
+<section id="anova-and-t-tests">
+<h2>ANOVA and <span class="math notranslate nohighlight">\(t\)</span>-Tests<a class="headerlink" href="#anova-and-t-tests" title="Permalink to this heading">#</a></h2>
+<p>Suppose that we have a <strong>numeric variable</strong> <span class="math notranslate nohighlight">\(\textbf{y}\)</span> and a <strong>grouping variable</strong> <span class="math notranslate nohighlight">\(\textbf{A}\)</span>. The statistical formula indicating that we should create an ANOVA or a <span class="math notranslate nohighlight">\(\textbf{t}\)</span>-test as appropriate is the following:</p>
+<div class="math notranslate nohighlight">
+\[y \sim A\]</div>
+<p>If the category variable <span class="math notranslate nohighlight">\(A\)</span> has 2 or fewer groups, R will conduct the <span class="math notranslate nohighlight">\(t\)</span>-test. If <span class="math notranslate nohighlight">\(A\)</span> has 3 or more groups, an ANOVA is launched which, admittedly, takes a couple more steps to complete.</p>
+</section>
+<section id="linear-regression">
+<h2>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this heading">#</a></h2>
+<p>If we have two <strong>numeric</strong> variables <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, the formula</p>
+<div class="math notranslate nohighlight">
+\[y \sim x\]</div>
+<p>indicates simple linear bivariate regression.</p>
+<section id="forcing-an-intercept">
+<h3>Forcing an Intercept<a class="headerlink" href="#forcing-an-intercept" title="Permalink to this heading">#</a></h3>
+<p>We can specify the <span class="math notranslate nohighlight">\(y\)</span>-intercept of 2 in a linear model as follows:</p>
+<div class="math notranslate nohighlight">
+\[ y \sim 2 + x\]</div>
+</section>
+<section id="polynomial-regression">
+<h3>Polynomial Regression<a class="headerlink" href="#polynomial-regression" title="Permalink to this heading">#</a></h3>
+<p>The following code will produce quadractic regression:</p>
+<div class="math notranslate nohighlight">
+\[ y \sim \text{poly}(x,2)\]</div>
+<p>or cubic regression:</p>
+<div class="math notranslate nohighlight">
+\[ y \sim \text{poly}(x,3)\]</div>
+<p>Note that these formulas will be intrepretted by R as a request for a model using <strong>orthogonal polynomials</strong>. We can specify a model that using the specific (and traditional) powers as follows:</p>
+<div class="math notranslate nohighlight">
+\[ y \sim 1 + x + I(x^2)\]</div>
+</section>
 </section>
 </section>
 
@@ -602,12 +525,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S7.html"
+       href="A0.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistical Estimation</p>
+        <p class="prev-next-title">Overview, Index, Links</p>
       </div>
     </a>
     <a class="right-next"
@@ -615,7 +538,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Poker Primer</p>
+        <p class="prev-next-title">Helpful Code</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -634,13 +557,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-columns-from-data-frames-as-vectors">Extracting Columns from Data Frames as Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1">Option 1: $</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-row-column-format">Option 2: [Row, Column] Format</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anova-and-t-tests">ANOVA and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">Linear Regression</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forcing-an-intercept">Forcing an Intercept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomial-regression">Polynomial Regression</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-of-graphics">Grid of Graphics</a></li>
 </ul>
   </nav></div>
 
