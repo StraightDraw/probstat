@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Course Notes: Probability and Statistics &#8212; Probability and Statistics</title>
+    <title>Solutions to Exercises &#8212; Probability and Statistics</title>
   
   
   
@@ -62,10 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P2c';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Probability" href="P1.html" />
+    <link rel="next" title="Compound Events" href="P3.html" />
+    <link rel="prev" title="Exercises" href="P2b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduction.html">
   
   
   
@@ -161,14 +164,14 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
                     <center> Course Notes: Probability and Statistics </center>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
@@ -301,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P2c.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Introduction.ipynb" target="_blank"
+      <li><a href="_sources/P2c.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,9 +406,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -416,20 +417,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center> Course Notes: Probability and Statistics </center></h1>
+    <h1>Solutions to Exercises</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor-and-author">Instructor and Author</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -439,37 +431,42 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="center-course-notes-probability-and-statistics-center">
-<h1><center> Course Notes: Probability and Statistics </center><a class="headerlink" href="#center-course-notes-probability-and-statistics-center" title="Permalink to this heading">#</a></h1>
-<section id="instructor-and-author">
-<h2>Instructor and Author<a class="headerlink" href="#instructor-and-author" title="Permalink to this heading">#</a></h2>
-<p><strong>Robb Sinn, Spring 2005</strong></p>
-<p><strong>University of North Georgia, MATH 3350</strong></p>
-<p>The pages within this website comprise the course notes for Dr. Sinn’s Probability and Statistics course (MATH 3350) at the University of North Georgia. These notes are used in lieu of a textbook.</p>
-<p>To help us learn probability and statistics concepts, we will be using the software <strong>R</strong> this semester. We can use R in the UNG datahub, free to all students and accessible using your UNG credentials. You may also wish to download Rstudio for your own laptop. Since R is open-source freeware, there is no cost. However, we can always work in <strong>R</strong> using the UNG datahub from any computer, tablet or smartphone (e.g. any device that has a browser and a connection to the internet).</p>
-<p>Your professor will provide the installation details in class, if you wish to use <strong>R</strong>. If students have a working knowledge of <strong>Python</strong>, they will be able to use that as well.</p>
-</section>
-<section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
-<p>While I have created most of the content herein, I do have several colleagues whose teaching techniques, class examples and code I have been inspired by over the years. Their work is woven into my own, and they deserve credit for it. My UNG colleagues have been amazing, and many thanks to them:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="solutions-to-exercises">
+<h1>Solutions to Exercises<a class="headerlink" href="#solutions-to-exercises" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Professor Daniels has 7 books to place on a single shelf. How many different arrangements are possible?</p></li>
+</ol>
+<p><strong>Solution.</strong> Assuming we are referring to orderings, there are <span class="math notranslate nohighlight">\(7! = 5040\)</span> arrangements. We use the scientific computing capabilities of R or a graphing calculator to find:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">factorial</span><span class="p">(</span><span class="m">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">5040</div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>We do not know precisely how many seats there were at the Round Table as traditions differ. Supposing there were 24 seats at the table and that King Authur always sat in his radomnly assigned seat, in how many ways could King Arthur plus the 23 Knights of the Round Table be arranged?</p></li>
+</ol>
+<p><strong>Solution.</strong> This is permutations on a ring with <span class="math notranslate nohighlight">\(n = 24\)</span>, so the solution is
+$<span class="math notranslate nohighlight">\(\begin{align}\frac{24!}{23} &amp;= 23!\\ &amp;\approx 3.58202\times 10^{22}\end{align}\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">factorial</span><span class="p">(</span><span class="m">23</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.5852016738885e+22</div></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Poker Pro Daniel Negreanu is one of nine players being seated at random at the final table of a poker tournament. Another pro we will call Betty is often a problem for Negreanu, and two amateurs have had the amazing luck to battle their way through. Poker players do not like having a troublesome player to their left.</p></li>
+</ol>
 <ul class="simple">
-<li><p>Dr. Dianna Spence</p></li>
-<li><p>Dr. Brad Bailey</p></li>
-<li><p>Prof. Gregg Velatini</p></li>
+<li><p>What is the probability Betty is seated to Negreanu’s left?</p></li>
+<li><p>What the probability that one of the amateurs is seated to Negreanu’s left?</p></li>
 </ul>
-<p>I have also drawn inspiration from the creators and developers of the <strong>mosaic package</strong> in R and those who have extended its functionality to improve the teaching and learning of both statistics and R. With no way to list or thank everyone involved, the work of the following three was especially appreciated:</p>
-<ul class="simple">
-<li><p>Randall Pruim</p></li>
-<li><p>Daniel T. Kaplan</p></li>
-<li><p>Nicholas J. Horton</p></li>
-</ul>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -481,16 +478,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -502,12 +499,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="P2b.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercises</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="P1.html"
+       href="P3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Probability</p>
+        <p class="prev-next-title">Compound Events</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -517,21 +523,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor-and-author">Instructor and Author</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

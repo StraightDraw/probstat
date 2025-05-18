@@ -12,7 +12,11 @@ parts:
       sections:
       - file: P2a
       - file: P2b
+      - file: P2c
     - file: P3
+      sections:
+      - file: P3a
+      - file: P3b
     - file: P4
     - file: P5
       sections:
