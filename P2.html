@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Compound Events &#8212; Probability and Statistics</title>
+    <title>Counting Patterns &#8212; Probability and Statistics</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'P2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Independent Events" href="P2a.html" />
+    <link rel="next" title="R Calculations and Factorials" href="P2a.html" />
     <link rel="prev" title="Solutions to Exercises" href="P1c.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,14 +178,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Compound Events</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="P2a.html">Independent Events</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P2b.html">Odds</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Counting Patterns</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="P3.html">Compound Events</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P3a.html">Independent Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P3b.html">Odds</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="P3.html">Partitions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="P4.html">Counting Patterns</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="P4.html">Partitions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="P5.html">Conditional Probability</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P5a.html">Excercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
@@ -196,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="P6b.html">Solutions to Selected Exercises</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="P0.html">Excercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P0a.html">50 Counting Questions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P0b.html">50 Probability Questions</a></li>
@@ -205,11 +206,50 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="S1.html">Basics of Statistics and R</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S3a.html">Calculations with the Normal Curve</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S3b.html">The <span class="math notranslate nohighlight">\(z\)</span>-Proportion Test</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S4.html"><span class="math notranslate nohighlight">\(t\)</span>-Tests</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S4a.html">The <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4b.html">Independent Samples <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4c.html">Matched Pairs <span class="math notranslate nohighlight">\(t\)</span>-Test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S4d.html">Small Samples and <span class="math notranslate nohighlight">\(t\)</span>-Tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S5.html">Proportion Testing</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="S5a.html">The <span class="math notranslate nohighlight">\(\chi^2\)</span> Test of Independence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S5b.html">Goodness of Fit (GOF)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="S6.html">ANOVA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S7.html">Correlation and Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="S8.html">Statistical Estimation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="A1.html">Poker Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
 </ul>
 
     </div>
@@ -366,7 +406,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -377,11 +419,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Compound Events</h1>
+    <h1>Counting Patterns</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counting Patterns</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-counting-patterns">Basic Counting Patterns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-counting-patterns">Special Counting Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handshake-problem">Handshake Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-on-a-ring">Permutations on a Ring</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -391,81 +450,190 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="compound-events">
-<h1>Compound Events<a class="headerlink" href="#compound-events" title="Permalink to this heading">#</a></h1>
-<p>Many interesting probability questions involve more than one thing happening. Here are two important examples:</p>
-<ul class="simple">
-<li><p>What is the probability that, if we play one round of roullette, the outcome is <em>either</em> red <em>or</em> an even number?</p></li>
-<li><p>What is the probability that a poker pro draws an Ace-King starting hand on <em>both</em> the next hand she plays <em>and</em> the one following that?</p></li>
-</ul>
-<p>One simplistic mantra often heard in high school classrooms is that “OR means ADD and AND means MULTIPLY.” Not so fast. We have some conditions that must be satisfied. Here are more precise statements using set theory:</p>
-<ol class="arabic simple">
-<li><p>For <strong>disjoint</strong> event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-P(A\text{ or }B)= P(A\cup B)=P(A)+P(B)
-\]</div>
-<ol class="arabic simple" start="2">
-<li><p>For <strong>independent</strong> event sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[
-P(A\text{ and }B)=P(A)P(B)
-\]</div>
-<p>For the second statement, we also often use it for <em>indpendent trials</em> or <em>Bournouli Trials</em>. We’ll discuss details in a moment. Right now, the key idea is that if we have more than one event, we need to know how those events are related to be able to calculate the probability.</p>
-<div class="admonition-example-2 admonition">
-<p class="admonition-title">Example 2</p>
-<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a <span class="math notranslate nohighlight">\(\spadesuit\)</span> or a Queen?</p>
-</div>
-<figure class="align-default" id="figure-example">
-<a class="reference internal image-reference" href="_images/ProbFig1.PNG"><img alt="_images/ProbFig1.PNG" src="_images/ProbFig1.PNG" style="height: 300px;" /></a>
-</figure>
-<p><strong>Solution.</strong> The probability of drawing a spade is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{13}{52}=\frac{1}{4}
-\]</div>
-<p>and the probability of drawing a Queen is</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{4}{52}=\frac{1}{13}
-\]</div>
-<p>But we can’t simply add the two outcomes:</p>
-<div class="math notranslate nohighlight">
-\[P(\text{Q or }\spadesuit)=\frac{16}{52}\neq \frac{13}{52}+\frac{4}{52}=\frac{17}{52}\]</div>
-<p>For event sets, “either <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span>” usually translates to <span class="math notranslate nohighlight">\(A\cup B\)</span>, while “both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>” indicates <span class="math notranslate nohighlight">\(A\cap B\)</span>. High school students are sometimes taught: “If you see OR, add. But if you see AND, multiply.” Sadly, this is too simplistic and often incorrect. It’s much better to think in terms of sets. Note that:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n(Q)=4\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(n(S)=13\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(n(Q\cap S)=1\)</span></p></li>
-</ul>
-<p>We have two different rules for calculating <span class="math notranslate nohighlight">\(P(\text{A or B})\)</span> depending whether the sets are disjoint:</p>
-<ol class="arabic simple">
-<li><p>For <strong>disjoint</strong> event sets:
-$<span class="math notranslate nohighlight">\(
-P(A\cup B)=P(A)+P(B)
-\)</span>$</p></li>
-<li><p>Otherwise:
-$<span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</span>$</p></li>
-</ol>
-<figure class="align-default" id="figure-example2a">
-<a class="reference internal image-reference" href="_images/ProbFig2a.png"><img alt="_images/ProbFig2a.png" src="_images/ProbFig2a.png" style="height: 300px;" /></a>
-</figure>
+  <section class="tex2jax_ignore mathjax_ignore" id="counting-patterns">
+<h1>Counting Patterns<a class="headerlink" href="#counting-patterns" title="Permalink to this heading">#</a></h1>
+<p>Most people learn, even if they don’t remember, about combination and permutations. There are more than these two counting patterns that we use regularly in probability problem-solving, and we will discuss the most important.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-counting-patterns">
+<h1>Basic Counting Patterns<a class="headerlink" href="#basic-counting-patterns" title="Permalink to this heading">#</a></h1>
+<p>We have two kinds of draws \emph{without replacement}, combinations and permutations, but what about draws <strong>with replacement</strong>? Their structure means we count the possible arrangements in the same way we find the cardinality of sets that are Cartesian products: we multiply.</p>
 <aside class="sidebar">
-<p class="sidebar-title"><span class="math notranslate nohighlight">\(n(\emptyset)\)</span></p>
-<p>The cardinality of set with no elements is zero.</p>
+<p class="sidebar-title">Cardinality</p>
+<p>The <strong>cardinality</strong> of a set is the number of elements in that set.</p>
 </aside>
-<p>Sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <strong>disjoint</strong> provided <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>. Note that when <span class="math notranslate nohighlight">\(A\cap B=\emptyset \)</span>, then by definition <span class="math notranslate nohighlight">\(P(A\cap B)=0\)</span>.</p>
-<p>Consider the probability of drawing one card and getting both an Ace and an 8. The event sets are disjoint because they can never occur simultaneously. For non-disjoint sets, we must find a way to count <span class="math notranslate nohighlight">\(|A\cap B|\)</span>.</p>
-<p>When we have more than two sets, we use an idea called the <strong>principal of inclusion-exclusion</strong>. Use the Venn Diagram above to find all three 2-way intersections. They each get double-counted, so we need to the throw way the extra. As we do, we also end up throwing away the 3-way intersection – three times! We added the 3-way intersection three times, then subtracted it three times, so the final step is to add it back in exactly once. This is shown in the updated figure below.</p>
-<figure class="align-default" id="figure-example2b">
-<a class="reference internal image-reference" href="_images/ProbFig2b.png"><img alt="_images/ProbFig2b.png" src="_images/ProbFig2b.png" style="height: 300px;" /></a>
-</figure>
-<p>For three non-disjoint sets <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(C\)</span>, it looks like this:</p>
+<p>A Cartesian product of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is the set of all ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where the first item is drawn from set <span class="math notranslate nohighlight">\(A\)</span> and the second is drawn from set <span class="math notranslate nohighlight">\(B\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\]</div>
-<p>The same idea works regardless of how many sets are involved, but the calculations are a bit tedious. In the grand old tradition of math texts, anything tedious is, of course, left to the reader.</p>
+\[A\times B=\{(a,b)\ \vert\ a\in A, b\in B\}\]</div>
+<p>The <span class="math notranslate nohighlight">\(xy\)</span>-coordinate plane is familiar to most. Cartesian coordinates are used to identify points in the plane. Order matters, because the point <span class="math notranslate nohighlight">\((1,6)\)</span> is different from <span class="math notranslate nohighlight">\((6,1)\)</span>. The coordinate plane is the Cartesian product <span class="math notranslate nohighlight">\(\mathbb R\times\mathbb R\)</span>. While the set of real numbers is infinite, we often use finite sets for Cartesian products in probability settings.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 7</p>
+<p>A 6-sided die is rolled and a coin is flipped. List the elements of the Cartesian product and determine its cardinality.</p>
+</div>
+<p><strong>Solution.</strong> Let the set <span class="math notranslate nohighlight">\(D\)</span> represent the possible outcomes to rolling the fair, 6-sided die, and let the set <span class="math notranslate nohighlight">\(C\)</span> represent the possible outcomes when flipping a fair coin:</p>
+<div class="math notranslate nohighlight">
+\[D=\{1,2,4,5,6\}\]</div>
+<div class="math notranslate nohighlight">
+\[C=\{H,T\}\]</div>
+<p>We can arrange the ordered pairs <span class="math notranslate nohighlight">\((d,c)\)</span> to highlight the similarity to Cartesian coordinates:</p>
+<figure class="align-default" id="figure-example-with-dice">
+<a class="reference internal image-reference" href="_images/DieCartesionProduct.PNG"><img alt="_images/DieCartesionProduct.PNG" src="_images/DieCartesionProduct.PNG" style="height: 100px;" /></a>
+</figure>
+<p>Since <span class="math notranslate nohighlight">\(|D|=6\)</span> and <span class="math notranslate nohighlight">\(|C|=2\)</span>, the total number of outcomes in the Cartesian product <span class="math notranslate nohighlight">\(D\times C\)</span> is 12 because:</p>
+<div class="math notranslate nohighlight">
+\[|D\times C|=2\times 6=12\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Example 8</p>
+<p>How many Georgia license plates are possible given the standard pattern is 3 letters followed by 4 numbers?</p>
+</div>
+<p><strong>Solution.</strong> If <span class="math notranslate nohighlight">\(L\)</span> represents the set of 26 letters in our alphabet and <span class="math notranslate nohighlight">\(D\)</span> represents the base 10 digits, then possible license plates form a Cartesian product: <span class="math notranslate nohighlight">\(L\times L\times L\times D\times D\times D\times D\)</span>. The number of possible license plates is given by</p>
+<div class="math notranslate nohighlight">
+\[L\times L\times L\times D\times D\times D\times D|=26\times 26\times 26\times 10\times 10\times 10\times 10\]</div>
+<div class="math notranslate nohighlight">
+\[=26^3\cdot 10^4\]</div>
+<div class="math notranslate nohighlight">
+\[=175760000\]</div>
+<p>The number of outcomes in a Cartesian product is the product of the cardinalities of each set in the Cartesian product.</p>
+<section id="special-counting-patterns">
+<h2>Special Counting Patterns<a class="headerlink" href="#special-counting-patterns" title="Permalink to this heading">#</a></h2>
+<p>The primary tools for counting in a probability context have already been discussed: permutations, combinations, Cartesian products and partitioning the probability space into disjoint subsets. Some additional tools are helpful but seen much less often.</p>
+<section id="handshake-problem">
+<h3>Handshake Problem<a class="headerlink" href="#handshake-problem" title="Permalink to this heading">#</a></h3>
+<p>Two classic mathematics idea merge in the handshake problem.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 8</p>
+<p>Ten people attend a party. During the event, each party goer shakes hands with every other person. How many handshakes happened?</p>
+</div>
+<p><strong>Solution.</strong> Once we find the pattern, the solution is straightforward. Consider attendees at the party: Al, Bea, Cal, Di,…</p>
+<figure class="align-default" id="id1">
+<img alt="_images/ProbFig3a.png" src="_images/ProbFig3a.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">height: 200px</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ten people at party, <strong>Al</strong> shakes hands with 9 others, <strong>Bea</strong> shakes hands with 8 others, and so on.</p>
+<figure class="align-default" id="id2">
+<img alt="_images/ProbFig3c.png" src="_images/ProbFig3c.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">height: 250px</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If Al shakes hands with everyone, there are 9 handshakes. Then, say Bea shakes hands with everyone she has not shaken hands with, yet. That will create 8 more handshakes. Then Cal, who has shaken hands twice, once with Al and once with Bea, will complete 7 more handshakes, and so on. Thus, the total number of handshakes for all 10 people is:</p>
+<div class="math notranslate nohighlight">
+\[9+8+7+\cdots +2+1=\sum_{k=1}^9k=45\]</div>
+<aside class="sidebar">
+<p class="sidebar-title">Math Prodigy</p>
+<p>Carl Frederich Gauss who lived from 1777 - 1855 is probably the GOAT in mathematics, that is, the greatest mathematician of all time. At age <span class="math notranslate nohighlight">\(11\)</span> or <span class="math notranslate nohighlight">\(12\)</span>, he discovered a quick method for solving for the sum of consecutive integers between <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(k\)</span> where <span class="math notranslate nohighlight">\(k\)</span> is any integer <span class="math notranslate nohighlight">\(\geq 1\)</span>.</p>
+</aside>
+<p>The sum of all positive integers from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(n\)</span> is the classic pattern attributed to Gauss. The story goes like this: little Freddie is precocious, and his tutor can’t write math problems quickly enough. By the time he gets one written down, Freddie has solved it, and the tutor has no time for any other subject or any other child. In exasperation, the tutor challenges the adolescent math whiz: “Add up all the numbers between one and one hundred.” Surprisingly, Freddie answer almost immediately: “Five thousand and fifty.” He saw the pattern shown below.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/ProbFig4.png"><img alt="_images/ProbFig4.png" src="_images/ProbFig4.png" style="width: 8cm;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The Gauss pattern for summing integers from 1 to 100</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are 50 pairs of integers that sum to 101, so he multiplied quickly to find the sum: <span class="math notranslate nohighlight">\(50\times 101=5050\)</span>.</p>
+<p>While formulas exist (you can google “Gauss’s formula”) I encourage you to learn Gauss’s idea instead of memorizing some formula, or at least to derive the formula for yourself (it’s not hard). The formula works not only for this exact situation. The idea works for the sum of any finite number of terms in <strong>any arithmetic sequence</strong>.</p>
+<p>The birthday problem counting pattern is iconic, as is Gauss’s approach, and any student of mathematics taking a course that includes principles of counting should learn about them.</p>
+</section>
+</section>
+<section id="permutations-on-a-ring">
+<h2>Permutations on a Ring<a class="headerlink" href="#permutations-on-a-ring" title="Permalink to this heading">#</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Example 9</p>
+<p>A mom of five gets a charm bracelet with each child’s name on a charm. How many permutations of the charms are possible?</p>
+</div>
+<p><strong>Solution.</strong> If her children were named Dee, Eve, Fay, Gil and Hal, it’s tempting to consider it like permutation five items into five slots:</p>
+<div class="math notranslate nohighlight">
+\[P(5,5) = 5! = 120\]</div>
+<p>where the letters would line up:</p>
+<center>D E F G H</center>
+<p>That approach turns out to be incorrect. When spaced equally on a circle, there are five identical patterns that correspond to</p>
+<center>D E F G H</center>
+<p>Those patterns are shown below:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>D E F G H</strong></div>
+<figure class="align-default" id="id4">
+<img alt="_images/ProbFig5a.png" src="_images/ProbFig5a.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>E F G H D</strong></div>
+<figure class="align-default" id="id5">
+<img alt="_images/ProbFig5b.png" src="_images/ProbFig5b.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>F G H D E</strong></div>
+<figure class="align-default" id="id6">
+<img alt="_images/ProbFig5c.png" src="_images/ProbFig5c.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>G H D E F</strong></div>
+<figure class="align-default" id="id7">
+<img alt="_images/ProbFig5d.png" src="_images/ProbFig5d.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+<strong>H D E F G</strong></div>
+<figure class="align-default" id="id8">
+<img alt="_images/ProbFig5e.png" src="_images/ProbFig5e.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">width: 3cm</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The same thing is true for every unique permutation of five items on a ring or on a circle. We have the permutation plus four identical copies. To correct for this, we have to divide by 5. Let <span class="math notranslate nohighlight">\(C_5\)</span> be the set of all possible permutations of five objects on a circle.</p>
+<div class="math notranslate nohighlight">
+\[|C_5|=\frac{P(5,5)}{5}=\frac{5!}{5}\]</div>
+<p>Most students remember that, in general, the number of permutations of <span class="math notranslate nohighlight">\(n\)</span> objects on a circle is given by:</p>
+<div class="math notranslate nohighlight">
+\[|C_n|=\frac{n!}{n}\]</div>
+<div class="math notranslate nohighlight">
+\[\hspace{17mm}=(n-1)!\]</div>
+<p>When studying permutations in Abstract Algebra (UNG course MATH 4600), we learn cycle notation for writing down the individual permutations in a permutation group. An <span class="math notranslate nohighlight">\(n\)</span>-cycle represents <span class="math notranslate nohighlight">\(n\)</span> different versions of the exact same permutation, so we use a quick fix for notation: always list the smallest digit in the cycle first. That way, we have a unique representation for permutations, similar to the unique lowest terms form of a fraction.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -514,7 +682,7 @@ $<span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)<
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Independent Events</p>
+        <p class="prev-next-title">R Calculations and Factorials</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -524,6 +692,29 @@ $<span class="math notranslate nohighlight">\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)<
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Counting Patterns</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-counting-patterns">Basic Counting Patterns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-counting-patterns">Special Counting Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handshake-problem">Handshake Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#permutations-on-a-ring">Permutations on a Ring</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
