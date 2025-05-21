@@ -433,6 +433,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solutions-to-exercises">
 <h1>Solutions to Exercises<a class="headerlink" href="#solutions-to-exercises" title="Permalink to this heading">#</a></h1>
+<p>As we begin, we copy-paste our <strong>combin()</strong> and <strong>perm</strong> functions so that they will be active for use later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
+<span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple">
 <li><p>Professor Daniels has 7 books to place on a single shelf. How many different arrangements are possible?</p></li>
 </ol>
@@ -449,8 +460,9 @@ document.write(`
 <ol class="arabic simple" start="2">
 <li><p>We do not know precisely how many seats there were at the Round Table as traditions differ. Supposing there were 24 seats at the table and that King Authur always sat in his radomnly assigned seat, in how many ways could King Arthur plus the 23 Knights of the Round Table be arranged?</p></li>
 </ol>
-<p><strong>Solution.</strong> This is permutations on a ring with <span class="math notranslate nohighlight">\(n = 24\)</span>, so the solution is
-$<span class="math notranslate nohighlight">\(\begin{align}\frac{24!}{23} &amp;= 23!\\ &amp;\approx 3.58202\times 10^{22}\end{align}\)</span>$</p>
+<p><strong>Solution.</strong> This is permutations on a ring with <span class="math notranslate nohighlight">\(n = 24\)</span>, so the solution is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}\frac{24!}{24} &amp;= 23!\\ &amp;\approx 3.58202\times 10^{22}\end{align}\end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">factorial</span><span class="p">(</span><span class="m">23</span><span class="p">)</span>
@@ -467,6 +479,103 @@ $<span class="math notranslate nohighlight">\(\begin{align}\frac{24!}{23} &amp;=
 <li><p>What is the probability Betty is seated to Negreanu’s left?</p></li>
 <li><p>What the probability that one of the amateurs is seated to Negreanu’s left?</p></li>
 </ul>
+<ol class="arabic simple" start="4">
+<li><p>Given that Georgia license plates are 3 letters followed 4 numbers, how many distinct GA license plates are possible?</p></li>
+</ol>
+<p><strong>Solution.</strong> We have 26 options for each of the first three symbols and 10 options for the last four <strong>provided all digits and letters are allowed to repeat</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">26</span><span class="o">^</span><span class="m">3</span><span class="o">*</span><span class="m">10</span><span class="o">^</span><span class="m">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">175760000</div></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>For a new lottery, the players picks 3 numbers between 11 and 55 and 3 numbers between 55 and 99. If no number can repeat, how many different picks are possible?</p></li>
+<li><p>Among the seven nominees for two vacancies on the city council are three men and four women. In how many ways may these vacancies be filled:</p>
+<ul class="simple">
+<li><p>with any two of the nominees?</p></li>
+<li><p>with any two of the women?</p></li>
+<li><p>with one of the men and one of the women?</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Solution.</strong> Since order does not matter, we use combinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## Any 2</span>
+<span class="nf">combin</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1">## Any 2 women</span>
+<span class="nf">combin</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1">## 1 man and 1 woman</span>
+<span class="nf">combin</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">combin</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">21</div><div class="output text_html">6</div><div class="output text_html">12</div></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Mr. Jones owns 4 pairs of pants, 7 shirts, and 3 sweaters. In how many ways may he choose 2 of the pairs of pants, 3 of the shirts, and 1 of the sweaters to pack for a trip?</p></li>
+<li><p>Suppose a True-False test has 20 questions.</p>
+<ul class="simple">
+<li><p>In how many ways may a student mark the test, if each question is answered?</p></li>
+<li><p>In how many ways may a student mark the test, if 10 questions are marked correctly and 10 incorrectly?</p></li>
+</ul>
+</li>
+<li><p>In how many ways may can five persons line up to get on a bus?</p></li>
+</ol>
+<p><strong>Solution.</strong> This is a straightforward permutation: <span class="math notranslate nohighlight">\(5! = 120\)</span>.</p>
+<ol class="arabic simple" start="10">
+<li><p>In how many ways may these same five people line up if two of the people refuse to stand next to each other?</p></li>
+<li><p>In how many ways may 8 people form a circle for a folk dance?</p></li>
+<li><p>How many unique arrangments are there of the letters <strong>G R E A T</strong> ?</p></li>
+<li><p>How many unique arrangments are there of the letters <strong>G R E E T</strong> ?</p></li>
+<li><p>How many unique arrangments are there of the letters <strong>S T A T I S T I C S</strong> ?</p></li>
+<li><p>How many unique arrangments of the the letters <strong>S T A T I S T I C S</strong> begin and end with the letter “s”?</p></li>
+<li><p>In a primary election, there are four candidates for mayor, five candidates for city treasurer, and two candidates for county attorney. In how many ways may voters mark their ballots:</p>
+<ul class="simple">
+<li><p>if they vote in all three of the races?</p></li>
+<li><p>if they exercise their right not to vote in any or all of the races?</p></li>
+</ul>
+</li>
+<li><p>A multiple-choice test consists of 15 questions, each permitting a choice of 5 alternatives. In how many ways may a student fill in the answers if they answer each question?</p></li>
+</ol>
+<p><strong>Solution.</strong> We have 5 choices on 15 items, so an exponential will do the heavy lifting here: <span class="math notranslate nohighlight">\(5^{15}=30517578125\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">5</span><span class="o">^</span><span class="m">15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">30517578125</div></div>
+</div>
+<ol class="arabic simple" start="18">
+<li><p>A team of 13 field hockey players needs to choose a captain and co-captain. How many different leadership pairs exist?</p></li>
+<li><p>You are setting the combination on a five-digit lock. You want to use the numbers 38175 but don’t care what order they are in. How many unique combinations are possible?</p></li>
+</ol>
+<p><strong>Solution.</strong> We are permuting 5 numbers into 5 slots, so <span class="math notranslate nohighlight">\(P(5,5) = 120\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">perm</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">120</div></div>
+</div>
+<ol class="arabic simple" start="20">
+<li><p>The student body of 50 students wants to elect four representatives. How many unique elections are possible?</p></li>
+<li><p>A group of 17 horses start the race. How many unique finishing orders are possible if we only concern ourselves with the Top 3 Finishers (Win, Place, Show)?</p></li>
+<li><p>Twenty-three athletes at a meeting each shake hands with everyone else. How many handshakes occur?</p></li>
+<li><p>The game of euchre uses only 24 cards from a standard deck. How many unique 5-card euchre hands are possible?</p></li>
+<li><p>For a segment of a radio show, disc jockey Doc Jams can play 4 songs. If there are 8 to select from, in how many ways can Jams program the playlist for this segment?</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
