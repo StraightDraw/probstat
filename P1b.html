@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exercises &#8212; Probability and Statistics</title>
+    <title>Probability Playground &#8212; Probability and Statistics</title>
   
   
   
@@ -62,11 +62,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'P1b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solutions to Exercises" href="P1c.html" />
-    <link rel="prev" title="Probability Playground" href="P1a.html" />
+    <link rel="next" title="Exercises" href="P1c.html" />
+    <link rel="prev" title="2 Simple Probability Tools" href="P1a.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,9 +173,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="P1a.html">Probability Playground</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1a.html">2 Simple Probability Tools</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1d.html">Solutions to Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="P2.html">Counting Patterns</a></li>
@@ -415,7 +418,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exercises</h1>
+    <h1>Probability Playground</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,14 +432,46 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
-<ol class="arabic simple">
-<li><p>Find the probability of rolling a fair 6-sided die and getting an even number.</p></li>
-<li><p>Seventeen marbles are in a jar. Seven are purple, four are green and the rest orange. What is the probability of picking one at random and not getting a green marble?</p></li>
-<li><p>Picking one card at random from a standard deck of playing cards, what is the probability the card is not a face card but is black?</p></li>
-<li><p>Picking one card at random from a standard deck of playing cards, what is the probability the card is a heart and is even but is not an Ace?</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="probability-playground">
+<h1>Probability Playground<a class="headerlink" href="#probability-playground" title="Permalink to this heading">#</a></h1>
+<p>A standard <strong>Deck of Playing Cards</strong> makes a great sandbox for a probability course. Most probability ideas can be quickly illustrated using a deck of cards and random draws.The standard deck has ready-made subsets and partitions which help illustrate important ideas. For those unfamiliar with a standard deck of playing cards, there are the thirteen <strong>values</strong> (or <em>ranks</em>) and four <strong>suits</strong>: <span class="math notranslate nohighlight">\(\spadesuit,\textcolor{red}{\heartsuit}, \clubsuit,\textcolor{red}{\diamondsuit}\)</span>.</p>
+<p><strong>Graphics: Deck of Cards</strong></p>
+<p>Whenever we refer to “drawing a card,” we mean that a standard deck of 52 playing cards has been well-shuffled and that the draw is perfectly random. Each card has an equal probability of being drawn. We never include jokers or wild cards.The entire deck of cards is shown in the graphic below:</p>
+<a class="reference internal image-reference" href="_images/DeckCards.png"><img alt="Deck of Cards" class="align-center" src="_images/DeckCards.png" style="width: 500px;" /></a>
+<p>Half the cards are red, half black. Each suit subset has 13 cards in it. Each value subset has four cards. For example, the set <span class="math notranslate nohighlight">\(J=\{J\spadesuit,J\heartsuit, J\clubsuit,J\diamondsuit\}\)</span></p>
+<div class="admonition-example-4 admonition">
+<p class="admonition-title">Example 4</p>
+<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a heart? Of \emph{not} drawing a heart?</p>
+</div>
+<p><strong>Solution.</strong> Let the probability space <span class="math notranslate nohighlight">\(S\)</span> be comprised of all possible outcomes  when drawing one card at random from a standard deck of playing cards. Let <span class="math notranslate nohighlight">\(H\)</span> be the event set of drawing a heart (<span class="math notranslate nohighlight">\(\heartsuit\)</span>). Then <span class="math notranslate nohighlight">\(|H|=13\)</span> because there are 13 possible <span class="math notranslate nohighlight">\(\heartsuit\)</span> outcomes in <span class="math notranslate nohighlight">\(S\)</span>. Thus:</p>
+<div class="math notranslate nohighlight">
+\[P(A)=\frac{|H|}{|S|}=\frac{13}{52}=\frac{1}{4}\]</div>
+<p>The probability of “<strong>not</strong> drawing a heart” inquires about the probability of the <strong>set complement</strong> of the event set <span class="math notranslate nohighlight">\(H\)</span> and is denoted <span class="math notranslate nohighlight">\(\bar H\)</span>. The probability of the complement of an event set is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+P(\bar H)=1-P(H)    
+\]</div>
+<p>Because <span class="math notranslate nohighlight">\(|\bar H|=|S|-|H|\)</span>, we have:</p>
+<div class="math notranslate nohighlight">
+\[P(\bar{H})=\frac{|\bar{H}|}{|S|}\]</div>
+<div class="math notranslate nohighlight">
+\[=\frac{|S|-|H|}{|S|}\]</div>
+<div class="math notranslate nohighlight">
+\[=\frac{|S|}{|S|}+\frac{|H|}{|S|}\]</div>
+<div class="math notranslate nohighlight">
+\[=1-\frac{|H|}{|S|}\]</div>
+<p>To conclude the example from above:</p>
+<div class="math notranslate nohighlight">
+\[P(\bar H)=1-\frac{1}{4}=\frac{3}{4}\]</div>
+<p>In working with a deck of cards, certain common sets can helpful:</p>
+<ul class="simple">
+<li><p>F: Face cards (all Kings, Queens and Jacks)</p></li>
+<li><p>E: Even cards (2’s, 4’s, 6’s, 8’s and T’s)</p></li>
+<li><p>O: Odd cards (3’s, 5’s, 7’s, 9’s)</p></li>
+<li><p>Suits as in Hearts (H), Spades (S), Clubs (C) and Diamonds (D)</p></li>
+<li><p>R: Red cards
+_ B: Black cards</p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
@@ -475,7 +510,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Probability Playground</p>
+        <p class="prev-next-title">2 Simple Probability Tools</p>
       </div>
     </a>
     <a class="right-next"
@@ -483,7 +518,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solutions to Exercises</p>
+        <p class="prev-next-title">Exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

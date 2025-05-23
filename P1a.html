@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Probability Playground &#8212; Probability and Statistics</title>
+    <title>Two Simple Tools &#8212; Probability and Statistics</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'P1a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exercises" href="P1b.html" />
+    <link rel="next" title="Probability Playground" href="P1b.html" />
     <link rel="prev" title="Basic Probability" href="P1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,9 +173,10 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Probability Playground</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P1b.html">Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P1c.html">Solutions to Exercises</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Two Simple Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1b.html">Probability Playground</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1c.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P1d.html">Solutions to Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="P2.html">Counting Patterns</a></li>
@@ -406,7 +407,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -417,11 +420,34 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Probability Playground</h1>
+    <h1>Two Simple Tools</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monopoly-dice-rolls">Monopoly Dice Rolls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-trees">Probability Trees</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-probability-trees">Properties of Probability Trees:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-2-reds-drawn">Probability of 2 Reds Drawn:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-1-red-and-1-blue-drawn">Probability of 1 Red and 1 Blue Drawn:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x-2-matrices-and-probability-trees">2 x 2 Matrices and Probability Trees</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -431,46 +457,133 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="probability-playground">
-<h1>Probability Playground<a class="headerlink" href="#probability-playground" title="Permalink to this heading">#</a></h1>
-<p>A standard <strong>Deck of Playing Cards</strong> makes a great sandbox for a probability course. Most probability ideas can be quickly illustrated using a deck of cards and random draws.The standard deck has ready-made subsets and partitions which help illustrate important ideas. For those unfamiliar with a standard deck of playing cards, there are the thirteen <strong>values</strong> (or <em>ranks</em>) and four <strong>suits</strong>: <span class="math notranslate nohighlight">\(\spadesuit,\textcolor{red}{\heartsuit}, \clubsuit,\textcolor{red}{\diamondsuit}\)</span>.</p>
-<p><strong>Graphics: Deck of Cards</strong></p>
-<p>Whenever we refer to “drawing a card,” we mean that a standard deck of 52 playing cards has been well-shuffled and that the draw is perfectly random. Each card has an equal probability of being drawn. We never include jokers or wild cards.The entire deck of cards is shown in the graphic below:</p>
-<a class="reference internal image-reference" href="_images/DeckCards.png"><img alt="Deck of Cards" class="align-center" src="_images/DeckCards.png" style="width: 500px;" /></a>
-<p>Half the cards are red, half black. Each suit subset has 13 cards in it. Each value subset has four cards. For example, the set <span class="math notranslate nohighlight">\(J=\{J\spadesuit,J\heartsuit, J\clubsuit,J\diamondsuit\}\)</span></p>
-<div class="admonition-example-4 admonition">
-<p class="admonition-title">Example 4</p>
-<p>Suppose we draw a single card at random from a well-shuffled standard deck of 52 cards. What is the probability of drawing a heart? Of \emph{not} drawing a heart?</p>
-</div>
-<p><strong>Solution.</strong> Let the probability space <span class="math notranslate nohighlight">\(S\)</span> be comprised of all possible outcomes  when drawing one card at random from a standard deck of playing cards. Let <span class="math notranslate nohighlight">\(H\)</span> be the event set of drawing a heart (<span class="math notranslate nohighlight">\(\heartsuit\)</span>). Then <span class="math notranslate nohighlight">\(|H|=13\)</span> because there are 13 possible <span class="math notranslate nohighlight">\(\heartsuit\)</span> outcomes in <span class="math notranslate nohighlight">\(S\)</span>. Thus:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="two-simple-tools">
+<h1>Two Simple Tools<a class="headerlink" href="#two-simple-tools" title="Permalink to this heading">#</a></h1>
+<p>Two scenarios often arise in probability problem-solving. These two tools will make solving problems in those situations quite straightforward.</p>
+<section id="monopoly-dice-rolls">
+<h2>Monopoly Dice Rolls<a class="headerlink" href="#monopoly-dice-rolls" title="Permalink to this heading">#</a></h2>
+<p>We are often asked to roll 2 dice and sum the values showing on them, the prototypical Monopoly dice roll used in many classic board games with stanard 6-sided dice. A grid of sums in quite useful here:</p>
 <div class="math notranslate nohighlight">
-\[P(A)=\frac{|H|}{|S|}=\frac{13}{52}=\frac{1}{4}\]</div>
-<p>The probability of “<strong>not</strong> drawing a heart” inquires about the probability of the <strong>set complement</strong> of the event set <span class="math notranslate nohighlight">\(H\)</span> and is denoted <span class="math notranslate nohighlight">\(\bar H\)</span>. The probability of the complement of an event set is given by:</p>
+\[\begin{split}\begin{array}{c|ccccccc}&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+\hline
+1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\
+2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;8\\
+3&amp;4&amp;5&amp;6&amp;7&amp;8&amp;9\\
+4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10\\
+5&amp;6&amp;7&amp;8&amp;9&amp;10&amp;11\\
+6&amp;7&amp;8&amp;9&amp;10&amp;11&amp;12\\\end{array}\end{split}\]</div>
+<p>Above the line we have the value shown on one die, and to the left of the line we have the values shown on the other. The value inside the grid represent the sums of the two rolls.</p>
+<section id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h3>
+<p>What is the probability on a standard Monopoly Dice Roll that the players gets a 4 or less?</p>
+</section>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[
-P(\bar H)=1-P(H)    
-\]</div>
-<p>Because <span class="math notranslate nohighlight">\(|\bar H|=|S|-|H|\)</span>, we have:</p>
+\[\begin{split}\begin{array}{c|ccccccc}&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+\hline
+1&amp;2&amp;3&amp;\textcolor{red}{4}&amp;5&amp;6&amp;7\\
+2&amp;3&amp;\textcolor{red}{4}&amp;5&amp;6&amp;7&amp;8\\
+3&amp;\textcolor{red}{4}&amp;5&amp;6&amp;7&amp;8&amp;9\\
+4&amp;5&amp;6&amp;7&amp;8&amp;9&amp;10\\
+5&amp;6&amp;7&amp;8&amp;9&amp;10&amp;11\\
+6&amp;7&amp;8&amp;9&amp;10&amp;11&amp;12\\\end{array}\end{split}\]</div>
+<p>Notice:</p>
+<ol class="arabic simple">
+<li><p>The diagonal pattern of all identical sums.</p></li>
+<li><p>Less than probabilities include everything above the value diagonal.</p></li>
+<li><p>Greater than probabilities include everything below the value diagonal.</p></li>
+</ol>
+<p>Here, we have 3 values equal to 4 and 3 that are less than 4. Thus, we have 6 total outcomes that represent success. Let <span class="math notranslate nohighlight">\(x\)</span> represent the random variable indicating the sum of the dice roll, and we have the following:
+$<span class="math notranslate nohighlight">\(P(x\leq 4) = \frac{6}{36}=\frac{1}{6}\)</span>$</p>
+</section>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
+<p>What is the probability on a standard Monopoly Dice Roll that the players gets <strong>8 or more</strong>?</p>
+</section>
+<section id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
-\[P(\bar{H})=\frac{|\bar{H}|}{|S|}\]</div>
-<div class="math notranslate nohighlight">
-\[=\frac{|S|-|H|}{|S|}\]</div>
-<div class="math notranslate nohighlight">
-\[=\frac{|S|}{|S|}+\frac{|H|}{|S|}\]</div>
-<div class="math notranslate nohighlight">
-\[=1-\frac{|H|}{|S|}\]</div>
-<p>To conclude the example from above:</p>
-<div class="math notranslate nohighlight">
-\[P(\bar H)=1-\frac{1}{4}=\frac{3}{4}\]</div>
-<p>In working with a deck of cards, certain common sets can helpful:</p>
+\[\begin{split}\begin{array}{c|ccccccc}&amp;1&amp;2&amp;3&amp;4&amp;5&amp;6\\
+\hline
+1&amp;2&amp;3&amp;4&amp;5&amp;6&amp;7\\
+2&amp;3&amp;4&amp;5&amp;6&amp;7&amp;\textcolor{blue}{8}\\
+3&amp;4&amp;5&amp;6&amp;7&amp;\textcolor{blue}{8}&amp;9\\
+4&amp;5&amp;6&amp;7&amp;\textcolor{blue}{8}&amp;9&amp;10\\
+5&amp;6&amp;7&amp;\textcolor{blue}{8}&amp;9&amp;10&amp;11\\
+6&amp;7&amp;\textcolor{blue}{8}&amp;9&amp;10&amp;11&amp;12\\\end{array}\end{split}\]</div>
+<p>As can be seen above, we have 5 values of 8 and <span class="math notranslate nohighlight">\(4+3+2+1 = 10\)</span> values greater than 8. Given <span class="math notranslate nohighlight">\(x\)</span> is the simple random variable representing the sum of the dice roll, we have:$<span class="math notranslate nohighlight">\(P(x\geq 8) = \frac{15}{36}=
+\frac{5}{12}\)</span>$</p>
+</section>
+</section>
+<section id="probability-trees">
+<h2>Probability Trees<a class="headerlink" href="#probability-trees" title="Permalink to this heading">#</a></h2>
+<p>A <strong>probability tree</strong> is a quite useful graph theory tool that we can use to determine probabilities from a sequence of probability experiements. Let’s look at an example and describe the necessary properties of a probability tree.</p>
+<p>Urn 1 has the following marbles in it from which draws are made without replacement:</p>
 <ul class="simple">
-<li><p>F: Face cards (all Kings, Queens and Jacks)</p></li>
-<li><p>E: Even cards (2’s, 4’s, 6’s, 8’s and T’s)</p></li>
-<li><p>O: Odd cards (3’s, 5’s, 7’s, 9’s)</p></li>
-<li><p>Suits as in Hearts (H), Spades (S), Clubs (C) and Diamonds (D)</p></li>
-<li><p>R: Red cards
-_ B: Black cards</p></li>
+<li><p>2 Red Marbles</p></li>
+<li><p>3 Blue Marbles</p></li>
 </ul>
+<a class="reference internal image-reference" href="_images/ProbTreeUrn.png"><img alt="Probability Tree for Urn Problem" class="align-center" src="_images/ProbTreeUrn.png" style="width: 500px;" /></a>
+<section id="properties-of-probability-trees">
+<h3>Properties of Probability Trees:<a class="headerlink" href="#properties-of-probability-trees" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>A probability tree is a <strong>directed graph</strong>, meaning we travel from a starting point in only one direction. Once we have traveled an edge, we cannot reverse the journey.</p></li>
+<li><p>The set of edges extending from each node include all possible outcomes from that point.</p></li>
+<li><p>If the edges are weighted with the probabilities of the respective outcomes occuring, the sum of all probabilities of all outcomes from each node must equal 1.</p></li>
+<li><p>If all 3 above properties are true, then the product of the probabilities (or edge weightings) along any path determine the probability of the event described by that path occurring.</p></li>
+</ol>
+<p>From the top node (starting point), we have two outcomes. Either a Red or Blue is drawn. Note that following either edge leads to different probabilities for the second draw. Since we draw without replacement, a marble has been removed prior to the second draw leaving 4 marables, not 5, for the second draw. The second level nodes have update probabilities indicated by the edge weightings of the edge that emanate from them.</p>
+<section id="probability-of-2-reds-drawn">
+<h4>Probability of 2 Reds Drawn:<a class="headerlink" href="#probability-of-2-reds-drawn" title="Permalink to this heading">#</a></h4>
+<p>To calculate the probability of 2 Reds being drawn, we multiply the probabilities along the left-most path of the tree:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}P(\text{RR}) &amp;= \frac{2}{5}\cdot\frac{1}{4}\\ &amp;= \frac{2}{20}\\ &amp;= \frac{1}{10}\end{align}\end{split}\]</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Notice that, in a probability tree, <strong>unreduced fractions</strong> can be quite helpful. This is atypical for mathematics problem-solving where we almost always benefit from reducing fractions. We use unreduced fractions so that the properties of the probability tree can be quickly verified. The unreduced fractions show the actual counts used to create the probabilities so we can easily see the actual number of items from which draws are made.</p>
+</div>
+</section>
+<section id="probability-of-1-red-and-1-blue-drawn">
+<h4>Probability of 1 Red and 1 Blue Drawn:<a class="headerlink" href="#probability-of-1-red-and-1-blue-drawn" title="Permalink to this heading">#</a></h4>
+<p>Notice that we can draw 1 Red and 1 Blue in two different ways represented by the two interior paths of the probability tree. Thus:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}P(\text{1R1B}) &amp;= P(\text{RB}) + P(\text{BR}) \\
+        &amp;= \frac{2}{5}\cdot\frac{3}{4} + \frac{3}{5}\cdot\frac{2}{4}\\ 
+        &amp;= \frac{6}{20} + \frac{6}{20}\\ &amp;= \frac{12}{20}\\ &amp;= \frac{3}{5}\end{align}\end{split}\]</div>
+</section>
+</section>
+<section id="x-2-matrices-and-probability-trees">
+<h3>2 x 2 Matrices and Probability Trees<a class="headerlink" href="#x-2-matrices-and-probability-trees" title="Permalink to this heading">#</a></h3>
+<p>The question in the <strong>50 Counting Questions</strong> asks about a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix where all entries are chosen at random from the set <span class="math notranslate nohighlight">\(\{0,1\}\)</span>. What is the probability of having a row or column of all zeros?</p>
+<p>First, let’s create a <span class="math notranslate nohighlight">\(2\times 2\)</span> matrix with entries <span class="math notranslate nohighlight">\(a,b,c,d\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[\begin{array}{cc}a&amp;b\\c&amp;d\end{array}\right]\end{split}\]</div>
+<p>First, notice that we can only have a row of zeros provided:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(d=0\)</span></p></li>
+<li><p>or both</p></li>
+</ul>
+<p>The same is true for a column of zeros.</p>
+<p>Second, notice that once either <span class="math notranslate nohighlight">\(a=0\)</span> or <span class="math notranslate nohighlight">\(d=0\)</span> (or both), we have a row of zeros provided:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(b=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c=0\)</span></p></li>
+<li><p>or both</p></li>
+</ul>
+<p>Similary for a column of zeros. Thus, the probability tree below describes the situation. Given time and space constraints, only one second-level set of branches is drawn. Note the other 3 would be identical to the one shown.</p>
+<a class="reference internal image-reference" href="_images/ProbTreeMatrix.png"><img alt="Probability Tree for Matrix Problem" class="align-center" src="_images/ProbTreeMatrix.png" style="width: 600px;" /></a>
+<p>To solve the problem, notice that a row or column of all zeros is only possible down one of the first three edges from the starting node. At the second level, notice all 3 of the first three edges have either a row or column of zeros. Thus, the probability of <strong>not</strong> having a row or column of zeros is as follows:</p>
+<div class="math notranslate nohighlight">
+\[P(\text{Row or Column of Zeros}) = 1 - P(\text{No Row or Column of Zeros})\]</div>
+<p>where
+$<span class="math notranslate nohighlight">\(\begin{align}P(\text{No Row or Column of Zeros}) &amp;= 3\left(\frac{1}{4}\cdot\frac{1}{4}\right) + \frac{1}{4}\\&amp;= 3\left(\frac{1}{16}\right) + \frac{1}{4}\\&amp;= \frac{3}{16} + \frac{4}{16}\\&amp;= \frac{7}{16}\end{align}\)</span>$</p>
+<p>Hence, we have the following:</p>
+<div class="math notranslate nohighlight">
+\[P(\text{Row or Column of Zeros}) = 1 - \frac{7}{16}= \frac{9}{16}\]</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,16 +595,16 @@ _ B: Black cards</p></li>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -517,7 +630,7 @@ _ B: Black cards</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Probability Playground</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,6 +640,35 @@ _ B: Black cards</p></li>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#monopoly-dice-rolls">Monopoly Dice Rolls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-trees">Probability Trees</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-probability-trees">Properties of Probability Trees:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-2-reds-drawn">Probability of 2 Reds Drawn:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-1-red-and-1-blue-drawn">Probability of 1 Red and 1 Blue Drawn:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#x-2-matrices-and-probability-trees">2 x 2 Matrices and Probability Trees</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
