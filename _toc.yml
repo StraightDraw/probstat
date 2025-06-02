@@ -27,6 +27,7 @@ parts:
       sections:
       - file: P6a
       - file: P6b
+      - file: P6c
     - file: P7
     - file: P0
       sections:
