@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Discrete Probability Functions &#8212; Probability and Statistics</title>
+    <title>Worked Examples &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'P6a';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P06b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Worked Examples" href="P6b.html" />
-    <link rel="prev" title="Binomial Theorem" href="P6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Two Simple Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Probability Playground</a></li>
@@ -192,9 +190,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="P5b.html">Solutions to Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="P6.html">Binomial Theorem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Discrete Probability Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P6b.html">Worked Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="P6.html">Binomial Theorem</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="P6a.html">Discrete Probability Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P6c.html">Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P6d.html">Solutions to Selected Exercises</a></li>
 </ul>
@@ -307,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P6a.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P06b.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +335,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/P6a.ipynb" target="_blank"
+      <li><a href="_sources/P06b.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Discrete Probability Functions</h1>
+    <h1>Worked Examples</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,20 +429,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distributions">Binomial Distributions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution-formula">Binomial Distribution Formula</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pdf">The pdf</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The pdf</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The pdf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -459,113 +444,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="discrete-probability-functions">
-<h1>Discrete Probability Functions<a class="headerlink" href="#discrete-probability-functions" title="Permalink to this heading">#</a></h1>
-<p>Certain probability scenarios arise so often that we create and utilize functions for them. These functions are called <strong>probability density functions</strong> and are often abbreviated as <strong>pdf</strong> (or <em>pmf</em> for <em>probability mass fucntions</em>). We will learn to create the <strong>pdf</strong> for four specific distributions:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="worked-examples">
+<h1>Worked Examples<a class="headerlink" href="#worked-examples" title="Permalink to this heading">#</a></h1>
+<p>With discrete probability functions, we have two main tasks:</p>
 <ol class="arabic simple">
-<li><p>Binomial</p></li>
-<li><p>Geometric</p></li>
-<li><p>Hypergeometric</p></li>
-<li><p>Negative Binomial</p></li>
+<li><p>Solve for and find a closed form equation for the probability density function (pdf).</p></li>
+<li><p>Use pdf in probability problem-solving.</p></li>
 </ol>
-<section id="binomial-distributions">
-<h2>Binomial Distributions<a class="headerlink" href="#binomial-distributions" title="Permalink to this heading">#</a></h2>
-<p>Binomial, in a probability sense, indicates situations were <strong>only two possiblities exist</strong>. In probability problem-solving, we often refer to the outcomes as <strong>successes</strong> or <strong>failures</strong>.</p>
-<aside class="sidebar">
-<p class="sidebar-title">House Money</p>
-<p>The <strong>green squares</strong> in roulette give the casinos their edge. They affect the probabilities of success but are ignored when wins are paid out.</p>
-</aside>
-<p>The idea of “success” has nothing to do with whether the outcome is preferable, only that it is the outcome whose probability we are asked to calculate. For example, when calculating the probability of rain on a proposed date for an outdoor wedding, we might term the outcome RAIN as a success while solving the problem. The bride would likely disaggree with this characterization.</p>
-<div class="tip admonition">
-<p class="admonition-title">Example 10</p>
-<p>Betting on Red or Black in roulette means that you either you win, or you lose all the money you bet. Winning means that your bet is doubled (nearly) and the amount is returned to you.</p>
-<p><strong>Chelsea</strong> plays 5 rounds of roulette. Find the probability that she wins 3 or more of her 5 roulette plays given that she plays either Red or Black every time.</p>
+<p>We will need our combinations and permutations formulae:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
+<span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+</pre></div>
 </div>
-<p><strong>Solution.</strong> Assume the outcomes of the spins are perfectly random amongst the landing slots labeled 0, 00, 1, 2, … ,35, 36. Thus, every bet on Red or Black has the same probability of success. For 18 of the 38 total slots, Chelsea wins. Thus:</p>
+</div>
+</div>
+<p>Let’s do some mixed practice.</p>
+<section id="example-1">
+<h2>Example 1<a class="headerlink" href="#example-1" title="Permalink to this heading">#</a></h2>
+<p>In Texas Holdem, players are dealt 2 cards face down to begin. When those 2 cards have the same value as in JJ, the player is said to have a <strong>pocket pair.</strong> What is the probability that Hero sitting in at a new poker table sees his first pocket pair on the fifth hand dealt to him?</p>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<p>We first need to determine the probability of success. What is the probability of being dealt a pocket pair on any one hand? Let <span class="math notranslate nohighlight">\(\textbf{pp}\)</span> be the event of drawing a pocket pair, and we have the following:</p>
 <div class="math notranslate nohighlight">
-\[P = \frac{18}{38} = \frac{9}{19} \approx 0.474\]</div>
-<p>The payout for a win is <span class="math notranslate nohighlight">\(2:1\)</span> which would be <em>fair odds</em> if the probability of success were exactly <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>. First, let’s consider the probability of Chelsea playing 5 spins of the wheel and winning exactly 3 times. Suppose the pattern of outcomes was 3 wins first followed by 2 losses:</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="_images/roulette.png"><img alt="_images/roulette.png" src="_images/roulette.png" style="width: 5cm;" /></a>
+\[P(\textbf{pp}) = \frac{\binom{13}{1}\binom{4}{2}}{\binom{52}{2}}=\frac{1}{17}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="w"> </span><span class="nf">combin</span><span class="p">(</span><span class="m">13</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">combin</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">combin</span><span class="p">(</span><span class="m">52</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.0588235294117632</div></div>
+</div>
+<figure class="align-default" id="pp-probability">
+<a class="reference internal image-reference" href="_images/Ti7.png"><img alt="_images/Ti7.png" src="_images/Ti7.png" style="height: 400px;" /></a>
+<figcaption>
+<p><span class="caption-text">Simplifying the Fraction</span><a class="headerlink" href="#pp-probability" title="Permalink to this image">#</a></p>
+</figcaption>
 </figure>
-<p>We need to calculate the probability of win then win then win and then a loss and a loss. All are independent trials:</p>
-<div class="math notranslate nohighlight">
-\[P(WWWLL) = \left(\frac{9}{19}\right)\left(\frac{9}{19}\right)\left(\frac{9}{19}\right)\left(\frac{10}{19}\right)\left(\frac{10}{19}\right)\hspace{3mm}\implies\]</div>
-<div class="math notranslate nohighlight">
-\[P=\left(\frac{9}{19}\right)^3\left(\frac{10}{19}\right)^2\]</div>
-<p>Notice that the probability would be identical if the order of the wins and losses were changed. In fact, there are <span class="math notranslate nohighlight">\(\binom{5}{3}=10\)</span> total patterns:</p>
-<ul class="simple">
-<li><p>W W L W L</p></li>
-<li><p>W L W W L</p></li>
-<li><p>W L W L W</p></li>
-<li><p>L W W W L</p></li>
-</ul>
-<p><span class="math notranslate nohighlight">\(\vdots\)</span></p>
-<p>Let the simple random variable (SRV) <span class="math notranslate nohighlight">\(n\)</span> denote the number of wins out five attempts, and we have:</p>
-<div class="math notranslate nohighlight">
-\[P(n=3) = \binom{5}{3}\left(\frac{9}{19} \right)^3\left(\frac{10}{19} \right)^2\]</div>
-<section id="binomial-distribution-formula">
-<h3>Binomial Distribution Formula<a class="headerlink" href="#binomial-distribution-formula" title="Permalink to this heading">#</a></h3>
-<p>For a <strong>binomial</strong> probability experiment with <span class="math notranslate nohighlight">\(n\)</span> trials, let <span class="math notranslate nohighlight">\(p\)</span> be the probability of success. The probability of exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials:</p>
-<div class="math notranslate nohighlight">
-\[P(k) = \binom{n}{k}p^k(1-p)^{(n-k)}\]</div>
-<p>In the binomial distribution, we might asked the probability of <strong>at least</strong> <span class="math notranslate nohighlight">\(t\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials where <span class="math notranslate nohighlight">\(1\leq t &lt;n\)</span>. Then we must sum the exact probabilities up as follows:</p>
-<div class="math notranslate nohighlight">
-\[P(k\geq t) = \sum_{k=t}^n\binom{n}{k}p^k(1-p)^{(n-k)}\]</div>
-</section>
-</section>
-<section id="geometric-distribution">
-<h2>Geometric Distribution<a class="headerlink" href="#geometric-distribution" title="Permalink to this heading">#</a></h2>
-<p>A fair, 6-sided die is rolled repeatedly until a “3” appears. If <span class="math notranslate nohighlight">\(n\)</span> is the SRV indicating the number of trials required to see a 3:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(P(n=1) = \frac{1}{6}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(n=2) =\left(\frac{5}{6}\right)\left(\frac{1}{6}\right)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(n=3)=\left(\frac{5}{6}\right)^2\left(\frac{1}{6}\right)\)</span></p></li>
-</ul>
-<p>How does the pattern continue?</p>
-<section id="the-pdf">
-<h3>The pdf<a class="headerlink" href="#the-pdf" title="Permalink to this heading">#</a></h3>
-<p>In a geometric probability experiment, let the probability of success on an individual trial be denoted by <span class="math notranslate nohighlight">\(p\)</span>. The probability of the first success occuring on the <span class="math notranslate nohighlight">\(n^{th}\)</span> trial is given by:</p>
-<div class="math notranslate nohighlight">
-\[P(n) = (1-p)^{n-1}p\]</div>
-</section>
-</section>
-<section id="hypergeometric-distribution">
-<h2>Hypergeometric Distribution<a class="headerlink" href="#hypergeometric-distribution" title="Permalink to this heading">#</a></h2>
-<p>A deck of cards contains 20 cards: 6 red cards and 14 black cards. 5 cards are drawn randomly without replacement. What is the probability that exactly 4 red cards are drawn?</p>
-<div class="math notranslate nohighlight">
-\[P=\frac{\binom{6}{4}\binom{14}{1}}{\binom{20}{5}}\]</div>
-<section id="id1">
-<h3>The pdf<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>The probability that <span class="math notranslate nohighlight">\(k\)</span> successful draws out of <span class="math notranslate nohighlight">\(n\)</span> total draws are made from a collection of <span class="math notranslate nohighlight">\(N\)</span> objects <span class="math notranslate nohighlight">\(K\)</span> of which are successes is given by:</p>
-<div class="math notranslate nohighlight">
-\[P(k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}\]</div>
-</section>
-</section>
-<section id="negative-binomial">
-<h2>Negative Binomial<a class="headerlink" href="#negative-binomial" title="Permalink to this heading">#</a></h2>
-<p>Given the following values:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> indicates the number of trials.</p></li>
-<li><p><span class="math notranslate nohighlight">\(k\)</span> indicates the number of successes needed for overall success.</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> indicates the probability of success.</p></li>
-<li><p><span class="math notranslate nohighlight">\(q=1-p\)</span> indicates the probability of failure.</p></li>
-<li><p><span class="math notranslate nohighlight">\(X\)</span> represents the number of the last well drilled to achieve overall success.</p></li>
-</ul>
-<section id="id2">
-<h3>The pdf<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>The closed form <strong>pdf</strong> for a negative binomial distribution is as follows:</p>
-<div class="math notranslate nohighlight">
-\[P(X=x) = \binom{n-1}{k-1}p^kq^{n-k}\]</div>
-<div class="tip admonition">
-<p class="admonition-title">Example</p>
-<p>An oil company conducts a geological study that indicates that exploratory oil wells in a certain basin should have a 20% chance of striking oil. Due to finances, they need 4 of the first 10 wells to strike oil. What is the probability that the <span class="math notranslate nohighlight">\(4^{th}\)</span> successful strike occurs on the <span class="math notranslate nohighlight">\(10^{th}\)</span> well drilled?</p>
-</div>
-<p>Notice the pattern requires the <span class="math notranslate nohighlight">\(10^{th}\)</span> well to be a success:</p>
-<center>* * * * * * * * * S</center>
-Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. The probability is therefore:<div class="math notranslate nohighlight">
-\[P(X=10) = \binom{9}{3}\left(\frac{1}{5}\right)^4\left(\frac{4}{5}\right)^6\]</div>
-<p>Note that our intuitive approach to patterns and counting led to the same place as using the formula would have. This should provide strong encouragement to understand the patterns and counting so that, on a quiz or test, you may be able to use logic and problem-solving to confirm the formula is providing you with the correct answer.</p>
 </section>
 </section>
 </section>
@@ -579,16 +499,16 @@ Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. Th
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -600,24 +520,6 @@ Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. Th
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="P6.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Binomial Theorem</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="P6b.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Worked Examples</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -633,20 +535,8 @@ Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. Th
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distributions">Binomial Distributions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution-formula">Binomial Distribution Formula</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pdf">The pdf</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The pdf</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The pdf</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1">Example 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
 </ul>
 </li>
 </ul>
