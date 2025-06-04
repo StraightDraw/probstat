@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'P6a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Exercises" href="P6b.html" />
+    <link rel="next" title="Worked Examples" href="P6b.html" />
     <link rel="prev" title="Binomial Theorem" href="P6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,8 +194,9 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="P6.html">Binomial Theorem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Discrete Probability Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P6b.html">Exercises</a></li>
-<li class="toctree-l2"><a class="reference internal" href="P6c.html">Solutions to Selected Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Worked Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6c.html">Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6d.html">Solutions to Selected Exercises</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="P7.html">Expected Value</a></li>
@@ -436,11 +437,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution-formula">Geometric Distribution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pdf">The pdf</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The pdf</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The pdf</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -516,8 +523,8 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(P(n=3)=\left(\frac{5}{6}\right)^2\left(\frac{1}{6}\right)\)</span></p></li>
 </ul>
 <p>How does the pattern continue?</p>
-<section id="geometric-distribution-formula">
-<h3>Geometric Distribution Formula<a class="headerlink" href="#geometric-distribution-formula" title="Permalink to this heading">#</a></h3>
+<section id="the-pdf">
+<h3>The pdf<a class="headerlink" href="#the-pdf" title="Permalink to this heading">#</a></h3>
 <p>In a geometric probability experiment, let the probability of success on an individual trial be denoted by <span class="math notranslate nohighlight">\(p\)</span>. The probability of the first success occuring on the <span class="math notranslate nohighlight">\(n^{th}\)</span> trial is given by:</p>
 <div class="math notranslate nohighlight">
 \[P(n) = (1-p)^{n-1}p\]</div>
@@ -528,20 +535,38 @@ document.write(`
 <p>A deck of cards contains 20 cards: 6 red cards and 14 black cards. 5 cards are drawn randomly without replacement. What is the probability that exactly 4 red cards are drawn?</p>
 <div class="math notranslate nohighlight">
 \[P=\frac{\binom{6}{4}\binom{14}{1}}{\binom{20}{5}}\]</div>
-<p><strong>The PMF:</strong> The probability that <span class="math notranslate nohighlight">\(k\)</span> successful draws out of <span class="math notranslate nohighlight">\(n\)</span> total draws are made from a collection of <span class="math notranslate nohighlight">\(N\)</span> objects <span class="math notranslate nohighlight">\(K\)</span> of which are successes is given by:</p>
+<section id="id1">
+<h3>The pdf<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>The probability that <span class="math notranslate nohighlight">\(k\)</span> successful draws out of <span class="math notranslate nohighlight">\(n\)</span> total draws are made from a collection of <span class="math notranslate nohighlight">\(N\)</span> objects <span class="math notranslate nohighlight">\(K\)</span> of which are successes is given by:</p>
 <div class="math notranslate nohighlight">
 \[P(k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}\]</div>
 </section>
+</section>
 <section id="negative-binomial">
 <h2>Negative Binomial<a class="headerlink" href="#negative-binomial" title="Permalink to this heading">#</a></h2>
+<p>Given the following values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> indicates the number of trials.</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> indicates the number of successes needed for overall success.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> indicates the probability of success.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q=1-p\)</span> indicates the probability of failure.</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> represents the number of the last well drilled to achieve overall success.</p></li>
+</ul>
+<section id="id2">
+<h3>The pdf<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>The closed form <strong>pdf</strong> for a negative binomial distribution is as follows:</p>
+<div class="math notranslate nohighlight">
+\[P(X=x) = \binom{n-1}{k-1}p^kq^{n-k}\]</div>
 <div class="tip admonition">
-<p class="admonition-title">Example 11</p>
-<p>An oil company conducts a geological study that indicates that exploratory oil wells in a certain basin should have a 20% chance of striking oil. What is the probability that the fourth successful strike occurs on the <span class="math notranslate nohighlight">\(10^{th}\)</span> well drilled?</p>
+<p class="admonition-title">Example</p>
+<p>An oil company conducts a geological study that indicates that exploratory oil wells in a certain basin should have a 20% chance of striking oil. Due to finances, they need 4 of the first 10 wells to strike oil. What is the probability that the <span class="math notranslate nohighlight">\(4^{th}\)</span> successful strike occurs on the <span class="math notranslate nohighlight">\(10^{th}\)</span> well drilled?</p>
 </div>
 <p>Notice the pattern requires the <span class="math notranslate nohighlight">\(10^{th}\)</span> well to be a success:</p>
 <center>* * * * * * * * * S</center>
 Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. The probability is therefore:<div class="math notranslate nohighlight">
-\[P = \binom{9}{3}\left(\frac{1}{5}\right)^4\left(\frac{4}{5}\right)^6\]</div>
+\[P(X=10) = \binom{9}{3}\left(\frac{1}{5}\right)^4\left(\frac{4}{5}\right)^6\]</div>
+<p>Note that our intuitive approach to patterns and counting led to the same place as using the formula would have. This should provide strong encouragement to understand the patterns and counting so that, on a quiz or test, you may be able to use logic and problem-solving to confirm the formula is providing you with the correct answer.</p>
+</section>
 </section>
 </section>
 
@@ -589,7 +614,7 @@ Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. Th
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Exercises</p>
+        <p class="prev-next-title">Worked Examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -613,11 +638,17 @@ Thus, we have 9 wells amongst which we distribute 3 successes and 6 failures. Th
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric Distribution</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution-formula">Geometric Distribution Formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pdf">The pdf</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hypergeometric-distribution">Hypergeometric Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">The pdf</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-binomial">Negative Binomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">The pdf</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
