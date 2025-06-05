@@ -506,12 +506,19 @@ document.write(`
 \[P(n=3) = \binom{5}{3}\left(\frac{9}{19} \right)^3\left(\frac{10}{19} \right)^2\]</div>
 <section id="binomial-distribution-formula">
 <h3>Binomial Distribution Formula<a class="headerlink" href="#binomial-distribution-formula" title="Permalink to this heading">#</a></h3>
-<p>For a <strong>binomial</strong> probability experiment with <span class="math notranslate nohighlight">\(n\)</span> trials, let <span class="math notranslate nohighlight">\(p\)</span> be the probability of success. The probability of exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials:</p>
+<p>Given the following values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the number of total trials,</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> is the number of successes,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the probability of success, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(q=1-p\)</span> indicates the probability of failure.</p></li>
+</ul>
+<p>The probability of <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> <strong>binmoial</strong> trials is given by:</p>
 <div class="math notranslate nohighlight">
-\[P(k) = \binom{n}{k}p^k(1-p)^{(n-k)}\]</div>
+\[P(k)=\binom{n}{k}p^kq^{10-k}\]</div>
 <p>In the binomial distribution, we might asked the probability of <strong>at least</strong> <span class="math notranslate nohighlight">\(t\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> trials where <span class="math notranslate nohighlight">\(1\leq t &lt;n\)</span>. Then we must sum the exact probabilities up as follows:</p>
 <div class="math notranslate nohighlight">
-\[P(k\geq t) = \sum_{k=t}^n\binom{n}{k}p^k(1-p)^{(n-k)}\]</div>
+\[P(k\geq t) = \sum_{k=t}^n\binom{n}{k}p^kq^{(n-k)}\]</div>
 </section>
 </section>
 <section id="geometric-distribution">
@@ -525,9 +532,15 @@ document.write(`
 <p>How does the pattern continue?</p>
 <section id="the-pdf">
 <h3>The pdf<a class="headerlink" href="#the-pdf" title="Permalink to this heading">#</a></h3>
-<p>In a geometric probability experiment, let the probability of success on an individual trial be denoted by <span class="math notranslate nohighlight">\(p\)</span>. The probability of the first success occuring on the <span class="math notranslate nohighlight">\(n^{th}\)</span> trial is given by:</p>
+<p>Given the following values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the index of the first success,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the probability of success, and</p></li>
+<li><p><span class="math notranslate nohighlight">\(q=1-p\)</span> indicates the probability of failure.</p></li>
+</ul>
+<p>The probability of the first success occuring on the <span class="math notranslate nohighlight">\(n^{th}\)</span> trial is given by:</p>
 <div class="math notranslate nohighlight">
-\[P(n) = (1-p)^{n-1}p\]</div>
+\[P(n) = (q)^{n-1}p\]</div>
 </section>
 </section>
 <section id="hypergeometric-distribution">
@@ -537,7 +550,14 @@ document.write(`
 \[P=\frac{\binom{6}{4}\binom{14}{1}}{\binom{20}{5}}\]</div>
 <section id="id1">
 <h3>The pdf<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>The probability that <span class="math notranslate nohighlight">\(k\)</span> successful draws out of <span class="math notranslate nohighlight">\(n\)</span> total draws are made from a collection of <span class="math notranslate nohighlight">\(N\)</span> objects <span class="math notranslate nohighlight">\(K\)</span> of which are successes is given by:</p>
+<p>Given the following values:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N\)</span> total objects</p></li>
+<li><p><span class="math notranslate nohighlight">\(K\)</span> objects which count as successes</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> total draws attempted</p></li>
+<li><p><span class="math notranslate nohighlight">\(k\)</span> successful draws</p></li>
+</ul>
+<p>The probability of <span class="math notranslate nohighlight">\(k\)</span> successful draws out of <span class="math notranslate nohighlight">\(n\)</span> total draws:</p>
 <div class="math notranslate nohighlight">
 \[P(k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}}\]</div>
 </section>
