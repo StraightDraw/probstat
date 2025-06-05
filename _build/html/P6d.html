@@ -194,6 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="P6.html">Binomial Theorem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="P6a.html">Discrete Probability Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="P6b.html">Worked Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P6c.html">Exercises</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Solutions to Selected Exercises</a></li>
 </ul>
@@ -443,6 +444,16 @@ document.write(`
 <li><p>Write a (closed-form) probability distribution function for the experiment, and verify the distribution function has the required properties.</p></li>
 <li><p>Identify the distribution as binomial, geometric, negative binomial, hypergeometric or none of the above.</p></li>
 </ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
+<span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <aside class="sidebar">
 <p class="sidebar-title">Sexist Math Teacher</p>
 <p>Teaching high school, a friend of mine had a student who said, “You’re racist.” Puzzled, my friend asked, “What do you mean?” The student said, <strong>“You’re racist against boys. You like girls better.”</strong> While my friend believed that neither assertion were true, he dutifully explained sexism to the class while trying not to laugh at the incongruity of the accusation.</p>
@@ -451,11 +462,21 @@ document.write(`
 <ol class="arabic simple">
 <li><p>A math teacher has 15 boys and 15 girls in his class. Because he’s sexist, he calls on girls 60% of the time. During a class period when he calls on 10 students, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of girls called on before the first boy is asked a question.</p></li>
 <li><p>Draw 5 cards from a standard deck. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of hearts in the 5-card hand.</p></li>
-<li><p>When playing indoor soccer, Robbie has an amazing ability to miss on breakaway “open goal” scoring opportunities. Robbie misses 30% of the times he’s shooting on an open goal, and he has 8 open goal scoring opportunities in one notable game. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of scoring opportunities that “go begging” (e.g. Robbie misses).</p></li>
-<li><p>A quality assurance inspector randomly selects and test 5 light bulbs from each lot of 100. Suppose there are 10 defective light bulbs per lot (major assumption, but bear with me), and let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of defectives per draw.</p></li>
-<li><p>Draw 5 cards from a standard deck. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of Kings in the 5-card hand.</p></li>
 </ol>
-<ol class="arabic simple" start="5">
+<p><strong>Solution.</strong> This is a hypergeometric distribution, where if <span class="math notranslate nohighlight">\(h\in H\)</span> is the number of hearts in our hand, then</p>
+<div class="math notranslate nohighlight">
+\[P(h) = \frac{\binom{13}{h}\binom{39}{5-h}}{\binom{52}{5}}\]</div>
+<p>which implies that, for <span class="math notranslate nohighlight">\(h=4\)</span>, we have the following:</p>
+<div class="math notranslate nohighlight">
+\[P(h=4) = \frac{\binom{13}{4}\binom{39}{1}}{\binom{52}{5}}\approx 0.0107293\]</div>
+<p>combin(13,4) * combin(39,1) / combin(52,5)</p>
+<ol class="arabic simple" start="3">
+<li><p>A quality assurance inspector randomly selects and test 5 light bulbs from each lot of 100. Suppose there are 10 defective light bulbs per lot (major assumption, but bear with me), and let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of defectives per draw.</p></li>
+</ol>
+<p><strong>Solution.</strong> This is a hypergeometric distribution where <span class="math notranslate nohighlight">\(x\in X=\{1,2,3,4,5\}\)</span> is the number of defective lightbulbs per draw, we have:
+$<span class="math notranslate nohighlight">\(P(x) = \frac{\binom{10}{x}\binom{90}{5-x}}{\binom{100}{5}}\)</span>$</p>
+<ol class="arabic simple" start="4">
+<li><p>Draw 5 cards from a standard deck. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of Kings in the 5-card hand.</p></li>
 <li><p>A gambler playing American Roullette keeps betting on “Odd” until it pays off. American Roullette wheels have numbers 1 through 36, 0 and 00. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable denoting the number of spins until the wheel comes up Odd.</p></li>
 </ol>
 <p><strong>Solution.</strong> The chance of “Odd” occuring on any given spin is as follows:</p>
@@ -521,22 +542,19 @@ document.write(`
 </tbody>
 </table>
 <ol class="arabic simple" start="7">
-<li><p>Suppose a couple is trying to have a baby, and let <span class="math notranslate nohighlight">\(X\)</span> be the numbers of “attempts” during times which pregnancy is likely to happen. If the chances of success are 10% per attempt, write a probability density function for how many attempts are needed to get pregnant. How many attempts would be required to have AT LEAST an 80% chance of being pregnant?</p></li>
 <li><p>The favored baseball team in the World Series has a 60% chance of winning each game. Find a probability distribution function that gives the probability the favorites win in 4, 5, 6 or 7 games, or not all.</p></li>
-<li><p>In the sexist math teacher problem, Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of girls called upon before the third boy is called upon.</p></li>
 </ol>
-<ol class="arabic simple" start="11">
-<li><p>Billy Joe Bob Vernon McSweeney plays ball for the Nighthawks and has to sell 10 Cow Patty Bingo raffle tickets. He knows Momma McSweeney, Daddy McSweeney, Granny McSweeney, Aunt Marry Ellen Jane McSweeney and Grandpa McSweeney are guaranteed to buy a ticket. So that leaves 5 more to sell to students in his classes and random folks at Wal-Mart. Suppose Billy Joe Bob Vernon has a 10% chance of success each time he approaches someone about buying a ticket. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of trials required:</p></li>
-</ol>
+<ol class="arabic simple" start="8">
+<li><p>Billy Joe Bob Vernon McSweeney plays ball for the Nighthawks and has to sell 10 Cow Patty Bingo raffle tickets. He knows Momma McSweeney, Daddy McSweeney, Granny McSweeney, Aunt Mary Ellen Jane McSweeney and Grandpa McSweeney are guaranteed to buy a ticket. So that leaves 5 more to sell to students in his classes and random folks at Wal-Mart. Suppose Billy Joe Bob Vernon has a 10% chance of success each time he approaches someone about buying a ticket. Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of trials required:</p>
 <ul class="simple">
 <li><p>Write a function for the number of trials required before one ticket is purchased.</p></li>
 <li><p>Write a function for the number of trials required before all five tickets are purchased.</p></li>
 </ul>
-<ol class="arabic simple" start="12">
+</li>
+</ol>
+<ol class="arabic simple" start="9">
 <li><p>Suppose the underdog in a 5-game series has a <span class="math notranslate nohighlight">\(\frac{1}{3}\)</span> chance of winning each game. Find a probability distribution function for the underdog winning.</p></li>
-<li><p>Dr. Sinn, an Arsenal Gunners fan, hopes when he dies to have the funeral in London with former Gunners players acting as pall bearers. Why? So the team can let him down one final time. Yes, sad but true, Tuesday’s loss away to Borussia Dortmund was not atypical. The Gunners win lots of games but often stumble in the biggest games. Let’s suppose that, in each big game they play, the Gunners have a 35% chance of mucking it up (or, as the Brits say,”bottling it”). Let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of games played since the last muck up. Write a probability density function for number of big wins the Gunners will earn before mucking it up again.</p></li>
 <li><p>Shero is playing blackjack and sees her first card is an Ace. Given a standard deck of 52 cards with no other cards showing, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable denoting the blackjack “count” of Shero’s two-card starting hand. Aces can count as either 1 or 11, and all face cards count as 10. All the number cards have their face value.</p></li>
-<li><p>Given the indoor soccer miscue scenario, let <span class="math notranslate nohighlight">\(X\)</span> be the random variable indicating the number of misses before Robbie scores 3 goals.</p></li>
 </ol>
 </section>
 
@@ -549,16 +567,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
