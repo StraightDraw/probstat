@@ -30,6 +30,9 @@ parts:
       - file: P6c
       - file: P6d
     - file: P7
+      sections:
+      - file: P7a
+      - file: P7b
     - file: P0
       sections:
       - file: P0a
