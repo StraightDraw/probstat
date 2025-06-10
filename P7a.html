@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Course Notes: Probability and Statistics &#8212; Probability and Statistics</title>
+    <title>Exercises &#8212; Probability and Statistics</title>
   
   
   
@@ -62,10 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'P7a';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Basic Probability" href="P1.html" />
+    <link rel="next" title="Solutions" href="P7b.html" />
+    <link rel="prev" title="Expected Value" href="P7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="Introduction.html">
   
   
   
@@ -161,14 +162,14 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
                     <center> Course Notes: Probability and Statistics </center>
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Probability</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="P1.html">Basic Probability</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="P1a.html">Two Simple Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P1b.html">Probability Playground</a></li>
@@ -196,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="P6d.html">Solutions to Selected Exercises</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="P7.html">Expected Value</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="P7a.html">Exercises</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="P7.html">Expected Value</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="P7b.html">Solutions</a></li>
 </ul>
 </li>
@@ -308,7 +309,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/Introduction.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/P7a.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +340,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/Introduction.ipynb" target="_blank"
+      <li><a href="_sources/P7a.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,9 +411,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -423,20 +422,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><center> Course Notes: Probability and Statistics </center></h1>
+    <h1>Exercises</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor-and-author">Instructor and Author</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -446,37 +436,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="center-course-notes-probability-and-statistics-center">
-<h1><center> Course Notes: Probability and Statistics </center><a class="headerlink" href="#center-course-notes-probability-and-statistics-center" title="Permalink to this heading">#</a></h1>
-<section id="instructor-and-author">
-<h2>Instructor and Author<a class="headerlink" href="#instructor-and-author" title="Permalink to this heading">#</a></h2>
-<p><strong>Robb Sinn, Spring 2005</strong></p>
-<p><strong>University of North Georgia, MATH 3350</strong></p>
-<p>The pages within this website comprise the course notes for Dr. Sinn’s Probability and Statistics course (MATH 3350) at the University of North Georgia. These notes are used in lieu of a textbook.</p>
-<p>To help us learn probability and statistics concepts, we will be using the software <strong>R</strong> this semester. We can use R in the UNG datahub, free to all students and accessible using your UNG credentials. You may also wish to download Rstudio for your own laptop. Since R is open-source freeware, there is no cost. However, we can always work in <strong>R</strong> using the UNG datahub from any computer, tablet or smartphone (e.g. any device that has a browser and a connection to the internet).</p>
-<p>Your professor will provide the installation details in class, if you wish to use <strong>R</strong>. If students have a working knowledge of <strong>Python</strong>, they will be able to use that as well.</p>
-</section>
-<section id="acknowledgements">
-<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
-<p>While I have created most of the content herein, I do have several colleagues whose teaching techniques, class examples and code I have been inspired by over the years. Their work is woven into my own, and they deserve credit for it. My UNG colleagues have been amazing, and many thanks to them:</p>
-<ul class="simple">
-<li><p>Dr. Dianna Spence</p></li>
-<li><p>Dr. Brad Bailey</p></li>
-<li><p>Prof. Gregg Velatini</p></li>
-</ul>
-<p>I have also drawn inspiration from the creators and developers of the <strong>mosaic package</strong> in R and those who have extended its functionality to improve the teaching and learning of both statistics and R. With no way to list or thank everyone involved, the work of the following three was especially appreciated:</p>
-<ul class="simple">
-<li><p>Randall Pruim</p></li>
-<li><p>Daniel T. Kaplan</p></li>
-<li><p>Nicholas J. Horton</p></li>
-</ul>
-</section>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="exercises">
+<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<p>The following practice problems related to expected value, variance and standard deviation.</p>
+<ol class="arabic simple">
+<li><p>A raffle is held by the UNG student government association to draw for a horseback riding trip in the mountains worth a 1,000 dollars. Two thousand tickets are sold at 1 dollar each. Find the expected value and standard deviation of purchasing one ticket.</p></li>
+<li><p>You draw 1 card from a standard, well-shuffled deck of playing cards. If you pick a heart, you win 10 dollars. If you pick a face card which is not a heart, you win 8 dollars. If you pick any other cards, you lose 6 dollars. Do you want to play this game?</p></li>
+<li><p>A game consists of flipping two coins. If both coins turn up heads, you win $1.00. What is a “fair” price to pay to play?</p></li>
+<li><p>A game consists of rolling a colored die with three green sides, two red sides, and one  blue side. A roll of a red loses. A roll of blue pays 6 dollars. A roll of green pays 2 dollars.  What is a fair price to pay to play?</p></li>
+<li><p>At the racetrack, Daryl to enter his horse in a stakes race. He believes that the horse has a 1/20 chance of winning, a 1/10 chance of finishing second, and a 1/4 chance of finishing third. If first pays 5 thousand dollars, second pays 3,500 dollars and third pays 2,500 dollars, should Daryl enter his horse in the race?</p></li>
+<li><p>A raffle sells 847 tickets at five dollars per ticket for five prizes of 50 dollars, 1oo dollars, 150 dollars, 200 dollars and 500 dollars. What is the expected value of buying tickets, in dollars?</p></li>
+<li><p>A game consists of rolling a colored die with two red sides, one blue side, and three  green sides. A roll of red loses, a roll of blue wins 6 dollars, and a roll of green allows  another roll. A player is allowed no more than three rolls. What is a fair price to pay  to play?</p></li>
+<li><p>Assume a person pays 1 dollar to play the following game. Four coins are tossed. If all  coins show the same (e.g. all 4 heads or all 4 tails), the player wins 6 dollars. Otherwise, the player  loses. Find the expected value for this game.</p></li>
+</ol>
 </section>
 
     <script type="text/x-thebe-config">
@@ -488,16 +460,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "r"
         },
         kernelOptions: {
-            name: "python3",
+            name: "ir",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'ir'</script>
 
                 </article>
               
@@ -509,12 +481,21 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="P7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Expected Value</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="P1.html"
+       href="P7b.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Probability</p>
+        <p class="prev-next-title">Solutions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -524,21 +505,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructor-and-author">Instructor and Author</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
