@@ -40,6 +40,11 @@ parts:
       - file: P0c
   - caption: Statistics
     chapters:
+    - file: S0
+      sections:
+      - file: S0a
+      - file: S0b
+      - file: S0c
     - file: S1
       sections:
       - file: S1a
