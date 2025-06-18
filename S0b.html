@@ -219,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S0c.html">Visualizing Data in R</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Basics of Statistics and R</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Exploratory Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
@@ -256,10 +256,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2a.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2c.html">Grid of Graphics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
@@ -449,6 +448,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-5-number-summary">The 5-Number Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it All Together</a></li>
 </ul>
             </nav>
         </div>
@@ -532,9 +532,9 @@ document.write(`
 </aside>
 <section id="hard-returns">
 <h3>Hard Returns<a class="headerlink" href="#hard-returns" title="Permalink to this heading">#</a></h3>
-<p>The <strong>cat()</strong> takes a real step forward once we learn that</p>
-<div class="math notranslate nohighlight">
-\[\textbf{\n}\]</div>
+<p>The <strong>cat()</strong> function takes a real step forward once we learn that</p>
+<center><span style="color: red;font-weight:bold">\n</span></center>
+</br>
 <p>insets a hard return. This enables actual formatting of output into something readable that looks professional.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -578,7 +578,15 @@ document.write(`
 </section>
 <section id="the-5-number-summary">
 <h2>The 5-Number Summary<a class="headerlink" href="#the-5-number-summary" title="Permalink to this heading">#</a></h2>
-<p>blah blah</p>
+<p>The 5-Number Summary splits the data set into 4 equally-sized sections or quartiles. The values needed to do so are as follows:</p>
+<ul class="simple">
+<li><p>Min</p></li>
+<li><p>Q1</p></li>
+<li><p>Median</p></li>
+<li><p>Q3</p></li>
+<li><p>Max</p></li>
+</ul>
+<p>where Q1 and Q3 represent the 25th and 75th percentiles respectively. The command <strong>summary()</strong> will produce these values as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
@@ -592,6 +600,36 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting it All Together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">#</a></h2>
+<p>Let’s use all the techniques in this section to, in one command line, display the standard descriptives and the 5-Number Summary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for SLEEP\n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">s</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">s</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for SLEEEP&#39;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for SLEEP
+   Mean =  6.24 
+   Standard Deviation =  2.13 
+   Sample Size =  129 
+
+The 5-number summary for SLEEEP
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.50    5.00    6.50    6.24    7.50   11.00 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that the <strong>summary()</strong> function is outside the <strong>cat()</strong> function. We did this because, inside the <strong>cat()</strong> function, the labels for the values get left off. Coding it this way allows a combination of formatting from the <strong>cat()</strong> function together with the nice styling of the <strong>summary()</strong> function.</p>
 </section>
 </section>
 
@@ -665,6 +703,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-5-number-summary">The 5-Number Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it All Together</a></li>
 </ul>
   </nav></div>
 

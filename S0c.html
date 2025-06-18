@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'S0c';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -254,10 +256,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="A2a.html">Extracting Columns from Data Frames as Vectors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2a.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2c.html">Grid of Graphics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
@@ -417,7 +418,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -433,6 +436,24 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">Histograms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaks">Breaks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">Density Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-notation-and-formulas">Statistical Notation and Formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stem-plot">Stem Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaic-plots">Mosaic Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plots">QQ Plots</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -444,6 +465,272 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualizing-data-in-r">
 <h1>Visualizing Data in R<a class="headerlink" href="#visualizing-data-in-r" title="Permalink to this heading">#</a></h1>
+<p>We will cover each of these in more detail within the sections where they are utilized, but you should be able to create these graphics as needed.</p>
+<ul class="simple">
+<li><p>Histograms</p></li>
+<li><p>Density Plots</p></li>
+<li><p>Scatter Plots</p></li>
+<li><p>Box Plots</p></li>
+<li><p>Stem Plots</p></li>
+<li><p>Mosaic Plots</p></li>
+<li><p>Normal QQ Plots</p></li>
+</ul>
+<p>First, let’s load our <strong>personality</strong> data frame and our <strong>Sleep</strong> column in a data vector for our examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Sleep</span>
+<span class="c1">## head(s,5)  ## Remove the hashtag comment symbols to see the first 5 entries of vector s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this heading">#</a></h2>
+<p>The standard histogram is shown below using the function <strong>hist()</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We often use the parameter <strong>breaks</strong> to increase or decrease the number of bars in the histogram. The idea is to have enough bars to see the shape. Too many bars show too much detail to read the graph.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/df0c914b0f6d19e6571f1ed432dbbcff26d39fa5704a799cb51e6730dc99e052.png" src="_images/df0c914b0f6d19e6571f1ed432dbbcff26d39fa5704a799cb51e6730dc99e052.png" />
+</div>
+</div>
+<section id="breaks">
+<h3>Breaks<a class="headerlink" href="#breaks" title="Permalink to this heading">#</a></h3>
+<p>Try the following and see the difference it makes in your histogram:</p>
+<ul class="simple">
+<li><p>breaks = 5</p></li>
+<li><p>breaks = 15</p></li>
+<li><p>breaks = 25</p></li>
+<li><p>breaks = 50</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7b5855466dde26faba27faa1ffa26f0fcd7497fc230017c0c42a836fb192af59.png" src="_images/7b5855466dde26faba27faa1ffa26f0fcd7497fc230017c0c42a836fb192af59.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="density-plot">
+<h2>Density Plot<a class="headerlink" href="#density-plot" title="Permalink to this heading">#</a></h2>
+<p>This graphic functions similarly to a histogram and helps to indicate what type of distribution the data were drawn from.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The density plot can also help to illuminate various details of the distribution. Below we see evidence of a bimodal distribution emerging with a second mode starting to appear in the area where <span class="math notranslate nohighlight">\(3\leq x\leq 4\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/734b3a6d69b7200d270dd02bd89784009d34c9022656084a25af8b9bb6333e97.png" src="_images/734b3a6d69b7200d270dd02bd89784009d34c9022656084a25af8b9bb6333e97.png" />
+</div>
+</div>
+</section>
+<section id="scatter-plots">
+<h2>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Permalink to this heading">#</a></h2>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>We often wish to display a <strong>line of best</strong> on the scatter plot. This involves use of the linear models function <strong>lm()</strong> along with the <strong>abline()</strong> function which adds a line through the current plot. For a scatter plot, the <em>abline()</em> fuction will add the <em>line of best fit</em> only if the <em>lm()</em> function has been used previously.</p>
+</div>
+<p>The <strong>scatter plot</strong> helps to identify whether two numeric variables are related. In the personality data set, let’s check for a relationship between <strong>Perfectionism</strong> and <strong>GPA</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">GPA</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Perf</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d12fa968ddacc5dc43553d6730c006fbabfd731f556fa2e283586c9760c8fb63.png" src="_images/d12fa968ddacc5dc43553d6730c006fbabfd731f556fa2e283586c9760c8fb63.png" />
+</div>
+</div>
+<p>The process to add the line of best fit is shown.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">GPA</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Perf</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span><span class="w">   </span><span class="c1">## Create a linear model for GPA vs. Perf</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">GPA</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Perf</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span><span class="w">        </span><span class="c1">## Create the scatter plot for GPA vs. Perf</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;blue&#39;</span><span class="p">)</span><span class="w">   </span><span class="c1">## Creates a line based on &#39;mod&#39;, e.g. the linear model</span>
+<span class="w">   </span><span class="c1">## lwd option controls line width</span>
+<span class="w">   </span><span class="c1">## col option is for color</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5e4af7301b80b35448aeb59b66b388da389c5f784f36ad953c63ad924972b857.png" src="_images/5e4af7301b80b35448aeb59b66b388da389c5f784f36ad953c63ad924972b857.png" />
+</div>
+</div>
+</section>
+<section id="statistical-notation-and-formulas">
+<h2>Statistical Notation and Formulas<a class="headerlink" href="#statistical-notation-and-formulas" title="Permalink to this heading">#</a></h2>
+<p>In algebra, we have equations like <span class="math notranslate nohighlight">\(y = mx + b\)</span> where a standard format shows specific things. In statistics, we have formulas like</p>
+<div class="math notranslate nohighlight">
+\[y \sim A\]</div>
+<p>where, if <span class="math notranslate nohighlight">\(y\)</span> is numeric and <span class="math notranslate nohighlight">\(A\)</span> is a category variable, R subsets <span class="math notranslate nohighlight">\(y\)</span> by the different subcategories in <span class="math notranslate nohighlight">\(A\)</span>. A fuller description is given at <a class="reference external" href="https://straightdraw.github.io/probstat/A1.html">this help page</a>.</p>
+<p>R understands these statistical formulas within several of its commands. Specifically, we can use this notation with</p>
+<ul class="simple">
+<li><p>box plots, and</p></li>
+<li><p>mosaic plots.</p></li>
+</ul>
+</section>
+<section id="box-plot">
+<h2>Box Plot<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h2>
+<p>The box plot shows a visualization of the 5-number summary and simultaneously checks the data set for outliers. The box plot for a single data vector is straightforward.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/31417affc6f40e4e67bcc2aee7009dc5d40379f4a4684333a455a76b6d986f72.png" src="_images/31417affc6f40e4e67bcc2aee7009dc5d40379f4a4684333a455a76b6d986f72.png" />
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We are using the notation</p>
+<div class="math notranslate nohighlight">
+\[y \sim A\]</div>
+<p>where <span class="math notranslate nohighlight">\(y\)</span> is the dependent variable and <span class="math notranslate nohighlight">\(A\)</span> is a category variable to display side-by-side boxplots.</p>
+</div>
+<p>In the example below, the formula technique is used to compare and contrast the <strong>Narcissism</strong> scores for biological males and biological females.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">Narc</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Sex</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9f00cad7e31110bbfb84b9c7d41faa4af12cb452b253601d64b0f7e93101c718.png" src="_images/9f00cad7e31110bbfb84b9c7d41faa4af12cb452b253601d64b0f7e93101c718.png" />
+</div>
+</div>
+<p>Another example will compare the caffeine consumption by year in school.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">Caff</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Yr</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5914350225a5ec57ef8b1fb4dd3c7db52b91e8a949aeaf10e163916775036a2e.png" src="_images/5914350225a5ec57ef8b1fb4dd3c7db52b91e8a949aeaf10e163916775036a2e.png" />
+</div>
+</div>
+</section>
+<section id="stem-plot">
+<h2>Stem Plot<a class="headerlink" href="#stem-plot" title="Permalink to this heading">#</a></h2>
+<p>The <strong>stem plot</strong> is a fascinting combination of a data display and a histogram. We can see the shape of the distribution yet also read off most of the data points.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <strong>scale</strong> option controls how R splits the stems. As scale increases, so do the number of rows in the display. Again, we must experiment to find the best option trying scale values of <span class="math notranslate nohighlight">\(\{0.5, 1, 1.5, 2, 2.5\}\)</span> along with other values within and near this range. The default scale is 1.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">stem</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is at the |
+
+   0 | 5
+   1 | 0
+   2 | 5555
+   3 | 0000000005555555
+   4 | 00000055
+   5 | 00000000055555555
+   6 | 00000000000005555555555
+   7 | 00000000000000055555555555555
+   8 | 00000005555555555
+   9 | 0005555
+  10 | 00000
+  11 | 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should experiment with different scale values as suggested above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">stem</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  The decimal point is at the |
+
+   0 | 5
+   1 | 0
+   1 | 
+   2 | 
+   2 | 5555
+   3 | 000000000
+   3 | 5555555
+   4 | 000000
+   4 | 55
+   5 | 000000000
+   5 | 55555555
+   6 | 0000000000000
+   6 | 5555555555
+   7 | 000000000000000
+   7 | 55555555555555
+   8 | 0000000
+   8 | 5555555555
+   9 | 000
+   9 | 5555
+  10 | 00000
+  10 | 
+  11 | 0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mosaic-plots">
+<h2>Mosaic Plots<a class="headerlink" href="#mosaic-plots" title="Permalink to this heading">#</a></h2>
+<p>When comparing the proportions of two category variables, we can use a mosaic plot. In the example below, the answers to the “Accept the Date” questions were yes or no. The question was: “At a time in your life when you are not romatically involved, a person asks you out. This person has a wonderful perosnality, but you do not find the person physically attractive. Do you accept the date?”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mosaicplot</span><span class="p">(</span><span class="n">Sex</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">AccDate</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="n">pers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/441dbd33b5f94218ff4a82cf069ba26d1a9908868e50a4790e9a765d3f64039b.png" src="_images/441dbd33b5f94218ff4a82cf069ba26d1a9908868e50a4790e9a765d3f64039b.png" />
+</div>
+</div>
+</section>
+<section id="qq-plots">
+<h2>QQ Plots<a class="headerlink" href="#qq-plots" title="Permalink to this heading">#</a></h2>
+<p>To determine if a data set appears to have been drawn from a bell-shaped distribution, we can use the function <strong>qqnorm()</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The dots in a Normal QQ plot should form a linear pattern provided the underlying data are normal (e.g. bell-shaped). Using the function <strong>qqline()</strong> allows us to plot the baseline and see how the data points deviate from it or conform to it.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qqnorm</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nf">qqline</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/32d693ac524cd01e78c3d00f37baab4ad70b1cd532918b237bf3164c0f14523b.png" src="_images/32d693ac524cd01e78c3d00f37baab4ad70b1cd532918b237bf3164c0f14523b.png" />
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -500,6 +787,30 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histograms">Histograms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#breaks">Breaks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">Density Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plots">Scatter Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-notation-and-formulas">Statistical Notation and Formulas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stem-plot">Stem Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaic-plots">Mosaic Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qq-plots">QQ Plots</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -443,7 +443,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-data-frame">Loading a Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-columns-from-a-data-frame">Extracting Columns from a Data Frame</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dollar-sign-method">The Dollar Sign Method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-row-column-method">The Row-Column Method</a></li>
 </ul>
@@ -482,10 +482,14 @@ document.write(`
 <li><p>Creating data vectors, often by typing in the contents thereof.</p></li>
 </ol>
 <p>We will need to learn to import CSV files as data frames and to manipulate them in various ways.</p>
+<aside class="sidebar">
+<p>The <strong>head()</strong> function displays a summary of the first rows of a data frame or the first few entries of a vector as shown in the examples.</p>
+</aside>
 <section id="loading-a-data-frame">
 <h2>Loading a Data Frame<a class="headerlink" href="#loading-a-data-frame" title="Permalink to this heading">#</a></h2>
 <p>Data often get stored in CSV files on the internet. We use the</p>
 <center><span style='font-weight:bold; color:red;'>read.csv()</span></center>
+</br>
 <p>to read the data into R as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -524,20 +528,19 @@ document.write(`
 </li>
 </ol>
 </section>
-<section id="subsetting-a-data-frame">
-<h2>Subsetting a Data Frame<a class="headerlink" href="#subsetting-a-data-frame" title="Permalink to this heading">#</a></h2>
-<p>Because the columns of a data frame are so vital, we often wish to extract a single column from a data frame. We can do so in at least 3 different ways, and these 3 ways will all be used in this course.</p>
+<section id="extracting-columns-from-a-data-frame">
+<h2>Extracting Columns from a Data Frame<a class="headerlink" href="#extracting-columns-from-a-data-frame" title="Permalink to this heading">#</a></h2>
+<p>Because the columns of a data frame are so vital, we often wish to extract a single column from a data frame. We can do so in at least 2 different ways, and these ways will both be used often in this course.</p>
 <ol class="arabic simple">
 <li><p>The dollar sign method.</p></li>
 <li><p>The row-column method.</p></li>
-<li><p>Using the <strong>subset()</strong> function.</p></li>
 </ol>
 <section id="the-dollar-sign-method">
 <h3>The Dollar Sign Method<a class="headerlink" href="#the-dollar-sign-method" title="Permalink to this heading">#</a></h3>
 <p>Above, we have named our data frame <strong>pers</strong>. Suppose we wish to extract the column with the Naricissism values from the data frame (column ‘Narc’). The format is</p>
 <center><span style='font-weight:bold'>pers$Narc</span></center>
 </br>
-<p>where the dollar sign seperates the <em>data frame name</em> and the <em>column title</em>. The first seven entries of the Narcissism column are displayed by the code below.</p>
+<p>where the <strong>dollar sign seperates</strong> the <em>data frame name</em> and the <em>column title</em>. The first seven entries of the Narcissism column are displayed by the code below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">narc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Narc</span>
@@ -604,21 +607,7 @@ document.write(`
 </ol>
 </div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">We</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">extract</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">columns</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">concatentate</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="o">**</span><span class="nf">c</span><span class="p">()</span><span class="o">**</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">shown</span><span class="w"> </span><span class="n">below.</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">srcfile</span> <span class="o">=</span> <span class="n">src</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">text</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">symbol</span>
-<span class="mi">1</span><span class="p">:</span> <span class="n">We</span> <span class="n">can</span>
-       <span class="o">^</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
-</div>
-</div>
+<p>We can also extract multiple columns at once using the concatentate function <strong>c()</strong> as shown below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">narc4</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Narc&#39;</span><span class="p">,</span><span class="s">&#39;Sex&#39;</span><span class="p">)]</span>
@@ -709,7 +698,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-data-frame">Loading a Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracting-columns-from-a-data-frame">Extracting Columns from a Data Frame</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dollar-sign-method">The Dollar Sign Method</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-row-column-method">The Row-Column Method</a></li>
 </ul>
