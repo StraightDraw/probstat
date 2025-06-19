@@ -447,7 +447,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-and-skew">Outliers and Skew</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-numerically">Checking for Outliers Numerically</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-graphically">Checking for Outliers Graphically</a></li>
@@ -475,6 +478,7 @@ document.write(`
 </ol>
 <p>For shape, we would like to know if the distribution appears to be uniform, exponential, binomial, bell-shaped or a fit with another common pattern. The key distribution in statistics is the <strong>normal</strong> (or bell-shaped) distribution. A <em>uniform</em> distribution is where all outcomes are equally likely? We have looked at distributions like the binomial, hypergeometric, geometric and negative binomial distributions. The most significant shape for introductory statistics is the<span style="color: purple"><b> normal distribution </b></span>since parametric statistical tests like the <span class="math notranslate nohighlight">\(z\)</span>-test, the <span class="math notranslate nohighlight">\(t\)</span>-test, ANOVA, and regression are built on assumptions of normality.</p>
 <p>The second question we need to ask:<span style="color: purple"><b> do skew and outliers exist? </b></span>We need to know because we often must treat skewed data and data with outliers with great care and possibly different tools. The first steps of data analysis are to generate numeric descriptions of the data (descriptive statistics) and typical graphical displays of data like histograms, stem plots.</p>
+<p>We will develop essential skills below including detecting outliers and creating the graphics needed to assess shape and skew.</p>
 <aside class="sidebar">
 <p class="sidebar-title">Data Visualization </p>
 <p>Data scientists use more robust analytic tools and have entire courses on data visualization which is the art of creating visual displays that tell a story about the data. To understand more about the groundbreaking work in data science, check out several data visualizations at the Pew Research Center regarding <a class="reference external" href="https://www.pewresearch.org/fact-tank/2014/12/29/our-favorite-pew-research-center-data-visualizations-from-2014">political beliefs in the US</a>. Also check out this <a class="reference external" href="https://visme.co/blog/best-data-visualizations">blog post</a> where data science and artwork intersect</a> or this marketing blog with <a class="reference external" href="https://blog.hubspot.com/marketing/great-data-visualization-examples">16 great examples</a> of data visualizations. As data science progresses, more and more exciting avenues exist for displaying and visualizing data. In this course, we will provide the basic numeric and graphic approaches to summarizing data. You’re learning some R coding along the way. By the end of this course, if you’re interested, a few hours will be all you will need to teach yourself to produce some pretty powerful visualizations of your own with RStudio.</p>
@@ -589,17 +593,25 @@ The 5-number summary for WINNINGS
 <img alt="_images/e5878feb516cf3173f12453d5e4833c89ace9ec68e78e4959687f133773b5ecf.png" src="_images/e5878feb516cf3173f12453d5e4833c89ace9ec68e78e4959687f133773b5ecf.png" />
 </div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <span class="math notranslate nohighlight">\(x\)</span>-axis is labeled in units of <strong>Big Blinds per 100 Hands</strong> which, in poker parlance, describes the winnings in terms of the expense of the game.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Density Plot: Mandy&#39;s Winnings&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Density Plot: Mandy&#39;s Winnings&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Winnings in BB/100&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ecad4c46fd6e1bcba7049e238892edefb8f81fba5f21259cf64208bd4c24b1d2.png" src="_images/ecad4c46fd6e1bcba7049e238892edefb8f81fba5f21259cf64208bd4c24b1d2.png" />
+<img alt="_images/e92ffbf6e779baad3b3b990b9e44a1b8178da5af36d466352e89627dca7370cf.png" src="_images/e92ffbf6e779baad3b3b990b9e44a1b8178da5af36d466352e89627dca7370cf.png" />
 </div>
 </div>
+<section id="analysis">
+<h3>Analysis<a class="headerlink" href="#analysis" title="Permalink to this heading">#</a></h3>
 <p>The histogram and density plot confirm the skew to the left which confirms our alert. The mean was strikingly different from the median which made us suspicious of skew and outliers. The distribution appears to be <strong>approximately normal</strong> (or bell-shaped) and <strong>skewed left</strong>. The tail to the left comprises 4 bars of the histogram while the tail to the right comprises only 2. The direction of skew, if any, is in the same direction as the longest tail in the histogram or desnity plot.</p>
+</section>
 </section>
 <section id="outliers-and-skew">
 <h2>Outliers and Skew<a class="headerlink" href="#outliers-and-skew" title="Permalink to this heading">#</a></h2>
@@ -709,22 +721,27 @@ The 5-number summary for WINNINGS
 <p>We also have a quick ways to summarize 2 category variables in a 2-way table or pivot table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">Sex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">AccDate</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="nf">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">Sex</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">AccDate</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pers</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">terms</span><span class="o">.</span><span class="n">formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;pers&#39;</span> <span class="ow">not</span> <span class="n">found</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">Sex</span> <span class="o">+</span> <span class="n">AccDate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pers</span><span class="p">)</span>
-<span class="mi">2</span><span class="o">.</span> <span class="n">terms</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
-<span class="mi">3</span><span class="o">.</span> <span class="n">terms</span><span class="o">.</span><span class="n">formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   AccDate
+Sex  N  Y
+  F 28 46
+  M 28 27
 </pre></div>
 </div>
 </div>
 </div>
-<p>We will talk more later in these notes about statistical formulas and what they convey.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note the statistical formula that is used above:</p>
+<div class="math notranslate nohighlight">
+\[\text{~ Sex + AccDate}\]</div>
+<p>The <span class="math notranslate nohighlight">\(+\)</span> operator indicates a categorical variable to follow instead of a numeric one. R understands the leading ~ indicates that both of the variables are catogorical or qualitative, not numerc.</p>
+</div>
 </section>
 </section>
 <div class="toctree-wrapper compound">
@@ -799,7 +816,10 @@ The 5-number summary for WINNINGS
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis">Analysis</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-and-skew">Outliers and Skew</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-numerically">Checking for Outliers Numerically</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-graphically">Checking for Outliers Graphically</a></li>
