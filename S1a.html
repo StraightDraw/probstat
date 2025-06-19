@@ -446,10 +446,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-and-outliers">Standard Deviation and Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
@@ -464,6 +465,12 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skew-and-outliers">Skew and Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-shape">Example 3: Shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-outliers">Example 3: Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-descriptive-statistics">Example 3: Descriptive Statistics</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -492,7 +499,7 @@ document.write(`
 <section id="types-of-data">
 <h2>Types of Data<a class="headerlink" href="#types-of-data" title="Permalink to this heading">#</a></h2>
 <p>Data come in two varieties: <strong>quantitative</strong> (numeric) or <strong>qualitative</strong> (categorical) data. Poker player Pete plays Heads Up tournaments with a 20 dollar buy-in (HU20). These two-player tournaments take less than half an hour where he either loses 21, or wins 19. (The online casino takes a cut of each tournament buy-in, called the <em>rake</em>.) Pete’s HU20 win-loss record is <em>category data</em>, a series of W’s and L’s.</p>
-<p>Pete’s friend Mandy, a math major with a data science minor at North Georgia, enjoys 6-max NL10, an action-intensive version of No Limit Texas Holdem with a maximum of 6 players at the table rather than the standard 9 or 10 players per table. Mandy’s list of winnings from her past twenty cash game sessions is <em>numeric data</em>.</p>
+<p>Pete’s friend Mandy, a math major with a data science minor at North Georgia, enjoys 6-max NL10, a small stakes cash game. Mandy’s list of winnings from her past twenty cash game sessions is <em>numeric data</em>.</p>
 <p>For numeric data sets, we have a <strong>sample</strong> of <span class="math notranslate nohighlight">\(n\)</span> data points:</p>
 <div class="math notranslate nohighlight">
 \[\{x_1,x_2,…,x_n\}∈X\]</div>
@@ -553,58 +560,26 @@ document.write(`
     <td style='text-align:center; vertical-align:middle'>3</td>
     <td style='text-align:center; vertical-align:middle'>1</td>
   </tr>
-</table></section>
-<section id="concatenation">
-<h3>Concatenation<a class="headerlink" href="#concatenation" title="Permalink to this heading">#</a></h3>
-<p>We use the concatenate function <strong>c</strong> to gather this list of integers into an vector of values as shown below.</p>
+</table>
+<p>Using our code from an earlier section, we have the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">-38</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">-19</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="p">,</span><span class="w"> </span><span class="m">-14</span><span class="p">,</span><span class="w"> </span><span class="m">-30</span><span class="p">,</span><span class="w"> </span><span class="m">-16</span><span class="p">,</span><span class="w"> </span><span class="m">-25</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">-79</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <strong>head</strong> function allows us to preview only a few rows or items in the object <span class="math notranslate nohighlight">\(W\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><ol class=list-inline>
-	<li>28</li>
-	<li>11</li>
-	<li>18</li>
-	<li>35</li>
-</ol>
-</div></div>
-</div>
-<p>We can calculate and store the mean, standard deviation, and sample size as <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(n\)</span>, We use the <strong>length()</strong> function to determine sample size, and we illustrate the <strong>rounding</strong> function along the way:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-<span class="n">s</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="m">2</span><span class="p">)</span>
-<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <strong>cat</strong> function provides a hybrid of the <em>concatenation</em> and <em>print</em> functions. We can edit text and include the outputs of variables. Below, the <em>cat</em> function organizes our descriptive statistics.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat </span><span class="p">(</span><span class="s">&quot;Descriptive Statistics: \n  mean =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n  standard deviation =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;\n  sample size =&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="s">&quot;\n\nThe 5-number summary is shown below.&quot;</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for Winnings \n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">W</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for Winnings&#39;</span><span class="p">)</span>
 <span class="nf">summary</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descriptive Statistics: 
-  mean = 2 
-  standard deviation = 30.57 
-  sample size = 20 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for Winnings 
+   Mean =  2 
+   Standard Deviation =  30.57 
+   Sample Size =  20 
 
-The 5-number summary is shown below.
+The 5-number summary for Winnings
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -619,6 +594,23 @@ The 5-number summary is shown below.
 <h2>Analysis of Descriptives<a class="headerlink" href="#analysis-of-descriptives" title="Permalink to this heading">#</a></h2>
 <p>The most interesting feature of the descriptive statistics is that the mean and median are quite different. Since the median is <span class="math notranslate nohighlight">\(8.5\)</span> and the mean is <span class="math notranslate nohighlight">\(2\)</span>, their difference is <span class="math notranslate nohighlight">\(6.5\)</span> which is about <span class="math notranslate nohighlight">\(\frac{1}{4}\)</span> of standard deviation.</p>
 <p>In this example, because the mean is significantly less than the median, we anticipate skew to the left and outliers, if present, to be on the left, which brings up the second detail one should notice. There is a much longer tail to the left shown the Five Number Summary. The Lower Quartile spans the interval <span class="math notranslate nohighlight">\((−79,−17.5)\)</span> or more than <span class="math notranslate nohighlight">\(60\)</span> units. The upper Quartile spans only <span class="math notranslate nohighlight">\((23,43)\)</span> or <span class="math notranslate nohighlight">\(20\)</span> units. This indicates likely skew to left since the lower Quartile range is much larger and hence has more room for outliers.</p>
+</section>
+<section id="standardized-scores">
+<h2>Standardized Scores<a class="headerlink" href="#standardized-scores" title="Permalink to this heading">#</a></h2>
+<p>Standardized scores or <span class="math notranslate nohighlight">\(z\)</span>-scores are calculated from a data point <span class="math notranslate nohighlight">\(x\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x-\mu}{\sigma}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the population mean and <span class="math notranslate nohighlight">\(\sigma\)</span> is the popolutaion standard deviation.</p>
+<section id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this heading">#</a></h3>
+<p>SAT math section scores have the <span class="math notranslate nohighlight">\(N(500,100)\)</span> distribution meaning the population average is 500 and the standard deviation is 100. If Brea earns a 630 on her math SAT section, what is her standardized score?</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}z &amp;= \frac{630-500}{100}\\&amp;=\frac{130}{100}\\&amp;=1.3\end{align}\end{split}\]</div>
+<p>The interpretation? Brea’s raw score is 1.3 standard deviation above average. A negative <span class="math notranslate nohighlight">\(z\)</span> score indicates a score that is below average.</p>
+<p>A <span class="math notranslate nohighlight">\(z\)</span>-score indicates both distance and direction from the mean, and its units are standard deviations. Note that, when we don’t know <span class="math notranslate nohighlight">\(\mu\)</span> or <span class="math notranslate nohighlight">\(\sigma\)</span>, or both, we substitute the sample statistics:</p>
+<div class="math notranslate nohighlight">
+\[z = \frac{x-\bar{x}}{s}\]</div>
+</section>
 <section id="standard-deviation-and-outliers">
 <h3>Standard Deviation and Outliers<a class="headerlink" href="#standard-deviation-and-outliers" title="Permalink to this heading">#</a></h3>
 <p>The standard deviation can be thought of as a distance metric specific to the data set. Let’s take a moment to discover why. Given the data set <span class="math notranslate nohighlight">\(X=\{1,2,3,6\}\)</span>, we have <span class="math notranslate nohighlight">\(n=4\)</span> and <span class="math notranslate nohighlight">\(\bar x=3\)</span>. For any data point, say, <span class="math notranslate nohighlight">\(x_1=1\)</span>, we can compute the directional distance or <strong>deviation</strong> from the mean:</p>
@@ -723,6 +715,190 @@ The 5-number summary is shown below.
 <li><p>If the distribution is skewed right, the <strong>mean</strong> is likely to be <strong>greater than the median</strong>.</p></li>
 </ul>
 </section>
+<section id="example-3">
+<h2>Example 3<a class="headerlink" href="#example-3" title="Permalink to this heading">#</a></h2>
+<p>Perform exploratory data analysis for Life Expectancy in 2015 using the World Health Organization country-by-country comparison data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">life</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/lifeexpectancy.csv&#39;</span><span class="p">)</span>
+<span class="n">life</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">life</span><span class="p">,</span><span class="w"> </span><span class="n">Year</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2015</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">life</span><span class="p">,</span><span class="m">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Country</th><th scope=col>Year</th><th scope=col>Status</th><th scope=col>LifeExpectancy</th><th scope=col>AdultMortality</th><th scope=col>InfantDeaths</th><th scope=col>Alcohol</th><th scope=col>PercentageExpenditure</th><th scope=col>HepatitisB</th><th scope=col>Measles</th><th scope=col>...</th><th scope=col>Polio</th><th scope=col>TotalExpenditure</th><th scope=col>Diphtheria</th><th scope=col>HIV.AIDS</th><th scope=col>GDP</th><th scope=col>Population</th><th scope=col>Thinness_.1.19_years</th><th scope=col>Thinness_5.9_years</th><th scope=col>Income</th><th scope=col>SchoolingYrs</th></tr></thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Afghanistan        </td><td>2015               </td><td>Developing         </td><td>65.0               </td><td>263                </td><td>62                 </td><td>0.01               </td><td> 71.27962          </td><td>65                 </td><td>1154               </td><td>...                </td><td> 6                 </td><td>8.16               </td><td>65                 </td><td>0.1                </td><td>  584.2592         </td><td>33736494           </td><td>17.2               </td><td>17.3               </td><td>0.479              </td><td>10.1               </td></tr>
+	<tr><th scope=row>17</th><td>Albania            </td><td>2015               </td><td>Developing         </td><td>77.8               </td><td> 74                </td><td> 0                 </td><td>4.60               </td><td>364.97523          </td><td>99                 </td><td>   0               </td><td>...                </td><td>99                 </td><td>6.00               </td><td>99                 </td><td>0.1                </td><td> 3954.2278         </td><td>   28873           </td><td> 1.2               </td><td> 1.3               </td><td>0.762              </td><td>14.2               </td></tr>
+	<tr><th scope=row>33</th><td>Algeria            </td><td>2015               </td><td>Developing         </td><td>75.6               </td><td> 19                </td><td>21                 </td><td>  NA               </td><td>  0.00000          </td><td>95                 </td><td>  63               </td><td>...                </td><td>95                 </td><td>  NA               </td><td>95                 </td><td>0.1                </td><td> 4132.7629         </td><td>39871528           </td><td> 6.0               </td><td> 5.8               </td><td>0.743              </td><td>14.4               </td></tr>
+	<tr><th scope=row>49</th><td>Angola             </td><td>2015               </td><td>Developing         </td><td>52.4               </td><td>335                </td><td>66                 </td><td>  NA               </td><td>  0.00000          </td><td>64                 </td><td> 118               </td><td>...                </td><td> 7                 </td><td>  NA               </td><td>64                 </td><td>1.9                </td><td> 3695.7937         </td><td> 2785935           </td><td> 8.3               </td><td> 8.2               </td><td>0.531              </td><td>11.4               </td></tr>
+	<tr><th scope=row>65</th><td>Antigua and Barbuda</td><td>2015               </td><td>Developing         </td><td>76.4               </td><td> 13                </td><td> 0                 </td><td>  NA               </td><td>  0.00000          </td><td>99                 </td><td>   0               </td><td>...                </td><td>86                 </td><td>  NA               </td><td>99                 </td><td>0.2                </td><td>13566.9541         </td><td>      NA           </td><td> 3.3               </td><td> 3.3               </td><td>0.784              </td><td>13.9               </td></tr>
+	<tr><th scope=row>81</th><td>Argentina          </td><td>2015               </td><td>Developing         </td><td>76.3               </td><td>116                </td><td> 8                 </td><td>  NA               </td><td>  0.00000          </td><td>94                 </td><td>   0               </td><td>...                </td><td>93                 </td><td>  NA               </td><td>94                 </td><td>0.1                </td><td>13467.1236         </td><td>43417765           </td><td> 1.0               </td><td> 0.9               </td><td>0.826              </td><td>17.3               </td></tr>
+	<tr><th scope=row>97</th><td>Armenia            </td><td>2015               </td><td>Developing         </td><td>74.8               </td><td>118                </td><td> 1                 </td><td>  NA               </td><td>  0.00000          </td><td>94                 </td><td>  33               </td><td>...                </td><td>96                 </td><td>  NA               </td><td>94                 </td><td>0.1                </td><td>  369.6548         </td><td>  291695           </td><td> 2.1               </td><td> 2.2               </td><td>0.741              </td><td>12.7               </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">le</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">life</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LifeExpectancy&#39;</span><span class="p">]</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">le</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>65</li>
+	<li>77.8</li>
+	<li>75.6</li>
+	<li>52.4</li>
+</ol>
+</div></div>
+</div>
+<section id="example-3-shape">
+<h3>Example 3: Shape<a class="headerlink" href="#example-3-shape" title="Permalink to this heading">#</a></h3>
+<p>Let’s consider shape by constructing a histogram and a density plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">le</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Life Expectancy in 2010&#39;</span><span class="p">,</span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Years&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9250aaca7da33ca6f311623401bd4f634e5031cf754c52c9386e88f2f3810f8c.png" src="_images/9250aaca7da33ca6f311623401bd4f634e5031cf754c52c9386e88f2f3810f8c.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">le</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: Life Expectancy in 2010&#39;</span><span class="p">,</span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Years&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6df03b46f85bbf9ec93a98a569cca6419e77344073f469acafa89c60c7081a14.png" src="_images/6df03b46f85bbf9ec93a98a569cca6419e77344073f469acafa89c60c7081a14.png" />
+</div>
+</div>
+<p>We have a normal or bell-shaped distribution. Given the longer tail to the left, we are seeing some skew to the left and anticipate outliers in that direction.</p>
+</section>
+<section id="example-3-outliers">
+<h3>Example 3: Outliers<a class="headerlink" href="#example-3-outliers" title="Permalink to this heading">#</a></h3>
+<p>Let’s create a boxplot to investigate skew and outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">le</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Life Expectancy&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Years&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9beb37a9789293e8133e60740f903aed09cc76214b6c2400d1e501f8b5f61da1.png" src="_images/9beb37a9789293e8133e60740f903aed09cc76214b6c2400d1e501f8b5f61da1.png" />
+</div>
+</div>
+<p>We see no outliers in the boxplot, but we do see a slightly longer tail to the left. Checking numerically, we find that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">upper_cutoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">le</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">le</span><span class="p">)</span>
+<span class="n">lower_cutoff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">le</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">le</span><span class="p">)</span>
+
+<span class="n">upper_cutoff</span>
+<span class="n">lower_cutoff</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">87.864352186001</div><div class="output text_html">55.3695275954198</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">le</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lower_cutoff</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">le</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">upper_cutoff</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">8</div><div class="output text_html">1</div></div>
+</div>
+<p>Using the boxplot method for checking for outliers, we find:</p>
+<ul class="simple">
+<li><p>Upper Fence = Q3 + 1.5 * IQR</p></li>
+<li><p>Lower Fence = Q1 - 1.5 * IQR</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">le</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  51.00   65.75   73.90   71.62   76.95   88.00 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">IQR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">76.95</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">65.75</span>
+<span class="n">upper_fence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">76.95</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span>
+<span class="n">lower_fence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">65.75</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span>
+
+<span class="n">upper_fence</span>
+<span class="n">lower_fence</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">93.75</div><div class="output text_html">48.95</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">le</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">lower_fence</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">le</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">upper_fence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0</div><div class="output text_html">0</div></div>
+</div>
+<p>Notice that two methods differ. While the box plot shows no outliers, the numeric method identifies 8 outliers to the left with only 1 to the right. The methods do differ at times, especially when the outliers in discrepency are marginal. If a data point is 4 standard deviations from the mean, both methods will identify it as an outlier. When close the cutoff points, some data points will be classified differently by the two methods.</p>
+<p>Given several marginal outliers to the left and 1 to the right, we see the skew to the left.</p>
+</section>
+<section id="example-3-descriptive-statistics">
+<h3>Example 3: Descriptive Statistics<a class="headerlink" href="#example-3-descriptive-statistics" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for Life Expectancy \n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">le</span><span class="p">),</span><span class="m">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">le</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">le</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for Life Expectancy&#39;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">le</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for Life Expectancy 
+   Mean =  71.6 
+   Standard Deviation =  8.12 
+   Sample Size =  183 
+
+The 5-number summary for Life Expectancy
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  51.00   65.75   73.90   71.62   76.95   88.00 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Applying **Robb’s Rule of Thumb,” notice that the mean and median are significantly differ (e.g. differ by more than <span class="math notranslate nohighlight">\(\frac{s}{10}\)</span> ) since</p>
+<div class="math notranslate nohighlight">
+\[\text{mean} - \text{median} = 71.62 - 73.9 = -2.28\]</div>
+<p>The absolute value of the difference is greater than a tenth of the standard deviation:
+$<span class="math notranslate nohighlight">\(\frac{s}{10} = \frac{8.12}{10} = 0.812\)</span>$</p>
+<p>Robb’s Rule of Thumb says that, in this instance, we would expect skew and outlier. This confirms the work above showing a skew to the left and several outliers to the left.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -792,10 +968,11 @@ The 5-number summary is shown below.
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics">Statistics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-descriptives">Analysis of Descriptives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standardized-scores">Standardized Scores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2">Example 2</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation-and-outliers">Standard Deviation and Outliers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard Deviation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a><ul class="nav section-nav flex-column">
@@ -810,6 +987,12 @@ The 5-number summary is shown below.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skew-and-outliers">Skew and Outliers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-shape">Example 3: Shape</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-outliers">Example 3: Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-descriptive-statistics">Example 3: Descriptive Statistics</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
