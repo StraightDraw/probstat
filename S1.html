@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Exploratory Data Analysis &#8212; Probability and Statistics</title>
+    <title>Data Analysis: Key Ideas &#8212; Probability and Statistics</title>
   
   
   
@@ -219,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S0c.html">Visualizing Data in R</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Exploratory Data Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Data Analysis: Key Ideas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1c.html">Sampling Functions</a></li>
@@ -432,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Exploratory Data Analysis</h1>
+    <h1>Data Analysis: Key Ideas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,13 +442,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-into-a-vector-manually">Loading Data into a Vector Manually</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data-and-grouping-by-category">Subsetting Data and Grouping by Category</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-and-skew">Outliers and Skew</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-numerically">Checking for Outliers Numerically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-graphically">Checking for Outliers Graphically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skew">Skew</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-tables">Pivot Tables</a></li>
 </ul>
 </li>
@@ -463,8 +466,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="exploratory-data-analysis">
-<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-analysis-key-ideas">
+<h1>Data Analysis: Key Ideas<a class="headerlink" href="#data-analysis-key-ideas" title="Permalink to this heading">#</a></h1>
 <p>Two key questions for <span style="color: purple"><b>exploratory data analysis</b></span> in statistics are:</p>
 <ol class="arabic simple">
 <li><p>Shape?</p></li>
@@ -476,10 +479,13 @@ document.write(`
 <p class="sidebar-title">Data Visualization </p>
 <p>Data scientists use more robust analytic tools and have entire courses on data visualization which is the art of creating visual displays that tell a story about the data. To understand more about the groundbreaking work in data science, check out several data visualizations at the Pew Research Center regarding <a class="reference external" href="https://www.pewresearch.org/fact-tank/2014/12/29/our-favorite-pew-research-center-data-visualizations-from-2014">political beliefs in the US</a>. Also check out this <a class="reference external" href="https://visme.co/blog/best-data-visualizations">blog post</a> where data science and artwork intersect</a> or this marketing blog with <a class="reference external" href="https://blog.hubspot.com/marketing/great-data-visualization-examples">16 great examples</a> of data visualizations. As data science progresses, more and more exciting avenues exist for displaying and visualizing data. In this course, we will provide the basic numeric and graphic approaches to summarizing data. You’re learning some R coding along the way. By the end of this course, if you’re interested, a few hours will be all you will need to teach yourself to produce some pretty powerful visualizations of your own with RStudio.</p>
 </aside>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this heading">#</a></h2>
+<p>Most often, we investigate single varible numeric data. In R, that data is typically stored as vector. Mathematically, we have the outcomes <span class="math notranslate nohighlight">\(x_i\)</span> in the set <span class="math notranslate nohighlight">\(X\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-\left\{x_{1},x_{2},\dots, x_{n}\right\} \in X
-\]</div>
+\[X \in \{x_1,x_2, \cdots, x_n\}\]</div>
+<p>This data is stored in R as a column in a data frame or as a data vector. The vector is preferred when graphics or descriptives are generated.</p>
+</section>
 <section id="parameters-and-statistics">
 <h2>Parameters and Statistics<a class="headerlink" href="#parameters-and-statistics" title="Permalink to this heading">#</a></h2>
 <p>In statistics, we use two different sets of symbols to refer to the mean and standard deviation:</p>
@@ -521,9 +527,8 @@ document.write(`
     <td style='text-align:center; vertical-align:middle'>3</td>
     <td style='text-align:center; vertical-align:middle'>1</td>
   </tr>
-</table><section id="loading-data-into-a-vector-manually">
-<h3>Loading Data into a Vector Manually<a class="headerlink" href="#loading-data-into-a-vector-manually" title="Permalink to this heading">#</a></h3>
-<p>We use the concatenate function <strong>c</strong> to create the vector of integers. <strong>Concatenate</strong> means to join together, and most computer programming languages have a function that does almost exactly what <strong>c</strong> does as shown below:</p>
+</table>
+<p>The command is shown below using the concatenate function <strong>c()</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="w"> </span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">35</span><span class="p">,</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">-38</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">-19</span><span class="p">,</span><span class="w"> </span><span class="m">43</span><span class="p">,</span><span class="w"> </span><span class="m">-14</span><span class="p">,</span><span class="w"> </span><span class="m">-30</span><span class="p">,</span><span class="w"> </span><span class="m">-16</span><span class="p">,</span><span class="w"> </span><span class="m">-25</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">40</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">-79</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">11</span><span class="p">)</span>
@@ -531,7 +536,6 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="descriptive-statistics">
 <h3>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Permalink to this heading">#</a></h3>
 <p>We will use the code block we developed in the Descriptives Statistics section. We have changed the vector to <span class="math notranslate nohighlight">\(W\)</span> and the title to <em>WINNINGS</em>.</p>
@@ -561,119 +565,144 @@ The 5-number summary for WINNINGS
 </div>
 </div>
 <p>The most interesting point of analysis we can see already is that the mean is a good bit lower than the median. This can and often does indicate skew and a potential for outliers.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/e2e5d067926da8d784c533c2f166e0f450cce4ec8db8a3be970d3ee2f51c2155.png" src="_images/e2e5d067926da8d784c533c2f166e0f450cce4ec8db8a3be970d3ee2f51c2155.png" />
-</div>
-</div>
-<p>The histogram confirms the skew to the left that we identified above. The distribution appears to be approximately normal (or bell-shaped) and skewed left. The tail to the left comprises 4 bars while the tail to the right comprises only 2. The direction of skew, if any, is in the same direction as the longest tail in the histogram.</p>
+<aside class="sidebar">
+<p>Check out the <a class="reference internal" href="A2a.html"><span class="doc std std-doc">Graphics Options</span></a> help section in the appendix where the graphical options are demonstrated.</p>
+</aside>
 </section>
 </section>
-<section id="subsetting-data-and-grouping-by-category">
-<h2>Subsetting Data and Grouping by Category<a class="headerlink" href="#subsetting-data-and-grouping-by-category" title="Permalink to this heading">#</a></h2>
-<p>First, let’s load a data frame from an Excel spreadsheet using the URL. We will call the data frame <strong>pers</strong> as it contains the personality data set collected pursuant to an undergraduate research project on sense of humor. Notice that we use <strong>read.csv()</strong> for the upload and the function <strong>head()</strong> to summarize the data frame by showing only its top five rows. Many data frames will be far to large to print out completely.</p>
+<section id="shape-histograms-and-density-plots">
+<h2>Shape: Histograms and Density Plots<a class="headerlink" href="#shape-histograms-and-density-plots" title="Permalink to this heading">#</a></h2>
+<p>The classical way of inspecting shape is the grand old histogram.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Recall that the <strong>breaks =</strong> option allows us to increase or decrease the number of bars by controlling the <em>bin width</em>, e.g. the length of the equally-spaced intervals along the <span class="math notranslate nohighlight">\(x\)</span>-axis.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">pers</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="n">W</span><span class="p">,</span>
+<span class="w">     </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Histogram: Mandy&#39;s Winnings&quot;</span><span class="p">,</span>
+<span class="w">     </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Winnings in BB/100&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
-<tbody>
-	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td><td>... </td><td>105 </td><td>10  </td><td>142 </td><td> 8  </td><td>11  </td><td>41  </td><td>40  </td><td>26  </td><td>27  </td><td>SE  </td></tr>
-	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
-	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td><td>... </td><td> 73 </td><td> 1  </td><td>134 </td><td>15  </td><td>11  </td><td>48  </td><td>42  </td><td>44  </td><td>29  </td><td>AG  </td></tr>
-	<tr><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td><td>... </td><td> 90 </td><td> 9  </td><td>160 </td><td>16  </td><td>10  </td><td>51  </td><td>51  </td><td>23  </td><td>19  </td><td>SE  </td></tr>
-	<tr><td>24  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>2.39</td><td>... </td><td> 95 </td><td> 5  </td><td>166 </td><td>14  </td><td>10  </td><td>56  </td><td>46  </td><td>27  </td><td>20  </td><td>AF  </td></tr>
-</tbody>
-</table>
+<img alt="_images/e5878feb516cf3173f12453d5e4833c89ace9ec68e78e4959687f133773b5ecf.png" src="_images/e5878feb516cf3173f12453d5e4833c89ace9ec68e78e4959687f133773b5ecf.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">W</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Density Plot: Mandy&#39;s Winnings&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ecad4c46fd6e1bcba7049e238892edefb8f81fba5f21259cf64208bd4c24b1d2.png" src="_images/ecad4c46fd6e1bcba7049e238892edefb8f81fba5f21259cf64208bd4c24b1d2.png" />
+</div>
+</div>
+<p>The histogram and density plot confirm the skew to the left which confirms our alert. The mean was strikingly different from the median which made us suspicious of skew and outliers. The distribution appears to be <strong>approximately normal</strong> (or bell-shaped) and <strong>skewed left</strong>. The tail to the left comprises 4 bars of the histogram while the tail to the right comprises only 2. The direction of skew, if any, is in the same direction as the longest tail in the histogram or desnity plot.</p>
+</section>
+<section id="outliers-and-skew">
+<h2>Outliers and Skew<a class="headerlink" href="#outliers-and-skew" title="Permalink to this heading">#</a></h2>
+<p>We have two ways that we check for outliers in basic stastiscs:</p>
+<ol class="arabic simple">
+<li><p><strong>Numerically</strong> using <em>mean</em> and <em>standard deviation</em>.</p></li>
+<li><p><strong>Graphically</strong> using the <em>box plot</em> and <em>5-number summary</em>.</p></li>
+</ol>
+<section id="checking-for-outliers-numerically">
+<h3>Checking for Outliers Numerically<a class="headerlink" href="#checking-for-outliers-numerically" title="Permalink to this heading">#</a></h3>
+<p>Any data point more than 2 standard deviations away from the mean may be considered an outlier in a small data set where <span class="math notranslate nohighlight">\(n \leq 200\)</span>.</p>
+<p>We can use the <span class="math notranslate nohighlight">\(&lt;\)</span> and <span class="math notranslate nohighlight">\(&gt;\)</span> operators along with the <strong>sum()</strong> function to determine whether these conditions exist for data points in a vector. The value</p>
+<div class="math notranslate nohighlight">
+\[\bar x - 2s\]</div>
+<p>is the lower bound for outliers. Any data point eqaul to or below this value will be considered an outlier.</p>
+<p><strong>Notice how the operator <span class="math notranslate nohighlight">\(\leq\)</span> functions when applied to the data vector</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">W</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+	<li>TRUE</li>
+	<li>FALSE</li>
+	<li>FALSE</li>
+</ol>
 </div></div>
 </div>
-<p>We have a quick way to determine the size of the data frame using the functions <strong>nrows()</strong> and <strong>ncols()</strong>.</p>
+<p>The TRUE and FALSE values are 1’s and 0’s in R, so we can sum up the TRUE/FALSE vector to find the number of TRUE values in it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">nrow</span><span class="p">(</span><span class="n">pers</span><span class="p">)</span>
-<span class="nf">ncol</span><span class="p">(</span><span class="n">pers</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">W</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">129</div><div class="output text_html">36</div></div>
+<div class="output text_html">1</div></div>
 </div>
-<p>In this data set, we had 129 UNG Dahlonega students answer questions that comprised 36 variables. Most data frames are constructed in a similar way: columns are variables and rows are the individuals that were studied. Note that, by individuals, we might mean house prices, lab rats, or the fuel mileage of vehicles.</p>
-<section id="subsetting-a-data-frame">
-<h3>Subsetting a Data Frame<a class="headerlink" href="#subsetting-a-data-frame" title="Permalink to this heading">#</a></h3>
-<p>To create a new data frame that contains only the first 10 columns of <strong>p</strong>, we can do this:</p>
+<p>Thus, we have one outlier to left or one data point that is more than 2 standard deviations below average. For outliers to right, we check the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">new_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="n">W</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">W</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th></tr></thead>
-<tbody>
-	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td></tr>
-	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td></tr>
-	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td></tr>
-	<tr><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td></tr>
-	<tr><td>24  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>2.39</td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output text_html">0</div></div>
 </div>
-<p>Notice that <span class="math notranslate nohighlight">\(n:k\)</span> is a command in R that produces all integers from <span class="math notranslate nohighlight">\(n\)</span> to <span class="math notranslate nohighlight">\(k\)</span> inclusive. The [] indicates that we wish to create a subset of the data frame named. We can use the <em>concatenate</em> function to list non-adjacent column numbers:</p>
+<p>We therefore find no outliers to right. We do not have any data points 2 standard deviations or more above the average.</p>
+</section>
+<section id="checking-for-outliers-graphically">
+<h3>Checking for Outliers Graphically<a class="headerlink" href="#checking-for-outliers-graphically" title="Permalink to this heading">#</a></h3>
+<p>The easiest way to check for outliers is to create box plot. While the box plot is a picture of the 5-number summary, most statistical software and graphing calculators also identify outliers while doing so.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new2_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">14</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="m">27</span><span class="p">,</span><span class="w"> </span><span class="m">31</span><span class="p">)]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">new2_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>AccDate</th><th scope=col>Thrill</th><th scope=col>Perf</th><th scope=col>Narc</th></tr></thead>
-<tbody>
-	<tr><td>21 </td><td>2  </td><td>M  </td><td>N  </td><td>23 </td><td>105</td><td>11 </td></tr>
-	<tr><td>20 </td><td>3  </td><td>F  </td><td>Y  </td><td>25 </td><td>105</td><td>11 </td></tr>
-	<tr><td>22 </td><td>3  </td><td>M  </td><td>Y  </td><td>27 </td><td> 73</td><td>11 </td></tr>
-	<tr><td>27 </td><td>3  </td><td>F  </td><td>N  </td><td>21 </td><td> 90</td><td>10 </td></tr>
-	<tr><td>24 </td><td>3  </td><td>M  </td><td>N  </td><td>30 </td><td> 95</td><td>10 </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<p>In a similar way, we can use the concatenate function along with column titles which must be within quotation marks.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new3_p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Sex&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Thrill&#39;</span><span class="p">)]</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">new3_p</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
-</pre></div>
+<img alt="_images/f00a998080bae20274cc592f9a8035045303c14216e318ac3b83518e7cd6c411.png" src="_images/f00a998080bae20274cc592f9a8035045303c14216e318ac3b83518e7cd6c411.png" />
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Sex</th><th scope=col>Thrill</th></tr></thead>
-<tbody>
-	<tr><td>M </td><td>23</td></tr>
-	<tr><td>F </td><td>25</td></tr>
-	<tr><td>M </td><td>27</td></tr>
-	<tr><td>F </td><td>21</td></tr>
-	<tr><td>M </td><td>30</td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
+<p>The box plot has identified a single outlier to the left and none to the right. The formula that is used to determine the cutoff values (called <strong>fences</strong>) is based on the values in the 5-number summary.</p>
+<ul class="simple">
+<li><p>Lower Fence = Q1 - 1.5 * IQR</p></li>
+<li><p>Upper Fence = Q3 + 1.5 * IQR</p></li>
+</ul>
+<p>where IQR = Q3 - Q1 and indicates the “inner quartile range.”</p>
+</section>
+<section id="skew">
+<h3>Skew<a class="headerlink" href="#skew" title="Permalink to this heading">#</a></h3>
+<p>Outliers tend to cause skew. If we have several outliers to the left and none to the right, we generally can see skew to the left in the histogram or density plot. If we have outliers to the right but none to the left, we generally have skew to the right.</p>
+<ul class="simple">
+<li><p>Skewed <strong>right</strong> usually means the <strong>mean is greater than the median</strong>.</p></li>
+<li><p>Skewed <strong>left</strong> usually means the <strong>mean is less than the median</strong>.</p></li>
+</ul>
+<p>This is how we guessed above that outliers and skew might be present. The above two statements can be reversed:</p>
+<ul class="simple">
+<li><p>If the <strong>mean is significantly greater than the median</strong>, we expect skew to the <strong>right</strong> and the majority of outliers to the right.</p></li>
+<li><p>If the <strong>mean is significantly less than the median</strong>, we expect skew to the <strong>left</strong> and the majority of outliers to the left.</p></li>
+</ul>
+<p>When is the mean <strong>significantly</strong> greater or less than the median?</p>
+<p><strong>Robb’ Rule of Thumb</strong> states that when the mean and median differ by a tenth of a standard deviation or more, we should expect skew and outliers.</p>
 </section>
 <section id="pivot-tables">
 <h3>Pivot Tables<a class="headerlink" href="#pivot-tables" title="Permalink to this heading">#</a></h3>
@@ -685,10 +714,12 @@ The 5-number summary for WINNINGS
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   AccDate
-Sex  N  Y
-  F 28 46
-  M 28 27
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">terms</span><span class="o">.</span><span class="n">formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;pers&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">Sex</span> <span class="o">+</span> <span class="n">AccDate</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pers</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">terms</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">.</span> <span class="n">terms</span><span class="o">.</span><span class="n">formula</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -763,13 +794,16 @@ Sex  N  Y
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data">Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters-and-statistics">Parameters and Statistics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data-into-a-vector-manually">Loading Data into a Vector Manually</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive Statistics</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-data-and-grouping-by-category">Subsetting Data and Grouping by Category</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subsetting-a-data-frame">Subsetting a Data Frame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-histograms-and-density-plots">Shape: Histograms and Density Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-and-skew">Outliers and Skew</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-numerically">Checking for Outliers Numerically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-for-outliers-graphically">Checking for Outliers Graphically</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skew">Skew</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivot-tables">Pivot Tables</a></li>
 </ul>
 </li>
