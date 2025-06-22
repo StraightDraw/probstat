@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview, Index, Links &#8212; Probability and Statistics</title>
+    <title>Outliers &#8212; Probability and Statistics</title>
   
   
   
@@ -62,11 +62,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'A0';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A2e';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Statistical Formulas" href="A1.html" />
-    <link rel="prev" title="Statistical Estimation" href="S8.html" />
+    <link rel="next" title="Statistics Formula Sheet" href="A3.html" />
+    <link rel="prev" title="Grid of Graphics" href="A2d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -249,14 +249,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview, Index, Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2b.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Outliers</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Statistics Formula Sheet</a></li>
@@ -316,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A0.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A2e.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -347,7 +347,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/A0.ipynb" target="_blank"
+      <li><a href="_sources/A2e.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -431,7 +431,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview, Index, Links</h1>
+    <h1>Outliers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -441,7 +441,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-of-appendix-pages">Index of Appendix Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-code-block-to-rule-them-all">One Code Block to Rule Them All</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-by-mean-and-standard-deviation">Outliers by Mean and Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-using-5-number-summary">Outliers Using 5-Number Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -453,23 +455,116 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview-index-links">
-<h1>Overview, Index, Links<a class="headerlink" href="#overview-index-links" title="Permalink to this heading">#</a></h1>
-<p>We utilize the <strong>open source freeware R</strong> in this course. These appendices help clarify and store several important tasks for quick reference.</p>
-<p>The most important appendix is the <a class="reference internal" href="A3.html"><span class="doc std std-doc">Statistical Formula Sheet</span></a> which is allowed for use on tests and quizzes for this course and is provided for tests in the in-person version of the course.</p>
-<p>When using R, several tasks are used quite often without a detailed explanation given for each use. We therefore have created a reference page for the most common uses. We have several pages in this section that deal with typical issues and the code in R that gets around them.</p>
-<section id="index-of-appendix-pages">
-<h2>Index of Appendix Pages<a class="headerlink" href="#index-of-appendix-pages" title="Permalink to this heading">#</a></h2>
-<p>The following list describes the contents of each page:</p>
-<ol class="arabic simple">
-<li><p><a class="reference internal" href="A1.html"><span class="doc std std-doc">Statistical Formulas</span></a>: Key notation for understanding R commands and statistical models.</p></li>
-<li><p><a class="reference internal" href="A2.html"><span class="doc std std-doc">Helpful Code</span></a>: Basic tasks in R like calculating standard descriptives and the 5-Number Summary along with using the <strong>cat()</strong> function to display text and code output together.</p></li>
-<li><p><a class="reference internal" href="A2a.html"><span class="doc std std-doc">Graphics Options</span></a>: How to set main titles, axis titles along with changes of color and line width.</p></li>
-<li><p><a class="reference internal" href="A2b.html"><span class="doc std std-doc">Subsetting a Data Frame</span></a>: Using the subset() function to extract specific types of data points from a data frame.</p></li>
-<li><p><a class="reference internal" href="A2c.html"><span class="doc std std-doc">Creating a Data Frame</span></a>: Entering data into R by creatinng vectors using the concatenate function <strong>c()</strong> and then joining them into a dataframe.</p></li>
-<li><p><a class="reference internal" href="A2d.html"><span class="doc std std-doc">Creating a Grid of Graphics</span></a>: When displaying multiple graphical objects at once, we can use the <strong>layout()</strong> and <strong>matrix()</strong> functions to create a grid. The graphical objects will be reduced in size and laid out as we specify. The result saves space and helps to organize content in a more meaningful way.</p></li>
-<li><p><a class="reference internal" href="A4.html"><span class="doc std std-doc">Sampling Functions</span></a>:</p></li>
-</ol>
+  <section class="tex2jax_ignore mathjax_ignore" id="outliers">
+<h1>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h1>
+<p>If outliers exist in a data set, we need to know how many outliers exist and whether they are above or below the mean. We need some data to work with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">age</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Age</span>
+<span class="n">thrill</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="o">$</span><span class="n">Thrill</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="one-code-block-to-rule-them-all">
+<h2>One Code Block to Rule Them All<a class="headerlink" href="#one-code-block-to-rule-them-all" title="Permalink to this heading">#</a></h2>
+<p>We provide examples with clarifications below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the AGE data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">age</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">age</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the AGE data using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the AGE data using the 2 standard deviation rule:
+    3  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the AGE data using the Box Plot method:
+    9  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the THRILL data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">thrill</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">thrill</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">thrill</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">thrill</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">thrill</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">thrill</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">thrill</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">thrill</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the THRILL data using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">thrill</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">thrill</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the THRILL data using the 2 standard deviation rule:
+    0  to the right, and 
+    1  to the left.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the THRILL data using the Box Plot method:
+    0  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="outliers-by-mean-and-standard-deviation">
+<h2>Outliers by Mean and Standard Deviation<a class="headerlink" href="#outliers-by-mean-and-standard-deviation" title="Permalink to this heading">#</a></h2>
+<p>To implement the 2 standard deviation rule for outliers, typically used for small data sets, we do the following.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the AGE data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">age</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the AGE data using the 2 standard deviation rule:
+    3  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="outliers-using-5-number-summary">
+<h2>Outliers Using 5-Number Summary<a class="headerlink" href="#outliers-using-5-number-summary" title="Permalink to this heading">#</a></h2>
+<p>We calculate the fences as follows:</p>
+<ul class="simple">
+<li><p>Upper Fence = Q3 + 1.5 * IQR</p></li>
+<li><p>Lower Fence = Q1 - 1.5 * IQR</p></li>
+</ul>
+<p>To implement the Box Plot method for outliers, we do the following.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">thrill</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">thrill</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+<span class="c1">## Now that we&#39;ve calculated the needed values, we have:</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the AGE data using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the AGE data using the Box Plot method:
+    2  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -504,20 +599,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S8.html"
+       href="A2d.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistical Estimation</p>
+        <p class="prev-next-title">Grid of Graphics</p>
       </div>
     </a>
     <a class="right-next"
-       href="A1.html"
+       href="A3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Statistical Formulas</p>
+        <p class="prev-next-title">Statistics Formula Sheet</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -536,7 +631,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-of-appendix-pages">Index of Appendix Pages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-code-block-to-rule-them-all">One Code Block to Rule Them All</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-by-mean-and-standard-deviation">Outliers by Mean and Standard Deviation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-using-5-number-summary">Outliers Using 5-Number Summary</a></li>
 </ul>
   </nav></div>
 

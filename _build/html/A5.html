@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview, Index, Links &#8212; Probability and Statistics</title>
+    <title>Poker Primer &#8212; Probability and Statistics</title>
   
   
   
@@ -62,11 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'A0';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A5';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Statistical Formulas" href="A1.html" />
-    <link rel="prev" title="Statistical Estimation" href="S8.html" />
+    <link rel="prev" title="Sampling Functions" href="A4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -249,7 +250,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview, Index, Links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A0.html">Overview, Index, Links</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
@@ -261,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Statistics Formula Sheet</a></li>
 <li class="toctree-l1"><a class="reference internal" href="A4.html">Sampling Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="A5.html">Poker Primer</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Poker Primer</a></li>
 </ul>
 
     </div>
@@ -316,7 +317,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A0.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/A5.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -347,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/A0.ipynb" target="_blank"
+      <li><a href="_sources/A5.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,9 +419,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -431,19 +430,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview, Index, Links</h1>
+    <h1>Poker Primer</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-of-appendix-pages">Index of Appendix Pages</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -453,24 +444,82 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="overview-index-links">
-<h1>Overview, Index, Links<a class="headerlink" href="#overview-index-links" title="Permalink to this heading">#</a></h1>
-<p>We utilize the <strong>open source freeware R</strong> in this course. These appendices help clarify and store several important tasks for quick reference.</p>
-<p>The most important appendix is the <a class="reference internal" href="A3.html"><span class="doc std std-doc">Statistical Formula Sheet</span></a> which is allowed for use on tests and quizzes for this course and is provided for tests in the in-person version of the course.</p>
-<p>When using R, several tasks are used quite often without a detailed explanation given for each use. We therefore have created a reference page for the most common uses. We have several pages in this section that deal with typical issues and the code in R that gets around them.</p>
-<section id="index-of-appendix-pages">
-<h2>Index of Appendix Pages<a class="headerlink" href="#index-of-appendix-pages" title="Permalink to this heading">#</a></h2>
-<p>The following list describes the contents of each page:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="poker-primer">
+<h1>Poker Primer<a class="headerlink" href="#poker-primer" title="Permalink to this heading">#</a></h1>
+<p>With the game of poker, mathematicians have a way to illustrate nearly every problem-solving tool needed for an undergraduate course in probability. This appendix covers basic poker concepts and explains basic terms. This appendix is a</p>
+<p><strong><center>Poker Primer</center></strong></p>
+<p>Understanding the examples in this document requires a basic understanding of poker. For examples in this text, we will use a game poker players call 200nl which means “No Limit Texas Holdem, 200 dollar max buy-in,” a game where the small blind (SB) is 1 dollar and the big blind (BB) is 2 dollars. All bets must be at least as big as the BB, or 2 bucks. This will keep the math simpler, though the calculations apply equally well to all poker games. It is highly recommended that the student wishing to perform well in the probability units for this class spend at least twenty to thirty minutes playing <strong>free</strong> poker online. You should play NLHE and learn the basic mechanics and language of the game.</p>
+<p><strong>Cards.</strong> Poker is played with a standard deck of 52 cards (no jokers or wild cards). The deck has four suits: spades (<span class="math notranslate nohighlight">\(\spadesuit \)</span>), hearts (<span class="math notranslate nohighlight">\(\heartsuit \)</span>), diamonds (<span class="math notranslate nohighlight">\(\diamondsuit \)</span>), and clubs (<span class="math notranslate nohighlight">\(\clubsuit \)</span>). Spades and clubs are black. Hearts and diamonds are red. The cards have 13 different values, from strongest to weakest:</p>
+<div class="math notranslate nohighlight">
+\[\text{A K Q J T 9 8 7 6 5 4 3 2}\]</div>
+<p>Aces can be counted as high or low for the purposes of straights. Most poker books and articles use algebraic notation for the cards. We indicate card strength in capital letters or numbers followed by the suit in lowercase letters. The Ace of spades is written As, the 8 of hearts is written 8h, and so forth.</p>
+<aside class="sidebar">
+<p class="sidebar-title">Poker Notation</p>
+<p>Poker enthusiasts describe a five-card hand as</p>
+<center>Ah Ks Jc Tc 8d</center>
+</aside>
+<p>There are times when the suit indicator letter is left off which means no flushes or flush draws come into play. Preflop, we write AK to indicate any combination of Ace and King, AKo (offsuit) when they are of different suits, and AKs when they are of the same suite (suited). Note that we use T instead 10 so that every card has a two symbol identifier.</p>
+<p><strong>Hands.</strong> The winning hands in poker are based on five card hands, though rarely is poker played with only five cards available for each player. Most often, the player uses seven cards and makes his best 5-card hand from them. The ranking of hands is as follows, from best to worst:</p>
+<ul class="simple">
+<li><p>Straight Flush: J T 9 8 7 of same suit</p></li>
+<li><p>4-of-a-Kind: J J J J</p></li>
+<li><p>Full House: 8 8 8 2 2</p></li>
+<li><p>Flush: All five cards same suit, for example, Kh, Qh, 8h, 4h, 3h</p></li>
+<li><p>Straight: All five cards in a row, for example, 9 8 7 6 5</p></li>
+<li><p>3-of-a-Kind: T T T</p></li>
+<li><p>2 Pair: T T 7 7</p></li>
+<li><p>1 Pair: J J</p></li>
+<li><p>Ace high</p></li>
+</ul>
+<p>Ties result when players have identical hands, and the pot is divided equally among the two (or more) tied players. Unlike Bridge, there is no ranking of suits. A 7-high heart flush ties with a 7-high club flush.
+\paragraph{Betting.} In most common poker games, the first betting round occurs after the first group cards are dealt to each player (2 each in NLHE). Most modern poker games have “forced bets.” In stud games, each player antes, and a “bring-in bet” is required of half the size of a standard bet. An ante is a small amount required to participate in the hand. In poker games like Texas Holdem and Omaha, forced bets are called “blinds” and are based on your position. The first player to the dealer’s left pays the small blind (SB) and the second player to the dealer’s left pays the big blind (BB). The SB is usually half the BB.</p>
+<p>Opening bets have several names. Since the SB and BB are forced, any bet larget than the BB is actually a “raise.” When a player matches the BB, he is said to be “limping in” or \textbf{limping}. When a player is said to have opened, we mean she has raised unless an “open limp” is specified. A preflop reraise (a second unforced bet that raises the player who opened) is called a \textbf{3-bet}, and a re-reraise is called a \textbf{4-bet}. In limit poker, a round of betting is usually limitted to 4 total bets, e.g. a bet and 3 raises.</p>
+<p><strong>Texas Holdem.</strong> There are four betting rounds in holdem:</p>
 <ol class="arabic simple">
-<li><p><a class="reference internal" href="A1.html"><span class="doc std std-doc">Statistical Formulas</span></a>: Key notation for understanding R commands and statistical models.</p></li>
-<li><p><a class="reference internal" href="A2.html"><span class="doc std std-doc">Helpful Code</span></a>: Basic tasks in R like calculating standard descriptives and the 5-Number Summary along with using the <strong>cat()</strong> function to display text and code output together.</p></li>
-<li><p><a class="reference internal" href="A2a.html"><span class="doc std std-doc">Graphics Options</span></a>: How to set main titles, axis titles along with changes of color and line width.</p></li>
-<li><p><a class="reference internal" href="A2b.html"><span class="doc std std-doc">Subsetting a Data Frame</span></a>: Using the subset() function to extract specific types of data points from a data frame.</p></li>
-<li><p><a class="reference internal" href="A2c.html"><span class="doc std std-doc">Creating a Data Frame</span></a>: Entering data into R by creatinng vectors using the concatenate function <strong>c()</strong> and then joining them into a dataframe.</p></li>
-<li><p><a class="reference internal" href="A2d.html"><span class="doc std std-doc">Creating a Grid of Graphics</span></a>: When displaying multiple graphical objects at once, we can use the <strong>layout()</strong> and <strong>matrix()</strong> functions to create a grid. The graphical objects will be reduced in size and laid out as we specify. The result saves space and helps to organize content in a more meaningful way.</p></li>
-<li><p><a class="reference internal" href="A4.html"><span class="doc std std-doc">Sampling Functions</span></a>:</p></li>
+<li><p>Preflop</p></li>
+<li><p>Flop</p></li>
+<li><p>Turn</p></li>
+<li><p>River</p></li>
 </ol>
-</section>
+<p>Preflop, the players in the blinds make the forced bets, and two cards are dealt face down to each player. A round of betting begins with the first player to the left of the BB. The next five cards dealt are all dealt face up in the center of the table. They are community cards and can be used by any player along with 0, 1, or 2 of his own cards to make the best possible 5-card poker hand. The flop is dealt: three cards. A betting round follows starting with the SB or, if he has folded, the first player to the left of the dealer still active in the hand. The fourth face up card dealt is the turn , and the final card is called the river. Each is followed by a betting round starting with the first active player to the dealer’s left.</p>
+<p><strong>Omaha.</strong> This game is played exactly like Texas Holdem, with two exceptions. Preflop, each player is dealt four cards face down instead of only two. And, at showdown, a player must use <strong>exactly two cards</strong> from his or her own hand and exactly three on the board. This leads to many “misread” hands, especially by novices. The betting rounds are identical.</p>
+<p><strong>Strategy.</strong> Several considerations affect every poker decision. Rather far down the list of important considerations is the actual cards Hero holds. More important are considerations like position, stack sizes and reads. In poker, the player who bets the most wins. The cards only break ties.</p>
+<p><strong>Expected Value.</strong> Poker players know that luck is involved when cards are drawn randomly from a deck. When the odds of having winning cards hit the board are better than the pot odds, Hero has positive <em>expected value</em>. Poker players try to invest heavily when they have good expected value, and they try to get away from hands when they are facing negative expected value. Since Villain’s actual cards are only guessed at, Hero can make big mistakes and lose all his chips which is called getting stacked.</p>
+<p><strong>Position.</strong> Position is so important that many abbreviations have developed to help poker players quickly discuss hands. In casinos, the dealer position rotates, the position marked by a “button” with a “D” on it. So the dealer’s position is called the button (BTN). The position to the dealer’s left is the small blind (SB), next is big blind (BB). Those who bet first are said to be in early position (EP). Later bettors are middle position (MP) while those betting last are late position (LP).</p>
+<p>A standard NLHE poker game is played with a table of 9 or 10 players. In a 9-player game, the names of the positions are as follows, starting immediately to the dealer’s left:</p>
+<ul class="simple">
+<li><p>SB - small blind</p></li>
+<li><p>BB - big blind</p></li>
+<li><p>UTG - under the gun (first to act in first betting round)</p></li>
+<li><p>UTG+1</p></li>
+<li><p>MP1 - 1st middle position player</p></li>
+<li><p>MP2 - 2nd middle position player</p></li>
+<li><p>MP3 - also called hijack seat</p></li>
+<li><p>CO - cutoff seat</p></li>
+<li><p>BTN - button or dealer</p></li>
+</ul>
+<p>A popular online variant is called 6max, where only 6 players sit at the poker table. There, the seats would be labeled as follows:</p>
+<ul class="simple">
+<li><p>SB</p></li>
+<li><p>BB</p></li>
+<li><p>EP</p></li>
+<li><p>MP</p></li>
+<li><p>CO</p></li>
+<li><p>BTN</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Example 1</p>
+<p>Let’s look at a NLHE hand with all the jargon explained. Hero is in the CO (cutoff) for a hand of 6max 200nl (table has six seats, maximum buy-in is 200 dollars. The SB places his 1 dollar forced bet, the BB his 2 dollar. Two cards are dealt to each player. Hero receives TT. EP (or UTG) folds. MP limps (e.g. “calls” the 2 dollar BB). Hero opens for a standard raise, typically about 3BB + 1BB/limper, meaning Hero bets 8 dollars (<span class="math notranslate nohighlight">\(4\times2\)</span>BB) plus an additional BB for each person who has limped. In this case, Hero bets 10 bucks.</p>
+<p>The action folds around to the BB, who calls. He has already posted his 2 dollar BB, so he adds 8 more to call the 10 dollar bet. The limper folds. The pot is 23 dollars, 10 bucks each from Hero and the BB plus the $1 SB and $2 from MP who limped and then folded. The flop comes Q T 5. Villain bets 12, and Hero raises to 30 (matches the 12 dollar bet and raises 18 more).</p>
+<p>Villain decides to call, which means he must add 18 dollars to his 12 to make 30 bucks total. The turn is a 7, and Villain checks. Hero makes a PSB (pot-sized bet). Preflop, 23 dollars was bet with 60 added on the flop. The turn began with 83 dollars in the pot. Since both players started (we assume, unless specified othewise) with 100BB or 200 dollars, they each have almost 160 left to bet with. Hero wagers about half of his remaining chips, matching the 83 dollars in the pot. This gives Villain 2 to 1 “pot odds” which means he must put up 83 bucks for a chance to win 166 more. Villain folds. Hero is returned his 83 dollar bet and rakes in the 83 dollars in the pot.</p>
+</div>
+<p><strong>Stack Sizes.</strong> Unlike old movies and TV shows, players cannot be “raised out” of a hand. Each player can bid any amount from the BB minimum up to everything they have on the table. Buy-ins are usually capped.</p>
+<div class="tip admonition">
+<p class="admonition-title">Example 2</p>
+<p>Suppose Hero has a full buy-in (BI) of $200 playing 200nl, but all the other players have only 50 BB, or $100 stacks. Hero holds AA on the button (OTB) and an EP player opens for a standard raise of $8 showing significant strength. Hero 3-bets to $20, everyone else folds except EP who 4-bets to $50. Hero goes ``all in,” meaning he shoves all $200 worth of his chips into the center of the table. But Villain only had $100 to start the hand, and he bet $8 to open and 4-bet $42 more, so he only has $50 remaining. Hero’s “all-in” bet is actually just a $50 bet. If Villain calls, Hero’s chips will be counted, and Hero will be returned any chips which Villain cannot match.</p>
+</div>
+<p>The reason stack sizes are so important is due to a phenomenon known as “implied pot odds.” Quite possibly the biggest earning NLHE hand is the “set,” where Hero holds a pocket pair (pp) like the TT’s in the two examples above, then catches a third T on the flop - the classic “flopping a set” that every NLHE player dreams about. In the happiest version of the story, Villain open raises for 10 bucks and Hero calls. If villain has 150 bucks left in his stack, Hero is getting 15 to 1 “set odds” on his hand, meaning he stands to win 150 dollars more if the flop comes something like A Q 2. Hero’s “implied odds” are good for two reasons. The EP open raise indicates a strong hand for Villain, and the flop is likely to have helped Villain’s hand much more than Hero’s. So we would expect Villain to continue betting, especially with AK or AQ type hands. Knowing one’s implied odds is impossible, but they are greater whenever stacks are deep, when Villain has a good but second-best hand, and when Villain is aggressive (meaning he prefers to bet and raise rather than call - a sure-fire way to get lots of chips in the pot).</p>
+<p>In general, Hero needs at least 20 to 1 set odds (and often more) to call a preflop bet with a hand like 33. And hands like 8h 7h (called suited connectors) hit two pair or better on the flop once in twenty times. So most poker players suggest at least 30 to 1 effective stack sizes to call a bet with this type of hand.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,16 +531,16 @@ document.write(`
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "r"
+            mode: "python"
         },
         kernelOptions: {
-            name: "ir",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'ir'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -504,22 +553,13 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S8.html"
+       href="A4.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistical Estimation</p>
+        <p class="prev-next-title">Sampling Functions</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="A1.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Statistical Formulas</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -527,20 +567,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-of-appendix-pages">Index of Appendix Pages</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

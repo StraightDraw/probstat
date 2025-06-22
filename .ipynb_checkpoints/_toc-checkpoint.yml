@@ -49,7 +49,6 @@ parts:
       sections:
       - file: S1a
       - file: S1b
-      - file: S1c
     - file: S2
       sections:
       - file: S2a
@@ -81,4 +80,7 @@ parts:
       - file: A2b
       - file: A2c
       - file: A2d
+      - file: A2e
     - file: A3
+    - file: A4
+    - file: A5
