@@ -444,12 +444,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">1. EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-mpg">Descriptive Statistics for MPG</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-for-mpg">Outliers for MPG</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-mgp-data">Shape of MGP Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analsyis">Overall Analsyis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-births-data">2. EDA for Births Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-eda-for-babies-born-to-non-smoking-moms">2a. EDA for Babies Born to Non-smoking Moms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-nosmoke-data">Shape of <strong>nosmoke</strong> Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analysis-of-birth-weight-data-for-babies-of-non-smoking-moms">Overall Analysis of Birth Weight Data for Babies of Non-smoking Moms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2a. EDA for Babies Born to Non-smoking Moms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-bith-weight-of-babies-born-to-smoking-moms">Descriptive Statistics for Bith Weight of Babies Born to Smoking Moms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-smoking-moms-birthweight-data">Shape: Smoking Moms Birthweight Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analysis-of-birth-weight-data-for-smoking-moms">Overall Analysis of Birth Weight Data for Smoking Moms</a></li>
 </ul>
 </li>
 </ul>
@@ -467,7 +479,7 @@ document.write(`
 <h1>Worked Examples for EDA<a class="headerlink" href="#worked-examples-for-eda" title="Permalink to this heading">#</a></h1>
 <p>This page contains a few worked examples for exploratory data analysis of a single numeric variable.</p>
 <section id="eda-for-mpg-column-in-mtcars-data-frame">
-<h2>EDA for MPG Column in mtcars Data Frame<a class="headerlink" href="#eda-for-mpg-column-in-mtcars-data-frame" title="Permalink to this heading">#</a></h2>
+<h2>1. EDA for MPG Column in mtcars Data Frame<a class="headerlink" href="#eda-for-mpg-column-in-mtcars-data-frame" title="Permalink to this heading">#</a></h2>
 <p>Let’s gather than standard descriptives, 5-number summary and information about outliers as we begin.</p>
 <ul class="simple">
 <li><p>The <a class="reference external" href="https://straightdraw.github.io/probstat/S0b.html">descriptive statstics code</a> can be found at this link.</p></li>
@@ -578,6 +590,237 @@ The 5-number summary for SLEEEP
 <p>We can see overall that <strong>the distribution is approximately normal with some skew to the right</strong>. Numerically, we identified 1-2 outliers to the right, yet the box plot shows no outliers as explained above.</p>
 </section>
 </section>
+<section id="eda-for-births-data">
+<h2>2. EDA for Births Data<a class="headerlink" href="#eda-for-births-data" title="Permalink to this heading">#</a></h2>
+<p>Let’s investigate a bit first as this data set was intended to track health outcomes when comparing moms who smoked during pregnancy with those who did not. We can generate side-by-side boxplots using a statistical formula of the form <span class="math notranslate nohighlight">\(y \sim A\)</span> where <span class="math notranslate nohighlight">\(y\)</span> is a numeric variable and <span class="math notranslate nohighlight">\(A\)</span> is a grouping variable. R understands this formula, so we have the following code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">births</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/baby.csv&#39;</span><span class="p">)</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="n">Birth.Weight</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">births</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7693607c2d18768894d82ab6cee7d46e9b3ffce5042a07821470c35d05bce681.png" src="_images/7693607c2d18768894d82ab6cee7d46e9b3ffce5042a07821470c35d05bce681.png" />
+</div>
+</div>
+</section>
+<section id="a-eda-for-babies-born-to-non-smoking-moms">
+<h2>2a. EDA for Babies Born to Non-smoking Moms<a class="headerlink" href="#a-eda-for-babies-born-to-non-smoking-moms" title="Permalink to this heading">#</a></h2>
+<p>While birth weight may be an imperfect proxy for the health of the baby, it tracks most closely with the outcomes we wish to analyze. The subsetting is provided below so that we have the data needed stored in the variable <strong>nosmoke</strong>. The units are ounces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">nosmoke_temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">births</span><span class="p">,</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;False&#39;</span><span class="p">)</span>
+<span class="n">nosmoke</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">nosmoke_temp</span><span class="o">$</span><span class="n">Birth.Weight</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>120</li>
+	<li>113</li>
+	<li>136</li>
+	<li>138</li>
+	<li>132</li>
+</ol>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the Birth Weight data for Non-smoking Moms:\n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for Birth Weight:&#39;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the Birth Weight data for Non-smoking Moms:
+   Mean =  123.09 
+   Standard Deviation =  17.42 
+   Sample Size =  715 
+
+The 5-number summary for Birth Weight:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   55.0   113.0   123.0   123.1   134.0   176.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> The mean and median are nearly identical, so we expect either (a) no outliers or (b) a balancing of outliers. Balanced outliers occur when roughly the same number of outliers appear above and below the mean. The distance from Q1 to the minimum is longer than the distance from Q3 to the max, so a bit of left skew may be present.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the Birth Weight for Non-smoking Moms data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">nosmoke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">nosmoke</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the Birth Weight for Non-smoking Moms using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">nosmoke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">nosmoke</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the Birth Weight for Non-smoking Moms data using the 2 standard deviation rule:
+    22  to the right, and 
+    22  to the left.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the Birth Weight for Non-smoking Moms using the Box Plot method:
+    9  to the right, and 
+    13  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> The outliers appear to be roughly balanced though the Blox Plot method shoes a few more outliers to the left than to the right.</p>
+<section id="shape-of-nosmoke-data">
+<h3>Shape of <strong>nosmoke</strong> Data<a class="headerlink" href="#shape-of-nosmoke-data" title="Permalink to this heading">#</a></h3>
+<p>Again, we will plot both the histogram and density plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
+<span class="w">    </span><span class="nf">hist</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: nosmoke data&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Birth Weight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: nosmoke data&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Birth Weight&#39;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/83584041e26687f302e0734a7f300915139c826d7a9020b29ea159ddcb95dcae.png" src="_images/83584041e26687f302e0734a7f300915139c826d7a9020b29ea159ddcb95dcae.png" />
+</div>
+</div>
+<p><strong>Analisys.</strong> Both the histogram and the density plot show an approximately normal (bell-shaped) distribution. Both also show some skew to the left. The skew to the left is not massive, yet it is noticeable. The slight skew to the left aligns with the outliers we found which, while mostly balanced, did tilt a bit to the left.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">nosmoke</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e2d1abf6ba3a1e07ce343b2e535e40fba686c62d808a5a83af84ba3afcf046fa.png" src="_images/e2d1abf6ba3a1e07ce343b2e535e40fba686c62d808a5a83af84ba3afcf046fa.png" />
+</div>
+</div>
+</section>
+<section id="overall-analysis-of-birth-weight-data-for-babies-of-non-smoking-moms">
+<h3>Overall Analysis of Birth Weight Data for Babies of Non-smoking Moms<a class="headerlink" href="#overall-analysis-of-birth-weight-data-for-babies-of-non-smoking-moms" title="Permalink to this heading">#</a></h3>
+<p>The approximately normal distribution is clear from both the histogram and density plot. There is a slight skew to the left confirmed in the box plot. While outliers exist both above and below the mean, there a few more outliers to the left. Also, several of the outliers to left are more extreme (further away from the median) than on the right.</p>
+<p><strong>These data are approximately normal and skewed a bit to the left.</strong></p>
+</section>
+</section>
+<section id="id1">
+<h2>2a. EDA for Babies Born to Non-smoking Moms<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">smoke_temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subset</span><span class="p">(</span><span class="n">births</span><span class="p">,</span><span class="w"> </span><span class="n">Maternal.Smoker</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;True&#39;</span><span class="p">)</span>
+<span class="n">smoke</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">smoke_temp</span><span class="o">$</span><span class="n">Birth.Weight</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">smoke</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><ol class=list-inline>
+	<li>128</li>
+	<li>108</li>
+	<li>143</li>
+	<li>144</li>
+	<li>141</li>
+</ol>
+</div></div>
+</div>
+</section>
+<section id="descriptive-statistics-for-bith-weight-of-babies-born-to-smoking-moms">
+<h2>Descriptive Statistics for Bith Weight of Babies Born to Smoking Moms<a class="headerlink" href="#descriptive-statistics-for-bith-weight-of-babies-born-to-smoking-moms" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the Birth Weight data for Smoking Moms:\n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">smoke</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">smoke</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">smoke</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for Birth Weight:&#39;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">smoke</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the Birth Weight data for Smoking Moms:
+   Mean =  113.82 
+   Standard Deviation =  18.3 
+   Sample Size =  459 
+
+The 5-number summary for Birth Weight:
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   58.0   101.0   115.0   113.8   126.0   163.0 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> The mean and median are not more than a tenth of a standard deviation apart, so we do not expect skew or outliers. We have may balanced outliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the Birth Weight for Smoking Moms data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">smoke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">smoke</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">smoke</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">smoke</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">smoke</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">smoke</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">smoke</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">smoke</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the Birth Weight for Smoking Moms using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">smoke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">smoke</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the Birth Weight for Smoking Moms data using the 2 standard deviation rule:
+    11  to the right, and 
+    14  to the left.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the Birth Weight for Smoking Moms using the Box Plot method:
+    0  to the right, and 
+    1  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> Again, we see mostly balanced outliers with a slight tilt to the left. We have some minor skew to the left.</p>
+<section id="shape-smoking-moms-birthweight-data">
+<h3>Shape: Smoking Moms Birthweight Data<a class="headerlink" href="#shape-smoking-moms-birthweight-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
+<span class="w">    </span><span class="nf">hist</span><span class="p">(</span><span class="n">smoke</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram: smoke data&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Birth Weight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">smoke</span><span class="p">),</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Density Plot: smoke data&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Birth Weight&#39;</span><span class="p">)</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/60efc90abe356a97e7a5d03baca3681346b226fcba186148d34ff7ac2d804c1e.png" src="_images/60efc90abe356a97e7a5d03baca3681346b226fcba186148d34ff7ac2d804c1e.png" />
+</div>
+</div>
+<p><strong>Analysis.</strong> Again, we see clear evidence of an approximately normal distribution in both graphs along with the presence of a very slight skew to the left.</p>
+</section>
+<section id="overall-analysis-of-birth-weight-data-for-smoking-moms">
+<h3>Overall Analysis of Birth Weight Data for Smoking Moms<a class="headerlink" href="#overall-analysis-of-birth-weight-data-for-smoking-moms" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">smoke</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a6df0acaa6ffd23863be11112951a5c52aa951a670a57b061c8de892f2997b3c.png" src="_images/a6df0acaa6ffd23863be11112951a5c52aa951a670a57b061c8de892f2997b3c.png" />
+</div>
+</div>
+<p><strong>Overall Analysis.</strong> We have an approximately normal distribution which is approximately symmetric. We also observe a tiny bit of skew to the left.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -643,12 +886,24 @@ The 5-number summary for SLEEEP
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">1. EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-mpg">Descriptive Statistics for MPG</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-for-mpg">Outliers for MPG</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-mgp-data">Shape of MGP Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analsyis">Overall Analsyis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-births-data">2. EDA for Births Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-eda-for-babies-born-to-non-smoking-moms">2a. EDA for Babies Born to Non-smoking Moms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-nosmoke-data">Shape of <strong>nosmoke</strong> Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analysis-of-birth-weight-data-for-babies-of-non-smoking-moms">Overall Analysis of Birth Weight Data for Babies of Non-smoking Moms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2a. EDA for Babies Born to Non-smoking Moms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-bith-weight-of-babies-born-to-smoking-moms">Descriptive Statistics for Bith Weight of Babies Born to Smoking Moms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-smoking-moms-birthweight-data">Shape: Smoking Moms Birthweight Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analysis-of-birth-weight-data-for-smoking-moms">Overall Analysis of Birth Weight Data for Smoking Moms</a></li>
 </ul>
 </li>
 </ul>
