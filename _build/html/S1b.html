@@ -62,6 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'S1b';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -254,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2f.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
@@ -419,7 +421,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -435,6 +439,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-mpg">Descriptive Statistics for MPG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-for-mpg">Outliers for MPG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-mgp-data">Shape of MGP Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analsyis">Overall Analsyis</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -447,6 +466,118 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="worked-examples-for-eda">
 <h1>Worked Examples for EDA<a class="headerlink" href="#worked-examples-for-eda" title="Permalink to this heading">#</a></h1>
 <p>This page contains a few worked examples for exploratory data analysis of a single numeric variable.</p>
+<section id="eda-for-mpg-column-in-mtcars-data-frame">
+<h2>EDA for MPG Column in mtcars Data Frame<a class="headerlink" href="#eda-for-mpg-column-in-mtcars-data-frame" title="Permalink to this heading">#</a></h2>
+<p>Let’s gather than standard descriptives, 5-number summary and information about outliers as we begin.</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://straightdraw.github.io/probstat/S0b.html">descriptive statstics code</a> can be found at this link.</p></li>
+<li><p>The <a class="reference external" href="https://straightdraw.github.io/probstat/A2e.html">outliers code</a> can be found at this link.</p></li>
+</ul>
+<p>The <strong>mtcars</strong> data frame is found in native R, so we can load it. Then we will begin.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">miles</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">mtcars</span><span class="o">$</span><span class="n">mpg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="descriptive-statistics-for-mpg">
+<h3>Descriptive Statistics for MPG<a class="headerlink" href="#descriptive-statistics-for-mpg" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The standard descriptives for the mtcars MPG data:\n   Mean = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">miles</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Standard Deviation = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">miles</span><span class="p">),</span><span class="m">2</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n   Sample Size = &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">miles</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&#39;\n\nThe 5-number summary for SLEEEP&#39;</span><span class="p">)</span>
+<span class="nf">summary</span><span class="p">(</span><span class="n">miles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The standard descriptives for the mtcars MPG data:
+   Mean =  20.09 
+   Standard Deviation =  6.03 
+   Sample Size =  32 
+
+The 5-number summary for SLEEEP
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  10.40   15.43   19.20   20.09   22.80   33.90 
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Anlaysis.</strong> We notice that <span class="math notranslate nohighlight">\(|\text{mean}-\text{median}|=0.89&gt;0.603\)</span>. Since the difference between the mean and the median is greater than a tenth of a standard deviation, we expect skew and outliers to right.</p>
+</section>
+<section id="outliers-for-mpg">
+<h3>Outliers for MPG<a class="headerlink" href="#outliers-for-mpg" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the MPG data using the 2 standard deviation rule:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">miles</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">miles</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">miles</span><span class="p">)),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">miles</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nf">mean</span><span class="p">(</span><span class="n">miles</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">sd</span><span class="p">(</span><span class="n">miles</span><span class="p">))</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.\n\n&#39;</span><span class="p">)</span>
+
+<span class="n">Q1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">miles</span><span class="p">)[[</span><span class="s">&quot;25%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">miles</span><span class="p">)[[</span><span class="s">&quot;75%&quot;</span><span class="p">]]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">IQR</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Q1</span>
+
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;Outliers for the MPG data using the Box Plot method:\n   &#39;</span><span class="p">,</span><span class="nf">sum</span><span class="p">(</span><span class="n">miles</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Q3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">),</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&#39; to the right, and&#39;</span><span class="p">,</span><span class="s">&#39;\n   &#39;</span><span class="p">,</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">miles</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Q1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">1.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">IQR</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39; to the left.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the MPG data using the 2 standard deviation rule:
+    2  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Outliers for the MPG data using the Box Plot method:
+    1  to the right, and 
+    0  to the left.
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Analysis.</strong> Our suspicions of outliers to the right was confirmed with our calculations showing either one or two outliers to the right and none to the left.</p>
+</section>
+<section id="shape-of-mgp-data">
+<h3>Shape of MGP Data<a class="headerlink" href="#shape-of-mgp-data" title="Permalink to this heading">#</a></h3>
+<p>Let’s look at both a histogram and density plot. We can combine the 2 visualizations into a single plot, and the <a class="reference external" href="https://straightdraw.github.io/probstat/A2d.html">information about how to do so is linked here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layout</span><span class="p">(</span><span class="nf">matrix</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="nf">lcm</span><span class="p">(</span><span class="m">8</span><span class="p">))</span>
+<span class="w">    </span><span class="nf">hist</span><span class="p">(</span><span class="n">miles</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">plot</span><span class="p">(</span><span class="nf">density</span><span class="p">(</span><span class="n">miles</span><span class="p">))</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f7ad6524d4468d3fff320ecf5854e897459c3e3a4282ae35d812a096b2b33684.png" src="_images/f7ad6524d4468d3fff320ecf5854e897459c3e3a4282ae35d812a096b2b33684.png" />
+</div>
+</div>
+<p><strong>Analysis.</strong> While the histogram shows somme evidence of the data being drawing from a bell-shaped distribution, the density plot shows more clearly an approximately normal distribution with a slight skew to the right.</p>
+</section>
+<section id="box-plot">
+<h3>Box Plot<a class="headerlink" href="#box-plot" title="Permalink to this heading">#</a></h3>
+<p>Finally, let’s construct a box plot to confirm all the work above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">boxplot</span><span class="p">(</span><span class="n">miles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/80260849ae065d89f5f4837264815303104ddfcc5188368a867ccdd58b3aa522.png" src="_images/80260849ae065d89f5f4837264815303104ddfcc5188368a867ccdd58b3aa522.png" />
+</div>
+</div>
+</section>
+<section id="overall-analsyis">
+<h3>Overall Analsyis<a class="headerlink" href="#overall-analsyis" title="Permalink to this heading">#</a></h3>
+<p>First, note that the boxplot and quantile function differ on whether an outlier exists to the right in the box plot. This is not problematic.</p>
+<p>We can see overall that <strong>the distribution is approximately normal with some skew to the right</strong>. Numerically, we identified 1-2 outliers to the right, yet the box plot shows no outliers as explained above.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -503,6 +634,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda-for-mpg-column-in-mtcars-data-frame">EDA for MPG Column in mtcars Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics-for-mpg">Descriptive Statistics for MPG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers-for-mpg">Outliers for MPG</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-of-mgp-data">Shape of MGP Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-analsyis">Overall Analsyis</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
