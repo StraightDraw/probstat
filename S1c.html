@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sampling Functions &#8212; Probability and Statistics</title>
+    <title>EDA with 2 Variables &#8212; Probability and Statistics</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers" href="S2.html" />
-    <link rel="prev" title="Statistics Formula Sheet" href="S1b.html" />
+    <link rel="prev" title="Worked Examples for EDA" href="S1b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -221,8 +221,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S1.html">Exploratory Data Analysis: Tools and Ideas</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S1b.html">Statistics Formula Sheet</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1b.html">Worked Examples for EDA</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">EDA with 2 Variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -257,12 +257,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2b.html">Creating a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2f.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="A3.html">Poker Primer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A3.html">Statistics Formula Sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A4.html">Sampling Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="A5.html">Poker Primer</a></li>
 </ul>
 
     </div>
@@ -432,7 +435,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sampling Functions</h1>
+    <h1>EDA with 2 Variables</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,13 +445,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The <strong>rflip()</strong> Function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rspin-function">The <strong>rspin()</strong> Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genetics-example-flowers">Genetics Example: Flowers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genetics-example-peas">Genetics Example: Peas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-variables">Category Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-narcissism-vs-accept-date">Example 1: Narcissism vs. Accept Date</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-data-frame-function">The <strong>sample.data.frame()</strong> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-adult-playfulness-vs-optimism">Example 2: Adult Playfulness vs. Optimism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-perfectionism-vs-preferred-seat-in-class">Example #: Perfectionism vs. Preferred Seat in Class</a></li>
 </ul>
             </nav>
         </div>
@@ -460,407 +462,118 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sampling-functions">
-<h1>Sampling Functions<a class="headerlink" href="#sampling-functions" title="Permalink to this heading">#</a></h1>
-<p>The package <strong>mosaic</strong> features classic sampling functions for R. However, in this environment we use for class, mosaic is difficult to load. Still, we can import the code for useful functions directly and run them in R. This page provides the code to copy into an R notebook along with examples to guide usage.</p>
-<p>Three mosaic functions that will be useful for us include:</p>
-<ol class="arabic simple">
-<li><p>rflip()</p></li>
-<li><p>rspin()</p></li>
-<li><p>sample.data.frame()</p></li>
-</ol>
-<section id="the-rflip-function">
-<h2>The <strong>rflip()</strong> Function<a class="headerlink" href="#the-rflip-function" title="Permalink to this heading">#</a></h2>
-<p>When we want to simulate coin flips, the <strong>rflip</strong> function generates and organizes the output. The function parameters are as follows:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="eda-with-2-variables">
+<h1>EDA with 2 Variables<a class="headerlink" href="#eda-with-2-variables" title="Permalink to this heading">#</a></h1>
+<p>Not all data sets have a single numeric variable. We have threee possible configurations of the 2-variable setting:</p>
 <ul class="simple">
-<li><p><strong>n</strong> – the number of coins to toss</p></li>
-<li><p><strong>prob</strong> – probability of heads on each toss</p></li>
-<li><p><strong>quiet</strong> – a logical.  If <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, less verbose output is used.</p></li>
-<li><p><strong>verbose</strong> – a logical.  If <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, more verbose output is used.</p></li>
-<li><p><strong>summarize</strong> – if <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, return a summary (as a data frame).</p></li>
+<li><p>2 category variables</p></li>
+<li><p>2 numeric variables</p></li>
+<li><p>1 numeric variable with 1 category variable</p></li>
 </ul>
-<p>Some examples:</p>
-<ul class="simple">
-<li><p>rflip(10)</p></li>
-<li><p>rflip(10, prob = 1/6, quiet = TRUE)</p></li>
-<li><p>rflip(10, prob = 1/6, summarize = TRUE)</p></li>
-</ul>
-<p>The code to create the function <strong>rflip()</strong> is below.</p>
+<section id="category-variables">
+<h2>Category Variables<a class="headerlink" href="#category-variables" title="Permalink to this heading">#</a></h2>
+<p>With 2 category variables we wish to perform a cross-tabulation with <strong>xtabs</strong>, and we can visualize the scenario with a <strong>mosaic plot</strong>.</p>
+<section id="example-1-narcissism-vs-accept-date">
+<h3>Example 1: Narcissism vs. Accept Date<a class="headerlink" href="#example-1-narcissism-vs-accept-date" title="Permalink to this heading">#</a></h3>
+<p>The AccDate question is as follows: “At a time in your life when you are not romantically involved with anyone, a person asks you out. You believe this person has a wonderful personality, but you do not find this person physically attractive. Do you accept the date?” The responses are Yes/No.</p>
+<p><strong>Research Question:</strong> Do Y/N responses to AccDate question vary based upon biological sex?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rflip</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">.</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">quiet</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">quiet</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                  </span><span class="n">summarise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">summarize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	</span><span class="nf">if </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nf">is.integer</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
-<span class="w">		</span><span class="c1"># swap n and prob</span>
-<span class="w">		</span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">prob</span>
-<span class="w">		</span><span class="n">prob</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span>
-<span class="w">		</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">temp</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="w">	</span><span class="nf">if </span><span class="p">(</span><span class="n">summarise</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	  </span><span class="n">heads</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbinom</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="p">)</span>
-<span class="w">	  </span><span class="nf">return</span><span class="p">(</span><span class="nf">data.frame</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">heads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heads</span><span class="p">,</span><span class="w"> </span><span class="n">tails</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">heads</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prob</span><span class="p">))</span>
-<span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">	  </span><span class="n">r</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbinom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="n">prob</span><span class="p">)</span>
-<span class="w">	  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;T&#39;</span><span class="p">,</span><span class="s">&#39;H&#39;</span><span class="p">)[</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="p">]</span>
-<span class="w">	  </span><span class="n">heads</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sum</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="w">	  </span><span class="nf">attr</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span><span class="s">&quot;n&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span>
-<span class="w">	  </span><span class="nf">attr</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span><span class="s">&quot;prob&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span>
-<span class="w">	  </span><span class="nf">attr</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span><span class="s">&quot;sequence&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">result</span>
-<span class="w">	  </span><span class="nf">attr</span><span class="p">(</span><span class="n">heads</span><span class="p">,</span><span class="s">&quot;verbose&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">verbose</span>
-<span class="w">	  </span><span class="nf">class</span><span class="p">(</span><span class="n">heads</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&#39;cointoss&#39;</span>
-<span class="w">	  </span><span class="nf">return</span><span class="p">(</span><span class="n">heads</span><span class="p">)</span>
-<span class="w">	</span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">narc</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;AccDate&#39;</span><span class="p">,</span><span class="s">&#39;Sex&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s flip <span class="math notranslate nohighlight">\(20\)</span> coins and observe the different output configurations we can access.</p>
+<aside class="sidebar">
+<p>We have a statistical formula of <span class="math notranslate nohighlight">\(\sim A + B\)</span> where the addition symbol indicates to R that a category variable follows.</p>
+</aside>
+<p>Let’s conduct a cross-tabulation of these two categorical variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">xtabs</span><span class="p">(</span><span class="o">~</span><span class="n">AccDate</span><span class="o">+</span><span class="n">Sex</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">narc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 12
-attr(,&quot;n&quot;)
-[1] 20
-attr(,&quot;prob&quot;)
-[1] 0.5
-attr(,&quot;sequence&quot;)
- [1] &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot; &quot;H&quot;
-[20] &quot;H&quot;
-attr(,&quot;verbose&quot;)
-[1] TRUE
-attr(,&quot;class&quot;)
-[1] &quot;cointoss&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Sex
+AccDate  F  M
+      N 28 28
+      Y 46 27
 </pre></div>
 </div>
 </div>
 </div>
-<p>Notice that the “number of successes” is the first output and that the outputs are in a dataframe that we can subset normally. Thus, we can use square brackets [] to access that value:</p>
+<p><strong>Analysis.</strong> We see that the proportion of Yes/No responses is roughly equal for biological males (28/27), yet for biological females the responses favor “yes” (46/27). Hence, we have evidence for a difference in response to the question based upon biological sex of the respondant.</p>
+<p>Let’s construct a <strong>mosaicplot()</strong> next to visualize the situation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Note that we employ the same statistical formula in the mosaicplot() function as we did with xtabs().</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">mosaicplot</span><span class="p">(</span><span class="o">~</span><span class="n">AccDate</span><span class="o">+</span><span class="n">Sex</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">narc</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">9</div></div>
-</div>
-<p>What if the probability of success is different than 50%? We can use the <em>prob =</em> option to set the correct value.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">)</span>
-</pre></div>
+<img alt="_images/45139cdd233af10e51fecb269c8154b2972665c285175e133f2f18a8cfc0182b.png" src="_images/45139cdd233af10e51fecb269c8154b2972665c285175e133f2f18a8cfc0182b.png" />
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 2
-attr(,&quot;n&quot;)
-[1] 20
-attr(,&quot;prob&quot;)
-[1] 0.1666667
-attr(,&quot;sequence&quot;)
- [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot;
-[20] &quot;T&quot;
-attr(,&quot;verbose&quot;)
-[1] TRUE
-attr(,&quot;class&quot;)
-[1] &quot;cointoss&quot;
-</pre></div>
-</div>
-</div>
-</div>
-<p>The function <strong>rflip()</strong> will organize the results attractively for us in an dataframe if we set the option <em>summarize = TRUE</em>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>n</th><th scope=col>heads</th><th scope=col>tails</th><th scope=col>prob</th></tr></thead>
-<tbody>
-	<tr><td>20       </td><td>5        </td><td>15       </td><td>0.1666667</td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
+<p>The analysis does not change. The visualization confirms a higher percentage of “yes” responses from biological females. This signals that the variable</p>
+<center><span style="color:blue;font-weight:bold">AccDate may be dependent upon Sex</span>.</center></section>
 </section>
-<section id="the-rspin-function">
-<h2>The <strong>rspin()</strong> Function<a class="headerlink" href="#the-rspin-function" title="Permalink to this heading">#</a></h2>
-<p>We can simulate spinning a spinner with <strong>rspin()</strong> using the following input parameters.</p>
-<ul class="simple">
-<li><p><strong>n</strong> number of spins of spinner</p></li>
-<li><p><strong>probs</strong> – a vector of probabilities.  If the sum is not 1, the probabilities will be rescaled.</p></li>
-<li><p><strong>labels</strong> – a character vector of labels for the categories</p></li>
-</ul>
-<p>Some examples:</p>
-<ul class="simple">
-<li><p>rspin(20, prob=c(1,2,3), labels=c(“Red”, “Blue”, “Green”))</p></li>
-<li><p>rspin(30, prob=c(1,2,3,4), labels=c(“Red”, “Blue”, “Green”, “Purple”))</p></li>
-</ul>
+<section id="example-2-adult-playfulness-vs-optimism">
+<h2>Example 2: Adult Playfulness vs. Optimism<a class="headerlink" href="#example-2-adult-playfulness-vs-optimism" title="Permalink to this heading">#</a></h2>
+<p>The variable <strong>adult playfulness</strong> indicates adults who have child-like qualities and who often excel at relating to children. These individuals may enjoy splashing through puddles, whistling, dancing or dressing up (or dressing down) just for fun. You can read more about adult playfulness in <a class="reference external" href="https://www.psychologytoday.com/us/blog/having-fun/201507/the-playful-adult">Psychology Today</a>.</p>
+<p>Does the playfulness quality correspond to Optimism?</p>
+<p>Let gather a subset from our <strong>personality</strong> data frame and construct a linear model to find out.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rspin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">probs</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="nf">any</span><span class="p">(</span><span class="n">probs</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0</span><span class="p">))</span>
-<span class="w">    </span><span class="nf">stop</span><span class="p">(</span><span class="s">&quot;All probs must be non-negative.&quot;</span><span class="p">)</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="n">probs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">probs</span><span class="o">/</span><span class="nf">sum</span><span class="p">(</span><span class="n">probs</span><span class="p">)</span>
-<span class="w">  </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.data.frame</span><span class="p">(</span><span class="nf">t</span><span class="p">(</span><span class="nf">rmultinom</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">probs</span><span class="p">)))</span>
-<span class="w">  </span><span class="nf">names</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">labels</span>
-<span class="w">  </span><span class="n">res</span>
-<span class="p">}</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Play&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Opt&#39;</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Two straightforward examples should suffice to demonstrate how the function works.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To add the <strong>line of best fit</strong> to the scatter plot, we must use the linear models function <strong>lm()</strong>. We create the linear model for <strong>Play vs. Opt</strong>, and we extract the line of best fit from the model using <strong>abline()</strong>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rspin</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">Play</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Opt</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opt</span><span class="p">)</span><span class="w">  </span><span class="c1">## Creating linear model</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">Play</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">Opt</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">opt</span><span class="p">)</span><span class="w">       </span><span class="c1">## Producing scatter plot</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;blue&#39;</span><span class="p">)</span><span class="w"> </span><span class="c1">## Adding line of best fit from model</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Red</th><th scope=col>Blue</th><th scope=col>Green</th></tr></thead>
-<tbody>
-	<tr><td>2</td><td>9</td><td>9</td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rspin</span><span class="p">(</span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Purple&quot;</span><span class="p">))</span>
-</pre></div>
+<img alt="_images/fd1cfd2b20b04d6ebcef826a02cd76d386fe8158da887f98a6033638ed6b3a36.png" src="_images/fd1cfd2b20b04d6ebcef826a02cd76d386fe8158da887f98a6033638ed6b3a36.png" />
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Red</th><th scope=col>Blue</th><th scope=col>Green</th><th scope=col>Purple</th></tr></thead>
-<tbody>
-	<tr><td>5 </td><td>11</td><td>6 </td><td>8 </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<section id="genetics-example-flowers">
-<h3>Genetics Example: Flowers<a class="headerlink" href="#genetics-example-flowers" title="Permalink to this heading">#</a></h3>
-<p>Suppose that, based upon Mendel’s laws as expressed in the Punnett square, we have a hybrid where we expect the <strong>purple</strong> to <strong>white</strong> flower ratio to be <span class="math notranslate nohighlight">\(3 : 1\)</span>. Let’s use <strong>rspin()</strong> to simulate growing 400 of the plants and counting the frequency of purple and white flowers.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rspin</span><span class="p">(</span><span class="m">400</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;White&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Purple</th><th scope=col>White</th></tr></thead>
-<tbody>
-	<tr><td>303</td><td>97 </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
+<p><strong>Analysis.</strong> For scatter plots, the line of best fit will be perfectly horizontal or flat if <strong>no correlation at all</strong> exists. If some linear relationship is present, the slope of the line of best fit will be significantly different from zero. Here, we see a significant positive slope and thus expect to find a positive linear correlation between <strong>playfulness</strong> and <strong>optimism</strong>.</p>
 </section>
-<section id="genetics-example-peas">
-<h3>Genetics Example: Peas<a class="headerlink" href="#genetics-example-peas" title="Permalink to this heading">#</a></h3>
-<p>Mendel chose to work with common, garden-variety pea plants for his experiments because they grow quickly and are easily raised. The plants have several visible characteristics that vary by proportions predicted by genetics, and we will focus on two of them:</p>
+<section id="example-perfectionism-vs-preferred-seat-in-class">
+<h2>Example #: Perfectionism vs. Preferred Seat in Class<a class="headerlink" href="#example-perfectionism-vs-preferred-seat-in-class" title="Permalink to this heading">#</a></h2>
+<p>The <strong>SitClass</strong> variable provides a response the question: “You arrive in your classroom when almost no one is present, so almost every seat in the class is open. Do you prefer to sit in front, middle or back?</p>
+<p><strong>Research Question.</strong> Does class seating preference vary based upon a student’s level of <strong>perfectionism</strong>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perf</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">pers</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&#39;Perf&#39;</span><span class="p">,</span><span class="s">&#39;SitClass&#39;</span><span class="p">)]</span>
+<span class="nf">boxplot</span><span class="p">(</span><span class="n">Perf</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">SitClass</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">perf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/eb8decb3d46d09edf79d6ddde606487755edffdae8302390789132f1122b62c9.png" src="_images/eb8decb3d46d09edf79d6ddde606487755edffdae8302390789132f1122b62c9.png" />
+</div>
+</div>
+<p><strong>Analysis.</strong> Some variation due to <strong>Perfectionism</strong> appears to exist due to seating preferences.</p>
 <ul class="simple">
-<li><p>Seeds can be round or wrinkled</p></li>
-<li><p>Seeds can have yellow or green cotyledons. Cotyledons refer to the tiny leaves inside the seeds.</p></li>
+<li><p>Those preferring the front have the highest perfectionism scores.</p></li>
+<li><p>Those preferring the back have the lowest perfectionishm scores.</p></li>
 </ul>
-<p>In Mendel’s experiment, he determined that the expected value for proportions were as given in the chart below:</p>
-<html><table style="width:45%">
-  <tr>
-    <th>Phenotype</th>
-    <th>Expected Proportion</th>
-  </tr>
-  <tr>
-    <td>Round Yellow</td>
-    <td align="center">9/16</td>
-  </tr>
-  <tr>
-    <td>Round Green</td>
-    <td align="center">3/16</td>
-  </tr>
-  <tr>
-    <td>Wrinkled Yellow</td>
-    <td align="center">3/16</td>
-  </tr>
-  <tr>
-    <td>Wrinkled Green</td>
-    <td align="center">1/16</td>
-  </tr>
-</table></html>
-<p>Let’s use <strong>rspin()</strong> to simulate growing 2000 of the plants and determining with what frequencies these attributes occur.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rspin</span><span class="p">(</span><span class="m">400</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;Round Yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Round Green&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wrinkled Yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Wrinkled Green&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Round Yellow</th><th scope=col>Round Green</th><th scope=col>Wrinkled Yellow</th><th scope=col>Wrinkled Green</th></tr></thead>
-<tbody>
-	<tr><td>236</td><td>65 </td><td>79 </td><td>20 </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-</section>
-</section>
-<section id="the-sample-data-frame-function">
-<h2>The <strong>sample.data.frame()</strong> Function<a class="headerlink" href="#the-sample-data-frame-function" title="Permalink to this heading">#</a></h2>
-<p>We often wish to generate a random sample of rows from a dataframe, and <strong>sample.date.frame</strong> helps us to do so quickly.</p>
-<ul class="simple">
-<li><p><strong>x</strong> – dataframe to sample from</p></li>
-<li><p><strong>size</strong> – sample size to draw</p></li>
-<li><p><strong>groups</strong> – a vector (or variable in a data frame) specifying groups to sample within.</p></li>
-<li><p><strong>orig.ids</strong> – a logical; should original ids be included in returned data frame?</p></li>
-<li><p><strong>\dots</strong> – additional arguments passed to <em>base::sample()</em>.</p></li>
-<li><p><strong>shuffled</strong> – a vector of column names. These variables are reshuffled individually (within groups if <code class="docutils literal notranslate"><span class="pre">groups</span></code> is specified), breaking associations among these columns.</p></li>
-</ul>
-<p>Some examples:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample.data.frame</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span>
-<span class="w">                              </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shuffled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(),</span>
-<span class="w">                              </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">missing</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">is.null</span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="o">&gt;</span><span class="m">50</span><span class="w"> </span>
-<span class="w">  </span><span class="n">shuffled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="w">  </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">intersect</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span>
-<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="w">  </span><span class="n">ids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span>
-<span class="w">  </span><span class="n">groups</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="w"> </span><span class="nf">substitute</span><span class="p">(</span><span class="n">groups</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>
-<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
-<span class="w">  </span><span class="n">origids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="n">newids</span><span class="p">]</span>
-<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">origids</span><span class="p">)</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">cids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">[</span><span class="n">newids</span><span class="p">])</span>
-<span class="w">    </span><span class="n">result</span><span class="p">[,</span><span class="n">column</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">cids</span><span class="p">,</span><span class="n">column</span><span class="p">]</span>
-<span class="w">    </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">idsString</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cids</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="w">  </span>
-<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="n">result</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="n">shuffled</span><span class="p">),</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
-<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">orig.ids</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="o">$</span><span class="n">orig.id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">idsString</span>
-<span class="w">  </span>
-<span class="w">  </span>
-<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span><span class="nf">return</span><span class="p">(</span><span class="n">result</span><span class="p">)}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s load some data to do some examples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;https://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="m">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
-<tbody>
-	<tr><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.23</td><td>... </td><td>105 </td><td>10  </td><td>142 </td><td> 8  </td><td>11  </td><td>41  </td><td>40  </td><td>26  </td><td>27  </td><td>SE  </td></tr>
-	<tr><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.95</td><td>... </td><td>105 </td><td> 3  </td><td>172 </td><td>16  </td><td>11  </td><td>46  </td><td>52  </td><td>26  </td><td>33  </td><td>SE  </td></tr>
-	<tr><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.06</td><td>... </td><td> 73 </td><td> 1  </td><td>134 </td><td>15  </td><td>11  </td><td>48  </td><td>42  </td><td>44  </td><td>29  </td><td>AG  </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<p><strong>The example below shows how to draw a random sample of size <span class="math notranslate nohighlight">\(n = 25\)</span> from the personality data frame.</strong> The row ID numbers have been included so you can see which rows were selected. Rerun the command, and you will see that a new sample with different rows will be drawn.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th><th scope=col>orig.id</th></tr></thead>
-<tbody>
-	<tr><th scope=row>19</th><td>20  </td><td>3   </td><td>M   </td><td>N   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>Y   </td><td>3.68</td><td>... </td><td>11  </td><td>133 </td><td> 8  </td><td> 8  </td><td>30  </td><td>32  </td><td>34  </td><td>34  </td><td>AG  </td><td>19  </td></tr>
-	<tr><th scope=row>6</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.63</td><td>... </td><td>20  </td><td>133 </td><td>10  </td><td> 9  </td><td>40  </td><td>27  </td><td>31  </td><td>28  </td><td>AG  </td><td>6   </td></tr>
-	<tr><th scope=row>44</th><td>19  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>3.00</td><td>... </td><td>10  </td><td>149 </td><td>14  </td><td> 6  </td><td>48  </td><td>42  </td><td>15  </td><td>17  </td><td>AF  </td><td>44  </td></tr>
-	<tr><th scope=row>80</th><td>19  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td> 3  </td><td>121 </td><td> 8  </td><td> 4  </td><td>34  </td><td>36  </td><td>30  </td><td>33  </td><td>SD  </td><td>80  </td></tr>
-	<tr><th scope=row>72</th><td>22  </td><td>4   </td><td>M   </td><td>Y   </td><td>Y   </td><td>3   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.42</td><td>... </td><td> 9  </td><td>124 </td><td> 6  </td><td> 4  </td><td>50  </td><td>42  </td><td>37  </td><td>34  </td><td>AG  </td><td>72  </td></tr>
-	<tr><th scope=row>75</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.25</td><td>... </td><td> 8  </td><td>124 </td><td> 2  </td><td> 4  </td><td>45  </td><td>28  </td><td>27  </td><td>36  </td><td>SD  </td><td>75  </td></tr>
-	<tr><th scope=row>66</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>3   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.60</td><td>... </td><td>14  </td><td>122 </td><td>12  </td><td> 4  </td><td>38  </td><td>30  </td><td>30  </td><td>29  </td><td>AG  </td><td>66  </td></tr>
-	<tr><th scope=row>4</th><td>27  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.84</td><td>... </td><td> 9  </td><td>160 </td><td>16  </td><td>10  </td><td>51  </td><td>51  </td><td>23  </td><td>19  </td><td>SE  </td><td>4   </td></tr>
-	<tr><th scope=row>46</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td> 7  </td><td>174 </td><td>13  </td><td> 6  </td><td>51  </td><td>39  </td><td>25  </td><td>18  </td><td>AF  </td><td>46  </td></tr>
-	<tr><th scope=row>83</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>3   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.95</td><td>... </td><td>20  </td><td>164 </td><td> 8  </td><td> 3  </td><td>32  </td><td>32  </td><td>32  </td><td>32  </td><td>AG  </td><td>83  </td></tr>
-	<tr><th scope=row>101</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.34</td><td>... </td><td>12  </td><td>166 </td><td>13  </td><td> 2  </td><td>56  </td><td>54  </td><td>26  </td><td>37  </td><td>SE  </td><td>101 </td></tr>
-	<tr><th scope=row>23</th><td>19  </td><td>1   </td><td>M   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.00</td><td>... </td><td> 5  </td><td>116 </td><td> 5  </td><td> 8  </td><td>35  </td><td>34  </td><td>33  </td><td>30  </td><td>AG  </td><td>23  </td></tr>
-	<tr><th scope=row>106</th><td>18  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>3.67</td><td>... </td><td> 6  </td><td>122 </td><td>10  </td><td> 2  </td><td>43  </td><td>36  </td><td>28  </td><td>22  </td><td>AF  </td><td>106 </td></tr>
-	<tr><th scope=row>20</th><td>23  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>Y   </td><td>3.22</td><td>... </td><td> 9  </td><td>155 </td><td>14  </td><td> 8  </td><td>56  </td><td>44  </td><td>26  </td><td>20  </td><td>AF  </td><td>20  </td></tr>
-	<tr><th scope=row>84</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.80</td><td>... </td><td>14  </td><td>145 </td><td>11  </td><td> 3  </td><td>51  </td><td>32  </td><td>40  </td><td>34  </td><td>AG  </td><td>84  </td></tr>
-	<tr><th scope=row>58</th><td>20  </td><td>3   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.62</td><td>... </td><td> 9  </td><td>150 </td><td>15  </td><td> 5  </td><td>51  </td><td>55  </td><td>37  </td><td>31  </td><td>SE  </td><td>58  </td></tr>
-	<tr><th scope=row>81</th><td>21  </td><td>2   </td><td>M   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>2.90</td><td>... </td><td> 3  </td><td> 96 </td><td>12  </td><td> 4  </td><td>32  </td><td>27  </td><td>28  </td><td>30  </td><td>SD  </td><td>81  </td></tr>
-	<tr><th scope=row>77</th><td>19  </td><td>3   </td><td>M   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td> 7  </td><td>123 </td><td> 3  </td><td> 4  </td><td>51  </td><td>47  </td><td>33  </td><td>31  </td><td>SE  </td><td>77  </td></tr>
-	<tr><th scope=row>30</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>Y   </td><td>2.75</td><td>... </td><td> 7  </td><td>135 </td><td>10  </td><td> 7  </td><td>40  </td><td>29  </td><td>24  </td><td>42  </td><td>SD  </td><td>30  </td></tr>
-	<tr><th scope=row>70</th><td>22  </td><td>4   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.78</td><td>... </td><td>11  </td><td>117 </td><td> 4  </td><td> 4  </td><td>43  </td><td>37  </td><td>28  </td><td>34  </td><td>SD  </td><td>70  </td></tr>
-	<tr><th scope=row>89</th><td>18  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.21</td><td>... </td><td>10  </td><td>136 </td><td>10  </td><td> 3  </td><td>38  </td><td>30  </td><td>16  </td><td>31  </td><td>SD  </td><td>89  </td></tr>
-	<tr><th scope=row>15</th><td>24  </td><td>2   </td><td>F   </td><td>Y   </td><td>Y   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.05</td><td>... </td><td>14  </td><td>108 </td><td> 9  </td><td> 8  </td><td>31  </td><td>32  </td><td>33  </td><td>32  </td><td>AG  </td><td>15  </td></tr>
-	<tr><th scope=row>97</th><td>20  </td><td>2   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.98</td><td>... </td><td> 3  </td><td>111 </td><td> 4  </td><td> 3  </td><td>38  </td><td>42  </td><td>33  </td><td>37  </td><td>SD  </td><td>97  </td></tr>
-	<tr><th scope=row>21</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>2.95</td><td>... </td><td> 9  </td><td>140 </td><td>13  </td><td> 8  </td><td>45  </td><td>46  </td><td>32  </td><td>20  </td><td>SE  </td><td>21  </td></tr>
-	<tr><th scope=row>43</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.76</td><td>... </td><td>10  </td><td>137 </td><td> 7  </td><td> 6  </td><td>51  </td><td>46  </td><td>22  </td><td>26  </td><td>SE  </td><td>43  </td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<p><strong>The example below shows how to draw a random sample of size <span class="math notranslate nohighlight">\(n = 25\)</span> from the narcissism column of the personality data frame.</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s">&#39;Narc&#39;</span><span class="p">],</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">F</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th></th><th scope=col>Narc</th></tr></thead>
-<tbody>
-	<tr><th scope=row>72</th><td> 4</td></tr>
-	<tr><th scope=row>6</th><td> 9</td></tr>
-	<tr><th scope=row>102</th><td> 2</td></tr>
-	<tr><th scope=row>100</th><td> 2</td></tr>
-	<tr><th scope=row>27</th><td> 7</td></tr>
-	<tr><th scope=row>12</th><td> 9</td></tr>
-	<tr><th scope=row>51</th><td> 6</td></tr>
-	<tr><th scope=row>33</th><td> 7</td></tr>
-	<tr><th scope=row>118</th><td> 1</td></tr>
-	<tr><th scope=row>117</th><td> 1</td></tr>
-	<tr><th scope=row>105</th><td> 2</td></tr>
-	<tr><th scope=row>4</th><td>10</td></tr>
-	<tr><th scope=row>29</th><td> 7</td></tr>
-	<tr><th scope=row>79</th><td> 4</td></tr>
-	<tr><th scope=row>45</th><td> 6</td></tr>
-	<tr><th scope=row>37</th><td> 6</td></tr>
-	<tr><th scope=row>41</th><td> 6</td></tr>
-	<tr><th scope=row>21</th><td> 8</td></tr>
-	<tr><th scope=row>95</th><td> 3</td></tr>
-	<tr><th scope=row>34</th><td> 6</td></tr>
-	<tr><th scope=row>75</th><td> 4</td></tr>
-	<tr><th scope=row>8</th><td> 9</td></tr>
-	<tr><th scope=row>115</th><td> 1</td></tr>
-	<tr><th scope=row>38</th><td> 6</td></tr>
-	<tr><th scope=row>63</th><td> 5</td></tr>
-</tbody>
-</table>
-</div></div>
-</div>
+<p>Those who prefer seats in the middle of the classroom are in between, but outliers are present. A statistical test (ANOVA) would be quite useful and helpful, here, as it would help us parse the differences in perfectionism based upon seating preference.</p>
 </section>
 </section>
 
@@ -900,7 +613,7 @@ attr(,&quot;class&quot;)
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistics Formula Sheet</p>
+        <p class="prev-next-title">Worked Examples for EDA</p>
       </div>
     </a>
     <a class="right-next"
@@ -927,13 +640,12 @@ attr(,&quot;class&quot;)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The <strong>rflip()</strong> Function</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rspin-function">The <strong>rspin()</strong> Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genetics-example-flowers">Genetics Example: Flowers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#genetics-example-peas">Genetics Example: Peas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#category-variables">Category Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-narcissism-vs-accept-date">Example 1: Narcissism vs. Accept Date</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sample-data-frame-function">The <strong>sample.data.frame()</strong> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-adult-playfulness-vs-optimism">Example 2: Adult Playfulness vs. Optimism</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-perfectionism-vs-preferred-seat-in-class">Example #: Perfectionism vs. Preferred Seat in Class</a></li>
 </ul>
   </nav></div>
 
