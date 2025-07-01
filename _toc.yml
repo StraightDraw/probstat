@@ -82,6 +82,7 @@ parts:
       - file: A2c
       - file: A2d
       - file: A2e
+      - file: A2g
     - file: A3
     - file: A4
     - file: A5
