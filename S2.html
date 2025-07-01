@@ -257,7 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2f.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
@@ -451,7 +451,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-large-numbers">Law of Large Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">Central Limit Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-m-m-s">Example 1: M&amp;M’s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-m-m-s">Example 1: M&amp;M’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">Expected Value</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-estimating-narcissism">Example: Estimating Narcissism</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-step-generating-samples-of-size-n-10">First Step: Generating Samples of Size <span class="math notranslate nohighlight">\(n=10\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-for-loop">Step 2: Creating a for Loop</a></li>
@@ -580,30 +584,25 @@ document.write(`
 </details>
 </div>
 <p>Let’s run an example.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>Notice how the summarize = TRUE option organizes the output.</p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">rflip</span><span class="p">(</span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 4
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 8
 attr(,&quot;n&quot;)
 [1] 20
 attr(,&quot;prob&quot;)
 [1] 0.25
 attr(,&quot;sequence&quot;)
- [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+ [1] &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
 [20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
 [1] TRUE
@@ -612,6 +611,11 @@ attr(,&quot;class&quot;)
 </pre></div>
 </div>
 </div>
+</details>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Notice how the summarize = TRUE option organizes the output.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,7 +627,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>n</th><th scope=col>heads</th><th scope=col>tails</th><th scope=col>prob</th></tr></thead>
 <tbody>
-	<tr><td>20  </td><td>8   </td><td>12  </td><td>0.25</td></tr>
+	<tr><td>20  </td><td>5   </td><td>15  </td><td>0.25</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -641,27 +645,10 @@ attr(,&quot;class&quot;)
 <div class="cell_output docutils container">
 <div class="output text_html">5</div></div>
 </div>
-<p>To draw repeated samples, we will need to learn to use a <strong>for loop</strong> in R. A simple example is shown below. Note that the curly brackets enclose the function(s) we wish to run repeatedly.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5
-[1] 6
-[1] 7
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="for-loops">
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Permalink to this heading">#</a></h2>
+<p>We will use a for loop to create sampling distributions, and the instructions for how to set up and <a class="reference external" href="https://straightdraw.github.io/probstat/A2g.html">how to use for loops is linked</a>. The code block we use for creating a sampling distribution with histogram is developed at the linked page.</p>
 </section>
 <section id="example-1-m-m-s">
 <h2>Example 1: M&amp;M’s<a class="headerlink" href="#example-1-m-m-s" title="Permalink to this heading">#</a></h2>
@@ -679,26 +666,195 @@ attr(,&quot;class&quot;)
 
 <span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
 <span class="n">upper</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 95th percentile.</span>
-<span class="nf">hist</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the simulated distribution is\n   &#39;</span><span class="p">,</span><span class="nf">mean</span><span class="p">(</span><span class="n">num_success</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram of Binomial: n = 50, p =0.25&#39;</span><span class="p">)</span>
 <span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">     </span><span class="c1"># Add vertical line at 5th percentile</span>
 <span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upper</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1"># Add vertical line at 95th percentile           </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/78df6b082cc46c3a69b096ab4a51502f192c30f855db781f6c0e1bf76585a2fb.png" src="_images/78df6b082cc46c3a69b096ab4a51502f192c30f855db781f6c0e1bf76585a2fb.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
+    12.616
+</pre></div>
+</div>
+<img alt="_images/9c2e02cd0db17e6a9bcfeac1e66387de69b54bc14256bed34e9f4c2dcefe2f02.png" src="_images/9c2e02cd0db17e6a9bcfeac1e66387de69b54bc14256bed34e9f4c2dcefe2f02.png" />
 </div>
 </div>
+<section id="expected-value">
+<h3>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this heading">#</a></h3>
+<p>The expected value for the binomial distribution is given by:
+$<span class="math notranslate nohighlight">\(E(X) = np\)</span><span class="math notranslate nohighlight">\(
+where \)</span>n<span class="math notranslate nohighlight">\( is the number of trials conducted and \)</span>p$ is the probability of success. This table summarizes the investigation to include the example above along with the three below:</p>
+<table class="center" style="width:65%; text-align:center;">
+  <tr>
+    <th>n</th>
+    <th>p</th> 
+    <th>np</th>
+    <th>Simulation Average</th>
+    <th>Middle 90% Interval</th>
+  </tr>
+  <tr>
+    <td>50</td>
+    <td>0.25</td>
+    <td>12.5</td>
+    <td>12.403</td>
+    <td>(7,18)</td>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>0.25</td>
+    <td>25</td>
+    <td>25.087</td>
+    <td>(17,32)</td>
+  </tr>
+  <tr>
+    <td>200</td>
+    <td>0.25</td>
+    <td>50</td>
+    <td>49.962</td>
+    <td>(40,60)</td>
+  </tr>
+  <tr>
+    <td>500</td>
+    <td>0.25</td>
+    <td>125</td>
+    <td>124.731</td>
+    <td>(109,140)</td>
+  </tr>
+</table><p>Note how the estimated average from the simulation becomes more accurate as sample size <span class="math notranslate nohighlight">\(n\)</span> increases. Also, the width of the interval as a percentage of the sample size grows smaller and more accurate as <span class="math notranslate nohighlight">\(n\)</span> increase.</p>
+<p><span style='color:blue;font-weight:bold'>These increases in accuracy as <span class="math notranslate nohighlight">\(n\)</span> increases shows the Central Limit Theorem at work.</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num_success</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span><span class="w">     </span><span class="c1"># create a vector to store the number of successes for each sample drawn</span>
+<span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="w">       </span><span class="c1"># set the number of samples to be drawn</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
+<span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="w">     </span><span class="c1"># draw 100 candies, count numer of red</span>
+<span class="w">    </span><span class="n">num_success</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">temp</span><span class="w">     </span><span class="c1"># count and store the number of red candies from this trial</span>
+<span class="p">}</span>
+
+<span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
+<span class="n">upper</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 95th percentile.</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the simulated distribution is\n   &#39;</span><span class="p">,</span><span class="nf">mean</span><span class="p">(</span><span class="n">num_success</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram of Binomial: n = 100, p =0.25&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">     </span><span class="c1"># Add vertical line at 5th percentile</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upper</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1"># Add vertical line at 95th percentile   </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
+    25.012
+</pre></div>
+</div>
+<img alt="_images/3b0375953171c2cbe835fc5ba5950b035b4a36158fd8b81ff6de054c55a69702.png" src="_images/3b0375953171c2cbe835fc5ba5950b035b4a36158fd8b81ff6de054c55a69702.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num_success</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span><span class="w">     </span><span class="c1"># create a vector to store the number of successes for each sample drawn</span>
+<span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="w">       </span><span class="c1"># set the number of samples to be drawn</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
+<span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">200</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="w">     </span><span class="c1"># draw 200 candies, count numer of red</span>
+<span class="w">    </span><span class="n">num_success</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">temp</span><span class="w">     </span><span class="c1"># count and store the number of red candies from this trial</span>
+<span class="p">}</span>
+
+<span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
+<span class="n">upper</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 95th percentile.</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the simulated distribution is\n   &#39;</span><span class="p">,</span><span class="nf">mean</span><span class="p">(</span><span class="n">num_success</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram of Binomial: n = 200, p =0.25&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">     </span><span class="c1"># Add vertical line at 5th percentile</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upper</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1"># Add vertical line at 95th percentile </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
+    49.911
+</pre></div>
+</div>
+<img alt="_images/6bdcca60a2f453792db547249ab098de5a94f418a1d28c4fbdeda65fef07cbcd.png" src="_images/6bdcca60a2f453792db547249ab098de5a94f418a1d28c4fbdeda65fef07cbcd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num_success</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span><span class="w">     </span><span class="c1"># create a vector to store the number of successes for each sample drawn</span>
+<span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="w">       </span><span class="c1"># set the number of samples to be drawn</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
+<span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span><span class="w">     </span><span class="c1"># draw 500 candies, count numer of red</span>
+<span class="w">    </span><span class="n">num_success</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">temp</span><span class="w">     </span><span class="c1"># count and store the number of red candies from this trial</span>
+<span class="p">}</span>
+
+<span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
+<span class="n">upper</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.95</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 95th percentile.</span>
+<span class="nf">cat</span><span class="p">(</span><span class="s">&#39;The mean of the simulated distribution is\n   &#39;</span><span class="p">,</span><span class="nf">mean</span><span class="p">(</span><span class="n">num_success</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<span class="nf">hist</span><span class="p">(</span><span class="n">num_success</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;Histogram of Binomial: n = 500, p =0.25&#39;</span><span class="p">)</span>
+<span class="nf">abline</span><span class="p">(</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lower</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">     </span><span class="c1"># Add vertical line at 5th percentile</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">upper</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span><span class="w">      </span><span class="c1"># Add vertical line at 95th percentile </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
+    124.395
+</pre></div>
+</div>
+<img alt="_images/92256025d179c87dba9913bbe7a3c851f1479539ad6c806d8ffd53b5e85a841c.png" src="_images/92256025d179c87dba9913bbe7a3c851f1479539ad6c806d8ffd53b5e85a841c.png" />
+</div>
+</div>
+</section>
 </section>
 <section id="example-estimating-narcissism">
 <h2>Example: Estimating Narcissism<a class="headerlink" href="#example-estimating-narcissism" title="Permalink to this heading">#</a></h2>
 <p>Let’s work with an example from the <strong>personality</strong> data set: narcissism. Let’s generate many, many samples of the same size. We’ll find the averages from each sample and use them to estimate the average level of narcissism for students at UNG.</p>
 <section id="first-step-generating-samples-of-size-n-10">
 <h3>First Step: Generating Samples of Size <span class="math notranslate nohighlight">\(n=10\)</span><a class="headerlink" href="#first-step-generating-samples-of-size-n-10" title="Permalink to this heading">#</a></h3>
-<p>Let’s beging with the R commands necessary to sample the <strong>Narc</strong> column in the <em>personality</em> data frame. We will use the</p>
+<p>Let’s begin with the R commands necessary to sample the <strong>Narc</strong> column in the <em>personality</em> data frame. We will use the</p>
 <center><font color="red"><b>sample.data.frame()</b></font></center>
-<p>function to draw a sample.</p>
-<p><strong>Run the cell below to see how this works, and notice:</strong></p>
+<p>function to draw a sample. We first need to load the function.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample.data.frame</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shuffled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(),</span>
+<span class="w">                              </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">missing</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">is.null</span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="o">&gt;</span><span class="m">50</span><span class="w"> </span>
+<span class="w">  </span><span class="n">shuffled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="w">  </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">intersect</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span>
+<span class="w">  </span><span class="n">groups</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="w"> </span><span class="nf">substitute</span><span class="p">(</span><span class="n">groups</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
+<span class="w">  </span><span class="n">origids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="n">newids</span><span class="p">]</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">origids</span><span class="p">)</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">[</span><span class="n">newids</span><span class="p">])</span>
+<span class="w">    </span><span class="n">result</span><span class="p">[,</span><span class="n">column</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">cids</span><span class="p">,</span><span class="n">column</span><span class="p">]</span>
+<span class="w">    </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">idsString</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cids</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="n">result</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="n">shuffled</span><span class="p">),</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">orig.ids</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="o">$</span><span class="n">orig.id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">idsString</span>
+<span class="w">    </span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span><span class="nf">return</span><span class="p">(</span><span class="n">result</span><span class="p">)}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><span style = 'color:blue;font-weight:bold'>Run the cell below to see how this works, and notice:</span></p>
 <ul class="simple">
 <li><p>The function inputs:</p></li>
 </ul>
@@ -717,11 +873,22 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">):</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">function</span> <span class="s2">&quot;sample.data.frame&quot;</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
+<tbody>
+	<tr><th scope=row>35</th><td>22  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>2.61</td><td>... </td><td>122 </td><td>17  </td><td>120 </td><td> 8  </td><td>6   </td><td>31  </td><td>31  </td><td>39  </td><td>33  </td><td>AG  </td></tr>
+	<tr><th scope=row>10</th><td>20  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.22</td><td>... </td><td>117 </td><td>16  </td><td>136 </td><td> 5  </td><td>9   </td><td>34  </td><td>32  </td><td>32  </td><td>32  </td><td>AG  </td></tr>
+	<tr><th scope=row>80</th><td>19  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>118 </td><td> 3  </td><td>121 </td><td> 8  </td><td>4   </td><td>34  </td><td>36  </td><td>30  </td><td>33  </td><td>SD  </td></tr>
+	<tr><th scope=row>15</th><td>24  </td><td>2   </td><td>F   </td><td>Y   </td><td>Y   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.05</td><td>... </td><td>107 </td><td>14  </td><td>108 </td><td> 9  </td><td>8   </td><td>31  </td><td>32  </td><td>33  </td><td>32  </td><td>AG  </td></tr>
+	<tr><th scope=row>79</th><td>19  </td><td>2   </td><td>M   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>2.60</td><td>... </td><td>113 </td><td> 7  </td><td>116 </td><td> 9  </td><td>4   </td><td>40  </td><td>25  </td><td>33  </td><td>31  </td><td>AG  </td></tr>
+	<tr><th scope=row>122</th><td>25  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>3.86</td><td>... </td><td> 92 </td><td> 7  </td><td>156 </td><td>10  </td><td>1   </td><td>51  </td><td>37  </td><td>20  </td><td>14  </td><td>AF  </td></tr>
+	<tr><th scope=row>27</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>N   </td><td>2.50</td><td>... </td><td> 89 </td><td>11  </td><td>136 </td><td>15  </td><td>7   </td><td>47  </td><td>45  </td><td>40  </td><td>47  </td><td>SD  </td></tr>
+	<tr><th scope=row>69</th><td>20  </td><td>4   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.95</td><td>... </td><td> 99 </td><td>12  </td><td>136 </td><td> 3  </td><td>4   </td><td>54  </td><td>41  </td><td>44  </td><td>44  </td><td>AG  </td></tr>
+	<tr><th scope=row>108</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.35</td><td>... </td><td> 95 </td><td> 4  </td><td>136 </td><td>10  </td><td>2   </td><td>49  </td><td>40  </td><td>14  </td><td>10  </td><td>AF  </td></tr>
+	<tr><th scope=row>29</th><td>21  </td><td>3   </td><td>M   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.40</td><td>... </td><td>110 </td><td> 8  </td><td>112 </td><td>13  </td><td>7   </td><td>48  </td><td>34  </td><td>43  </td><td>40  </td><td>AG  </td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
 <p>We can find the average narcissism for these 10 persons by subsetting our sample data frame <strong>s</strong>.</p>
 <div class="cell docutils container">
@@ -731,13 +898,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">]):</span> <span class="nb">object</span> <span class="s1">&#39;s&#39;</span> <span class="ow">not</span> <span class="n">found</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
+<div class="output text_html">5.2</div></div>
 </div>
 <p><strong>Putting it Together.</strong> Eventually, we want to run a loop that does this a thousand or more times. Thus, we prefer a single line of code that will do it for us all at once. We wrap the <em>sample.data.frame()</em> function inside the <em>mean</em> function as shown below.</p>
 <p><strong>Run the code below multiple times to see how we’re sampling plus finding the average Narcissism level for each.</strong></p>
@@ -748,13 +909,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">):</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">function</span> <span class="s2">&quot;sample.data.frame&quot;</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">)[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
+<div class="output text_html">5.7</div></div>
 </div>
 </section>
 <section id="step-2-creating-a-for-loop">
@@ -780,12 +935,6 @@ attr(,&quot;class&quot;)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">):</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">function</span> <span class="s2">&quot;sample.data.frame&quot;</span>
-<span class="ne">Traceback</span>:
-</pre></div>
-</div>
-</div>
 </div>
 <p>Notice that we now have a vector <strong>all_means</strong>, so we display the distribution in a histogram and caculate various statistics.</p>
 <div class="cell docutils container">
@@ -796,18 +945,11 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length  Class   Mode 
-     0   NULL   NULL 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.900   4.100   4.700   4.705   5.200   7.200 
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">):</span> <span class="s1">&#39;x&#39;</span> <span class="n">must</span> <span class="n">be</span> <span class="n">numeric</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">hist</span><span class="p">(</span><span class="n">all_means</span><span class="p">)</span>
-<span class="mi">2</span><span class="o">.</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">)</span>
-<span class="mi">3</span><span class="o">.</span> <span class="n">stop</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; must be numeric&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<img alt="_images/99f2c8130e48fd19126f15c64b4d7d77af5b2e952b3b658c36ffc4b6db020f76.png" src="_images/99f2c8130e48fd19126f15c64b4d7d77af5b2e952b3b658c36ffc4b6db020f76.png" />
 </div>
 </div>
 </section>
@@ -823,7 +965,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( NA , NA ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( 3.4 , 6.1 ).
 </pre></div>
 </div>
 </div>
@@ -843,18 +985,11 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: NA 
-The middle 90% of the sampling distribution: is ( NA , NA ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8364123 
+The middle 90% of the sampling distribution: is ( 3.4 , 6.1 ).
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">):</span> <span class="s1">&#39;x&#39;</span> <span class="n">must</span> <span class="n">be</span> <span class="n">numeric</span>
-<span class="ne">Traceback</span>:
-
-<span class="mi">1</span><span class="o">.</span> <span class="n">hist</span><span class="p">(</span><span class="n">all_means</span><span class="p">)</span>
-<span class="mi">2</span><span class="o">.</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">)</span>
-<span class="mi">3</span><span class="o">.</span> <span class="n">stop</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; must be numeric&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
+<img alt="_images/e7a73a003c05122fbae7679315ae066e9ba889a0d8e14c1b574a0fbfe85b3eb8.png" src="_images/e7a73a003c05122fbae7679315ae066e9ba889a0d8e14c1b574a0fbfe85b3eb8.png" />
 </div>
 </div>
 </section>
@@ -882,10 +1017,11 @@ The middle 90% of the sampling distribution: is ( NA , NA ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">):</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">function</span> <span class="s2">&quot;sample.data.frame&quot;</span>
-<span class="ne">Traceback</span>:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8182091 
+The middle 90% of sampling distribution: ( 3.4 , 6.005 ).
 </pre></div>
 </div>
+<img alt="_images/30050e70e180ff0d511b140325ed10a7d2900c166070cd3da3dc7e1a938e8f12.png" src="_images/30050e70e180ff0d511b140325ed10a7d2900c166070cd3da3dc7e1a938e8f12.png" />
 </div>
 </div>
 </section>
@@ -962,7 +1098,11 @@ The middle 90% of the sampling distribution: is ( NA , NA ).
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-large-numbers">Law of Large Numbers</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#central-limit-theorem">Central Limit Theorem</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-m-m-s">Example 1: M&amp;M’s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-m-m-s">Example 1: M&amp;M’s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">Expected Value</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-estimating-narcissism">Example: Estimating Narcissism</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-step-generating-samples-of-size-n-10">First Step: Generating Samples of Size <span class="math notranslate nohighlight">\(n=10\)</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-creating-a-for-loop">Step 2: Creating a for Loop</a></li>
