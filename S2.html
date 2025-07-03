@@ -531,7 +531,7 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">united</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/united.csv&#39;</span><span class="p">)</span>
-<span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
+<span class="n">pers</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/personality.csv&#39;</span><span class="p">)</span>
 <span class="n">airports</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/airports.csv&#39;</span><span class="p">)</span>
 <span class="n">births</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;http://faculty.ung.edu/rsinn/data/baby.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -546,7 +546,7 @@ document.write(`
 <li><p><strong>sample.data.frame</strong> – draw a random sample of rows from a given data frame.</p></li>
 </ol>
 <p>The code for these functions has been adapted from the documentation of the classic <em>mosaic</em> package which is still available in R given that you have the correct versioning for R and all mosaic’s required dependencies.</p>
-<p><strong>Run the cell below to activate the function:</strong></p>
+<p><strong>Run the cell below to activate the rflip() function:</strong></p>
 <p><font color="green"><center><b>rflip</b></center></font></p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -596,13 +596,13 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 6
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
 attr(,&quot;n&quot;)
 [1] 20
 attr(,&quot;prob&quot;)
 [1] 0.25
 attr(,&quot;sequence&quot;)
- [1] &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot;
+ [1] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
 [20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
 [1] TRUE
@@ -643,7 +643,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">13</div></div>
+<div class="output text_html">6</div></div>
 </div>
 </section>
 <section id="for-loops">
@@ -675,10 +675,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    12.695
+    12.43
 </pre></div>
 </div>
-<img alt="_images/899804af697fd92b71442f2c20c93d133cc3e5ffa46a35b8f80857f585f8cf2c.png" src="_images/899804af697fd92b71442f2c20c93d133cc3e5ffa46a35b8f80857f585f8cf2c.png" />
+<img alt="_images/9539695fdeca447e8894e170cff638da29e95e2f0bec1e86ac1f8454b3782894.png" src="_images/9539695fdeca447e8894e170cff638da29e95e2f0bec1e86ac1f8454b3782894.png" />
 </div>
 </div>
 <section id="expected-value">
@@ -746,10 +746,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    24.932
+    24.953
 </pre></div>
 </div>
-<img alt="_images/05ec90158d16e34dc4adc9470fa592577a12f71106726b4d3c5ccbbdf1c7ba05.png" src="_images/05ec90158d16e34dc4adc9470fa592577a12f71106726b4d3c5ccbbdf1c7ba05.png" />
+<img alt="_images/c65b109cbc22b956bd0c9da44bce25f3bde4eda67c378732d7d2143cf9f7a906.png" src="_images/c65b109cbc22b956bd0c9da44bce25f3bde4eda67c378732d7d2143cf9f7a906.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -773,10 +773,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    49.95
+    49.837
 </pre></div>
 </div>
-<img alt="_images/743c9a65af84bb23d0160a526274d4419e666abbf77bf1196473fcf2f9f7df01.png" src="_images/743c9a65af84bb23d0160a526274d4419e666abbf77bf1196473fcf2f9f7df01.png" />
+<img alt="_images/4a779d3796e684b169a6505188e823b72223714c3aef7fdf8462274653a3fe84.png" src="_images/4a779d3796e684b169a6505188e823b72223714c3aef7fdf8462274653a3fe84.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -800,10 +800,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    124.738
+    124.774
 </pre></div>
 </div>
-<img alt="_images/8757b8b0bce29323f5dd63832672e25ed253ce48b9029a76b176bdcbf1673bfa.png" src="_images/8757b8b0bce29323f5dd63832672e25ed253ce48b9029a76b176bdcbf1673bfa.png" />
+<img alt="_images/5739d98fce52678a18342862e7d38665884606fbd11e11844d722793bd0d67c4.png" src="_images/5739d98fce52678a18342862e7d38665884606fbd11e11844d722793bd0d67c4.png" />
 </div>
 </div>
 </section>
@@ -874,22 +874,15 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
-<tbody>
-	<tr><th scope=row>36</th><td>20  </td><td>2   </td><td>M   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.70</td><td>... </td><td>121 </td><td>15  </td><td>133 </td><td> 9  </td><td>6   </td><td>28  </td><td>38  </td><td>32  </td><td>37  </td><td>SD  </td></tr>
-	<tr><th scope=row>26</th><td>20  </td><td>4   </td><td>F   </td><td>N   </td><td>Y   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.10</td><td>... </td><td> 96 </td><td>11  </td><td>154 </td><td>18  </td><td>7   </td><td>44  </td><td>36  </td><td>28  </td><td>38  </td><td>SD  </td></tr>
-	<tr><th scope=row>46</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td>115 </td><td> 7  </td><td>174 </td><td>13  </td><td>6   </td><td>51  </td><td>39  </td><td>25  </td><td>18  </td><td>AF  </td></tr>
-	<tr><th scope=row>78</th><td>21  </td><td>4   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.18</td><td>... </td><td>110 </td><td> 7  </td><td>120 </td><td> 5  </td><td>4   </td><td>28  </td><td>36  </td><td>27  </td><td>34  </td><td>SD  </td></tr>
-	<tr><th scope=row>56</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>107 </td><td>10  </td><td>164 </td><td>14  </td><td>5   </td><td>50  </td><td>36  </td><td>26  </td><td>28  </td><td>AF  </td></tr>
-	<tr><th scope=row>70</th><td>22  </td><td>4   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.78</td><td>... </td><td>112 </td><td>11  </td><td>117 </td><td> 4  </td><td>4   </td><td>43  </td><td>37  </td><td>28  </td><td>34  </td><td>SD  </td></tr>
-	<tr><th scope=row>62</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.40</td><td>... </td><td> 91 </td><td> 5  </td><td>130 </td><td>13  </td><td>5   </td><td>44  </td><td>33  </td><td>31  </td><td>27  </td><td>AG  </td></tr>
-	<tr><th scope=row>9</th><td>22  </td><td>2   </td><td>F   </td><td>Y   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td>119 </td><td>16  </td><td>141 </td><td>10  </td><td>9   </td><td>52  </td><td>47  </td><td>32  </td><td>26  </td><td>SE  </td></tr>
-	<tr><th scope=row>113</th><td>22  </td><td>2   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.49</td><td>... </td><td>121 </td><td>11  </td><td>141 </td><td> 9  </td><td>1   </td><td>44  </td><td>38  </td><td>23  </td><td>31  </td><td>SD  </td></tr>
-	<tr><th scope=row>73</th><td>20  </td><td>3   </td><td>M   </td><td>N   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>109 </td><td> 8  </td><td>143 </td><td>15  </td><td>4   </td><td>51  </td><td>43  </td><td>36  </td><td>23  </td><td>AG  </td></tr>
-</tbody>
-</table>
-</div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;p&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   <span class="c1"># at line 6 of file &lt;text&gt;</span>
+<span class="mi">3</span><span class="o">.</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can find the average narcissism for these 10 persons by subsetting our sample data frame <strong>s</strong>.</p>
 <div class="cell docutils container">
@@ -899,7 +892,13 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">5.1</div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">]):</span> <span class="nb">object</span> <span class="s1">&#39;s&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">mean</span><span class="p">(</span><span class="n">s</span><span class="p">[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>Putting it Together.</strong> Eventually, we want to run a loop that does this a thousand or more times. Thus, we prefer a single line of code that will do it for us all at once. We wrap the <em>sample.data.frame()</em> function inside the <em>mean</em> function as shown below.</p>
 <p><strong>Run the code below multiple times to see how we’re sampling plus finding the average Narcissism level for each.</strong></p>
@@ -910,7 +909,16 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">3.8</div></div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;p&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">)[,</span> <span class="s2">&quot;Narc&quot;</span><span class="p">])</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">.</span> <span class="n">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   <span class="c1"># at line 6 of file &lt;text&gt;</span>
+<span class="mi">4</span><span class="o">.</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="step-2-creating-a-for-loop">
@@ -936,6 +944,16 @@ attr(,&quot;class&quot;)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;p&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   <span class="c1"># at line 6 of file &lt;text&gt;</span>
+<span class="mi">3</span><span class="o">.</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Notice that we now have a vector <strong>all_means</strong>, so we display the distribution in a histogram and caculate various statistics.</p>
 <div class="cell docutils container">
@@ -946,11 +964,18 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  1.800   4.200   4.700   4.746   5.300   7.600 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Length  Class   Mode 
+     0   NULL   NULL 
 </pre></div>
 </div>
-<img alt="_images/522c98105f107017ace0a2e5fc3bc0da803cb97b671ea0a16e71660d462b255b.png" src="_images/522c98105f107017ace0a2e5fc3bc0da803cb97b671ea0a16e71660d462b255b.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">):</span> <span class="s1">&#39;x&#39;</span> <span class="n">must</span> <span class="n">be</span> <span class="n">numeric</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">hist</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">.</span> <span class="n">stop</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; must be numeric&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -966,7 +991,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( 3.4 , 6.2 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( NA , NA ).
 </pre></div>
 </div>
 </div>
@@ -986,11 +1011,18 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8208265 
-The middle 90% of the sampling distribution: is ( 3.4 , 6.2 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: NA 
+The middle 90% of the sampling distribution: is ( NA , NA ).
 </pre></div>
 </div>
-<img alt="_images/22a6a5315c4e4d127772b043cea60f8c756dd85c3382a703b8ccd8c10e3c6765.png" src="_images/22a6a5315c4e4d127772b043cea60f8c756dd85c3382a703b8ccd8c10e3c6765.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">):</span> <span class="s1">&#39;x&#39;</span> <span class="n">must</span> <span class="n">be</span> <span class="n">numeric</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">hist</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">hist</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">all_means</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s2">&quot;Histogram: Narcissism&quot;</span><span class="p">,</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s2">&quot;Narc&quot;</span><span class="p">)</span>
+<span class="mi">3</span><span class="o">.</span> <span class="n">stop</span><span class="p">(</span><span class="s2">&quot;&#39;x&#39; must be numeric&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1018,11 +1050,14 @@ The middle 90% of the sampling distribution: is ( 3.4 , 6.2 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8182159 
-The middle 90% of sampling distribution: ( 3.4 , 6.1 ).
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">):</span> <span class="nb">object</span> <span class="s1">&#39;p&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+<span class="ne">Traceback</span>:
+
+<span class="mi">1</span><span class="o">.</span> <span class="n">sample</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">orig</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+<span class="mi">2</span><span class="o">.</span> <span class="n">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>   <span class="c1"># at line 6 of file &lt;text&gt;</span>
+<span class="mi">3</span><span class="o">.</span> <span class="k">as</span><span class="o">.</span><span class="n">vector</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="_images/44fcd6d1ee30fba95dbad6d67fc8caca6f5c721d1ed7c164d898aab9f4e59ddd.png" src="_images/44fcd6d1ee30fba95dbad6d67fc8caca6f5c721d1ed7c164d898aab9f4e59ddd.png" />
 </div>
 </div>
 </section>

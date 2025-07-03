@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Grid of Graphics" href="A2d.html" />
-    <link rel="prev" title="Subsetting a Data Frame" href="A2f.html" />
+    <link rel="prev" title="Subsetting a Data Frame" href="A2b.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -222,9 +222,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="S1.html">Exploratory Data Analysis: Tools and Ideas</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S1a.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S1b.html">Worked Examples for EDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S1c.html">EDA with 2 Variables</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions, the Central Limit Theorem and the Law of Large Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions and the Central Limit Theorem</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
 </ul>
@@ -256,10 +257,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2f.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2g.html">For Loops in R</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="A3.html">Statistics Formula Sheet</a></li>
@@ -444,11 +446,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-soda">Example: Soda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-3-vectors">Creating 3 Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-grouping-variable">Creating a Grouping Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-data-frame">Creating the Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-example">Completing the Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-soda">Example: Soda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-3-vectors">Creating 3 Vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-grouping-variable">Creating a Grouping Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-data-frame">Creating the Data Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-example">Completing the Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-deck-of-cards-data-frame">Example 2: Deck of Cards Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-from-deck-using-sample">Draw from Deck using sample()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-from-deck-using-sample-data-frame">Draw from Deck using sample.data.frame()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-a-5-card-poker-hand">Draw a 5-Card Poker Hand</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-13-card-hand-count-number-of-hearts">Draw 13-Card Hand, Count Number of Hearts</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -478,9 +489,8 @@ document.write(`
   <tr><td style="text-align: center;">9</td><td style="text-align: center;">18</td><td style="text-align: center;">11</td></tr>
   <tr><td style="text-align: center;">12</td><td style="text-align: center;">4</td><td style="text-align: center;">14</td></tr>
   <tr><td style="text-align: center;">16</td><td style="text-align: center;">11</td><td style="text-align: center;">11</td></tr>
-</table></section>
-<section id="creating-3-vectors">
-<h2>Creating 3 Vectors<a class="headerlink" href="#creating-3-vectors" title="Permalink to this heading">#</a></h2>
+</table><section id="creating-3-vectors">
+<h3>Creating 3 Vectors<a class="headerlink" href="#creating-3-vectors" title="Permalink to this heading">#</a></h3>
 <p>First, let’s enter each column in the table above as a vector.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -495,7 +505,7 @@ document.write(`
 <p>The last line above combines the 3 vectors into a single numeric vector that will become the first column of our data frame.</p>
 </section>
 <section id="creating-a-grouping-variable">
-<h2>Creating a Grouping Variable<a class="headerlink" href="#creating-a-grouping-variable" title="Permalink to this heading">#</a></h2>
+<h3>Creating a Grouping Variable<a class="headerlink" href="#creating-a-grouping-variable" title="Permalink to this heading">#</a></h3>
 <p>The next job is to create a single text vector that assigns each rating value to a sweetener group. We thus need 10 A’s, 10 B’s and 10 C’s in that order, and we must use quotation marks so R will understand they are group ID’s.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -506,7 +516,7 @@ document.write(`
 </div>
 </section>
 <section id="creating-the-data-frame">
-<h2>Creating the Data Frame<a class="headerlink" href="#creating-the-data-frame" title="Permalink to this heading">#</a></h2>
+<h3>Creating the Data Frame<a class="headerlink" href="#creating-the-data-frame" title="Permalink to this heading">#</a></h3>
 <p>The <strong>data.frame()</strong> function is straightforward to use.</p>
 <p>The <strong>factor()</strong> allows us to specify a vector should be treated as a category variable and used (in this case) as a group ID. We can even use numbers to specify the group assignments as the function <em>factor()</em> will read the values in this vector as group ID’s.</p>
 <div class="cell docutils container">
@@ -537,7 +547,7 @@ document.write(`
 </div>
 </section>
 <section id="completing-the-example">
-<h2>Completing the Example<a class="headerlink" href="#completing-the-example" title="Permalink to this heading">#</a></h2>
+<h3>Completing the Example<a class="headerlink" href="#completing-the-example" title="Permalink to this heading">#</a></h3>
 <p>As can be seen above, the data frame we created called <strong>df</strong> does have the proper values identified with the proper groups. Below, we run the ANOVA on these data to verify the data frame has been loaded properly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -556,6 +566,212 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="example-2-deck-of-cards-data-frame">
+<h2>Example 2: Deck of Cards Data Frame<a class="headerlink" href="#example-2-deck-of-cards-data-frame" title="Permalink to this heading">#</a></h2>
+<p>Let’s create a deck of cards with values <span class="math notranslate nohighlight">\(2,3,\cdots,14\)</span> in four suits: S, H, D, C. Using the function <strong>rep()</strong>, we can create two columns for the eventual data frame:</p>
+<ol class="arabic simple">
+<li><p><strong>values</strong> 2:14 repeated 4 times.</p></li>
+<li><p><strong>suits</strong> with each letter repeated 13 times.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">14</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+<span class="n">suits</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#39;S&#39;</span><span class="p">,</span><span class="m">13</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&#39;H&#39;</span><span class="p">,</span><span class="m">13</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&#39;D&#39;</span><span class="p">,</span><span class="m">13</span><span class="p">),</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="s">&#39;C&#39;</span><span class="p">,</span><span class="m">13</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We join the two columns created above into a data frame with a numeric variable (values) and a grouping variable (suits).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">deck_df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">suits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">factor</span><span class="p">(</span><span class="n">suits</span><span class="p">))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">deck_df</span><span class="p">,</span><span class="m">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th scope=col>v</th><th scope=col>suits</th></tr></thead>
+<tbody>
+	<tr><td> 2</td><td>S </td></tr>
+	<tr><td> 3</td><td>S </td></tr>
+	<tr><td> 4</td><td>S </td></tr>
+	<tr><td> 5</td><td>S </td></tr>
+	<tr><td> 6</td><td>S </td></tr>
+	<tr><td> 7</td><td>S </td></tr>
+	<tr><td> 8</td><td>S </td></tr>
+	<tr><td> 9</td><td>S </td></tr>
+	<tr><td>10</td><td>S </td></tr>
+	<tr><td>11</td><td>S </td></tr>
+	<tr><td>12</td><td>S </td></tr>
+	<tr><td>13</td><td>S </td></tr>
+	<tr><td>14</td><td>S </td></tr>
+	<tr><td> 2</td><td>H </td></tr>
+	<tr><td> 3</td><td>H </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We have a deck of cards as a data frame, and we can draw cards with the <strong>sample()</strong> function or the <strong>sample.data.frame()</strong> function.</p>
+<section id="draw-from-deck-using-sample">
+<h3>Draw from Deck using sample()<a class="headerlink" href="#draw-from-deck-using-sample" title="Permalink to this heading">#</a></h3>
+<p>Notice that we are accounting for which suit is drawn, not the values drawn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">deck_df</span><span class="o">$</span><span class="n">suits</span><span class="p">,</span><span class="w"> </span><span class="m">13</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w">  </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;H&#39;</span><span class="w"> </span><span class="p">)</span>
+<span class="n">x</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2</div><div class="output text_html"><ol class=list-inline>
+	<li>C</li>
+	<li>H</li>
+	<li>S</li>
+	<li>C</li>
+	<li>D</li>
+	<li>H</li>
+	<li>S</li>
+	<li>C</li>
+	<li>S</li>
+	<li>C</li>
+	<li>S</li>
+	<li>S</li>
+	<li>S</li>
+</ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<ol class=list-inline>
+		<li>'C'</li>
+		<li>'D'</li>
+		<li>'H'</li>
+		<li>'S'</li>
+	</ol>
+</details></div></div>
+</div>
+</section>
+<section id="draw-from-deck-using-sample-data-frame">
+<h3>Draw from Deck using sample.data.frame()<a class="headerlink" href="#draw-from-deck-using-sample-data-frame" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sample.data.frame</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="n">orig.ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">fixed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shuffled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(),</span>
+<span class="w">                              </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">missing</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">if</span><span class="p">(</span><span class="w"> </span><span class="nf">is.null</span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">invisibly.return</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="o">&gt;</span><span class="m">50</span><span class="w"> </span>
+<span class="w">  </span><span class="n">shuffled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">intersect</span><span class="p">(</span><span class="n">shuffled</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="w">  </span><span class="n">fixed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">intersect</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span>
+<span class="w">  </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">nrow</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="n">ids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n</span>
+<span class="w">  </span><span class="n">groups</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="w"> </span><span class="nf">substitute</span><span class="p">(</span><span class="n">groups</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="n">newids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="o">=</span><span class="n">prob</span><span class="p">,</span><span class="w"> </span><span class="kc">...</span><span class="p">)</span>
+<span class="w">  </span><span class="n">origids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="n">newids</span><span class="p">]</span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">origids</span><span class="p">)</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nf">for </span><span class="p">(</span><span class="n">column</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">shuffled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">cids</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample</span><span class="p">(</span><span class="n">newids</span><span class="p">,</span><span class="w"> </span><span class="n">groups</span><span class="o">=</span><span class="n">groups</span><span class="p">[</span><span class="n">newids</span><span class="p">])</span>
+<span class="w">    </span><span class="n">result</span><span class="p">[,</span><span class="n">column</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">cids</span><span class="p">,</span><span class="n">column</span><span class="p">]</span>
+<span class="w">    </span><span class="n">idsString</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="n">idsString</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cids</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">result</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="n">result</span><span class="p">[</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nf">union</span><span class="p">(</span><span class="n">fixed</span><span class="p">,</span><span class="n">shuffled</span><span class="p">),</span><span class="w"> </span><span class="n">drop</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">]</span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">orig.ids</span><span class="p">)</span><span class="w"> </span><span class="n">result</span><span class="o">$</span><span class="n">orig.id</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">idsString</span>
+<span class="w">  </span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nf">if </span><span class="p">(</span><span class="n">invisibly.return</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">return</span><span class="p">(</span><span class="nf">invisible</span><span class="p">(</span><span class="n">result</span><span class="p">))</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">else</span><span class="w"> </span><span class="p">{</span><span class="nf">return</span><span class="p">(</span><span class="n">result</span><span class="p">)}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="draw-a-5-card-poker-hand">
+<h3>Draw a 5-Card Poker Hand<a class="headerlink" href="#draw-a-5-card-poker-hand" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">deck_df</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">orig.id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<thead><tr><th></th><th scope=col>v</th><th scope=col>suits</th></tr></thead>
+<tbody>
+	<tr><th scope=row>29</th><td> 4</td><td>D </td></tr>
+	<tr><th scope=row>23</th><td>11</td><td>H </td></tr>
+	<tr><th scope=row>13</th><td>14</td><td>S </td></tr>
+	<tr><th scope=row>10</th><td>11</td><td>S </td></tr>
+	<tr><th scope=row>25</th><td>13</td><td>H </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s count the number of Hearts in the hand.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2</div></div>
+</div>
+</section>
+<section id="draw-13-card-hand-count-number-of-hearts">
+<h3>Draw 13-Card Hand, Count Number of Hearts<a class="headerlink" href="#draw-13-card-hand-count-number-of-hearts" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sample.data.frame</span><span class="p">(</span><span class="n">deck_df</span><span class="p">,</span><span class="w"> </span><span class="m">13</span><span class="p">,</span><span class="w"> </span><span class="n">orig.id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span>
+<span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&#39;H&#39;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[,</span><span class="m">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2</div><div class="output text_html"><ol class=list-inline>
+	<li>S</li>
+	<li>D</li>
+	<li>D</li>
+	<li>S</li>
+	<li>D</li>
+	<li>C</li>
+	<li>C</li>
+	<li>C</li>
+	<li>H</li>
+	<li>C</li>
+	<li>H</li>
+	<li>C</li>
+	<li>C</li>
+</ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<ol class=list-inline>
+		<li>'C'</li>
+		<li>'D'</li>
+		<li>'H'</li>
+		<li>'S'</li>
+	</ol>
+</details></div></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -590,7 +806,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="A2f.html"
+       href="A2b.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -622,11 +838,20 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-soda">Example: Soda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-3-vectors">Creating 3 Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-grouping-variable">Creating a Grouping Variable</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-data-frame">Creating the Data Frame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-example">Completing the Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-soda">Example: Soda</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-3-vectors">Creating 3 Vectors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-grouping-variable">Creating a Grouping Variable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-data-frame">Creating the Data Frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completing-the-example">Completing the Example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-deck-of-cards-data-frame">Example 2: Deck of Cards Data Frame</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-from-deck-using-sample">Draw from Deck using sample()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-from-deck-using-sample-data-frame">Draw from Deck using sample.data.frame()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-a-5-card-poker-hand">Draw a 5-Card Poker Hand</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draw-13-card-hand-count-number-of-hearts">Draw 13-Card Hand, Count Number of Hearts</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
