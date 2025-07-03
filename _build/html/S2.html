@@ -228,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Sampling Distributions and the Central Limit Theorem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling the Hypergeometric Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2c.html">Sampling with Negative Binomial Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -596,13 +597,13 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 4
 attr(,&quot;n&quot;)
 [1] 20
 attr(,&quot;prob&quot;)
 [1] 0.25
 attr(,&quot;sequence&quot;)
- [1] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
+ [1] &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot;
 [20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
 [1] TRUE
@@ -643,7 +644,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">6</div></div>
+<div class="output text_html">3</div></div>
 </div>
 </section>
 <section id="for-loops">
@@ -675,10 +676,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    12.43
+    12.425
 </pre></div>
 </div>
-<img alt="_images/9539695fdeca447e8894e170cff638da29e95e2f0bec1e86ac1f8454b3782894.png" src="_images/9539695fdeca447e8894e170cff638da29e95e2f0bec1e86ac1f8454b3782894.png" />
+<img alt="_images/c4d4bf0aa2da26f5bc2952e1d5bd958008911d31b542eeaead3d4cf5674526bc.png" src="_images/c4d4bf0aa2da26f5bc2952e1d5bd958008911d31b542eeaead3d4cf5674526bc.png" />
 </div>
 </div>
 <section id="expected-value">
@@ -746,10 +747,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    24.953
+    24.854
 </pre></div>
 </div>
-<img alt="_images/c65b109cbc22b956bd0c9da44bce25f3bde4eda67c378732d7d2143cf9f7a906.png" src="_images/c65b109cbc22b956bd0c9da44bce25f3bde4eda67c378732d7d2143cf9f7a906.png" />
+<img alt="_images/aa1a1e35cd101825eaac1f524fe0b1232feae0b7a33cc63ca1dcc577a38e6c0e.png" src="_images/aa1a1e35cd101825eaac1f524fe0b1232feae0b7a33cc63ca1dcc577a38e6c0e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -773,10 +774,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    49.837
+    49.967
 </pre></div>
 </div>
-<img alt="_images/4a779d3796e684b169a6505188e823b72223714c3aef7fdf8462274653a3fe84.png" src="_images/4a779d3796e684b169a6505188e823b72223714c3aef7fdf8462274653a3fe84.png" />
+<img alt="_images/ba98886b86606982a4ed41376e961737b40f4a70d531636b53ed806004c4e78f.png" src="_images/ba98886b86606982a4ed41376e961737b40f4a70d531636b53ed806004c4e78f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -800,10 +801,10 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the simulated distribution is
-    124.774
+    124.7
 </pre></div>
 </div>
-<img alt="_images/5739d98fce52678a18342862e7d38665884606fbd11e11844d722793bd0d67c4.png" src="_images/5739d98fce52678a18342862e7d38665884606fbd11e11844d722793bd0d67c4.png" />
+<img alt="_images/4adb71e312480a90075f778cdad19945d2aec83de78e9327ceabd65dc7bfe89b.png" src="_images/4adb71e312480a90075f778cdad19945d2aec83de78e9327ceabd65dc7bfe89b.png" />
 </div>
 </div>
 </section>
