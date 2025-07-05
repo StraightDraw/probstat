@@ -229,6 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The Central Limit Theorem and Estimation of the Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling the Hypergeometric Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2c.html">Sampling with Negative Binomial Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2d.html">Sampling with Geometric Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -555,16 +556,16 @@ document.write(`
 <div class="output text_html"><table>
 <thead><tr><th></th><th scope=col>Age</th><th scope=col>Yr</th><th scope=col>Sex</th><th scope=col>G21</th><th scope=col>Corps</th><th scope=col>Res</th><th scope=col>Greek</th><th scope=col>VarsAth</th><th scope=col>Honor</th><th scope=col>GPA</th><th scope=col>...</th><th scope=col>Perf</th><th scope=col>OCD</th><th scope=col>Play</th><th scope=col>Extro</th><th scope=col>Narc</th><th scope=col>HSAF</th><th scope=col>HSSE</th><th scope=col>HSAG</th><th scope=col>HSSD</th><th scope=col>PHS</th></tr></thead>
 <tbody>
-	<tr><th scope=row>36</th><td>20  </td><td>2   </td><td>M   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>Y   </td><td>3.70</td><td>... </td><td>121 </td><td>15  </td><td>133 </td><td> 9  </td><td>6   </td><td>28  </td><td>38  </td><td>32  </td><td>37  </td><td>SD  </td></tr>
-	<tr><th scope=row>80</th><td>19  </td><td>3   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>118 </td><td> 3  </td><td>121 </td><td> 8  </td><td>4   </td><td>34  </td><td>36  </td><td>30  </td><td>33  </td><td>SD  </td></tr>
-	<tr><th scope=row>56</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>107 </td><td>10  </td><td>164 </td><td>14  </td><td>5   </td><td>50  </td><td>36  </td><td>26  </td><td>28  </td><td>AF  </td></tr>
-	<tr><th scope=row>46</th><td>22  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.02</td><td>... </td><td>115 </td><td> 7  </td><td>174 </td><td>13  </td><td>6   </td><td>51  </td><td>39  </td><td>25  </td><td>18  </td><td>AF  </td></tr>
-	<tr><th scope=row>61</th><td>17  </td><td>1   </td><td>M   </td><td>N   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>3.72</td><td>... </td><td> 95 </td><td> 5  </td><td>130 </td><td>14  </td><td>5   </td><td>48  </td><td>47  </td><td>32  </td><td>24  </td><td>SE  </td></tr>
-	<tr><th scope=row>16</th><td>23  </td><td>4   </td><td>M   </td><td>Y   </td><td>Y   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.49</td><td>... </td><td>146 </td><td>13  </td><td>123 </td><td> 7  </td><td>8   </td><td>50  </td><td>44  </td><td>39  </td><td>25  </td><td>AG  </td></tr>
-	<tr><th scope=row>32</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.33</td><td>... </td><td>123 </td><td> 4  </td><td>133 </td><td>12  </td><td>7   </td><td>39  </td><td>32  </td><td>29  </td><td>29  </td><td>AG  </td></tr>
-	<tr><th scope=row>114</th><td>50  </td><td>4   </td><td>F   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.15</td><td>... </td><td>114 </td><td>11  </td><td>118 </td><td>13  </td><td>1   </td><td>24  </td><td>34  </td><td>15  </td><td>20  </td><td>SE  </td></tr>
-	<tr><th scope=row>94</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>Y   </td><td>3.31</td><td>... </td><td> 81 </td><td> 5  </td><td>158 </td><td>14  </td><td>3   </td><td>54  </td><td>55  </td><td>21  </td><td>23  </td><td>SE  </td></tr>
-	<tr><th scope=row>99</th><td>18  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.84</td><td>... </td><td>129 </td><td>13  </td><td>158 </td><td>13  </td><td>2   </td><td>49  </td><td>46  </td><td>34  </td><td>23  </td><td>SE  </td></tr>
+	<tr><th scope=row>50</th><td>21  </td><td>3   </td><td>F   </td><td>Y   </td><td>N   </td><td>2   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.43</td><td>... </td><td>133 </td><td> 6  </td><td>157 </td><td>13  </td><td>6   </td><td>49  </td><td>44  </td><td>31  </td><td>48  </td><td>SD  </td></tr>
+	<tr><th scope=row>111</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>2   </td><td>N   </td><td>N   </td><td>N   </td><td>3.19</td><td>... </td><td>112 </td><td>14  </td><td>141 </td><td> 2  </td><td>1   </td><td>36  </td><td>28  </td><td>34  </td><td>28  </td><td>AG  </td></tr>
+	<tr><th scope=row>107</th><td>19  </td><td>1   </td><td>M   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td>128 </td><td> 5  </td><td>104 </td><td> 3  </td><td>2   </td><td>42  </td><td>27  </td><td>19  </td><td>36  </td><td>SD  </td></tr>
+	<tr><th scope=row>109</th><td>20  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>2.23</td><td>... </td><td> 78 </td><td> 3  </td><td>132 </td><td> 2  </td><td>2   </td><td>41  </td><td>36  </td><td>30  </td><td>29  </td><td>AG  </td></tr>
+	<tr><th scope=row>123</th><td>18  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>4.00</td><td>... </td><td> 81 </td><td> 5  </td><td>160 </td><td>10  </td><td>1   </td><td>55  </td><td>51  </td><td>33  </td><td>35  </td><td>SE  </td></tr>
+	<tr><th scope=row>75</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.25</td><td>... </td><td>120 </td><td> 8  </td><td>124 </td><td> 2  </td><td>4   </td><td>45  </td><td>28  </td><td>27  </td><td>36  </td><td>SD  </td></tr>
+	<tr><th scope=row>74</th><td>19  </td><td>2   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>Y   </td><td>N   </td><td>3.29</td><td>... </td><td> 80 </td><td> 8  </td><td>112 </td><td> 8  </td><td>4   </td><td>27  </td><td>36  </td><td>28  </td><td>35  </td><td>SD  </td></tr>
+	<tr><th scope=row>102</th><td>28  </td><td>4   </td><td>M   </td><td>Y   </td><td>N   </td><td>3   </td><td>N   </td><td>N   </td><td>N   </td><td>2.54</td><td>... </td><td>114 </td><td>10  </td><td>143 </td><td> 7  </td><td>2   </td><td>42  </td><td>38  </td><td>24  </td><td>29  </td><td>SE  </td></tr>
+	<tr><th scope=row>96</th><td>19  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>N   </td><td>N   </td><td>N   </td><td>3.04</td><td>... </td><td> 87 </td><td> 5  </td><td>165 </td><td>10  </td><td>3   </td><td>49  </td><td>36  </td><td>32  </td><td>24  </td><td>AF  </td></tr>
+	<tr><th scope=row>89</th><td>18  </td><td>1   </td><td>F   </td><td>N   </td><td>N   </td><td>1   </td><td>Y   </td><td>N   </td><td>N   </td><td>3.21</td><td>... </td><td>109 </td><td>10  </td><td>136 </td><td>10  </td><td>3   </td><td>38  </td><td>30  </td><td>16  </td><td>31  </td><td>SD  </td></tr>
 </tbody>
 </table>
 </div></div>
@@ -577,7 +578,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">4.7</div></div>
+<div class="output text_html">2.8</div></div>
 </div>
 <p><strong>Putting it Together.</strong> Eventually, we want to run a loop that does this a thousand or more times. Thus, we prefer a single line of code that will do it for us all at once. We wrap the <em>sample.data.frame()</em> function inside the <em>mean</em> function as shown below.</p>
 <p><strong>Run the code below multiple times to see how we’re sampling plus finding the average Narcissism level for each.</strong></p>
@@ -588,7 +589,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">4.6</div></div>
+<div class="output text_html">7.3</div></div>
 </div>
 </section>
 <section id="step-2-creating-a-for-loop">
@@ -625,10 +626,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  2.400   4.100   4.700   4.694   5.200   7.200 
+  2.000   4.100   4.600   4.665   5.200   7.900 
 </pre></div>
 </div>
-<img alt="_images/21de399ef8b1b3a598dbd71f996dac6f6fff8e54cf88889562e063604215be17.png" src="_images/21de399ef8b1b3a598dbd71f996dac6f6fff8e54cf88889562e063604215be17.png" />
+<img alt="_images/01a8a68ea5a303b352a03b3ef0ac5d55e549f502dc7d2a4228c69dcfbd0dadec.png" src="_images/01a8a68ea5a303b352a03b3ef0ac5d55e549f502dc7d2a4228c69dcfbd0dadec.png" />
 </div>
 </div>
 </section>
@@ -644,7 +645,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( 3.4 , 6 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The middle 90% of the all_means vector is ( 3.3 , 6 ).
 </pre></div>
 </div>
 </div>
@@ -664,11 +665,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8139204 
-The middle 90% of the sampling distribution: is ( 3.4 , 6 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8090862 
+The middle 90% of the sampling distribution: is ( 3.3 , 6 ).
 </pre></div>
 </div>
-<img alt="_images/5bd327b3a8be8b91e48cb2500561950c9df90e224ddef654c08b99cbd808720d.png" src="_images/5bd327b3a8be8b91e48cb2500561950c9df90e224ddef654c08b99cbd808720d.png" />
+<img alt="_images/3163109ec5abf8a0d20d923e1ac1200d6b22619702a8ebded0717adf33580bd3.png" src="_images/3163109ec5abf8a0d20d923e1ac1200d6b22619702a8ebded0717adf33580bd3.png" />
 </div>
 </div>
 </section>
@@ -694,11 +695,11 @@ The middle 90% of the sampling distribution: is ( 3.4 , 6 ).
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8356834 
-The middle 90% of sampling distribution: ( 3.3 , 6.1 ).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standard deviation of sampling distribution: 0.8290767 
+The middle 90% of sampling distribution: ( 3.4 , 6.2 ).
 </pre></div>
 </div>
-<img alt="_images/4447fc793298b70456f5314ec63879ce991d9a909096f9a853c9440c08a8e3a0.png" src="_images/4447fc793298b70456f5314ec63879ce991d9a909096f9a853c9440c08a8e3a0.png" />
+<img alt="_images/0bd8c62deb0f27d255a40283279fa30e14844e63d63711721d082a2d145bdcd4.png" src="_images/0bd8c62deb0f27d255a40283279fa30e14844e63d63711721d082a2d145bdcd4.png" />
 </div>
 </div>
 </section>

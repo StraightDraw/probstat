@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Sampling with Negative Binomial Distribution &#8212; Probability and Statistics</title>
+    <title>Sampling with Geometric Distribution &#8212; Probability and Statistics</title>
   
   
   
@@ -64,11 +64,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'S2c';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'S2d';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Sampling with Geometric Distribution" href="S2d.html" />
-    <link rel="prev" title="Sampling the Hypergeometric Distribution" href="S2b.html" />
+    <link rel="next" title="Normal Curve" href="S3.html" />
+    <link rel="prev" title="Sampling with Negative Binomial Distribution" href="S2c.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -228,8 +228,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="S2.html">Sampling Distributions and the Central Limit Theorem</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling the Hypergeometric Distribution</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling with Negative Binomial Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2d.html">Sampling with Geometric Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2c.html">Sampling with Negative Binomial Distribution</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling with Geometric Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -323,7 +323,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S2c.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/StraightDraw/ps/master?urlpath=tree/content/S2d.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +354,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/S2c.ipynb" target="_blank"
+      <li><a href="_sources/S2d.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -438,7 +438,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sampling with Negative Binomial Distribution</h1>
+    <h1>Sampling with Geometric Distribution</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -448,7 +448,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The rflip() Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-how-many-dice-rolls-to-get-10-or-more">Example: How Many Dice Rolls to Get 10 or More</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-success">Probability of Success</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The rflip() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-negative-binomial">Relationship to Negative Binomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">Expected Value</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -460,23 +466,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sampling-with-negative-binomial-distribution">
-<h1>Sampling with Negative Binomial Distribution<a class="headerlink" href="#sampling-with-negative-binomial-distribution" title="Permalink to this heading">#</a></h1>
-<p>Recall the following details of the Negative Binomial Distribution pdf:</p>
-<p>Given the following values:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="sampling-with-geometric-distribution">
+<h1>Sampling with Geometric Distribution<a class="headerlink" href="#sampling-with-geometric-distribution" title="Permalink to this heading">#</a></h1>
+<p>Recall that, in general, the geometric distribution has the following pdf:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(n\)</span> indicates the number of trials.</p></li>
-<li><p><span class="math notranslate nohighlight">\(k\)</span> indicates the number of successes needed for overall success.</p></li>
-<li><p><span class="math notranslate nohighlight">\(p\)</span> indicates the probability of success.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> is the index of the first success,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p\)</span> is the probability of success, and</p></li>
 <li><p><span class="math notranslate nohighlight">\(q=1-p\)</span> indicates the probability of failure.</p></li>
-<li><p><span class="math notranslate nohighlight">\(X\)</span> represents the number of the last well drilled to achieve overall success.</p></li>
 </ul>
-<p>The <span style = 'color: blue; font-weight:bold'>closed form pdf for a negative binomial distribution</span> is as follows:</p>
+<p>The probability of the first success occuring on the <span class="math notranslate nohighlight">\(n^{th}\)</span> trial is given by:</p>
 <div class="math notranslate nohighlight">
-\[P(X=x) = \binom{n-1}{k-1}p^kq^{n-k}\]</div>
+\[P(n) = (q)^{n-1}p\]</div>
+<p>The expected value of the geometric distribution is given by:</p>
+<div class="math notranslate nohighlight">
+\[E(X) = \frac{1}{p}\]</div>
+<section id="example-how-many-dice-rolls-to-get-10-or-more">
+<h2>Example: How Many Dice Rolls to Get 10 or More<a class="headerlink" href="#example-how-many-dice-rolls-to-get-10-or-more" title="Permalink to this heading">#</a></h2>
+<p>Suppose we are rolling two, 6-sided dice and summing the values shown in a standard Monopoly dice roll. How many trials <span class="math notranslate nohighlight">\(n\)</span> on average are required before a success occurs?</p>
+<section id="probability-of-success">
+<h3>Probability of Success<a class="headerlink" href="#probability-of-success" title="Permalink to this heading">#</a></h3>
+<p>Let’s note that, of the 36 possible outcomes, 3 are 10’s, 2 are 11’s and 1 is 12. Thus, the probability of success on one dice roll is given by:</p>
+<div class="math notranslate nohighlight">
+\[p = \frac{6}{36} = \frac{1}{6}\]</div>
+</section>
 <section id="the-rflip-function">
-<h2>The rflip() Function<a class="headerlink" href="#the-rflip-function" title="Permalink to this heading">#</a></h2>
-<p>We need to be able to use <strong>rflip()</strong> inside our <strong>while loop.</strong></p>
+<h3>The rflip() Function<a class="headerlink" href="#the-rflip-function" title="Permalink to this heading">#</a></h3>
+<p>We need to be able to use <strong>rflip()</strong> function, so we load that code below.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -512,41 +527,32 @@ document.write(`
 </div>
 </details>
 </div>
-<p>The expected value is given below:</p>
+</section>
+<section id="relationship-to-negative-binomial">
+<h3>Relationship to Negative Binomial<a class="headerlink" href="#relationship-to-negative-binomial" title="Permalink to this heading">#</a></h3>
+<p>The fact the geometric distribution is a sub-case of the negative binomial distribution where <span class="math notranslate nohighlight">\(k=1\)</span> can help us here. We can use the <strong>while loop</strong> created in the previous section.</p>
+</section>
+<section id="expected-value">
+<h3>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this heading">#</a></h3>
+<p>For the geometric distribution, the expected value is as follows:</p>
 <div class="math notranslate nohighlight">
-\[E(X) = \frac{k}{p}\]</div>
-<p>Oil fields: 25% chance of successes</p>
+\[E(X) = \frac{1}{p}\]</div>
+<p>Thus, for this example:</p>
 <div class="math notranslate nohighlight">
-\[E(X) = \frac{3}{\frac{1}{4}} = 12\]</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of successes index</span>
-<span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
-<span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
-<span class="p">}</span>
-<span class="n">n</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">8</div></div>
-</div>
-<p><strong>Now we can run the for loop with <span class="math notranslate nohighlight">\(k=100\)</span>.</strong></p>
+\[E(X) = \frac{1}{\frac{1}{4}} = 4\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">num_trials_needed</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">()</span><span class="w">     </span><span class="c1"># create a vector to store the number of trials needed in while loop</span>
 <span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="w">              </span><span class="c1"># set the number of times to run the simulation</span>
 
 <span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
-<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of successes index</span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
-<span class="w">    </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
+<span class="w">   </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize successes to zero</span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
+<span class="w">   </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
+<span class="w">   </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
 <span class="p">}</span>
 
 <span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_trials_needed</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
@@ -560,10 +566,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The grand mean of the number of trials needed to achieve success is equal to
-    11.1
+    3.88
 </pre></div>
 </div>
-<img alt="_images/d53c472a449f153a0efdfa9a5626008ab48f1a30d735989ddba30e12da1362db.png" src="_images/d53c472a449f153a0efdfa9a5626008ab48f1a30d735989ddba30e12da1362db.png" />
+<img alt="_images/66fc7d58c49459a2c341236ed67424418509c172bd1ab27b3968ba0f5a60ea6b.png" src="_images/66fc7d58c49459a2c341236ed67424418509c172bd1ab27b3968ba0f5a60ea6b.png" />
 </div>
 </div>
 <p>This table summarizes the investigation to include five examples from the sampling distribution of Drawing a Spades hand:</p>
@@ -577,26 +583,26 @@ document.write(`
   <tr>
     <td>100</td>
     <td>0.25</td>
-    <td>12</td>
-    <td>11.77</td>
+    <td>4</td>
+    <td>4.05</td>
   </tr>
   <tr>
     <td>200</td>
     <td>0.25</td>
-    <td>12</td>
-    <td>11.865</td>
+    <td>4</td>
+    <td>3.92</td>
   </tr>
   <tr>
     <td>500</td>
     <td>0.25</td>
-    <td>12</td>
-    <td>11.68</td>
+    <td>4</td>
+    <td>4.28</td>
   </tr>
   <tr>
     <td>1,000</td>
     <td>0.25</td>
-    <td>12</td>
-    <td>11.569</td>
+    <td>4</td>
+    <td>3.857</td>
   </tr>
   <tr><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -604,13 +610,13 @@ document.write(`
 <span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="w">              </span><span class="c1"># set the number of times to run the simulation</span>
 
 <span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
-<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of successes index</span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
-<span class="w">    </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
+<span class="w">   </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize successes to zero</span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
+<span class="w">   </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
+<span class="w">   </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
 <span class="p">}</span>
 
 <span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_trials_needed</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
@@ -624,10 +630,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The grand mean of the number of trials needed to achieve success is equal to
-    11.125
+    4.02
 </pre></div>
 </div>
-<img alt="_images/a41dd812fc55d0f2c2f0f6c0b4a8037e60f77816eec14ce16bac77483d21b904.png" src="_images/a41dd812fc55d0f2c2f0f6c0b4a8037e60f77816eec14ce16bac77483d21b904.png" />
+<img alt="_images/f01361cb081023b98325e556c28a06f66b3e469f3767cf2c5ad6fa2637c4a399.png" src="_images/f01361cb081023b98325e556c28a06f66b3e469f3767cf2c5ad6fa2637c4a399.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -636,13 +642,13 @@ document.write(`
 <span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span><span class="w">              </span><span class="c1"># set the number of times to run the simulation</span>
 
 <span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
-<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of successes index</span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
-<span class="w">    </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
+<span class="w">   </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize successes to zero</span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
+<span class="w">   </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
+<span class="w">   </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
 <span class="p">}</span>
 
 <span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_trials_needed</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
@@ -656,10 +662,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The grand mean of the number of trials needed to achieve success is equal to
-    11.69
+    3.756
 </pre></div>
 </div>
-<img alt="_images/68150f0933838cc2542aab344be4f1a98d887208d8f6a728dd9c7ae76bec161f.png" src="_images/68150f0933838cc2542aab344be4f1a98d887208d8f6a728dd9c7ae76bec161f.png" />
+<img alt="_images/ff29c442a56cc48e901e90d5fff61c6f1d12d1a281e832228db24667f5d94ae1.png" src="_images/ff29c442a56cc48e901e90d5fff61c6f1d12d1a281e832228db24667f5d94ae1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -668,13 +674,13 @@ document.write(`
 <span class="n">num_samps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000</span><span class="w">              </span><span class="c1"># set the number of times to run the simulation</span>
 
 <span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">num_samps</span><span class="p">){</span>
-<span class="w">    </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of successes index</span>
-<span class="w">    </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
-<span class="w">    </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
-<span class="w">        </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
+<span class="w">   </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize successes to zero</span>
+<span class="w">   </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="c1"># Initialize number of total trials needed for success to occur</span>
+<span class="w">   </span><span class="nf">while </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">20</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">rflip</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="n">summarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">]</span>
+<span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
+<span class="w">   </span><span class="n">num_trials_needed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="c1"># store the number of trials need in this simulation</span>
 <span class="p">}</span>
 
 <span class="n">lower</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">quantile</span><span class="p">(</span><span class="n">num_trials_needed</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">)</span><span class="w">     </span><span class="c1"># Calcuate the 5th percentile.</span>
@@ -688,14 +694,13 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The grand mean of the number of trials needed to achieve success is equal to
-    11.597
+    3.921
 </pre></div>
 </div>
-<img alt="_images/89f1a14e57ad2867754ea02009f073d9626878df4f0a8ab030ec3e97deff53aa.png" src="_images/89f1a14e57ad2867754ea02009f073d9626878df4f0a8ab030ec3e97deff53aa.png" />
+<img alt="_images/d73464411b8830e67dbdd4b07d1c8188324aa24b7d967c12f2f4d415df402cc0.png" src="_images/d73464411b8830e67dbdd4b07d1c8188324aa24b7d967c12f2f4d415df402cc0.png" />
 </div>
 </div>
-<p>The simulated distribution is not quite accurate because, in a good programming move, we have dissallowed a possible infinite loop. We have coded in both the “number of successes” stopping criteria along with a “max oil wells drilled equals 20” stopping criteria. This second stoppinng criteria creates a second mode at n = 20 which skews the results slightly.</p>
-<p>However, we have little choice. Programming a possible infinite loop invites much frustration when, as often happens, something goes wrong inside the infinite loop. The code is likely to hang up, throw an error or spin forever trying to execute the loop. Our fail-safe stopping criteria of “max 20 oil wells” does skew things slightly, but the alternatives are worse.</p>
+</section>
 </section>
 </section>
 
@@ -730,20 +735,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="S2b.html"
+       href="S2c.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Sampling the Hypergeometric Distribution</p>
+        <p class="prev-next-title">Sampling with Negative Binomial Distribution</p>
       </div>
     </a>
     <a class="right-next"
-       href="S2d.html"
+       href="S3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sampling with Geometric Distribution</p>
+        <p class="prev-next-title">Normal Curve</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -762,7 +767,13 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The rflip() Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-how-many-dice-rolls-to-get-10-or-more">Example: How Many Dice Rolls to Get 10 or More</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-of-success">Probability of Success</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rflip-function">The rflip() Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-to-negative-binomial">Relationship to Negative Binomial</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">Expected Value</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

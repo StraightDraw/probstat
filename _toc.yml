@@ -55,6 +55,7 @@ parts:
       - file: S2a
       - file: S2b
       - file: S2c
+      - file: S2d
     - file: S3
       sections:
       - file: S3a
