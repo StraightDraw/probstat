@@ -229,6 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sampling the Hypergeometric Distribution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="S2c.html">Sampling with Negative Binomial Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2d.html">Sampling with Geometric Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -567,7 +568,58 @@ document.write(`
 <p>For the card game Spades, <span class="math notranslate nohighlight">\(N=52, K=13, n = 13\)</span> and <span class="math notranslate nohighlight">\(k\)</span> varies between 0 and 13 inclusive. Thus, for Spades:</p>
 <div class="math notranslate nohighlight">
 \[E(X) = 13\left(\frac{13}{52}\right) = \frac{13}{4} = 3.25\]</div>
-</section>
+<p>This table summarizes the investigation to include five examples from the sampling distribution of Drawing a Spades hand:</p>
+<table class="center" style="width:70%; text-align:center;">
+  <tr>
+    <th>Hands Drawn</th>
+    <th>N</th> 
+    <th>K</th>
+    <th>E(X)</th>
+    <th>Simulation Grand Mean</th>
+  </tr>
+  <tr>
+    <td>1,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>2,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td>3.2325</td>
+  </tr>
+  <tr>
+    <td>5,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td>3.2394</td>
+  </tr>
+  <tr>
+    <td>10,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td>3.2527</td>
+  </tr>
+  <tr>
+    <td>50,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td>3.24732</td>
+  </tr>
+    <td>100,000</td>
+    <td>52</td>
+    <td>13</td>
+    <td>3.25</td>
+    <td>3.23414</td>
+</table>
+  </tr>
+</table></section>
 </section>
 <section id="distribution-for-number-of-spades-in-a-hand">
 <h3>Distribution for Number of Spades in a Hand<a class="headerlink" href="#distribution-for-number-of-spades-in-a-hand" title="Permalink to this heading">#</a></h3>
