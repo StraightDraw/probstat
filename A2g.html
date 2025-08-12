@@ -227,7 +227,9 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S2.html">Sampling Distributions and the Central Limit Theorem</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="S2a.html">The Central Limit Theorem and Estimation of the Mean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling Distributions Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2b.html">Sampling the Hypergeometric Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2c.html">Sampling with Negative Binomial Distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="S2d.html">Sampling with Geometric Distribution</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="S3.html">Normal Curve</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -257,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="A1.html">Statistical Formulas</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="A2.html">Helpful Code</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="A2a.html">Graphics Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A2f.html">Subsetting a Data Frame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2b.html">Subsetting a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2c.html">Creating a Data Frame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2d.html">Grid of Graphics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2e.html">Outliers</a></li>
@@ -558,13 +560,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 3
 attr(,&quot;n&quot;)
 [1] 20
 attr(,&quot;prob&quot;)
 [1] 0.25
 attr(,&quot;sequence&quot;)
- [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;H&quot;
+ [1] &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;T&quot; &quot;H&quot;
 [20] &quot;T&quot;
 attr(,&quot;verbose&quot;)
 [1] TRUE
@@ -591,7 +593,7 @@ attr(,&quot;class&quot;)
 <div class="output text_html"><table>
 <thead><tr><th scope=col>n</th><th scope=col>heads</th><th scope=col>tails</th><th scope=col>prob</th></tr></thead>
 <tbody>
-	<tr><td>20  </td><td>5   </td><td>15  </td><td>0.25</td></tr>
+	<tr><td>20  </td><td>7   </td><td>13  </td><td>0.25</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -606,7 +608,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">4</div></div>
+<div class="output text_html">5</div></div>
 </div>
 </section>
 </section>
@@ -630,18 +632,18 @@ attr(,&quot;class&quot;)
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><ol class=list-inline>
-	<li>6</li>
-	<li>4</li>
-	<li>6</li>
-	<li>6</li>
-	<li>8</li>
-	<li>3</li>
-	<li>7</li>
-	<li>4</li>
-	<li>2</li>
-	<li>3</li>
-	<li>3</li>
 	<li>5</li>
+	<li>5</li>
+	<li>5</li>
+	<li>3</li>
+	<li>4</li>
+	<li>7</li>
+	<li>7</li>
+	<li>2</li>
+	<li>6</li>
+	<li>5</li>
+	<li>6</li>
+	<li>6</li>
 </ol>
 </div></div>
 </div>
@@ -661,7 +663,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0116b855a7a36f98ad7db6b3a23e5e0385f7d233338d1ef32cc3e766034eeaa0.png" src="_images/0116b855a7a36f98ad7db6b3a23e5e0385f7d233338d1ef32cc3e766034eeaa0.png" />
+<img alt="_images/d0dc29d4a6e016814be5179daca651022986248710192f119260e460d4b1277a.png" src="_images/d0dc29d4a6e016814be5179daca651022986248710192f119260e460d4b1277a.png" />
 </div>
 </div>
 </section>
@@ -686,7 +688,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1e65e8fd523623c2286b05ab8d78deeb1ab09674ef16e82340978c4d22b74708.png" src="_images/1e65e8fd523623c2286b05ab8d78deeb1ab09674ef16e82340978c4d22b74708.png" />
+<img alt="_images/903fdb02b13e74017d6ab46fd56e7ae6ee6602f28e2a25d015a3403f67521182.png" src="_images/903fdb02b13e74017d6ab46fd56e7ae6ee6602f28e2a25d015a3403f67521182.png" />
 </div>
 </div>
 <section id="results">
@@ -717,7 +719,7 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d2d19d67e37714640f9fb65e6b5fc4503928e81920afee055a9e40e9ddbfa8c5.png" src="_images/d2d19d67e37714640f9fb65e6b5fc4503928e81920afee055a9e40e9ddbfa8c5.png" />
+<img alt="_images/1434e32dacaabce78126bdc7bc9d2dbc172ff8b2d55dd1c121bb42c11bd435b6.png" src="_images/1434e32dacaabce78126bdc7bc9d2dbc172ff8b2d55dd1c121bb42c11bd435b6.png" />
 </div>
 </div>
 <section id="id1">
