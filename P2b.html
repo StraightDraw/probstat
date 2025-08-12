@@ -450,7 +450,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exercises">
 <h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
-<p>Solve the following counting problems.</p>
+<p>Solve the following counting problems. We have the <strong>choose()</strong> function in R to calculate combinations, but we to create our <strong>perm()</strong> function as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+</pre></div>
+</div>
+</div>
+</div>
 <ol class="arabic simple">
 <li><p>Professor Daniels has 7 books to place on a single shelf. How many different arrangements are possible?</p></li>
 <li><p>We do not know precisely how many seats there were at the Round Table as traditions differ. Supposing there were 24 seats at the table and that King Authur always sat in a special seat, in how many ways could the 23 Knights of the Round Table be arranged?</p></li>

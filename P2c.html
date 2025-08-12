@@ -452,13 +452,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="solutions-to-exercises">
 <h1>Solutions to Exercises<a class="headerlink" href="#solutions-to-exercises" title="Permalink to this heading">#</a></h1>
-<p>As we begin, we copy-paste our <strong>combin()</strong> and <strong>perm</strong> functions so that they will be active for use later.</p>
+<p>As we begin, we copy-paste our <strong>perm</strong> function so thatit will be active for use later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
-<span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
 </pre></div>
 </div>
 </div>
@@ -526,13 +524,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## Any 2</span>
-<span class="nf">combin</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">choose</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
 
 <span class="c1">## Any 2 women</span>
-<span class="nf">combin</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+<span class="nf">choose</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
 
 <span class="c1">## 1 man and 1 woman</span>
-<span class="nf">combin</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">combin</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="nf">choose</span><span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">choose</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

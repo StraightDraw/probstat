@@ -590,19 +590,12 @@ document.write(`
 </section>
 <section id="writing-a-combinations-function-in-r">
 <h4>Writing a Combinations Function in R<a class="headerlink" href="#writing-a-combinations-function-in-r" title="Permalink to this heading">#</a></h4>
-<p>We have a <strong>factorial</strong> function in R, so creating a function that evaluates the top line of the equations above is reasonably straightforward:</p>
+<p>We have a <strong>choose()</strong> function in R which calculates combinations which can be used to evaluate the top line of the equations above. Testing the function with
+$<span class="math notranslate nohighlight">\(\binom{7}{5}=21\)</span>$
+we see the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Testing the function with <span class="math notranslate nohighlight">\(\binom{7}{5}=21\)</span>, we see:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">combin</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">choose</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -625,7 +618,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
+<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">choose</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
 </pre></div>
 </div>
 </div>
@@ -633,9 +626,10 @@ document.write(`
 </section>
 <section id="example-7-permute-5">
 <h4>Example: 7 Permute 5<a class="headerlink" href="#example-7-permute-5" title="Permalink to this heading">#</a></h4>
-<p>Algebraically, we calculate:</p>
+<p>Algebraically, we can calculate the number of permutations of 7 objects into 5 slots where order matters:</p>
 <div class="math notranslate nohighlight">
 \[P(7,5) = \frac{7!}{(7-5)!} = \frac{7*6*5*4*3*2*1}{2*1} = 7*6*5*4*3 = 2520\]</div>
+<p>Our <strong>perm()</strong> functions works as can be seen below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">perm</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">5</span><span class="p">)</span>
@@ -650,12 +644,13 @@ document.write(`
 </section>
 <section id="wrapping-up">
 <h2>Wrapping Up<a class="headerlink" href="#wrapping-up" title="Permalink to this heading">#</a></h2>
-<p>Please note that it will be useful to store these two functions where we can quickly copy-paste them into an R notebook for use doing classwork or homework.</p>
+<p>Please note that it will be useful to store the <strong>perm()</strong> function so that we can quickly copy-paste it into an R notebook for use doing classwork or homework. Recall that for combinations we have the following:</p>
+<div class="math notranslate nohighlight">
+\[\textbf{choose(n,k)}=\binom{n}{k}\]</div>
+<p>and for permutations create the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">combin</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
-<span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">perm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nf">return</span><span class="p">(</span><span class="nf">combin</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">))}</span>
 </pre></div>
 </div>
